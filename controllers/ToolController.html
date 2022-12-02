@@ -1,0 +1,806 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Controllers</li>
+  <li >ToolController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>apps/server/src/modules/tool/controller/tool.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>tools</code>
+            </p>
+
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createExternalTool" >createExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteExternalTool" >deleteExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findExternalTool" >findExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getExternalTool" >getExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getLti11LaunchParameters" >getLti11LaunchParameters</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>createExternalTool</b></span>
+                        <a href="#createExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, externalToolParams: <a href="../classes/ExternalToolParams.html" target="_self">ExternalToolParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br />@ApiCreatedResponse({description: &#x27;The Tool has been successfully created.&#x27;, type: ExternalToolResponse})<br />@ApiForbiddenResponse()<br />@ApiUnprocessableEntityResponse()<br />@ApiUnauthorizedResponse()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>externalToolParams</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolParams.html" target="_self" >ExternalToolParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolResponse.html" target="_self" >Promise&lt;ExternalToolResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteExternalTool</b></span>
+                        <a href="#deleteExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/ToolIdParams.html" target="_self">ToolIdParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:toolId&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ToolIdParams.html" target="_self" >ToolIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findExternalTool</b></span>
+                        <a href="#findExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, filterQuery: <a href="../classes/ExternalToolSearchParams.html" target="_self">ExternalToolSearchParams</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>, sortingQuery: <a href="../classes/SortExternalToolParams.html" target="_self">SortExternalToolParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@ApiFoundResponse({description: &#x27;Tools has been found.&#x27;, type: ExternalToolSearchListResponse})<br />@ApiUnauthorizedResponse()<br />@ApiForbiddenResponse()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filterQuery</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolSearchParams.html" target="_self" >ExternalToolSearchParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pagination</td>
+                                    <td>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sortingQuery</td>
+                                    <td>
+                                                <code><a href="../classes/SortExternalToolParams.html" target="_self" >SortExternalToolParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolSearchListResponse.html" target="_self" >Promise&lt;ExternalToolSearchListResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getExternalTool</b></span>
+                        <a href="#getExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/ToolIdParams.html" target="_self">ToolIdParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:toolId&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:102</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ToolIdParams.html" target="_self" >ToolIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolResponse.html" target="_self" >Promise&lt;ExternalToolResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLti11LaunchParameters"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getLti11LaunchParameters</b></span>
+                        <a href="#getLti11LaunchParameters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getLti11LaunchParameters(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/ToolIdParams.html" target="_self">ToolIdParams</a>, query: <a href="../classes/Lti11LaunchQuery.html" target="_self">Lti11LaunchQuery</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;lti11/:toolId/launch&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ToolIdParams.html" target="_self" >ToolIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/Lti11LaunchQuery.html" target="_self" >Lti11LaunchQuery</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Lti11LaunchResponse.html" target="_self" >Promise&lt;Lti11LaunchResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
+import { ICurrentUser, IFindOptions, RoleName } from &#x27;@shared/domain&#x27;;
+import { Authorization } from &#x27;oauth-1.0a&#x27;;
+import {
+	ApiCreatedResponse,
+	ApiForbiddenResponse,
+	ApiFoundResponse,
+	ApiTags,
+	ApiUnauthorizedResponse,
+	ApiUnprocessableEntityResponse,
+} from &#x27;@nestjs/swagger&#x27;;
+import { PaginationParams } from &#x27;@shared/controller&#x27;;
+import { Page } from &#x27;@shared/domain/interface/page&#x27;;
+import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
+import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { Lti11Uc } from &#x27;../uc/lti11.uc&#x27;;
+import { ExternalToolRequestMapper, ExternalToolResponseMapper, Lti11ResponseMapper } from &#x27;./mapper&#x27;;
+import { ExternalToolUc } from &#x27;../uc/external-tool.uc&#x27;;
+import {
+	ExternalToolParams,
+	ExternalToolResponse,
+	ExternalToolSearchListResponse,
+	ExternalToolSearchParams,
+	Lti11LaunchQuery,
+	Lti11LaunchResponse,
+	SortExternalToolParams,
+	ToolIdParams,
+} from &#x27;./dto&#x27;;
+
+@ApiTags(&#x27;Tool&#x27;)
+@Authenticate(&#x27;jwt&#x27;)
+@Controller(&#x27;tools&#x27;)
+export class ToolController {
+	constructor(
+		private readonly lti11Uc: Lti11Uc,
+		private readonly lti11ResponseMapper: Lti11ResponseMapper,
+		private readonly externalToolUc: ExternalToolUc,
+		private readonly externalToolDOMapper: ExternalToolRequestMapper,
+		private readonly externalResponseMapper: ExternalToolResponseMapper
+	) {}
+
+	@Get(&#x27;lti11/:toolId/launch&#x27;)
+	async getLti11LaunchParameters(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: ToolIdParams,
+		@Query() query: Lti11LaunchQuery
+	): Promise&lt;Lti11LaunchResponse&gt; {
+		const authorization: Authorization &#x3D; await this.lti11Uc.getLaunchParameters(
+			currentUser.userId,
+			currentUser.roles[0] as RoleName,
+			params.toolId,
+			query.courseId
+		);
+		const mapped: Lti11LaunchResponse &#x3D; this.lti11ResponseMapper.mapAuthorizationToResponse(authorization);
+		return mapped;
+	}
+
+	@Post()
+	@ApiCreatedResponse({ description: &#x27;The Tool has been successfully created.&#x27;, type: ExternalToolResponse })
+	@ApiForbiddenResponse()
+	@ApiUnprocessableEntityResponse()
+	@ApiUnauthorizedResponse()
+	async createExternalTool(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Body() externalToolParams: ExternalToolParams
+	): Promise&lt;ExternalToolResponse&gt; {
+		const externalToolDO: ExternalToolDO &#x3D; this.externalToolDOMapper.mapRequestToExternalToolDO(externalToolParams);
+		const created: ExternalToolDO &#x3D; await this.externalToolUc.createExternalTool(currentUser.userId, externalToolDO);
+		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(created);
+		return mapped;
+	}
+
+	@Get()
+	@ApiFoundResponse({ description: &#x27;Tools has been found.&#x27;, type: ExternalToolSearchListResponse })
+	@ApiUnauthorizedResponse()
+	@ApiForbiddenResponse()
+	async findExternalTool(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Query() filterQuery: ExternalToolSearchParams,
+		@Query() pagination: PaginationParams,
+		@Query() sortingQuery: SortExternalToolParams
+	): Promise&lt;ExternalToolSearchListResponse&gt; {
+		const options: IFindOptions&lt;ExternalToolDO&gt; &#x3D; { pagination };
+		options.order &#x3D; this.externalToolDOMapper.mapSortingQueryToDomain(sortingQuery);
+		const query: Partial&lt;ExternalToolDO&gt; &#x3D; this.externalToolDOMapper.mapExternalToolFilterQueryToDO(filterQuery);
+
+		const tools: Page&lt;ExternalToolDO&gt; &#x3D; await this.externalToolUc.findExternalTool(currentUser.userId, query, options);
+
+		const dtoList: ExternalToolResponse[] &#x3D; tools.data.map(
+			(tool: ExternalToolDO): ExternalToolResponse &#x3D;&gt; this.externalResponseMapper.mapToResponse(tool)
+		);
+		const response: ExternalToolSearchListResponse &#x3D; new ExternalToolSearchListResponse(
+			dtoList,
+			tools.total,
+			pagination.skip,
+			pagination.limit
+		);
+		return response;
+	}
+
+	@Get(&#x27;:toolId&#x27;)
+	async getExternalTool(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: ToolIdParams
+	): Promise&lt;ExternalToolResponse&gt; {
+		const externalToolDO: ExternalToolDO &#x3D; await this.externalToolUc.getExternalTool(currentUser.userId, params.toolId);
+		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(externalToolDO);
+		return mapped;
+	}
+
+	@Delete(&#x27;:toolId&#x27;)
+	async deleteExternalTool(@CurrentUser() currentUser: ICurrentUser, @Param() params: ToolIdParams): Promise&lt;void&gt; {
+		const promise: Promise&lt;void&gt; &#x3D; this.externalToolUc.deleteExternalTool(currentUser.userId, params.toolId);
+		return promise;
+	}
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'ToolController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
