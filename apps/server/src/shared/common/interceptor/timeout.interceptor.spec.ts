@@ -4,6 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { RequestTimeout, TimeoutInterceptor } from '@shared/common';
 import request from 'supertest';
 
+// eslint-disable-next-line no-promise-executor-return
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 @Controller()
