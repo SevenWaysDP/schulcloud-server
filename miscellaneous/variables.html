@@ -4784,6 +4784,7 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
                     <td class="col-md-4">
                         <i>Default value : </i><code>SubmissionFactory.define(Submission, ({ sequence }) &#x3D;&gt; {
 	return {
+		school: schoolFactory.build(),
 		task: taskFactory.build(),
 		student: userFactory.build(),
 		comment: &#x60;submission comment #${sequence}&#x60;,
