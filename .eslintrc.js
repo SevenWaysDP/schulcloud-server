@@ -51,6 +51,7 @@ module.exports = {
 		'no-only-tests/no-only-tests': 'error',
 	},
 	plugins: ['import', 'prettier', 'promise', 'no-only-tests'],
+	root: true,
 	env: {
 		node: true,
 		mocha: true,
@@ -66,7 +67,7 @@ module.exports = {
 		{
 			files: ['apps/**/*.ts'],
 			parser: '@typescript-eslint/parser',
-			plugins: ['@typescript-eslint'],
+			plugins: ['@typescript-eslint', 'import'],
 			extends: [
 				'airbnb-typescript/base',
 				'plugin:@typescript-eslint/recommended',
