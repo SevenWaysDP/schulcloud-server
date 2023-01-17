@@ -372,7 +372,7 @@ export class SanisResponseMapper {
 	mapToSchoolDto(source: SanisResponse, systemId: string): ProvisioningSchoolOutputDto {
 		return new ProvisioningSchoolOutputDto({
 			name: source.personenkontexte[0].organisation.name,
-			externalId: source.personenkontexte[0].organisation.orgid.toString(),
+			externalId: source.personenkontexte[0].organisation.id.toString(),
 			systemIds: [systemId],
 		});
 	}
@@ -381,7 +381,7 @@ export class SanisResponseMapper {
 		return new UserDO({
 			firstName: source.person.name.vorname,
 			lastName: source.person.name.familienname,
-			email: &#x27;&#x27;,
+			email: source.personenkontexte[0].email,
 			roleIds: [roleId],
 			schoolId,
 			externalId: source.pid,

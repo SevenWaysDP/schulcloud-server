@@ -290,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/shared/infra/calendar/service/calendar.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/shared/infra/calendar/service/calendar.service.ts:42</a></div>
                 </td>
             </tr>
 
@@ -466,9 +466,7 @@ export class CalendarService {
 				timeout: this.timeoutMs,
 			})
 		)
-			.then((resp: AxiosResponse&lt;ICalendarEvent&gt;) &#x3D;&gt; {
-				return this.calendarMapper.mapToDto(resp.data);
-			})
+			.then((resp: AxiosResponse&lt;ICalendarEvent&gt;) &#x3D;&gt; this.calendarMapper.mapToDto(resp.data))
 			.catch((error) &#x3D;&gt; {
 				throw new InternalServerErrorException(error);
 			});

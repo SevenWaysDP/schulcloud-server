@@ -82,6 +82,33 @@
                                     <span class="modifier">Async</span>
                                 <a href="#copyBoard" >copyBoard</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyBoardElements" >copyBoardElements</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyLesson" >copyLesson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyTask" >copyTask</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractReferences" >extractReferences</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#sortByOriginalOrder" >sortByOriginalOrder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateCopiedEmbeddedTasksOfLessons" >updateCopiedEmbeddedTasksOfLessons</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -100,12 +127,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
+<code>constructor(logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, boardRepo: <a href="../injectables/BoardRepo.html" target="_self">BoardRepo</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -122,6 +149,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>boardRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BoardRepo.html" target="_self" >BoardRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                                 <tr>
                                                         <td>taskCopyService</td>
                                                   
@@ -194,8 +245,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:40</a></div>
                 </td>
             </tr>
 
@@ -243,29 +294,537 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyBoardElements"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyBoardElements</b></span>
+                        <a href="#copyBoardElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyBoardElements(boardElements: BoardElement[], user: <a href="../interfaces/User.html" target="_self">User</a>, destinationCourse: <a href="../entitys/Course.html" target="_self">Course</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>boardElements</td>
+                                    <td>
+                                            <code>BoardElement[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>destinationCourse</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyLesson"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyLesson</b></span>
+                        <a href="#copyLesson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyLesson(originalLesson: <a href="../entitys/Lesson.html" target="_self">Lesson</a>, user: <a href="../interfaces/User.html" target="_self">User</a>, destinationCourse: <a href="../entitys/Course.html" target="_self">Course</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:96</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>originalLesson</td>
+                                    <td>
+                                                <code><a href="../entitys/Lesson.html" target="_self" >Lesson</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>destinationCourse</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyTask"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyTask</b></span>
+                        <a href="#copyTask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyTask(originalTask: <a href="../classes/Task.html" target="_self">Task</a>, user: <a href="../interfaces/User.html" target="_self">User</a>, destinationCourse: <a href="../entitys/Course.html" target="_self">Course</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>originalTask</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>destinationCourse</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractReferences"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>extractReferences</b></span>
+                        <a href="#extractReferences"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractReferences(statuses: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>statuses</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>BoardElement[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sortByOriginalOrder"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>sortByOriginalOrder</b></span>
+                        <a href="#sortByOriginalOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sortByOriginalOrder(resolved: [])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:138</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>resolved</td>
+                                    <td>
+                                            <code>[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCopiedEmbeddedTasksOfLessons"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>updateCopiedEmbeddedTasksOfLessons</b></span>
+                        <a href="#updateCopiedEmbeddedTasksOfLessons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateCopiedEmbeddedTasksOfLessons(boardStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:125</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>boardStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Reference } from &#x27;@mikro-orm/core&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import {
 	Board,
 	BoardElement,
+	BoardElementReference,
 	BoardElementType,
-	CopyElementType,
-	CopyHelperService,
-	CopyStatus,
 	Course,
+	InputFormat,
+	isLesson,
+	isTask,
 	Lesson,
 	Task,
-	TaskCopyService,
 	User,
 } from &#x27;@shared/domain&#x27;;
-import { LessonCopyService } from &#x27;./lesson-copy.service&#x27;;
+import { BoardRepo } from &#x27;@shared/repo&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
+import { CopyElementType, CopyHelperService, CopyStatus } from &#x27;@src/modules/copy-helper&#x27;;
+import { getResolvedValues } from &#x27;@src/modules/files-storage/helper&#x27;;
+import { LessonCopyService } from &#x27;@src/modules/lesson/service&#x27;;
+import { TaskCopyService } from &#x27;@src/modules/task&#x27;;
+import { sortBy } from &#x27;lodash&#x27;;
 
-export type BoardCopyParams &#x3D; {
+type BoardCopyParams &#x3D; {
 	originalBoard: Board;
 	destinationCourse: Course;
 	user: User;
@@ -274,54 +833,115 @@ export type BoardCopyParams &#x3D; {
 @Injectable()
 export class BoardCopyService {
 	constructor(
+		private readonly logger: Logger,
+		private readonly boardRepo: BoardRepo,
 		private readonly taskCopyService: TaskCopyService,
 		private readonly lessonCopyService: LessonCopyService,
 		private readonly copyHelperService: CopyHelperService
 	) {}
 
 	async copyBoard(params: BoardCopyParams): Promise&lt;CopyStatus&gt; {
-		const elements: CopyStatus[] &#x3D; [];
-		const references: BoardElement[] &#x3D; [];
+		const { originalBoard, user, destinationCourse } &#x3D; params;
 
-		const boardElements &#x3D; params.originalBoard.getElements();
-		for (let i &#x3D; 0; i &lt; boardElements.length; i +&#x3D; 1) {
-			const element &#x3D; boardElements[i];
+		const boardElements: BoardElement[] &#x3D; originalBoard.getElements();
+		const elements: CopyStatus[] &#x3D; await this.copyBoardElements(boardElements, user, destinationCourse);
+		const references: BoardElement[] &#x3D; this.extractReferences(elements);
 
-			if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Task) {
-				const originalTask &#x3D; element.target as Task;
-				const status &#x3D; this.taskCopyService.copyTaskMetadata({
-					originalTask,
-					user: params.user,
-					destinationCourse: params.destinationCourse,
-				});
-				elements.push(status);
-				const taskBoardElement &#x3D; BoardElement.FromTask(status.copyEntity as Task);
-				references.push(taskBoardElement);
-			} else if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Lesson) {
-				const originalLesson &#x3D; element.target as Lesson;
-				// eslint-disable-next-line no-await-in-loop
-				const status &#x3D; await this.lessonCopyService.copyLesson({
-					originalLesson,
-					user: params.user,
-					destinationCourse: params.destinationCourse,
-				});
-				elements.push(status);
-				const lessonBardElement &#x3D; BoardElement.FromLesson(status.copyEntity as Lesson);
-				references.push(lessonBardElement);
-			}
-		}
-
-		const copy &#x3D; new Board({ references, course: params.destinationCourse });
-		const status &#x3D; {
+		let boardCopy: Board &#x3D; new Board({ references, course: destinationCourse });
+		let status: CopyStatus &#x3D; {
 			title: &#x27;board&#x27;,
 			type: CopyElementType.BOARD,
 			status: this.copyHelperService.deriveStatusFromElements(elements),
-			copyEntity: copy,
+			copyEntity: boardCopy,
 			originalEntity: params.originalBoard,
 			elements,
 		};
 
+		status &#x3D; this.updateCopiedEmbeddedTasksOfLessons(status);
+		if (status.copyEntity) {
+			boardCopy &#x3D; status.copyEntity as Board;
+		}
+		await this.boardRepo.save(boardCopy);
+
 		return status;
+	}
+
+	private async copyBoardElements(
+		boardElements: BoardElement[],
+		user: User,
+		destinationCourse: Course
+	): Promise&lt;CopyStatus[]&gt; {
+		const promises: Promise&lt;[number, CopyStatus]&gt;[] &#x3D; boardElements.map((element, pos) &#x3D;&gt; {
+			if (element.target &#x3D;&#x3D;&#x3D; undefined || element.target.name &#x3D;&#x3D;&#x3D; undefined) {
+				return Promise.reject(new Error(&#x27;Broken boardelement - not pointing to any target entity&#x27;));
+			}
+
+			if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Task &amp;&amp; isTask(element.target)) {
+				return this.copyTask(element.target, user, destinationCourse).then((status) &#x3D;&gt; [pos, status]);
+			}
+
+			if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Lesson &amp;&amp; isLesson(element.target)) {
+				return this.copyLesson(element.target, user, destinationCourse).then((status) &#x3D;&gt; [pos, status]);
+			}
+
+			/* istanbul ignore next */
+			this.logger.warn(&#x60;BoardCopyService unable to handle boardElementType.&#x60;);
+			/* istanbul ignore next */
+			return Promise.reject(new Error(&#x60;BoardCopyService unable to handle boardElementType.&#x60;));
+		});
+
+		const results &#x3D; await Promise.allSettled(promises);
+		const resolved: Array&lt;[number, CopyStatus]&gt; &#x3D; getResolvedValues(results);
+		const statuses: CopyStatus[] &#x3D; this.sortByOriginalOrder(resolved);
+		return statuses;
+	}
+
+	private async copyLesson(originalLesson: Lesson, user: User, destinationCourse: Course): Promise&lt;CopyStatus&gt; {
+		return this.lessonCopyService.copyLesson({
+			originalLesson,
+			user,
+			destinationCourse,
+		});
+	}
+
+	private async copyTask(originalTask: Task, user: User, destinationCourse: Course): Promise&lt;CopyStatus&gt; {
+		return this.taskCopyService.copyTask({
+			originalTask,
+			user,
+			destinationCourse,
+		});
+	}
+
+	private extractReferences(statuses: CopyStatus[]): BoardElement[] {
+		const references: BoardElement[] &#x3D; [];
+		statuses.forEach((status) &#x3D;&gt; {
+			if (status.copyEntity instanceof Task) {
+				references.push(BoardElement.FromTask(status.copyEntity));
+			}
+			if (status.copyEntity instanceof Lesson) {
+				references.push(BoardElement.FromLesson(status.copyEntity));
+			}
+		});
+		return references;
+	}
+
+	private updateCopiedEmbeddedTasksOfLessons(boardStatus: CopyStatus): CopyStatus {
+		const copyDict &#x3D; this.copyHelperService.buildCopyEntityDict(boardStatus);
+		const elements &#x3D; boardStatus.elements ?? [];
+		const updatedElements &#x3D; elements.map((elementCopyStatus) &#x3D;&gt; {
+			if (elementCopyStatus.type &#x3D;&#x3D;&#x3D; CopyElementType.LESSON) {
+				return this.lessonCopyService.updateCopiedEmbeddedTasks(elementCopyStatus, copyDict);
+			}
+			return elementCopyStatus;
+		});
+		boardStatus.elements &#x3D; updatedElements;
+		return boardStatus;
+	}
+
+	private sortByOriginalOrder(resolved: [number, CopyStatus][]): CopyStatus[] {
+		const sortByPos &#x3D; sortBy(resolved, ([pos]) &#x3D;&gt; pos);
+		const statuses &#x3D; sortByPos.map(([, status]) &#x3D;&gt; status);
+		return statuses;
 	}
 }
 </code></pre>

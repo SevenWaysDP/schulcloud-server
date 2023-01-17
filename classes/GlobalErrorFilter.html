@@ -118,7 +118,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:118</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:114</a></div>
                             </td>
                         </tr>
 
@@ -182,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:120</a></div>
                 </td>
             </tr>
 
@@ -263,8 +263,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="137"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:137</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:133</a></div>
                 </td>
             </tr>
 
@@ -336,18 +336,14 @@ const isFeathersError &#x3D; (error: Error): error is FeathersError &#x3D;&gt; {
 	return (error as FeathersError)?.type &#x3D;&#x3D;&#x3D; &#x27;FeathersError&#x27;;
 };
 
-const isBusinessError &#x3D; (error: Error): error is BusinessError &#x3D;&gt; {
-	return error instanceof BusinessError;
-};
+const isBusinessError &#x3D; (error: Error): error is BusinessError &#x3D;&gt; error instanceof BusinessError;
 
 /**
  * Compare helper to detect an error is a build in NestJS http exception.
  * @param error
  * @returns
  */
-const isTechnicalError &#x3D; (error: Error): error is HttpException &#x3D;&gt; {
-	return error instanceof HttpException;
-};
+const isTechnicalError &#x3D; (error: Error): error is HttpException &#x3D;&gt; error instanceof HttpException;
 
 /**
  * Creates ErrorResponse from NestJS build in technical exceptions

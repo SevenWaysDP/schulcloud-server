@@ -63,6 +63,12 @@
 
 
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+            </p>
 
 
             <section>
@@ -79,14 +85,17 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteByUserId" >deleteByUserId</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#encryptPassword" >encryptPassword</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#executeIdmMethod" >executeIdmMethod</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -132,6 +141,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#updateUsername" >updateUsername</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#encryptPassword" >encryptPassword</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -150,12 +163,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(accountRepo: <a href="../injectables/AccountRepo.html" target="_self">AccountRepo</a>)</code>
+<code>constructor(accountDb: <a href="../injectables/AccountServiceDb.html" target="_self">AccountServiceDb</a>, accountIdm: <a href="../injectables/AccountServiceIdm.html" target="_self">AccountServiceIdm</a>, configService: <a href="../interfaces/IServerConfig.html" target="_self">ConfigService&lt;IServerConfig | &gt;</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -173,10 +186,46 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>accountRepo</td>
+                                                        <td>accountDb</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AccountRepo.html" target="_self" >AccountRepo</a></code>
+                                                                        <code><a href="../injectables/AccountServiceDb.html" target="_self" >AccountServiceDb</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>accountIdm</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AccountServiceIdm.html" target="_self" >AccountServiceIdm</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IServerConfig.html" target="_self" >ConfigService&lt;IServerConfig | &gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -204,6 +253,7 @@
                 <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>delete</b></span>
                         <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -211,15 +261,22 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>delete(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:100</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:84</a></code>
+</div>
                 </td>
             </tr>
 
@@ -240,9 +297,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>accountId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -273,6 +330,7 @@
                 <td class="col-md-4">
                     <a name="deleteByUserId"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>deleteByUserId</b></span>
                         <a href="#deleteByUserId"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -280,15 +338,22 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteByUserId(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:104</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:89</a></code>
+</div>
                 </td>
             </tr>
 
@@ -311,7 +376,7 @@
                                 <tr>
                                     <td>userId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -340,29 +405,38 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="encryptPassword"></a>
+                    <a name="executeIdmMethod"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>encryptPassword</b></span>
-                        <a href="#encryptPassword"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>executeIdmMethod</b></span>
+                        <a href="#executeIdmMethod"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>encryptPassword(password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>executeIdmMethod(idmCallback: () => void)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="122"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:122</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:94</a></div>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-4">
@@ -380,9 +454,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>password</td>
+                                    <td>idmCallback</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
                                     </td>
 
                                     <td>
@@ -397,7 +471,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -422,15 +496,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>findById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:14</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:23</a></code>
+</div>
                 </td>
             </tr>
 
@@ -453,7 +533,7 @@
                                 <tr>
                                     <td>id</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -493,15 +573,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>findByUserId(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:24</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:31</a></code>
+</div>
                 </td>
             </tr>
 
@@ -524,7 +610,7 @@
                                 <tr>
                                     <td>userId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -564,15 +650,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByUserIdOrFail(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>findByUserIdOrFail(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:29</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:35</a></code>
+</div>
                 </td>
             </tr>
 
@@ -595,7 +687,7 @@
                                 <tr>
                                     <td>userId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -635,15 +727,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByUsernameAndSystemId(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="../undefineds/EntityId.html" target="_self">EntityId | ObjectId</a>)</code>
+                    <code>findByUsernameAndSystemId(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: string | ObjectId)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:37</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:39</a></code>
+</div>
                 </td>
             </tr>
 
@@ -678,7 +776,7 @@
                                 <tr>
                                     <td>systemId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId | ObjectId</a></code>
+                                            <code>string | ObjectId</code>
                                     </td>
 
                                     <td>
@@ -718,15 +816,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findMultipleByUserId(userIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+                    <code>findMultipleByUserId(userIds: string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:19</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:27</a></code>
+</div>
                 </td>
             </tr>
 
@@ -749,7 +853,7 @@
                                 <tr>
                                     <td>userIds</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                            <code>string[]</code>
                                     </td>
 
                                     <td>
@@ -796,8 +900,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:42</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:55</a></code>
+</div>
                 </td>
             </tr>
 
@@ -867,8 +977,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:117</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:51</a></code>
+</div>
                 </td>
             </tr>
 
@@ -938,8 +1054,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:108</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:43</a></code>
+</div>
                 </td>
             </tr>
 
@@ -1026,15 +1148,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateLastTriedFailedLogin(accountId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, lastTriedFailedLogin: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                    <code>updateLastTriedFailedLogin(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, lastTriedFailedLogin: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:85</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:73</a></code>
+</div>
                 </td>
             </tr>
 
@@ -1057,7 +1185,7 @@
                                 <tr>
                                     <td>accountId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -1109,15 +1237,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updatePassword(accountId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>updatePassword(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:92</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:78</a></code>
+</div>
                 </td>
             </tr>
 
@@ -1140,7 +1274,7 @@
                                 <tr>
                                     <td>accountId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -1192,15 +1326,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateUsername(accountId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>updateUsername(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:77</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:67</a></code>
+</div>
                 </td>
             </tr>
 
@@ -1223,7 +1363,7 @@
                                 <tr>
                                     <td>accountId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -1260,6 +1400,83 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="encryptPassword"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>encryptPassword</b></span>
+                        <a href="#encryptPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>encryptPassword(password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AccountService.html" target="_self" >AbstractAccountService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:40</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>password</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -1267,110 +1484,45 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
-import bcrypt from &#x27;bcryptjs&#x27;;
-import { Account, EntityId } from &#x27;@shared/domain&#x27;;
-import { AccountEntityToDtoMapper } from &#x27;../mapper&#x27;;
+import { AccountServiceDb } from &#x27;./account-db.service&#x27;;
+import { AccountServiceIdm } from &#x27;./account-idm.service&#x27;;
+import { AbstractAccountService } from &#x27;./account.service.abstract&#x27;;
 import { AccountDto, AccountSaveDto } from &#x27;./dto&#x27;;
-import { AccountRepo } from &#x27;../repo/account.repo&#x27;;
+import { IServerConfig } from &#x27;../../server/server.config&#x27;;
+import { Logger } from &#x27;../../../core/logger&#x27;;
 
 @Injectable()
-export class AccountService {
-	constructor(private accountRepo: AccountRepo) {}
-
-	async findById(id: EntityId): Promise&lt;AccountDto&gt; {
-		const accountEntity &#x3D; await this.accountRepo.findById(id);
-		return AccountEntityToDtoMapper.mapToDto(accountEntity);
+export class AccountService extends AbstractAccountService {
+	constructor(
+		private readonly accountDb: AccountServiceDb,
+		private readonly accountIdm: AccountServiceIdm,
+		private readonly configService: ConfigService&lt;IServerConfig, true&gt;,
+		private readonly logger: Logger
+	) {
+		super();
+		this.logger.setContext(AccountService.name);
 	}
 
-	async findMultipleByUserId(userIds: EntityId[]): Promise&lt;AccountDto[]&gt; {
-		const accountEntities &#x3D; await this.accountRepo.findMultipleByUserId(userIds);
-		return AccountEntityToDtoMapper.mapAccountsToDto(accountEntities);
+	async findById(id: string): Promise&lt;AccountDto&gt; {
+		return this.accountDb.findById(id);
 	}
 
-	async findByUserId(userId: EntityId): Promise&lt;AccountDto | null&gt; {
-		const accountEntity &#x3D; await this.accountRepo.findByUserId(userId);
-		return accountEntity ? AccountEntityToDtoMapper.mapToDto(accountEntity) : null;
+	async findMultipleByUserId(userIds: string[]): Promise&lt;AccountDto[]&gt; {
+		return this.accountDb.findMultipleByUserId(userIds);
 	}
 
-	async findByUserIdOrFail(userId: EntityId): Promise&lt;AccountDto&gt; {
-		const accountEntity &#x3D; await this.accountRepo.findByUserId(userId);
-		if (!accountEntity) {
-			throw new EntityNotFoundError(&#x27;Account&#x27;);
-		}
-		return AccountEntityToDtoMapper.mapToDto(accountEntity);
+	async findByUserId(userId: string): Promise&lt;AccountDto | null&gt; {
+		return this.accountDb.findByUserId(userId);
 	}
 
-	async findByUsernameAndSystemId(username: string, systemId: EntityId | ObjectId): Promise&lt;AccountDto | null&gt; {
-		const accountEntity &#x3D; await this.accountRepo.findByUsernameAndSystemId(username, systemId);
-		return accountEntity ? AccountEntityToDtoMapper.mapToDto(accountEntity) : null;
+	async findByUserIdOrFail(userId: string): Promise&lt;AccountDto&gt; {
+		return this.accountDb.findByUserIdOrFail(userId);
 	}
 
-	async save(accountDto: AccountSaveDto): Promise&lt;AccountDto&gt; {
-		// Check if the ID is correct?
-		// const user &#x3D; await this.userRepo.findById(accountDto.userId);
-		// const system &#x3D; accountDto.systemId ? await this.systemRepo.findById(accountDto.systemId) : undefined;
-		let account: Account;
-		if (accountDto.id) {
-			account &#x3D; await this.accountRepo.findById(accountDto.id);
-			account.userId &#x3D; new ObjectId(accountDto.userId);
-			account.systemId &#x3D; accountDto.systemId ? new ObjectId(accountDto.systemId) : undefined;
-			account.username &#x3D; accountDto.username;
-			account.activated &#x3D; accountDto.activated;
-			account.expiresAt &#x3D; accountDto.expiresAt;
-			account.lasttriedFailedLogin &#x3D; accountDto.lasttriedFailedLogin;
-			if (accountDto.password) {
-				account.password &#x3D; await this.encryptPassword(accountDto.password);
-			}
-			account.credentialHash &#x3D; accountDto.credentialHash;
-			account.token &#x3D; accountDto.token;
-		} else {
-			account &#x3D; new Account({
-				userId: new ObjectId(accountDto.userId),
-				systemId: accountDto.systemId ? new ObjectId(accountDto.systemId) : undefined,
-				username: accountDto.username,
-				activated: accountDto.activated,
-				expiresAt: accountDto.expiresAt,
-				lasttriedFailedLogin: accountDto.lasttriedFailedLogin,
-				password: accountDto.password ? await this.encryptPassword(accountDto.password) : undefined,
-				token: accountDto.token,
-				credentialHash: accountDto.credentialHash,
-			});
-		}
-		await this.accountRepo.save(account);
-		return AccountEntityToDtoMapper.mapToDto(account);
-	}
-
-	async updateUsername(accountId: EntityId, username: string): Promise&lt;AccountDto&gt; {
-		const account &#x3D; await this.accountRepo.findById(accountId);
-		account.username &#x3D; username;
-		account.updatedAt &#x3D; new Date();
-		await this.accountRepo.save(account);
-		return AccountEntityToDtoMapper.mapToDto(account);
-	}
-
-	async updateLastTriedFailedLogin(accountId: EntityId, lastTriedFailedLogin: Date): Promise&lt;AccountDto&gt; {
-		const account &#x3D; await this.accountRepo.findById(accountId);
-		account.lasttriedFailedLogin &#x3D; lastTriedFailedLogin;
-		await this.accountRepo.save(account);
-		return AccountEntityToDtoMapper.mapToDto(account);
-	}
-
-	async updatePassword(accountId: EntityId, password: string): Promise&lt;AccountDto&gt; {
-		const account &#x3D; await this.accountRepo.findById(accountId);
-		account.password &#x3D; await this.encryptPassword(password);
-		account.updatedAt &#x3D; new Date();
-		await this.accountRepo.save(account);
-		return AccountEntityToDtoMapper.mapToDto(account);
-	}
-
-	delete(id: EntityId): Promise&lt;void&gt; {
-		return this.accountRepo.deleteById(id);
-	}
-
-	deleteByUserId(userId: EntityId): Promise&lt;void&gt; {
-		return this.accountRepo.deleteByUserId(userId);
+	async findByUsernameAndSystemId(username: string, systemId: string | ObjectId): Promise&lt;AccountDto | null&gt; {
+		return this.accountDb.findByUsernameAndSystemId(username, systemId);
 	}
 
 	async searchByUsernamePartialMatch(
@@ -1378,17 +1530,65 @@ export class AccountService {
 		skip: number,
 		limit: number
 	): Promise&lt;{ accounts: AccountDto[]; total: number }&gt; {
-		const accountEntities &#x3D; await this.accountRepo.searchByUsernamePartialMatch(userName, skip, limit);
-		return AccountEntityToDtoMapper.mapSearchResult(accountEntities);
+		return this.accountDb.searchByUsernamePartialMatch(userName, skip, limit);
 	}
 
 	async searchByUsernameExactMatch(userName: string): Promise&lt;{ accounts: AccountDto[]; total: number }&gt; {
-		const accountEntities &#x3D; await this.accountRepo.searchByUsernameExactMatch(userName);
-		return AccountEntityToDtoMapper.mapSearchResult(accountEntities);
+		return this.accountDb.searchByUsernameExactMatch(userName);
 	}
 
-	private encryptPassword(password: string): Promise&lt;string&gt; {
-		return bcrypt.hash(password, 10);
+	async save(accountDto: AccountSaveDto): Promise&lt;AccountDto&gt; {
+		const ret &#x3D; await this.accountDb.save(accountDto);
+		const newAccount: AccountSaveDto &#x3D; {
+			...accountDto,
+			id: accountDto.id,
+			idmReferenceId: ret.id,
+			password: accountDto.password,
+		};
+		const idmAccount &#x3D; await this.executeIdmMethod(async () &#x3D;&gt; this.accountIdm.save(newAccount));
+		return { ...ret, idmReferenceId: idmAccount?.idmReferenceId };
+	}
+
+	async updateUsername(accountId: string, username: string): Promise&lt;AccountDto&gt; {
+		const ret &#x3D; await this.accountDb.updateUsername(accountId, username);
+		const idmAccount &#x3D; await this.executeIdmMethod(async () &#x3D;&gt; this.accountIdm.updateUsername(accountId, username));
+		return { ...ret, idmReferenceId: idmAccount?.idmReferenceId };
+	}
+
+	async updateLastTriedFailedLogin(accountId: string, lastTriedFailedLogin: Date): Promise&lt;AccountDto&gt; {
+		const ret &#x3D; await this.accountDb.updateLastTriedFailedLogin(accountId, lastTriedFailedLogin);
+		return ret;
+	}
+
+	async updatePassword(accountId: string, password: string): Promise&lt;AccountDto&gt; {
+		const ret &#x3D; await this.accountDb.updatePassword(accountId, password);
+		const idmAccount &#x3D; await this.executeIdmMethod(async () &#x3D;&gt; this.accountIdm.updatePassword(accountId, password));
+		return { ...ret, idmReferenceId: idmAccount?.idmReferenceId };
+	}
+
+	async delete(accountId: string): Promise&lt;void&gt; {
+		await this.accountDb.delete(accountId);
+		await this.executeIdmMethod(async () &#x3D;&gt; this.accountIdm.delete(accountId));
+	}
+
+	async deleteByUserId(userId: string): Promise&lt;void&gt; {
+		await this.accountDb.deleteByUserId(userId);
+		await this.executeIdmMethod(async () &#x3D;&gt; this.accountIdm.deleteByUserId(userId));
+	}
+
+	private async executeIdmMethod&lt;T&gt;(idmCallback: () &#x3D;&gt; Promise&lt;T&gt;) {
+		if (this.configService.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED&#x27;)) {
+			try {
+				return await idmCallback();
+			} catch (error) {
+				if (error instanceof Error) {
+					this.logger.error(error, error.stack);
+				} else {
+					this.logger.error(error);
+				}
+			}
+		}
+		return null;
 	}
 }
 </code></pre>

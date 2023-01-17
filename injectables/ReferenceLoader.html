@@ -123,12 +123,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, courseGroupRepo: <a href="../injectables/CourseGroupRepo.html" target="_self">CourseGroupRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, submissionRepo: <a href="../injectables/SubmissionRepo.html" target="_self">SubmissionRepo</a>)</code>
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, courseGroupRepo: <a href="../injectables/CourseGroupRepo.html" target="_self">CourseGroupRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, submissionRepo: <a href="../injectables/SubmissionRepo.html" target="_self">SubmissionRepo</a>, schoolExternalToolRepo: <a href="../injectables/SchoolExternalToolRepo.html" target="_self">SchoolExternalToolRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -241,6 +241,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>schoolExternalToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolExternalToolRepo.html" target="_self" >SchoolExternalToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -277,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:79</a></div>
                 </td>
             </tr>
 
@@ -348,8 +360,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:66</a></div>
                 </td>
             </tr>
 
@@ -431,8 +443,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:58</a></div>
                 </td>
             </tr>
 
@@ -511,7 +523,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -535,6 +547,7 @@ import {
 	TaskRepo,
 	TeamsRepo,
 	UserRepo,
+	SchoolExternalToolRepo,
 } from &#x27;@shared/repo&#x27;;
 import { AllowedAuthorizationEntityType, AllowedEntity } from &#x27;./interfaces&#x27;;
 
@@ -546,7 +559,8 @@ type RepoType &#x3D;
 	| LessonRepo
 	| TeamsRepo
 	| CourseGroupRepo
-	| SubmissionRepo;
+	| SubmissionRepo
+	| SchoolExternalToolRepo;
 
 interface IRepoLoader {
 	repo: RepoType;
@@ -565,7 +579,8 @@ export class ReferenceLoader {
 		private readonly schoolRepo: SchoolRepo,
 		private readonly lessonRepo: LessonRepo,
 		private readonly teamsRepo: TeamsRepo,
-		private readonly submissionRepo: SubmissionRepo
+		private readonly submissionRepo: SubmissionRepo,
+		private readonly schoolExternalToolRepo: SchoolExternalToolRepo
 	) {
 		this.repos.set(AllowedAuthorizationEntityType.Task, { repo: this.taskRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Course, { repo: this.courseRepo });
@@ -575,6 +590,7 @@ export class ReferenceLoader {
 		this.repos.set(AllowedAuthorizationEntityType.Lesson, { repo: this.lessonRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Team, { repo: this.teamsRepo, populate: true });
 		this.repos.set(AllowedAuthorizationEntityType.Submission, { repo: this.submissionRepo });
+		this.repos.set(AllowedAuthorizationEntityType.SchoolExternalTool, { repo: this.schoolExternalToolRepo });
 	}
 
 	private resolveRepo(type: AllowedAuthorizationEntityType): IRepoLoader {

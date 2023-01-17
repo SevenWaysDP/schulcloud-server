@@ -232,7 +232,9 @@ export class ResolvedUserMapper {
 		dto.createdAt &#x3D; user.createdAt;
 		dto.updatedAt &#x3D; user.updatedAt;
 		dto.schoolId &#x3D; user.school.toString();
-		dto.roles &#x3D; roles.map((role) &#x3D;&gt; ({ name: role.name, id: role.id }));
+		dto.roles &#x3D; roles.map((role) &#x3D;&gt; {
+			return { name: role.name, id: role.id };
+		});
 
 		dto.permissions &#x3D; permissions;
 

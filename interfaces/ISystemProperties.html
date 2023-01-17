@@ -99,6 +99,13 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
+                                        <a href="#ldapConfig" 
+>
+                                            ldapConfig
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#oauthConfig" 
 >
                                             oauthConfig
@@ -203,6 +210,44 @@
                                     <tr>
                                         <td class="col-md-4">
                                             <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="ldapConfig"></a>
+                                        <span class="name "><b>ldapConfig</b>
+                                            <a href="#ldapConfig">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>ldapConfig:         <code><a href="../classes/LdapConfig.html" target="_self" >LdapConfig</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../classes/LdapConfig.html" target="_self" >LdapConfig</a></code>
 
                                         </td>
                                     </tr>
@@ -408,8 +453,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Enum, Property } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Embeddable, Embedded, Entity, Enum, Property } from &#x27;@mikro-orm/core&#x27;;
 import { SystemProvisioningStrategy } from &#x27;@shared/domain/interface/system-provisioning.strategy&#x27;;
+import { EntityId } from &#x27;../types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 
 export interface ISystemProperties {
@@ -418,6 +464,7 @@ export interface ISystemProperties {
 	alias?: string;
 	displayName?: string;
 	oauthConfig?: OauthConfig;
+	ldapConfig?: LdapConfig;
 	provisioningStrategy?: SystemProvisioningStrategy;
 	provisioningUrl?: string;
 }
@@ -474,6 +521,75 @@ export class OauthConfig {
 	@Property()
 	jwksEndpoint: string;
 }
+
+@Embeddable()
+export class LdapConfig {
+	constructor(ldapConfig: Readonly&lt;LdapConfig&gt;) {
+		this.url &#x3D; ldapConfig.url;
+	}
+
+	@Property({ nullable: true })
+	active?: boolean;
+
+	@Property({ nullable: true })
+	federalState?: EntityId;
+
+	@Property({ nullable: true })
+	lastSyncAttempt?: Date;
+
+	@Property({ nullable: true })
+	lastSuccessfulFullSync?: Date;
+
+	@Property({ nullable: true })
+	lastSuccessfulPartialSync?: Date;
+
+	@Property({ nullable: true })
+	lastModifyTimestamp?: string;
+
+	@Property()
+	url: string;
+
+	@Property({ nullable: true })
+	rootPath?: string;
+
+	@Property({ nullable: true })
+	searchUser?: string;
+
+	@Property({ nullable: true })
+	searchUserPassword?: string;
+
+	@Property({ nullable: true })
+	provider?: string;
+
+	@Property({ nullable: true })
+	providerOptions?: {
+		schoolName?: string;
+		userPathAdditions?: string;
+		classPathAdditions?: string;
+		roleType?: string;
+		userAttributeNameMapping?: {
+			givenName?: string;
+			sn?: string;
+			dn?: string;
+			uuid?: string;
+			uid?: string;
+			mail?: string;
+			role?: string;
+		};
+		roleAttributeNameMapping?: {
+			roleStudent?: string;
+			roleTeacher?: string;
+			roleAdmin?: string;
+			roleNoSc?: string;
+		};
+		classAttributeNameMapping?: {
+			description?: string;
+			dn?: string;
+			uniqueMember?: string;
+		};
+	};
+}
+
 @Entity({ tableName: &#x27;systems&#x27; })
 export class System extends BaseEntityWithTimestamps {
 	constructor(props: ISystemProperties) {
@@ -483,6 +599,7 @@ export class System extends BaseEntityWithTimestamps {
 		this.alias &#x3D; props.alias;
 		this.displayName &#x3D; props.displayName;
 		this.oauthConfig &#x3D; props.oauthConfig;
+		this.ldapConfig &#x3D; props.ldapConfig;
 		this.provisioningStrategy &#x3D; props.provisioningStrategy;
 		this.provisioningUrl &#x3D; props.provisioningUrl;
 	}
@@ -509,8 +626,8 @@ export class System extends BaseEntityWithTimestamps {
 	@Property({ nullable: true })
 	config?: Record&lt;string, unknown&gt;;
 
-	@Property({ nullable: true })
-	ldapConfig?: Record&lt;string, unknown&gt;;
+	@Embedded({ entity: () &#x3D;&gt; LdapConfig, object: true, nullable: true })
+	ldapConfig?: LdapConfig;
 
 	@Property({ nullable: true })
 	provisioningUrl?: string;

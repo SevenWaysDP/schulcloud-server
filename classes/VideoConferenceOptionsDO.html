@@ -248,8 +248,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseWithTimestampsDO } from &#x27;@shared/domain/domainobject/base.do&#x27;;
-import { VideoConferenceScope } from &#x27;@shared/domain/interface/vc-scope.enum&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { VideoConferenceScope } from &#x27;@shared/domain/interface/video-conference-scope.enum&#x27;;
+import { BaseDO } from &#x27;./base.do&#x27;;
 
 export class VideoConferenceOptionsDO {
 	everyAttendeeJoinsMuted: boolean;
@@ -265,7 +265,11 @@ export class VideoConferenceOptionsDO {
 	}
 }
 
-export class VideoConferenceDO extends BaseWithTimestampsDO {
+export class VideoConferenceDO extends BaseDO {
+	createdAt?: Date;
+
+	updatedAt?: Date;
+
 	target: string;
 
 	targetModel: VideoConferenceScope;
@@ -273,7 +277,10 @@ export class VideoConferenceDO extends BaseWithTimestampsDO {
 	options: VideoConferenceOptionsDO;
 
 	constructor(domainObject: VideoConferenceDO) {
-		super(domainObject);
+		super(domainObject.id);
+
+		this.createdAt &#x3D; domainObject.createdAt;
+		this.updatedAt &#x3D; domainObject.updatedAt;
 		this.target &#x3D; domainObject.target;
 		this.targetModel &#x3D; domainObject.targetModel;
 		this.options &#x3D; domainObject.options;

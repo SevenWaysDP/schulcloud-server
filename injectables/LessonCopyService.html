@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/service/lesson-copy.service.ts</code>
+            <code>apps/server/src/modules/lesson/service/lesson-copy.service.ts</code>
         </p>
 
 
@@ -79,7 +79,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#updateCopiedEmbeddedTasksMapContent" >updateCopiedEmbeddedTasksMapContent</a>
+                                <a href="#updateCopiedEmbeddedTaskId" >updateCopiedEmbeddedTaskId</a>
                             </li>
                         </ul>
                     </td>
@@ -108,6 +108,10 @@
                                 <a href="#copyGeogebra" >copyGeogebra</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#copyLernStore" >copyLernStore</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#copyLesson" >copyLesson</a>
                             </li>
@@ -122,12 +126,21 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#copyLinkedTasks" >copyLinkedTasks</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#copyNexboard" >copyNexboard</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#copyTextContent" >copyTextContent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deriveCopyStatus" >deriveCopyStatus</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -139,15 +152,11 @@
                                 <a href="#lessonStatusMetadata" >lessonStatusMetadata</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#replaceUrlsInContents" >replaceUrlsInContents</a>
+                            </li>
+                            <li>
                                 <a href="#updateCopiedEmbeddedTasks" >updateCopiedEmbeddedTasks</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#updateCopiedEmbeddedTasksOfLesson" >updateCopiedEmbeddedTasksOfLesson</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#updateCopiedEmbeddedTasksRecursive" >updateCopiedEmbeddedTasksRecursive</a>
                             </li>
                         </ul>
                     </td>
@@ -167,12 +176,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, etherpadService: <a href="../injectables/EtherpadService.html" target="_self">EtherpadService</a>, nexboardService: <a href="../injectables/NexboardService.html" target="_self">NexboardService</a>)</code>
+<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, etherpadService: <a href="../injectables/EtherpadService.html" target="_self">EtherpadService</a>, nexboardService: <a href="../injectables/NexboardService.html" target="_self">NexboardService</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, copyFilesService: <a href="../injectables/CopyFilesService.html" target="_self">CopyFilesService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -237,6 +246,30 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>lessonRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LessonRepo.html" target="_self" >LessonRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>copyFilesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CopyFilesService.html" target="_self" >CopyFilesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -273,8 +306,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="302"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:302</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="394"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:394</a></div>
                 </td>
             </tr>
 
@@ -345,8 +378,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="210"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:210</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="300"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:300</a></div>
                 </td>
             </tr>
 
@@ -429,8 +462,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="204"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:204</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="293"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:293</a></div>
                 </td>
             </tr>
 
@@ -482,6 +515,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyLernStore"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>copyLernStore</b></span>
+                        <a href="#copyLernStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyLernStore(element: <a href="../interfaces/IComponentProperties.html" target="_self">IComponentProperties</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="267"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:267</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../interfaces/IComponentProperties.html" target="_self" >IComponentProperties</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{ title: any; hidden: any; component: any; user: any; content: { resources: any; }; }</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="copyLesson"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -500,8 +604,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:38</a></div>
                 </td>
             </tr>
 
@@ -572,8 +676,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="121"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:121</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:170</a></div>
                 </td>
             </tr>
 
@@ -655,8 +759,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="272"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:272</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="364"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:364</a></div>
                 </td>
             </tr>
 
@@ -711,6 +815,7 @@
                     <a name="copyLinkedTasks"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
                         <span ><b>copyLinkedTasks</b></span>
                         <a href="#copyLinkedTasks"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -726,8 +831,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="249"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:249</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="341"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:341</a></div>
                 </td>
             </tr>
 
@@ -777,7 +882,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>{}</code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -810,8 +915,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="232"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:232</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="323"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:323</a></div>
                 </td>
             </tr>
 
@@ -875,6 +980,196 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyTextContent"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>copyTextContent</b></span>
+                        <a href="#copyTextContent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyTextContent(element: <a href="../interfaces/IComponentProperties.html" target="_self">IComponentProperties</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="255"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:255</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../interfaces/IComponentProperties.html" target="_self" >IComponentProperties</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{ title: any; hidden: any; component: any; user: any; content: { text: any; }; }</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deriveCopyStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>deriveCopyStatus</b></span>
+                        <a href="#deriveCopyStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deriveCopyStatus(contentStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>, materialsStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>, copiedTasksStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>, lessonCopy: <a href="../entitys/Lesson.html" target="_self">Lesson</a>, originalLesson: <a href="../entitys/Lesson.html" target="_self">Lesson</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>contentStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>materialsStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>copiedTasksStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>lessonCopy</td>
+                                    <td>
+                                                <code><a href="../entitys/Lesson.html" target="_self" >Lesson</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>originalLesson</td>
+                                    <td>
+                                                <code><a href="../entitys/Lesson.html" target="_self" >Lesson</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >{ status: CopyStatus; elements: {}; }</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="lessonStatusContent"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -893,8 +1188,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="316"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:316</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="409"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:409</a></div>
                 </td>
             </tr>
 
@@ -965,8 +1260,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="307"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:307</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="400"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:400</a></div>
                 </td>
             </tr>
 
@@ -986,24 +1281,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateCopiedEmbeddedTasks"></a>
+                    <a name="replaceUrlsInContents"></a>
                     <span class="name">
-                        <span ><b>updateCopiedEmbeddedTasks</b></span>
-                        <a href="#updateCopiedEmbeddedTasks"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>replaceUrlsInContents</b></span>
+                        <a href="#replaceUrlsInContents"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateCopiedEmbeddedTasks(status: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>replaceUrlsInContents(contents: <a href="../interfaces/IComponentProperties.html" target="_self">IComponentProperties[]</a>, fileUrlReplacements: <a href="../classes/File.html" target="_self">FileUrlReplacement[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:152</a></div>
                 </td>
             </tr>
 
@@ -1024,9 +1321,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>status</td>
+                                    <td>contents</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                                                <code><a href="../interfaces/IComponentProperties.html" target="_self" >IComponentProperties[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileUrlReplacements</td>
+                                    <td>
+                                                <code><a href="../classes/File.html" target="_self" >FileUrlReplacement[]</a></code>
                                     </td>
 
                                     <td>
@@ -1041,7 +1350,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/IComponentProperties.html" target="_self" >IComponentProperties[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1055,26 +1364,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateCopiedEmbeddedTasksOfLesson"></a>
+                    <a name="updateCopiedEmbeddedTasks"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>updateCopiedEmbeddedTasksOfLesson</b></span>
-                        <a href="#updateCopiedEmbeddedTasksOfLesson"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateCopiedEmbeddedTasks</b></span>
+                        <a href="#updateCopiedEmbeddedTasks"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateCopiedEmbeddedTasksOfLesson(lessonStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, copyDict: <a href="../classes/BaseEntity.html" target="_self">Map&lt;EntityId | BaseEntity&gt;</a>)</code>
+<code>updateCopiedEmbeddedTasks(lessonStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, copyDict: <a href="../classes/BaseEntity.html" target="_self">Map&lt;EntityId | BaseEntity&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:106</a></div>
                 </td>
             </tr>
 
@@ -1134,89 +1441,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateCopiedEmbeddedTasksRecursive"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>updateCopiedEmbeddedTasksRecursive</b></span>
-                        <a href="#updateCopiedEmbeddedTasksRecursive"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateCopiedEmbeddedTasksRecursive(status: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, copyDict: <a href="../classes/BaseEntity.html" target="_self">Map&lt;EntityId | BaseEntity&gt;</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:80</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>status</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>copyDict</td>
-                                    <td>
-                                                <code><a href="../classes/BaseEntity.html" target="_self" >Map&lt;EntityId | BaseEntity&gt;</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
             <section>
     
@@ -1227,11 +1451,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateCopiedEmbeddedTasksMapContent"></a>
+                    <a name="updateCopiedEmbeddedTaskId"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
-                        <span ><b>updateCopiedEmbeddedTasksMapContent</b></span>
-                        <a href="#updateCopiedEmbeddedTasksMapContent"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateCopiedEmbeddedTaskId</b></span>
+                        <a href="#updateCopiedEmbeddedTaskId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -1242,7 +1466,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:103</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">apps/server/src/modules/lesson/service/lesson-copy.service.ts:122</a></div>
                         </td>
                     </tr>
 
@@ -1260,32 +1484,26 @@ import { Injectable } from &#x27;@nestjs/common&#x27;;
 import {
 	BaseEntity,
 	ComponentType,
-	CopyElementType,
-	CopyHelperService,
-	CopyStatus,
-	CopyStatusEnum,
-	Course,
 	EntityId,
-	EtherpadService,
 	IComponentEtherpadProperties,
 	IComponentGeogebraProperties,
 	IComponentInternalProperties,
+	IComponentLernstoreProperties,
 	IComponentNexboardProperties,
 	IComponentProperties,
+	IComponentTextProperties,
 	Lesson,
 	Material,
-	NexboardService,
-	TaskCopyService,
-	User,
 } from &#x27;@shared/domain&#x27;;
+import { LessonRepo } from &#x27;@shared/repo&#x27;;
+import { CopyElementType, CopyHelperService, CopyStatus, CopyStatusEnum } from &#x27;@src/modules/copy-helper&#x27;;
+import { CopyFilesService } from &#x27;@src/modules/files-storage-client&#x27;;
+import { FileUrlReplacement } from &#x27;@src/modules/files-storage-client/service/copy-files.service&#x27;;
+import { TaskCopyService } from &#x27;@src/modules/task&#x27;;
 import { randomBytes } from &#x27;crypto&#x27;;
-
-export type LessonCopyParams &#x3D; {
-	originalLesson: Lesson;
-	destinationCourse: Course;
-	user: User;
-	copyName?: string;
-};
+import { LessonCopyParams } from &#x27;../types/lesson-copy.params&#x27;;
+import { EtherpadService } from &#x27;./etherpad.service&#x27;;
+import { NexboardService } from &#x27;./nexboard.service&#x27;;
 
 @Injectable()
 export class LessonCopyService {
@@ -1293,13 +1511,15 @@ export class LessonCopyService {
 		private readonly copyHelperService: CopyHelperService,
 		private readonly taskCopyService: TaskCopyService,
 		private readonly etherpadService: EtherpadService,
-		private readonly nexboardService: NexboardService
+		private readonly nexboardService: NexboardService,
+		private readonly lessonRepo: LessonRepo,
+		private readonly copyFilesService: CopyFilesService
 	) {}
 
 	async copyLesson(params: LessonCopyParams): Promise&lt;CopyStatus&gt; {
 		const { copiedContent, contentStatus } &#x3D; await this.copyLessonContent(params.originalLesson.contents, params);
 		const { copiedMaterials, materialsStatus } &#x3D; this.copyLinkedMaterials(params.originalLesson);
-		const copy &#x3D; new Lesson({
+		const lessonCopy &#x3D; new Lesson({
 			course: params.destinationCourse,
 			hidden: true,
 			name: params.copyName ?? params.originalLesson.name,
@@ -1308,9 +1528,45 @@ export class LessonCopyService {
 			materials: copiedMaterials,
 		});
 
-		const copiedTasksStatus: CopyStatus[] &#x3D; this.copyLinkedTasks(copy, params);
+		await this.lessonRepo.createLesson(lessonCopy);
 
-		const elements &#x3D; [
+		const copiedTasksStatus: CopyStatus[] &#x3D; await this.copyLinkedTasks(lessonCopy, params);
+
+		const { status, elements } &#x3D; this.deriveCopyStatus(
+			contentStatus,
+			materialsStatus,
+			copiedTasksStatus,
+			lessonCopy,
+			params.originalLesson
+		);
+
+		await this.lessonRepo.save(lessonCopy);
+		const copyDict &#x3D; this.copyHelperService.buildCopyEntityDict(status);
+		const updatedStatus &#x3D; this.updateCopiedEmbeddedTasks(status, copyDict);
+
+		const { fileUrlReplacements, fileCopyStatus } &#x3D; await this.copyFilesService.copyFilesOfEntity(
+			params.originalLesson,
+			lessonCopy,
+			params.user.id
+		);
+
+		elements.push(fileCopyStatus);
+		lessonCopy.contents &#x3D; this.replaceUrlsInContents(lessonCopy.contents, fileUrlReplacements);
+
+		updatedStatus.status &#x3D; this.copyHelperService.deriveStatusFromElements(elements);
+		await this.lessonRepo.save(lessonCopy);
+
+		return updatedStatus;
+	}
+
+	private deriveCopyStatus(
+		contentStatus: CopyStatus[],
+		materialsStatus: CopyStatus[],
+		copiedTasksStatus: CopyStatus[],
+		lessonCopy: Lesson,
+		originalLesson: Lesson
+	) {
+		const elements: CopyStatus[] &#x3D; [
 			...LessonCopyService.lessonStatusMetadata(),
 			...contentStatus,
 			...materialsStatus,
@@ -1318,62 +1574,79 @@ export class LessonCopyService {
 		];
 
 		const status: CopyStatus &#x3D; {
-			title: copy.name,
+			title: lessonCopy.name,
 			type: CopyElementType.LESSON,
 			status: this.copyHelperService.deriveStatusFromElements(elements),
-			copyEntity: copy,
-			originalEntity: params.originalLesson,
+			copyEntity: lessonCopy,
+			originalEntity: originalLesson,
 			elements,
 		};
-
-		return status;
+		return { status, elements };
 	}
 
-	updateCopiedEmbeddedTasks(status: CopyStatus): CopyStatus {
-		const copyDict &#x3D; this.copyHelperService.buildCopyEntityDict(status);
-		return this.updateCopiedEmbeddedTasksRecursive(status, copyDict);
-	}
-
-	private updateCopiedEmbeddedTasksRecursive(status: CopyStatus, copyDict: Map&lt;EntityId, BaseEntity&gt;): CopyStatus {
-		if (status.type &#x3D;&#x3D;&#x3D; CopyElementType.LESSON) {
-			status &#x3D; this.updateCopiedEmbeddedTasksOfLesson(status, copyDict);
-		}
-		if (status.elements) {
-			status.elements &#x3D; status.elements.map((element) &#x3D;&gt; {
-				return this.updateCopiedEmbeddedTasksRecursive(element, copyDict);
-			});
-		}
-		return status;
-	}
-
-	private updateCopiedEmbeddedTasksOfLesson(lessonStatus: CopyStatus, copyDict: Map&lt;EntityId, BaseEntity&gt;): CopyStatus {
+	updateCopiedEmbeddedTasks(lessonStatus: CopyStatus, copyDict: Map&lt;EntityId, BaseEntity&gt;): CopyStatus {
 		const copiedLesson &#x3D; lessonStatus.copyEntity as Lesson;
 
+		if (copiedLesson?.contents &#x3D;&#x3D;&#x3D; undefined) {
+			return lessonStatus;
+		}
+
 		copiedLesson.contents &#x3D; copiedLesson.contents.map((value: IComponentProperties) &#x3D;&gt;
-			this.updateCopiedEmbeddedTasksMapContent(value, copyDict)
+			this.updateCopiedEmbeddedTaskId(value, copyDict)
 		);
+
 		lessonStatus.copyEntity &#x3D; copiedLesson;
 
 		return lessonStatus;
 	}
 
-	private updateCopiedEmbeddedTasksMapContent &#x3D; (
+	private updateCopiedEmbeddedTaskId &#x3D; (
 		value: IComponentProperties,
 		copyDict: Map&lt;EntityId, BaseEntity&gt;
 	): IComponentProperties &#x3D;&gt; {
-		if (value.component !&#x3D;&#x3D; ComponentType.INTERNAL) {
+		if (
+			value.component !&#x3D;&#x3D; ComponentType.INTERNAL ||
+			value.content &#x3D;&#x3D;&#x3D; undefined ||
+			(value.content as IComponentInternalProperties).url &#x3D;&#x3D;&#x3D; undefined
+		) {
 			return value;
 		}
+
 		const content &#x3D; value.content as IComponentInternalProperties;
-		const url &#x3D; new URL(content.url);
-		const originalTaskId &#x3D; url.pathname.split(&#x27;/&#x27;)[2];
-		const finalTask &#x3D; copyDict.get(originalTaskId);
-		if (!finalTask) {
+		const extractTaskId &#x3D; (url: string) &#x3D;&gt; {
+			const urlObject &#x3D; new URL(url, &#x27;https://www.example.com&#x27;);
+			const taskId &#x3D; urlObject.pathname.split(&#x27;/&#x27;)[2];
+			return taskId;
+		};
+
+		const originalTaskId &#x3D; extractTaskId(content.url);
+		const copiedTask &#x3D; copyDict.get(originalTaskId);
+		if (!copiedTask) {
 			return value;
 		}
-		const newEmbedded &#x3D; { ...value, content: { url: content.url.replace(originalTaskId, finalTask.id) } };
-		return newEmbedded;
+
+		const url &#x3D; content.url.replace(originalTaskId, copiedTask.id);
+		const updateded &#x3D; { ...value, content: { url } };
+		return updateded;
 	};
+
+	private replaceUrlsInContents(
+		contents: IComponentProperties[],
+		fileUrlReplacements: FileUrlReplacement[]
+	): IComponentProperties[] {
+		contents &#x3D; contents.map((item: IComponentProperties) &#x3D;&gt; {
+			if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; item.content &amp;&amp; &#x27;text&#x27; in item.content &amp;&amp; item.content.text) {
+				let { text } &#x3D; item.content;
+				fileUrlReplacements.forEach(({ regex, replacement }) &#x3D;&gt; {
+					text &#x3D; text.replace(regex, replacement);
+				});
+				item.content.text &#x3D; text;
+			}
+			return item;
+		});
+
+		return contents;
+	}
 
 	private async copyLessonContent(
 		content: IComponentProperties[],
@@ -1389,7 +1662,8 @@ export class LessonCopyService {
 		for (let i &#x3D; 0; i &lt; content.length; i +&#x3D; 1) {
 			const element &#x3D; content[i];
 			if (element.component &#x3D;&#x3D;&#x3D; ComponentType.TEXT) {
-				copiedContent.push(element);
+				const textContent &#x3D; this.copyTextContent(element);
+				copiedContent.push(textContent);
 				copiedContentStatus.push({
 					title: element.title,
 					type: CopyElementType.LESSON_CONTENT_TEXT,
@@ -1397,7 +1671,8 @@ export class LessonCopyService {
 				});
 			}
 			if (element.component &#x3D;&#x3D;&#x3D; ComponentType.LERNSTORE) {
-				copiedContent.push(element);
+				const lernstoreContent &#x3D; this.copyLernStore(element);
+				copiedContent.push(lernstoreContent);
 				copiedContentStatus.push({
 					title: element.title,
 					type: CopyElementType.LESSON_CONTENT_LERNSTORE,
@@ -1458,9 +1733,48 @@ export class LessonCopyService {
 		return { copiedContent, contentStatus };
 	}
 
+	private copyTextContent(element: IComponentProperties) {
+		return {
+			title: element.title,
+			hidden: element.hidden,
+			component: ComponentType.TEXT,
+			user: element.user, // TODO should be params.user - but that made the server crash, but property is normally undefined
+			content: {
+				text: (element.content as IComponentTextProperties).text,
+			},
+		};
+	}
+
+	private copyLernStore(element: IComponentProperties) {
+		const resources &#x3D; ((element.content as IComponentLernstoreProperties).resources ?? []).map(
+			({ client, description, merlinReference, title, url }) &#x3D;&gt; {
+				const result &#x3D; {
+					client,
+					description,
+					merlinReference,
+					title,
+					url,
+				};
+				return result;
+			}
+		);
+
+		const lernstore &#x3D; {
+			title: element.title,
+			hidden: element.hidden,
+			component: ComponentType.LERNSTORE,
+			user: element.user, // TODO should be params.user - but that made the server crash, but property is normally undefined
+			content: {
+				resources,
+			},
+		};
+		return lernstore;
+	}
+
 	private static copyGeogebra(originalElement: IComponentProperties): IComponentProperties {
 		const copy &#x3D; { ...originalElement, hidden: true } as IComponentProperties;
 		copy.content &#x3D; { ...copy.content, materialId: &#x27;&#x27; } as IComponentGeogebraProperties;
+		delete copy._id;
 		return copy;
 	}
 
@@ -1469,6 +1783,7 @@ export class LessonCopyService {
 		params: LessonCopyParams
 	): Promise&lt;IComponentProperties | false&gt; {
 		const copy &#x3D; { ...originalElement } as IComponentProperties;
+		delete copy._id;
 		const content &#x3D; { ...copy.content, url: &#x27;&#x27; } as IComponentEtherpadProperties;
 		content.title &#x3D; randomBytes(12).toString(&#x27;hex&#x27;);
 
@@ -1491,6 +1806,7 @@ export class LessonCopyService {
 		params: LessonCopyParams
 	): Promise&lt;IComponentProperties | false&gt; {
 		const copy &#x3D; { ...originalElement } as IComponentProperties;
+		delete copy._id;
 		const content &#x3D; { ...copy.content, url: &#x27;&#x27;, board: &#x27;&#x27; } as IComponentNexboardProperties;
 
 		const nexboard &#x3D; await this.nexboardService.createNexboard(params.user.id, content.title, content.description);
@@ -1503,19 +1819,19 @@ export class LessonCopyService {
 		return false;
 	}
 
-	private copyLinkedTasks(destinationLesson: Lesson, params: LessonCopyParams) {
+	private async copyLinkedTasks(destinationLesson: Lesson, params: LessonCopyParams) {
 		const linkedTasks &#x3D; params.originalLesson.getLessonLinkedTasks();
-		const copiedTasksStatus: CopyStatus[] &#x3D; [];
 		if (linkedTasks.length &gt; 0) {
-			linkedTasks.forEach((element) &#x3D;&gt; {
-				const taskStatus &#x3D; this.taskCopyService.copyTaskMetadata({
-					originalTask: element,
-					destinationCourse: params.destinationCourse,
-					destinationLesson,
-					user: params.user,
-				});
-				copiedTasksStatus.push(taskStatus);
-			});
+			const copiedTasksStatus &#x3D; await Promise.all(
+				linkedTasks.map((element) &#x3D;&gt;
+					this.taskCopyService.copyTask({
+						originalTask: element,
+						destinationCourse: params.destinationCourse,
+						destinationLesson,
+						user: params.user,
+					})
+				)
+			);
 			const taskGroupStatus &#x3D; {
 				type: CopyElementType.TASK_GROUP,
 				status: this.copyHelperService.deriveStatusFromElements(copiedTasksStatus),
@@ -1558,6 +1874,7 @@ export class LessonCopyService {
 
 	private copyEmbeddedTaskLink(originalElement: IComponentProperties) {
 		const copy &#x3D; JSON.parse(JSON.stringify(originalElement)) as IComponentProperties;
+		delete copy._id;
 		return copy;
 	}
 

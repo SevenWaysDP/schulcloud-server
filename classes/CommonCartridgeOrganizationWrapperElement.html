@@ -224,9 +224,7 @@ export class CommonCartridgeOrganizationWrapperElement implements ICommonCartrid
 							$: {
 								identifier: &#x27;LearningModules&#x27;,
 							},
-							item: this.organizationElements.map((organizationElement) &#x3D;&gt; {
-								return organizationElement.transform();
-							}),
+							item: this.organizationElements.map((organizationElement) &#x3D;&gt; organizationElement.transform()),
 						},
 					],
 				},

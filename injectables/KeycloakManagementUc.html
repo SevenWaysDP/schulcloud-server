@@ -377,8 +377,8 @@ export class KeycloakManagementUc {
 		await this.kcAdmin.setPasswordPolicy();
 		await this.keycloakConfigService.configureClient();
 		await this.keycloakConfigService.configureBrokerFlows();
-		const result &#x3D; this.keycloakConfigService.configureIdentityProviders();
-		return result;
+		await this.keycloakConfigService.configureRealm();
+		return this.keycloakConfigService.configureIdentityProviders();
 	}
 }
 </code></pre>

@@ -213,9 +213,7 @@ export class CommonCartridgeResourceWrapperElement implements ICommonCartridgeEl
 
 	transform(): Record&lt;string, unknown&gt; {
 		return {
-			resource: this.resourceElements.map((resourceElement) &#x3D;&gt; {
-				return resourceElement.transform();
-			}),
+			resource: this.resourceElements.map((resourceElement) &#x3D;&gt; resourceElement.transform()),
 		};
 	}
 }

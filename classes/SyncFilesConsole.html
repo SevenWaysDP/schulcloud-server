@@ -413,7 +413,11 @@ export class SyncFilesConsole {
 
 	@Command({ command: &#x27;embedded [type] [limit]&#x27; })
 	async syncEmbeddedFiles(type: AvailableSyncParentType, limit &#x3D; 1000): Promise&lt;void&gt; {
-		if (type !&#x3D;&#x3D; FileRecordParentType.Lesson &amp;&amp; type !&#x3D;&#x3D; FileRecordParentType.Task) {
+		if (
+			type !&#x3D;&#x3D; FileRecordParentType.Lesson &amp;&amp;
+			type !&#x3D;&#x3D; FileRecordParentType.Task &amp;&amp;
+			type !&#x3D;&#x3D; FileRecordParentType.Submission
+		) {
 			this.logger.log(&#x27;wrong parent type&#x27;);
 			return;
 		}

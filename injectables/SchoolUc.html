@@ -80,15 +80,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#createOrUpdate" >createOrUpdate</a>
+                                <a href="#getMigration" >getMigration</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#hasFeature" >hasFeature</a>
+                                <a href="#getPublicSchoolData" >getPublicSchoolData</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#saveProvisioningSchoolOutputDto" >saveProvisioningSchoolOutputDto</a>
+                                <a href="#setMigration" >setMigration</a>
                             </li>
                         </ul>
                     </td>
@@ -108,12 +108,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>)</code>
+<code>constructor(schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, authService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -142,6 +142,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthorizationService.html" target="_self" >AuthorizationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -160,97 +172,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createOrUpdate"></a>
+                    <a name="getMigration"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>createOrUpdate</b></span>
-                        <a href="#createOrUpdate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getMigration</b></span>
+                        <a href="#getMigration"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createOrUpdate(schoolDto: <a href="../classess/SchoolDto.html" target="_self">SchoolDto</a>)</code>
+                    <code>getMigration(schoolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:16</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>schoolDto</td>
-                                    <td>
-                                                <code><a href="../classess/SchoolDto.html" target="_self" >SchoolDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/School.html" target="_self" >Promise&lt;SchoolDto&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hasFeature"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>hasFeature</b></span>
-                        <a href="#hasFeature"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasFeature(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, feature: <a href="../classes/School.html" target="_self">SchoolFeatures</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:35</a></div>
                 </td>
             </tr>
 
@@ -273,7 +214,7 @@
                                 <tr>
                                     <td>schoolId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -283,9 +224,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>feature</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../classes/School.html" target="_self" >SchoolFeatures</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -300,7 +241,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/OauthMigrationDto.html" target="_self" >Promise&lt;OauthMigrationDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -314,26 +255,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="saveProvisioningSchoolOutputDto"></a>
+                    <a name="getPublicSchoolData"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>saveProvisioningSchoolOutputDto</b></span>
-                        <a href="#saveProvisioningSchoolOutputDto"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getPublicSchoolData</b></span>
+                        <a href="#getPublicSchoolData"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>saveProvisioningSchoolOutputDto(schoolDto: <a href="../classes/ProvisioningSchoolOutputDto.html" target="_self">ProvisioningSchoolOutputDto</a>)</code>
+                    <code>getPublicSchoolData(schoolnumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:45</a></div>
                 </td>
             </tr>
 
@@ -354,9 +295,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>schoolDto</td>
+                                    <td>schoolnumber</td>
                                     <td>
-                                                <code><a href="../classes/ProvisioningSchoolOutputDto.html" target="_self" >ProvisioningSchoolOutputDto</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -371,7 +312,126 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/School.html" target="_self" >Promise&lt;SchoolDto&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/School.html" target="_self" >Promise&lt;PublicSchoolResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMigration"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>setMigration</b></span>
+                        <a href="#setMigration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMigration(schoolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, oauthMigrationPossible: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, oauthMigrationMandatory: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, oauthMigrationFinished: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:14</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>schoolId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>oauthMigrationPossible</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>oauthMigrationMandatory</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>oauthMigrationFinished</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/OauthMigrationDto.html" target="_self" >Promise&lt;OauthMigrationDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -387,27 +447,57 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { SchoolService } from &#x27;@src/modules/school/service/school.service&#x27;;
-import { ProvisioningSchoolOutputDto } from &#x27;@src/modules/provisioning/dto/provisioning-school-output.dto&#x27;;
-import { SchoolUcMapper } from &#x27;@src/modules/school/mapper/school.uc.mapper&#x27;;
-import { EntityId, SchoolFeatures } from &#x27;@shared/domain&#x27;;
+import { Actions, Permission } from &#x27;@shared/domain&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
+import { AuthorizationService, AllowedAuthorizationEntityType } from &#x27;../../authorization&#x27;;
+import { OauthMigrationDto } from &#x27;../dto/oauth-migration.dto&#x27;;
+import { PublicSchoolResponse } from &#x27;../controller/dto/public.school.response&#x27;;
+import { SchoolUcMapper } from &#x27;../mapper/school.uc.mapper&#x27;;
 
 @Injectable()
 export class SchoolUc {
-	constructor(readonly schoolService: SchoolService) {}
+	constructor(readonly schoolService: SchoolService, readonly authService: AuthorizationService) {}
 
-	async saveProvisioningSchoolOutputDto(schoolDto: ProvisioningSchoolOutputDto): Promise&lt;SchoolDto&gt; {
-		return this.createOrUpdate(SchoolUcMapper.mapFromProvisioningSchoolOutputDtoToSchoolDto(schoolDto));
+	async setMigration(
+		schoolId: string,
+		oauthMigrationPossible: boolean,
+		oauthMigrationMandatory: boolean,
+		oauthMigrationFinished: boolean,
+		userId: string
+	): Promise&lt;OauthMigrationDto&gt; {
+		await this.authService.checkPermissionByReferences(userId, AllowedAuthorizationEntityType.School, schoolId, {
+			action: Actions.read,
+			requiredPermissions: [Permission.SCHOOL_EDIT],
+		});
+		const migrationDto: OauthMigrationDto &#x3D; await this.schoolService.setMigration(
+			schoolId,
+			oauthMigrationPossible,
+			oauthMigrationMandatory,
+			oauthMigrationFinished
+		);
+
+		return migrationDto;
 	}
 
-	async createOrUpdate(schoolDto: SchoolDto): Promise&lt;SchoolDto&gt; {
-		return this.schoolService.createOrUpdateSchool(schoolDto);
+	async getMigration(schoolId: string, userId: string): Promise&lt;OauthMigrationDto&gt; {
+		await this.authService.checkPermissionByReferences(userId, AllowedAuthorizationEntityType.School, schoolId, {
+			action: Actions.read,
+			requiredPermissions: [Permission.SCHOOL_EDIT],
+		});
+		const migrationDto: OauthMigrationDto &#x3D; await this.schoolService.getMigration(schoolId);
+
+		return migrationDto;
 	}
 
-	async hasFeature(schoolId: EntityId, feature: SchoolFeatures): Promise&lt;boolean&gt; {
-		return this.schoolService.hasFeature(schoolId, feature);
+	async getPublicSchoolData(schoolnumber: string): Promise&lt;PublicSchoolResponse&gt; {
+		const schoolDO: SchoolDO | null &#x3D; await this.schoolService.getSchoolBySchoolNumber(schoolnumber);
+		if (schoolDO) {
+			const response: PublicSchoolResponse &#x3D; SchoolUcMapper.mapDOToPublicResponse(schoolDO);
+			return response;
+		}
+		throw new NotFoundException(&#x60;No school found for schoolnumber: ${schoolnumber}&#x60;);
 	}
 }
 </code></pre>

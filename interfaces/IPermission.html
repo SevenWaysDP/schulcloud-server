@@ -121,8 +121,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/shared/domain/interface/permission.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/domain/interface/permission.ts:15</a></div>
                 </td>
             </tr>
 
@@ -204,13 +204,14 @@
 import type { BaseEntity, User } from &#x27;../entity&#x27;;
 import { BaseDomainObject } from &#x27;./base-domain-object&#x27;;
 import { Permission } from &#x27;./permission.enum&#x27;;
+import { BaseDO } from &#x27;../domainobject&#x27;;
 
 export interface IPermissionContext {
 	action: Actions;
 	requiredPermissions: Permission[];
 }
 
-export type PermissionTypes &#x3D; BaseDomainObject | BaseEntity;
+export type PermissionTypes &#x3D; BaseDomainObject | BaseEntity | BaseDO;
 
 export interface IPermission&lt;T &#x3D; PermissionTypes&gt; {
 	hasPermission(user: User, entity: T, context: IPermissionContext): boolean;

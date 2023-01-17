@@ -241,29 +241,33 @@ export class SanisResponseName {
 
 export class SanisResponsePersonenkontext {
 	constructor(sanisResponsePersonenkontext: SanisResponsePersonenkontext) {
-		this.ktid &#x3D; sanisResponsePersonenkontext.ktid;
+		this.id &#x3D; sanisResponsePersonenkontext.id;
 		this.rolle &#x3D; sanisResponsePersonenkontext.rolle;
 		this.organisation &#x3D; sanisResponsePersonenkontext.organisation;
 		this.personenstatus &#x3D; sanisResponsePersonenkontext.personenstatus;
+		this.email &#x3D; sanisResponsePersonenkontext.email;
 	}
 
-	ktid: UUID;
+	id: UUID;
 
 	rolle: SanisRole;
 
 	organisation: SanisResponseOrganisation;
 
 	personenstatus: string;
+
+	// TODO change if neccessary once we have the proper specification
+	email: string;
 }
 
 export class SanisResponseOrganisation {
 	constructor(sanisResponseOrganisation: SanisResponseOrganisation) {
-		this.orgid &#x3D; sanisResponseOrganisation.orgid;
+		this.id &#x3D; sanisResponseOrganisation.id;
 		this.name &#x3D; sanisResponseOrganisation.name;
 		this.typ &#x3D; sanisResponseOrganisation.typ;
 	}
 
-	orgid: UUID;
+	id: UUID;
 
 	name: string;
 

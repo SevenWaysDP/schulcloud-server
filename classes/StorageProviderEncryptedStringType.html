@@ -230,7 +230,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>convertToDatabaseValue(value: string | undefined, platform: Platform)</code>
+<code>convertToDatabaseValue(value: string | undefined)</code>
                 </td>
             </tr>
 
@@ -270,18 +270,6 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>platform</td>
-                                    <td>
-                                            <code>Platform</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -311,7 +299,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>convertToJSValue(value: string | undefined, platform: Platform)</code>
+<code>convertToJSValue(value: string | undefined)</code>
                 </td>
             </tr>
 
@@ -351,18 +339,6 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>platform</td>
-                                    <td>
-                                            <code>Platform</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -389,9 +365,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import CryptoJs from &#x27;crypto-js&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
-import { Type, Platform } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
+import { Type } from &#x27;@mikro-orm/core&#x27;;
+import CryptoJs from &#x27;crypto-js&#x27;;
 
 /**
  * Serialization type to transparent encrypt string values in database.
@@ -409,7 +385,7 @@ export class StorageProviderEncryptedStringType extends Type&lt;string, string&g
 		}
 	}
 
-	convertToDatabaseValue(value: string | undefined, platform: Platform): string {
+	convertToDatabaseValue(value: string | undefined): string {
 		// keep nullish values
 		if (value &#x3D;&#x3D; null) {
 			return value as unknown as string;
@@ -424,7 +400,7 @@ export class StorageProviderEncryptedStringType extends Type&lt;string, string&g
 		return encryptedString;
 	}
 
-	convertToJSValue(value: string | undefined, platform: Platform): string {
+	convertToJSValue(value: string | undefined): string {
 		// keep nullish values
 		if (value &#x3D;&#x3D; null) {
 			return value as unknown as string;

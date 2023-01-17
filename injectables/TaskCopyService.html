@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/task-copy.service.ts</code>
+            <code>apps/server/src/modules/task/service/task-copy.service.ts</code>
         </p>
 
 
@@ -79,11 +79,22 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#copyTaskMetadata" >copyTaskMetadata</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyTask" >copyTask</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#defaultTaskStatusElements" >defaultTaskStatusElements</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyTaskEntity" >copyTaskEntity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deriveCopyStatus" >deriveCopyStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateFileUrls" >updateFileUrls</a>
                             </li>
                         </ul>
                     </td>
@@ -103,12 +114,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
+<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, copyFilesService: <a href="../injectables/CopyFilesService.html" target="_self">CopyFilesService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -126,10 +137,34 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
+                                                        <td>taskRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskRepo.html" target="_self" >TaskRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>copyHelperService</td>
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>copyFilesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CopyFilesService.html" target="_self" >CopyFilesService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -155,24 +190,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="copyTaskMetadata"></a>
+                    <a name="copyTask"></a>
                     <span class="name">
-                        <span ><b>copyTaskMetadata</b></span>
-                        <a href="#copyTaskMetadata"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyTask</b></span>
+                        <a href="#copyTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>copyTaskMetadata(params: <a href="../classes/Task.html" target="_self">TaskCopyParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyTask(params: <a href="../classes/Task.html" target="_self">TaskCopyParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -210,6 +247,221 @@
                     <div>
                     </div>
                     <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyTaskEntity"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyTaskEntity</b></span>
+                        <a href="#copyTaskEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyTaskEntity(params: <a href="../classes/Task.html" target="_self">TaskCopyParams</a>, originalTask: <a href="../classes/Task.html" target="_self">Task</a>, user: <a href="../interfaces/User.html" target="_self">User</a>, destinationCourse: <a href="../entitys/Course.html" target="_self">Course | undefined</a>, destinationLesson: <a href="../entitys/Lesson.html" target="_self">Lesson | undefined</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >TaskCopyParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>originalTask</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>destinationCourse</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course | undefined</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>destinationLesson</td>
+                                    <td>
+                                                <code><a href="../entitys/Lesson.html" target="_self" >Lesson | undefined</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deriveCopyStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>deriveCopyStatus</b></span>
+                        <a href="#deriveCopyStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deriveCopyStatus(fileCopyStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, taskCopy: <a href="../classes/Task.html" target="_self">Task</a>, params: <a href="../classes/Task.html" target="_self">TaskCopyParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileCopyStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>taskCopy</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >TaskCopyParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
 
                     </div>
@@ -224,26 +476,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="defaultTaskStatusElements"></a>
+                    <a name="updateFileUrls"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>defaultTaskStatusElements</b></span>
-                        <a href="#defaultTaskStatusElements"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateFileUrls</b></span>
+                        <a href="#updateFileUrls"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>defaultTaskStatusElements()</code>
+                    <code>updateFileUrls(task: <a href="../classes/Task.html" target="_self">Task</a>, fileUrlReplacements: <a href="../classes/File.html" target="_self">FileUrlReplacement[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -252,8 +505,52 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>task</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileUrlReplacements</td>
+                                    <td>
+                                                <code><a href="../classes/File.html" target="_self" >FileUrlReplacement[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -267,10 +564,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Course, Lesson, Task, User } from &#x27;@shared/domain/entity&#x27;;
-import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;@shared/domain/types&#x27;;
-import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
+import { TaskRepo } from &#x27;@shared/repo&#x27;;
+import { CopyElementType, CopyHelperService, CopyStatus, CopyStatusEnum } from &#x27;@src/modules/copy-helper&#x27;;
+import { CopyFilesService } from &#x27;@src/modules/files-storage-client&#x27;;
+import { FileUrlReplacement } from &#x27;@src/modules/files-storage-client/service/copy-files.service&#x27;;
 
-export type TaskCopyParams &#x3D; {
+type TaskCopyParams &#x3D; {
 	originalTask: Task;
 	destinationCourse?: Course;
 	destinationLesson?: Lesson;
@@ -280,35 +579,57 @@ export type TaskCopyParams &#x3D; {
 
 @Injectable()
 export class TaskCopyService {
-	constructor(private readonly copyHelperService: CopyHelperService) {}
+	constructor(
+		private readonly taskRepo: TaskRepo,
+		private readonly copyHelperService: CopyHelperService,
+		private readonly copyFilesService: CopyFilesService
+	) {}
 
-	copyTaskMetadata(params: TaskCopyParams): CopyStatus {
-		const copy &#x3D; new Task({
-			name: params.copyName || params.originalTask.name,
-			description: params.originalTask.description,
-			descriptionInputFormat: params.originalTask.descriptionInputFormat,
-			school: params.user.school,
-			creator: params.user,
-			course: params.destinationCourse,
-			lesson: params.destinationLesson,
-		});
+	async copyTask(params: TaskCopyParams): Promise&lt;CopyStatus&gt; {
+		const { originalTask, user, destinationCourse, destinationLesson } &#x3D; params;
 
-		const elements &#x3D; [...this.defaultTaskStatusElements()];
+		const taskCopy &#x3D; await this.copyTaskEntity(params, originalTask, user, destinationCourse, destinationLesson);
 
-		const status: CopyStatus &#x3D; {
-			title: copy.name,
-			type: CopyElementType.TASK,
-			status: this.copyHelperService.deriveStatusFromElements(elements),
-			copyEntity: copy,
-			originalEntity: params.originalTask,
-			elements,
-		};
+		const { fileUrlReplacements, fileCopyStatus } &#x3D; await this.copyFilesService.copyFilesOfEntity(
+			originalTask,
+			taskCopy,
+			user.id
+		);
 
-		return status;
+		await this.updateFileUrls(taskCopy, fileUrlReplacements);
+
+		return this.deriveCopyStatus(fileCopyStatus, taskCopy, params);
 	}
 
-	private defaultTaskStatusElements(): CopyStatus[] {
-		return [
+	private async copyTaskEntity(
+		params: TaskCopyParams,
+		originalTask: Task,
+		user: User,
+		destinationCourse: Course | undefined,
+		destinationLesson: Lesson | undefined
+	) {
+		const taskCopy &#x3D; new Task({
+			name: params.copyName || originalTask.name,
+			description: originalTask.description,
+			descriptionInputFormat: params.originalTask.descriptionInputFormat,
+			school: user.school,
+			creator: user,
+			course: destinationCourse,
+			lesson: destinationLesson,
+		});
+		await this.taskRepo.createTask(taskCopy);
+		return taskCopy;
+	}
+
+	private async updateFileUrls(task: Task, fileUrlReplacements: FileUrlReplacement[]) {
+		fileUrlReplacements.forEach(({ regex, replacement }) &#x3D;&gt; {
+			task.description &#x3D; task.description.replace(regex, replacement);
+		});
+		await this.taskRepo.save(task);
+	}
+
+	private deriveCopyStatus(fileCopyStatus: CopyStatus, taskCopy: Task, params: TaskCopyParams) {
+		const elements &#x3D; [
 			{
 				type: CopyElementType.METADATA,
 				status: CopyStatusEnum.SUCCESS,
@@ -321,7 +642,18 @@ export class TaskCopyService {
 				type: CopyElementType.SUBMISSION_GROUP,
 				status: CopyStatusEnum.NOT_DOING,
 			},
+			fileCopyStatus,
 		];
+
+		const status: CopyStatus &#x3D; {
+			title: taskCopy.name,
+			type: CopyElementType.TASK,
+			status: this.copyHelperService.deriveStatusFromElements(elements),
+			copyEntity: taskCopy,
+			originalEntity: params.originalTask,
+			elements,
+		};
+		return status;
 	}
 }
 </code></pre>

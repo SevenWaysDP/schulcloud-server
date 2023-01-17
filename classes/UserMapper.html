@@ -129,7 +129,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapFromDtoToEntity(dto: <a href="../interfaces/User.html" target="_self">UserDto</a>, rolesEntity: <a href="../entitys/Role.html" target="_self">Role[]</a>, schoolEntity: <a href="../classes/School.html" target="_self">School</a>)</code>
+                    <code>mapFromDtoToEntity(dto: <a href="../interfaces/User.html" target="_self">UserDto</a>, rolesEntity: <a href="../entitys/Role.html" target="_self">Role[]</a>, school: <a href="../classes/School.html" target="_self">School</a>)</code>
                 </td>
             </tr>
 
@@ -182,7 +182,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>schoolEntity</td>
+                                    <td>school</td>
                                     <td>
                                                 <code><a href="../classes/School.html" target="_self" >School</a></code>
                                     </td>
@@ -393,12 +393,12 @@ export class UserMapper {
 		});
 	}
 
-	static mapFromDtoToEntity(dto: UserDto, rolesEntity: Role[], schoolEntity: School): User {
+	static mapFromDtoToEntity(dto: UserDto, rolesEntity: Role[], school: School): User {
 		const user &#x3D; new User({
 			email: dto.email,
 			firstName: dto.firstName,
 			lastName: dto.lastName,
-			school: schoolEntity,
+			school,
 			roles: rolesEntity,
 			ldapDn: dto.ldapDn,
 			externalId: dto.externalId,

@@ -87,12 +87,22 @@
                                 <a href="#mapCustomParameterDOToResponse" >mapCustomParameterDOToResponse</a>
                             </li>
                             <li>
+                                <a href="#mapExternalToolDOsToToolConfigurationListResponse" >mapExternalToolDOsToToolConfigurationListResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapExternalToolDOsToToolConfigurationResponses" >mapExternalToolDOsToToolConfigurationResponses</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#mapLti11ToolConfigDOToResponse" >mapLti11ToolConfigDOToResponse</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#mapOauth2ToolConfigDOToResponse" >mapOauth2ToolConfigDOToResponse</a>
+                            </li>
+                            <li>
+                                <a href="#mapToConfigurationTemplateResponse" >mapToConfigurationTemplateResponse</a>
                             </li>
                             <li>
                                 <a href="#mapToResponse" >mapToResponse</a>
@@ -137,8 +147,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:72</a></div>
                 </td>
             </tr>
 
@@ -201,15 +211,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapCustomParameterDOToResponse(customParameterDOS: CustomParameterDO[])</code>
+                    <code>mapCustomParameterDOToResponse(customParameterDOS: <a href="../undefineds/CustomParameter.html" target="_self">CustomParameterDO[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:84</a></div>
                 </td>
             </tr>
 
@@ -232,7 +242,7 @@
                                 <tr>
                                     <td>customParameterDOS</td>
                                     <td>
-                                            <code>CustomParameterDO[]</code>
+                                                <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterDO[]</a></code>
                                     </td>
 
                                     <td>
@@ -247,7 +257,147 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>CustomParameterResponse[]</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterResponse[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapExternalToolDOsToToolConfigurationListResponse"></a>
+                    <span class="name">
+                        <span ><b>mapExternalToolDOsToToolConfigurationListResponse</b></span>
+                        <a href="#mapExternalToolDOsToToolConfigurationListResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapExternalToolDOsToToolConfigurationListResponse(externalTools: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalTools</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ToolConfigurationListResponse.html" target="_self" >ToolConfigurationListResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapExternalToolDOsToToolConfigurationResponses"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>mapExternalToolDOsToToolConfigurationResponses</b></span>
+                        <a href="#mapExternalToolDOsToToolConfigurationResponses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapExternalToolDOsToToolConfigurationResponses(externalTools: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:103</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalTools</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ToolConfigurationEntryResponse.html" target="_self" >ToolConfigurationEntryResponse[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -279,8 +429,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:76</a></div>
                 </td>
             </tr>
 
@@ -350,8 +500,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:80</a></div>
                 </td>
             </tr>
 
@@ -403,6 +553,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mapToConfigurationTemplateResponse"></a>
+                    <span class="name">
+                        <span ><b>mapToConfigurationTemplateResponse</b></span>
+                        <a href="#mapToConfigurationTemplateResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapToConfigurationTemplateResponse(externalToolDO: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:116</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalToolDO</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolConfigurationTemplateResponse.html" target="_self" >ExternalToolConfigurationTemplateResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="mapToResponse"></a>
                     <span class="name">
                         <span ><b>mapToResponse</b></span>
@@ -419,8 +638,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:45</a></div>
                 </td>
             </tr>
 
@@ -490,7 +709,10 @@ import {
 	ExternalToolResponse,
 	Lti11ToolConfigResponse,
 	Oauth2ToolConfigResponse,
+	ToolConfigurationEntryResponse,
+	ToolConfigurationListResponse,
 } from &#x27;../dto&#x27;;
+import { ExternalToolConfigurationTemplateResponse } from &#x27;../dto/response/external-tool-configuration-template.response&#x27;;
 
 const scopeMapping: Record&lt;CustomParameterScope, CustomParameterScopeParams&gt; &#x3D; {
 	[CustomParameterScope.GLOBAL]: CustomParameterScopeParams.GLOBAL,
@@ -560,10 +782,43 @@ export class ExternalToolResponseMapper {
 				name: customParameterDO.name,
 				default: customParameterDO.default,
 				regex: customParameterDO.regex,
+				regexComment: customParameterDO.regexComment,
 				scope: scopeMapping[customParameterDO.scope],
 				location: locationMapping[customParameterDO.location],
 				type: typeMapping[customParameterDO.type],
+				isOptional: customParameterDO.isOptional,
 			};
+		});
+	}
+
+	mapExternalToolDOsToToolConfigurationListResponse(externalTools: ExternalToolDO[]): ToolConfigurationListResponse {
+		return new ToolConfigurationListResponse(this.mapExternalToolDOsToToolConfigurationResponses(externalTools));
+	}
+
+	private mapExternalToolDOsToToolConfigurationResponses(
+		externalTools: ExternalToolDO[]
+	): ToolConfigurationEntryResponse[] {
+		return externalTools.map(
+			(tool: ExternalToolDO) &#x3D;&gt;
+				new ToolConfigurationEntryResponse({
+					id: tool.id || &#x27;&#x27;,
+					name: tool.name,
+					logoUrl: tool.logoUrl,
+				})
+		);
+	}
+
+	mapToConfigurationTemplateResponse(externalToolDO: ExternalToolDO): ExternalToolConfigurationTemplateResponse {
+		const mappedCustomParameter: CustomParameterResponse[] &#x3D; this.mapCustomParameterDOToResponse(
+			externalToolDO.parameters ?? []
+		);
+
+		return new ExternalToolConfigurationTemplateResponse({
+			id: externalToolDO.id || &#x27;&#x27;,
+			name: externalToolDO.name,
+			logoUrl: externalToolDO.logoUrl,
+			parameters: mappedCustomParameter,
+			version: externalToolDO.version,
 		});
 	}
 }

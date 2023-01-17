@@ -225,7 +225,7 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement,
 	@ManyToOne(&#x27;Lesson&#x27;, { fieldName: &#x27;lessonId&#x27;, nullable: true })
 	lesson?: Lesson; // In database exist also null, but it can not set.
 
-	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;, { orphanRemoval: true })
+	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)
 	submissions &#x3D; new Collection&lt;Submission&gt;(this);
 
 	@Index()
@@ -463,6 +463,10 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement,
 	public unpublish(): void {
 		this.private &#x3D; true;
 	}
+}
+
+export function isTask(reference: unknown): reference is Task {
+	return reference instanceof Task;
 }
 </code></pre>
     </div>

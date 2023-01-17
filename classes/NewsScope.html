@@ -345,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/repo/news/news-scope.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/shared/repo/news/news-scope.ts:25</a></div>
                 </td>
             </tr>
 
@@ -563,7 +563,9 @@ import { NewsTargetFilter } from &#x27;./news-target-filter&#x27;;
 export class NewsScope extends Scope&lt;News&gt; {
 	byTargets(targets: NewsTargetFilter[]): NewsScope {
 		const queries: FilterQuery&lt;News&gt;[] &#x3D; targets.map((target) &#x3D;&gt; {
-			return { $and: [{ targetModel: target.targetModel }, { &#x27;target:in&#x27;: target.targetIds }] };
+			return {
+				$and: [{ targetModel: target.targetModel }, { &#x27;target:in&#x27;: target.targetIds }],
+			};
 		});
 		if (queries.length &#x3D;&#x3D;&#x3D; 0) {
 			// mission impossile query to ensure empty query result

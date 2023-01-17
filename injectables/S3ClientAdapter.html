@@ -244,8 +244,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="183"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:183</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="187"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:187</a></div>
                 </td>
             </tr>
 
@@ -328,8 +328,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="148"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:148</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="150"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:150</a></div>
                 </td>
             </tr>
 
@@ -400,8 +400,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:75</a></div>
                 </td>
             </tr>
 
@@ -524,8 +524,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:104</a></div>
                 </td>
             </tr>
 
@@ -589,7 +589,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>get(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>get(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, bytesRange?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -625,6 +625,18 @@
 
                                     <td>
                                         No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>bytesRange</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
                                     </td>
 
 
@@ -668,8 +680,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="172"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:172</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:174</a></div>
                 </td>
             </tr>
 
@@ -740,8 +752,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:127</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:129</a></div>
                 </td>
             </tr>
 
@@ -876,13 +888,14 @@ export class S3ClientAdapter implements IStorageClient {
 		}
 	}
 
-	public async get(path: string): Promise&lt;IGetFileResponse&gt; {
+	public async get(path: string, bytesRange?: string): Promise&lt;IGetFileResponse&gt; {
 		try {
 			this.logger.log({ action: &#x27;get&#x27;, params: { path, bucket: this.config.bucket } });
 
 			const req &#x3D; new GetObjectCommand({
 				Bucket: this.config.bucket,
 				Key: path,
+				Range: bytesRange,
 			});
 
 			const data &#x3D; await this.client.send(req);
@@ -893,6 +906,7 @@ export class S3ClientAdapter implements IStorageClient {
 				data: stream,
 				contentType: data.ContentType,
 				contentLength: data.ContentLength,
+				contentRange: data.ContentRange,
 				etag: data.ETag,
 			};
 		} catch (err) {
@@ -1005,7 +1019,9 @@ export class S3ClientAdapter implements IStorageClient {
 	}
 
 	private async remove(paths: string[]) {
-		const pathObjects &#x3D; paths.map((p) &#x3D;&gt; ({ Key: p }));
+		const pathObjects &#x3D; paths.map((p) &#x3D;&gt; {
+			return { Key: p };
+		});
 		const req &#x3D; new DeleteObjectsCommand({
 			Bucket: this.config.bucket,
 			Delete: { Objects: pathObjects },

@@ -233,7 +233,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain/types&#x27;;
 import { LtiPrivacyPermission, LtiRoleType } from &#x27;@shared/domain/entity/ltitool.entity&#x27;;
-import { BaseWithTimestampsDO } from &#x27;./base.do&#x27;;
+import { BaseDO } from &#x27;./base.do&#x27;;
 
 export class CustomLtiProperty {
 	key: string;
@@ -246,7 +246,11 @@ export class CustomLtiProperty {
 	}
 }
 
-export class LtiToolDO extends BaseWithTimestampsDO {
+export class LtiToolDO extends BaseDO {
+	createdAt?: Date;
+
+	updatedAt?: Date;
+
 	name: string;
 
 	url: string;
@@ -287,28 +291,31 @@ export class LtiToolDO extends BaseWithTimestampsDO {
 
 	isHidden: boolean;
 
-	constructor(props: LtiToolDO) {
-		super(props);
-		this.name &#x3D; props.name;
-		this.url &#x3D; props.url;
-		this.key &#x3D; props.key;
-		this.secret &#x3D; props.secret;
-		this.logo_url &#x3D; props.logo_url;
-		this.lti_message_type &#x3D; props.lti_message_type;
-		this.lti_version &#x3D; props.lti_version;
-		this.resource_link_id &#x3D; props.resource_link_id;
-		this.roles &#x3D; props.roles;
-		this.privacy_permission &#x3D; props.privacy_permission;
-		this.customs &#x3D; props.customs;
-		this.isTemplate &#x3D; props.isTemplate;
-		this.isLocal &#x3D; props.isLocal;
-		this.originToolId &#x3D; props.originToolId;
-		this.oAuthClientId &#x3D; props.oAuthClientId;
-		this.friendlyUrl &#x3D; props.friendlyUrl;
-		this.skipConsent &#x3D; props.skipConsent;
-		this.openNewTab &#x3D; props.openNewTab;
-		this.frontchannel_logout_uri &#x3D; props.frontchannel_logout_uri;
-		this.isHidden &#x3D; props.isHidden;
+	constructor(domainObject: LtiToolDO) {
+		super(domainObject.id);
+
+		this.createdAt &#x3D; domainObject.createdAt;
+		this.updatedAt &#x3D; domainObject.updatedAt;
+		this.name &#x3D; domainObject.name;
+		this.url &#x3D; domainObject.url;
+		this.key &#x3D; domainObject.key;
+		this.secret &#x3D; domainObject.secret;
+		this.logo_url &#x3D; domainObject.logo_url;
+		this.lti_message_type &#x3D; domainObject.lti_message_type;
+		this.lti_version &#x3D; domainObject.lti_version;
+		this.resource_link_id &#x3D; domainObject.resource_link_id;
+		this.roles &#x3D; domainObject.roles;
+		this.privacy_permission &#x3D; domainObject.privacy_permission;
+		this.customs &#x3D; domainObject.customs;
+		this.isTemplate &#x3D; domainObject.isTemplate;
+		this.isLocal &#x3D; domainObject.isLocal;
+		this.originToolId &#x3D; domainObject.originToolId;
+		this.oAuthClientId &#x3D; domainObject.oAuthClientId;
+		this.friendlyUrl &#x3D; domainObject.friendlyUrl;
+		this.skipConsent &#x3D; domainObject.skipConsent;
+		this.openNewTab &#x3D; domainObject.openNewTab;
+		this.frontchannel_logout_uri &#x3D; domainObject.frontchannel_logout_uri;
+		this.isHidden &#x3D; domainObject.isHidden;
 	}
 }
 </code></pre>

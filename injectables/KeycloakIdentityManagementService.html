@@ -97,17 +97,28 @@
                                 <a href="#extractAccount" >extractAccount</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractAttributeValue" >extractAttributeValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAccountByFctIntId" >findAccountByFctIntId</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findAccountById" >findAccountById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getAllAccounts" >getAllAccounts</a>
+                                <a href="#findAccountByTecRefId" >findAccountByTecRefId</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#resetPassword" >resetPassword</a>
+                                <a href="#findAccountByUsername" >findAccountByUsername</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllAccounts" >getAllAccounts</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -199,7 +210,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createAccount(account: <a href="../interfaces/IAccount.html" target="_self">IAccount</a>, password?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>createAccount(account: <a href="../classes/Account.html" target="_self">IAccount</a>, password?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -236,7 +247,7 @@
                                 <tr>
                                     <td>account</td>
                                     <td>
-                                                <code><a href="../interfaces/IAccount.html" target="_self" >IAccount</a></code>
+                                                <code><a href="../classes/Account.html" target="_self" >IAccount</a></code>
                                     </td>
 
                                     <td>
@@ -288,7 +299,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteAccountById(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>deleteAccountById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -301,7 +312,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:67</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:127</a></code>
 </div>
                 </td>
             </tr>
@@ -323,7 +334,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>accountId</td>
+                                    <td>id</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -372,8 +383,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-identity-management.service.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-identity-management.service.ts:132</a></div>
                 </td>
             </tr>
 
@@ -411,7 +422,151 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/IAccount.html" target="_self" >IAccount</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >IAccount</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractAttributeValue"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>extractAttributeValue</b></span>
+                        <a href="#extractAttributeValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractAttributeValue(value)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-identity-management.service.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAccountByFctIntId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAccountByFctIntId</b></span>
+                        <a href="#findAccountByFctIntId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAccountByFctIntId(accountFctIntId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/IdentityManagementService.html" target="_self" >IdentityManagementService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:99</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>accountFctIntId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;IAccount&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -436,7 +591,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAccountById(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>findAccountById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -449,7 +604,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:54</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:77</a></code>
 </div>
                 </td>
             </tr>
@@ -471,7 +626,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>accountId</td>
+                                    <td>id</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -488,7 +643,161 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/IAccount.html" target="_self" >Promise&lt;IAccount&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;IAccount&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAccountByTecRefId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAccountByTecRefId</b></span>
+                        <a href="#findAccountByTecRefId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAccountByTecRefId(accountTecRefId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/IdentityManagementService.html" target="_self" >IdentityManagementService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:85</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>accountTecRefId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;IAccount&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAccountByUsername"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAccountByUsername</b></span>
+                        <a href="#findAccountByUsername"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAccountByUsername(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/IdentityManagementService.html" target="_self" >IdentityManagementService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:114</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>username</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;IAccount | undefined&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -526,7 +835,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:62</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:122</a></code>
 </div>
                 </td>
             </tr>
@@ -536,92 +845,8 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/IAccount.html" target="_self" >Promise&lt;IAccount[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;IAccount[]&gt;</a></code>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="resetPassword"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>resetPassword</b></span>
-                        <a href="#resetPassword"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resetPassword(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-identity-management.service.ts:82</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>accountId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>password</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -642,7 +867,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateAccount(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, account: <a href="../interfaces/IAccountUpdate.html" target="_self">IAccountUpdate</a>)</code>
+                    <code>updateAccount(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, account: <a href="../classes/Account.html" target="_self">IAccountUpdate</a>)</code>
                 </td>
             </tr>
 
@@ -655,7 +880,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:35</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:47</a></code>
 </div>
                 </td>
             </tr>
@@ -677,7 +902,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>accountId</td>
+                                    <td>id</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -691,7 +916,7 @@
                                 <tr>
                                     <td>account</td>
                                     <td>
-                                                <code><a href="../interfaces/IAccountUpdate.html" target="_self" >IAccountUpdate</a></code>
+                                                <code><a href="../classes/Account.html" target="_self" >IAccountUpdate</a></code>
                                     </td>
 
                                     <td>
@@ -731,7 +956,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateAccountPassword(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>updateAccountPassword(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -744,7 +969,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:49</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementService.html#source" target="_self" >IdentityManagementService:63</a></code>
 </div>
                 </td>
             </tr>
@@ -766,7 +991,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>accountId</td>
+                                    <td>id</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -826,50 +1051,110 @@ export class KeycloakIdentityManagementService extends IdentityManagementService
 	}
 
 	async createAccount(account: IAccount, password?: string): Promise&lt;string&gt; {
-		const id &#x3D; await (
-			await this.kcAdminClient.callKcAdminClient()
-		).users.create({
-			username: account.userName,
+		const kc &#x3D; await this.kcAdminClient.callKcAdminClient();
+		const id &#x3D; await kc.users.create({
+			username: account.username,
 			email: account.email,
 			firstName: account.firstName,
 			lastName: account.lastName,
+			enabled: true,
+			attributes: {
+				refTechnicalId: account.attRefTechnicalId,
+				refFunctionalIntId: account.attRefFunctionalIntId,
+				refFunctionalExtId: account.attRefFunctionalExtId,
+			},
 		});
 		if (id &amp;&amp; password) {
 			try {
-				await this.resetPassword(id.id, password);
+				await kc.users.resetPassword({
+					id: id.id,
+					credential: {
+						temporary: false,
+						type: &#x27;password&#x27;,
+						value: password,
+					},
+				});
 			} catch (err) {
-				await this.deleteAccountById(id.id);
+				await kc.users.del(id);
 				throw err;
 			}
 		}
 		return id.id;
 	}
 
-	async updateAccount(accountId: string, account: IAccountUpdate): Promise&lt;string&gt; {
+	async updateAccount(id: string, account: IAccountUpdate): Promise&lt;string&gt; {
 		await (
 			await this.kcAdminClient.callKcAdminClient()
 		).users.update(
-			{ id: accountId },
+			{ id },
 			{
+				username: account.username,
 				email: account.email,
 				firstName: account.firstName,
 				lastName: account.lastName,
+				enabled: true,
 			}
 		);
-		return accountId;
+		return id;
 	}
 
-	async updateAccountPassword(accountId: string, password: string): Promise&lt;string&gt; {
-		await this.resetPassword(accountId, password);
-		return accountId;
+	async updateAccountPassword(id: string, password: string): Promise&lt;string&gt; {
+		await (
+			await this.kcAdminClient.callKcAdminClient()
+		).users.resetPassword({
+			id,
+			credential: {
+				temporary: false,
+				type: &#x27;password&#x27;,
+				value: password,
+			},
+		});
+		return id;
 	}
 
-	async findAccountById(accountId: string): Promise&lt;IAccount&gt; {
-		const keycloakUser &#x3D; await (await this.kcAdminClient.callKcAdminClient()).users.findOne({ id: accountId });
+	async findAccountById(id: string): Promise&lt;IAccount&gt; {
+		const keycloakUser &#x3D; await (await this.kcAdminClient.callKcAdminClient()).users.findOne({ id });
 		if (!keycloakUser) {
-			throw Error(&#x60;Account &#x27;${accountId}&#x27; not found&#x60;);
+			throw new Error(&#x60;Account &#x27;${id}&#x27; not found&#x60;);
 		}
 		return this.extractAccount(keycloakUser);
+	}
+
+	async findAccountByTecRefId(accountTecRefId: string): Promise&lt;IAccount&gt; {
+		const keycloakUsers &#x3D; await (
+			await this.kcAdminClient.callKcAdminClient()
+		).users.find({ q: &#x60;refTechnicalId:${accountTecRefId} }&#x60; });
+		if (keycloakUsers.length &gt; 1) {
+			throw new Error(&#x27;Multiple accounts for the same id!&#x27;);
+		}
+		if (keycloakUsers.length &#x3D;&#x3D;&#x3D; 0) {
+			throw new Error(&#x60;Account &#x27;${accountTecRefId}&#x27; not found&#x60;);
+		}
+
+		return this.extractAccount(keycloakUsers[0]);
+	}
+
+	async findAccountByFctIntId(accountFctIntId: string): Promise&lt;IAccount&gt; {
+		const keycloakUsers &#x3D; await (
+			await this.kcAdminClient.callKcAdminClient()
+		).users.find({ q: &#x60;refFunctionalIntId:${accountFctIntId} }&#x60; });
+
+		if (keycloakUsers.length &gt; 1) {
+			throw new Error(&#x27;Multiple accounts for the same id!&#x27;);
+		}
+		if (keycloakUsers.length &#x3D;&#x3D;&#x3D; 0) {
+			throw new Error(&#x60;Account &#x27;${accountFctIntId}&#x27; not found&#x60;);
+		}
+
+		return this.extractAccount(keycloakUsers[0]);
+	}
+
+	async findAccountByUsername(username: string): Promise&lt;IAccount | undefined&gt; {
+		const [keycloakUser] &#x3D; await (await this.kcAdminClient.callKcAdminClient()).users.find({ username });
+		if (keycloakUser) {
+			return this.extractAccount(keycloakUser);
+		}
+		return undefined;
 	}
 
 	async getAllAccounts(): Promise&lt;IAccount[]&gt; {
@@ -877,32 +1162,32 @@ export class KeycloakIdentityManagementService extends IdentityManagementService
 		return keycloakUsers.map((user: UserRepresentation) &#x3D;&gt; this.extractAccount(user));
 	}
 
-	async deleteAccountById(accountId: string): Promise&lt;string&gt; {
-		await (await this.kcAdminClient.callKcAdminClient()).users.del({ id: accountId });
-		return accountId;
+	async deleteAccountById(id: string): Promise&lt;string&gt; {
+		await (await this.kcAdminClient.callKcAdminClient()).users.del({ id });
+		return id;
 	}
 
 	private extractAccount(user: UserRepresentation): IAccount {
-		return {
-			id: user.id,
-			userName: user.username,
+		const ret: IAccount &#x3D; {
+			id: user.id ?? &#x27;&#x27;,
+			username: user.username,
 			email: user.email,
 			firstName: user.firstName,
 			lastName: user.lastName,
+			createdDate: user.createdTimestamp ? new Date(user.createdTimestamp) : undefined,
 		};
+		ret.attRefFunctionalExtId &#x3D; this.extractAttributeValue(user.attributes?.refFunctionalExtId);
+		ret.attRefFunctionalIntId &#x3D; this.extractAttributeValue(user.attributes?.refFunctionalIntId);
+		ret.attRefTechnicalId &#x3D; this.extractAttributeValue(user.attributes?.refTechnicalId);
+
+		return ret;
 	}
 
-	private async resetPassword(accountId: string, password: string) {
-		await (
-			await this.kcAdminClient.callKcAdminClient()
-		).users.resetPassword({
-			id: accountId,
-			credential: {
-				temporary: false,
-				type: &#x27;password&#x27;,
-				value: password,
-			},
-		});
+	private extractAttributeValue(value: unknown): string {
+		if (Array.isArray(value)) {
+			return value[0] as string;
+		}
+		return value as string;
 	}
 }
 </code></pre>

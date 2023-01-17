@@ -149,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:68</a></div>
                 </td>
             </tr>
 
@@ -239,8 +239,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:79</a></div>
                 </td>
             </tr>
 
@@ -341,8 +341,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:34</a></div>
                 </td>
             </tr>
 
@@ -431,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:44</a></div>
                 </td>
             </tr>
 
@@ -533,8 +533,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:58</a></div>
                 </td>
             </tr>
 
@@ -615,11 +615,11 @@ import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { RequestTimeout } from &#x27;@shared/common&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { LessonCopyUC } from &#x27;@src/modules/learnroom/uc/lesson-copy.uc&#x27;;
+import { CopyApiResponse, CopyMapper } from &#x27;@src/modules/copy-helper&#x27;;
 import { serverConfig } from &#x27;@src/modules/server/server.config&#x27;;
-import { CopyMapper } from &#x27;../mapper/copy.mapper&#x27;;
 import { RoomBoardResponseMapper } from &#x27;../mapper/room-board-response.mapper&#x27;;
 import { CourseCopyUC } from &#x27;../uc/course-copy.uc&#x27;;
+import { LessonCopyUC } from &#x27;../uc/lesson-copy.uc&#x27;;
 import { RoomsUc } from &#x27;../uc/rooms.uc&#x27;;
 import {
 	BoardResponse,
@@ -630,7 +630,6 @@ import {
 	RoomElementUrlParams,
 	RoomUrlParams,
 } from &#x27;./dto&#x27;;
-import { CopyApiResponse } from &#x27;./dto/copy.response&#x27;;
 
 @ApiTags(&#x27;Rooms&#x27;)
 @Authenticate(&#x27;jwt&#x27;)

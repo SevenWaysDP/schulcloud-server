@@ -100,12 +100,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(responseMapper: <a href="../injectables/SanisResponseMapper.html" target="_self">SanisResponseMapper</a>, schoolUc: <a href="../injectables/SchoolUc.html" target="_self">SchoolUc</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>)</code>
+<code>constructor(responseMapper: <a href="../injectables/SanisResponseMapper.html" target="_self">SanisResponseMapper</a>, schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/service/sanis-school.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/service/sanis-school.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -135,22 +135,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>schoolUc</td>
+                                                        <td>schoolService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/SchoolUc.html" target="_self" >SchoolUc</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>schoolRepo</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/SchoolRepo.html" target="_self" >SchoolRepo</a></code>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -194,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/service/sanis-school.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/service/sanis-school.service.ts:13</a></div>
                 </td>
             </tr>
 
@@ -245,7 +233,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/School.html" target="_self" >Promise&lt;SchoolDto&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/School.html" target="_self" >Promise&lt;SchoolDO&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -263,28 +251,21 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { SanisResponse } from &#x27;@src/modules/provisioning/strategy/sanis/sanis.response&#x27;;
-import { EntityId, School } from &#x27;@shared/domain&#x27;;
-import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
 import { ProvisioningSchoolOutputDto } from &#x27;@src/modules/provisioning/dto/provisioning-school-output.dto&#x27;;
 import { SanisResponseMapper } from &#x27;@src/modules/provisioning/strategy/sanis/sanis-response.mapper&#x27;;
-import { SchoolUc } from &#x27;@src/modules/school/uc/school.uc&#x27;;
-import { SchoolRepo } from &#x27;@shared/repo&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
+import { SchoolService } from &#x27;@src/modules/school&#x27;;
 
 @Injectable()
 export class SanisSchoolService {
-	constructor(
-		private readonly responseMapper: SanisResponseMapper,
-		private readonly schoolUc: SchoolUc,
-		private readonly schoolRepo: SchoolRepo
-	) {}
+	constructor(private readonly responseMapper: SanisResponseMapper, private readonly schoolService: SchoolService) {}
 
-	async provisionSchool(data: SanisResponse, systemId: EntityId): Promise&lt;SchoolDto&gt; {
+	async provisionSchool(data: SanisResponse, systemId: EntityId): Promise&lt;SchoolDO&gt; {
 		const school: ProvisioningSchoolOutputDto &#x3D; this.responseMapper.mapToSchoolDto(data, systemId);
-		const schoolEntity: School | null &#x3D; await this.schoolRepo.findByExternalId(school.externalId, systemId);
-		if (schoolEntity instanceof School) {
-			school.id &#x3D; schoolEntity.id;
-		}
-		const savedSchool: SchoolDto &#x3D; await this.schoolUc.saveProvisioningSchoolOutputDto(school);
+		const schoolDo: SchoolDO | null &#x3D; await this.schoolService.getSchoolByExternalId(school.externalId, systemId);
+		school.id &#x3D; schoolDo ? schoolDo.id : undefined;
+		const savedSchool: SchoolDO &#x3D; await this.schoolService.saveProvisioningSchoolOutputDto(school);
 		return savedSchool;
 	}
 }

@@ -210,8 +210,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:95</a></div>
                 </td>
             </tr>
 
@@ -294,8 +294,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:64</a></div>
                 </td>
             </tr>
 
@@ -366,8 +366,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:128</a></div>
                 </td>
             </tr>
 
@@ -508,8 +508,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:112</a></div>
                 </td>
             </tr>
 
@@ -650,8 +650,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:51</a></div>
                 </td>
             </tr>
 
@@ -802,8 +802,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:42</a></div>
                 </td>
             </tr>
 
@@ -874,8 +874,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:75</a></div>
                 </td>
             </tr>
 
@@ -990,11 +990,7 @@ export class DashboardModelMapper {
 		if (!modelEntity.gridElements.isInitialized()) {
 			await modelEntity.gridElements.init();
 		}
-		const grid &#x3D; await Promise.all(
-			Array.from(modelEntity.gridElements).map(async (e) &#x3D;&gt; {
-				return this.mapElementToEntity(e);
-			})
-		);
+		const grid &#x3D; await Promise.all(Array.from(modelEntity.gridElements).map(async (e) &#x3D;&gt; this.mapElementToEntity(e)));
 		return new DashboardEntity(modelEntity.id, { grid, userId: modelEntity.user.id });
 	}
 

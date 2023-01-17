@@ -128,8 +128,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/modules/sharing/mapper/metadata-type.mapper.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/modules/sharing/mapper/metadata-type.mapper.ts:6</a></div>
                 </td>
             </tr>
 
@@ -188,7 +188,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { LearnroomTypes, ShareTokenParentType } from &#x27;@shared/domain&#x27;;
+import { LearnroomTypes } from &#x27;@shared/domain&#x27;;
+import { ShareTokenParentType } from &#x27;../domainobject/share-token.do&#x27;;
 
 export class MetadataTypeMapper {
 	static mapToAlloweMetadataType(type: ShareTokenParentType): LearnroomTypes {

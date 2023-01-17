@@ -406,11 +406,11 @@ import { HttpService } from &#x27;@nestjs/axios&#x27;;
 import { firstValueFrom } from &#x27;rxjs&#x27;;
 import { AxiosRequestConfig, AxiosResponse } from &#x27;axios&#x27;;
 import { SanisResponseMapper } from &#x27;@src/modules/provisioning/strategy/sanis/sanis-response.mapper&#x27;;
-import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
 import { ProvisioningDto } from &#x27;@src/modules/provisioning/dto/provisioning.dto&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { SanisSchoolService } from &#x27;@src/modules/provisioning/strategy/sanis/service/sanis-school.service&#x27;;
 import { SanisUserService } from &#x27;@src/modules/provisioning/strategy/sanis/service/sanis-user.service&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 
 export type SanisStrategyData &#x3D; {
 	provisioningUrl: string;
@@ -432,7 +432,7 @@ export class SanisProvisioningStrategy extends ProvisioningStrategy&lt;SanisStra
 	override async apply(params: SanisStrategyData): Promise&lt;ProvisioningDto&gt; {
 		const data: SanisResponse &#x3D; await this.getSanisCustomUserinfo(params);
 
-		const school: SchoolDto &#x3D; await this.sanisSchoolService.provisionSchool(data, params.systemId);
+		const school: SchoolDO &#x3D; await this.sanisSchoolService.provisionSchool(data, params.systemId);
 
 		if (!school.id) {
 			throw new InternalServerErrorException(

@@ -318,6 +318,7 @@ export class SanisUserService {
 		const userEntity: UserDO | null &#x3D; await this.userRepo.findByExternalId(user.externalId, systemId);
 		if (userEntity) {
 			user.id &#x3D; userEntity.id;
+			user.email &#x3D; user.email ?? userEntity.email;
 		} else {
 			createNewAccount &#x3D; true;
 		}

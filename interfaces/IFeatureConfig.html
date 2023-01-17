@@ -84,6 +84,12 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                        <a href="#FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED" 
+>
+                                            FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED
+                                        </a>
+                                </li>
+                                <li>
                                         <a href="#FEATURE_IMSCC_COURSE_EXPORT_ENABLED" 
 >
                                             FEATURE_IMSCC_COURSE_EXPORT_ENABLED
@@ -100,6 +106,39 @@
 
             <section>
                 <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED"></a>
+                                        <span class="name "><b>FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED</b>
+                                            <a href="#FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
@@ -151,6 +190,7 @@ export enum NodeEnvType {
 
 interface IFeatureConfig {
 	FEATURE_IMSCC_COURSE_EXPORT_ENABLED: boolean;
+	FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED: boolean;
 }
 
 export interface IServerConfig
@@ -175,6 +215,7 @@ const config: IServerConfig &#x3D; {
 		&#x27;TEACHER_STUDENT_VISIBILITY__IS_CONFIGURABLE&#x27;
 	) as boolean,
 	FEATURE_IMSCC_COURSE_EXPORT_ENABLED: Configuration.get(&#x27;FEATURE_IMSCC_COURSE_EXPORT_ENABLED&#x27;) as boolean,
+	FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED: Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED&#x27;) as boolean,
 };
 
 export const serverConfig &#x3D; () &#x3D;&gt; config;

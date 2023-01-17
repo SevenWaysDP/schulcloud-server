@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">apps/server/src/shared/domain/types/richtext.types.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">apps/server/src/shared/domain/types/richtext.types.ts:5</a></div>
                             </td>
                         </tr>
 
@@ -176,13 +176,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty({description: &#x27;Content of the rich text element&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/domain/types/richtext.types.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/types/richtext.types.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -211,13 +211,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({enum: InputFormat})<br />
+                            @ApiProperty({description: &#x27;Input format of the rich text element&#x27;, enum: InputFormat})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/shared/domain/types/richtext.types.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/shared/domain/types/richtext.types.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -237,18 +237,22 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { InputFormat } from &#x27;@shared/domain/types/input-format.types&#x27;;
+import { sanitizeRichText } from &#x27;../../controller/transformer/sanitize-html.transformer&#x27;;
+import { InputFormat } from &#x27;./input-format.types&#x27;;
 
 export class RichText {
 	constructor({ content, type }: RichText) {
-		this.content &#x3D; content;
+		this.content &#x3D; sanitizeRichText(content, type);
 		this.type &#x3D; type;
 	}
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;Content of the rich text element&#x27;,
+	})
 	content: string;
 
 	@ApiProperty({
+		description: &#x27;Input format of the rich text element&#x27;,
 		enum: InputFormat,
 	})
 	type: InputFormat;

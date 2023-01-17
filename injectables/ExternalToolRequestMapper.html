@@ -79,7 +79,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#mapCreateRequest" >mapCreateRequest</a>
+                            </li>
+                            <li>
                                 <a href="#mapExternalToolFilterQueryToDO" >mapExternalToolFilterQueryToDO</a>
+                            </li>
+                            <li>
+                                <a href="#mapExternalToolRequest" >mapExternalToolRequest</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -88,9 +94,6 @@
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#mapRequestToCustomParameterDO" >mapRequestToCustomParameterDO</a>
-                            </li>
-                            <li>
-                                <a href="#mapRequestToExternalToolDO" >mapRequestToExternalToolDO</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -102,6 +105,9 @@
                             </li>
                             <li>
                                 <a href="#mapSortingQueryToDomain" >mapSortingQueryToDomain</a>
+                            </li>
+                            <li>
+                                <a href="#mapUpdateRequest" >mapUpdateRequest</a>
                             </li>
                         </ul>
                     </td>
@@ -125,6 +131,93 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mapCreateRequest"></a>
+                    <span class="name">
+                        <span ><b>mapCreateRequest</b></span>
+                        <a href="#mapCreateRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapCreateRequest(externalToolPostParams: <a href="../classes/ExternalToolPostParams.html" target="_self">ExternalToolPostParams</a>, version: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalToolPostParams</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolPostParams.html" target="_self" >ExternalToolPostParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>version</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>1</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/ExternalTool.html" target="_self" >CreateExternalTool</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="mapExternalToolFilterQueryToDO"></a>
                     <span class="name">
                         <span ><b>mapExternalToolFilterQueryToDO</b></span>
@@ -141,8 +234,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:107</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:125</a></div>
                 </td>
             </tr>
 
@@ -194,6 +287,93 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mapExternalToolRequest"></a>
+                    <span class="name">
+                        <span ><b>mapExternalToolRequest</b></span>
+                        <a href="#mapExternalToolRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapExternalToolRequest(externalToolPostParams: <a href="../classes/ExternalToolPostParams.html" target="_self">ExternalToolPostParams | ExternalToolUpdateParams</a>, version: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalToolPostParams</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolPostParams.html" target="_self" >ExternalToolPostParams | ExternalToolUpdateParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>version</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>1</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/ExternalTool.html" target="_self" >ExternalTool</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="mapRequestToBasicToolConfigDO"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -212,8 +392,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:86</a></div>
                 </td>
             </tr>
 
@@ -251,7 +431,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/BasicToolConfigDO.html" target="_self" >BasicToolConfigDO</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/BasicToolConfig.html" target="_self" >BasicToolConfig</a></code>
 
                     </div>
                     <div class="io-description">
@@ -276,15 +456,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapRequestToCustomParameterDO(customParameterParams: CustomParameterCreateParams[])</code>
+                    <code>mapRequestToCustomParameterDO(customParameterParams: <a href="../undefineds/CustomParameter.html" target="_self">CustomParameterPostParams[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:98</a></div>
                 </td>
             </tr>
 
@@ -307,7 +487,7 @@
                                 <tr>
                                     <td>customParameterParams</td>
                                     <td>
-                                            <code>CustomParameterCreateParams[]</code>
+                                                <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterPostParams[]</a></code>
                                     </td>
 
                                     <td>
@@ -322,94 +502,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>CustomParameterDO[]</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapRequestToExternalToolDO"></a>
-                    <span class="name">
-                        <span ><b>mapRequestToExternalToolDO</b></span>
-                        <a href="#mapRequestToExternalToolDO"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>mapRequestToExternalToolDO(externalToolParams: <a href="../classes/ExternalToolParams.html" target="_self">ExternalToolParams</a>, version: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:44</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>externalToolParams</td>
-                                    <td>
-                                                <code><a href="../classes/ExternalToolParams.html" target="_self" >ExternalToolParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>version</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>1</code>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/CustomParameter.html" target="_self" >CustomParameter[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -441,8 +534,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:90</a></div>
                 </td>
             </tr>
 
@@ -480,7 +573,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Lti11ToolConfigDO.html" target="_self" >Lti11ToolConfigDO</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Lti11ToolConfig.html" target="_self" >Lti11ToolConfig</a></code>
 
                     </div>
                     <div class="io-description">
@@ -512,8 +605,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:94</a></div>
                 </td>
             </tr>
 
@@ -551,7 +644,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Oauth2ToolConfigDO.html" target="_self" >Oauth2ToolConfigDO</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Oauth2ToolConfig.html" target="_self" >Oauth2ToolConfig</a></code>
 
                     </div>
                     <div class="io-description">
@@ -581,8 +674,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:113</a></div>
                 </td>
             </tr>
 
@@ -630,6 +723,93 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapUpdateRequest"></a>
+                    <span class="name">
+                        <span ><b>mapUpdateRequest</b></span>
+                        <a href="#mapUpdateRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapUpdateRequest(externalToolPostParams: <a href="../entitys/ExternalTool.html" target="_self">ExternalToolUpdateParams</a>, version: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:78</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalToolPostParams</td>
+                                    <td>
+                                                <code><a href="../entitys/ExternalTool.html" target="_self" >ExternalToolUpdateParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>version</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>1</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/ExternalTool.html" target="_self" >UpdateExternalTool</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -637,24 +817,28 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import {
-	BasicToolConfigDO,
-	CustomParameterDO,
-	ExternalToolDO,
-	Lti11ToolConfigDO,
-	Oauth2ToolConfigDO,
-} from &#x27;@shared/domain/domainobject/external-tool&#x27;;
+import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { CustomParameterLocation, CustomParameterScope, CustomParameterType, SortOrderMap } from &#x27;@shared/domain&#x27;;
 import { CustomParameterLocationParams, CustomParameterScopeParams, CustomParameterTypeParams } from &#x27;../../interface&#x27;;
 import {
 	BasicToolConfigParams,
-	CustomParameterCreateParams,
-	ExternalToolParams,
+	CustomParameterPostParams,
+	ExternalToolPostParams,
 	ExternalToolSearchParams,
+	ExternalToolUpdateParams,
 	Lti11ToolConfigParams,
 	Oauth2ToolConfigParams,
 	SortExternalToolParams,
 } from &#x27;../dto&#x27;;
+import {
+	BasicToolConfig,
+	CreateExternalTool,
+	CustomParameter,
+	ExternalTool,
+	Lti11ToolConfig,
+	Oauth2ToolConfig,
+	UpdateExternalTool,
+} from &#x27;../../uc/dto&#x27;;
 
 const scopeMapping: Record&lt;CustomParameterScopeParams, CustomParameterScope&gt; &#x3D; {
 	[CustomParameterScopeParams.GLOBAL]: CustomParameterScope.GLOBAL,
@@ -679,54 +863,68 @@ const typeMapping: Record&lt;CustomParameterTypeParams, CustomParameterType&gt; 
 
 @Injectable()
 export class ExternalToolRequestMapper {
-	mapRequestToExternalToolDO(externalToolParams: ExternalToolParams, version &#x3D; 1): ExternalToolDO {
-		let mappedConfig: BasicToolConfigDO | Lti11ToolConfigDO | Oauth2ToolConfigDO;
-		if (externalToolParams.config instanceof BasicToolConfigParams) {
-			mappedConfig &#x3D; this.mapRequestToBasicToolConfigDO(externalToolParams.config);
-		} else if (externalToolParams.config instanceof Lti11ToolConfigParams) {
-			mappedConfig &#x3D; this.mapRequestToLti11ToolConfigDO(externalToolParams.config);
+	mapExternalToolRequest(
+		externalToolPostParams: ExternalToolPostParams | ExternalToolUpdateParams,
+		version &#x3D; 1
+	): ExternalTool {
+		let mappedConfig: BasicToolConfig | Lti11ToolConfig | Oauth2ToolConfig;
+		if (externalToolPostParams.config instanceof BasicToolConfigParams) {
+			mappedConfig &#x3D; this.mapRequestToBasicToolConfigDO(externalToolPostParams.config);
+		} else if (externalToolPostParams.config instanceof Lti11ToolConfigParams) {
+			mappedConfig &#x3D; this.mapRequestToLti11ToolConfigDO(externalToolPostParams.config);
 		} else {
-			mappedConfig &#x3D; this.mapRequestToOauth2ToolConfigDO(externalToolParams.config);
+			mappedConfig &#x3D; this.mapRequestToOauth2ToolConfigDO(externalToolPostParams.config);
 		}
 
-		const mappedCustomParameter: CustomParameterDO[] &#x3D; this.mapRequestToCustomParameterDO(
-			externalToolParams.parameters ?? []
+		const mappedCustomParameter: CustomParameter[] &#x3D; this.mapRequestToCustomParameterDO(
+			externalToolPostParams.parameters ?? []
 		);
 
-		return new ExternalToolDO({
-			name: externalToolParams.name,
-			url: externalToolParams.url,
-			logoUrl: externalToolParams.logoUrl,
+		return {
+			id: externalToolPostParams.id,
+			name: externalToolPostParams.name || &#x27;&#x27;,
+			url: externalToolPostParams.url,
+			logoUrl: externalToolPostParams.logoUrl,
 			config: mappedConfig,
 			parameters: mappedCustomParameter,
-			isHidden: externalToolParams.isHidden,
-			openNewTab: externalToolParams.openNewTab,
+			isHidden: externalToolPostParams.isHidden &#x3D;&#x3D;&#x3D; undefined ? true : externalToolPostParams.isHidden,
+			openNewTab: externalToolPostParams.openNewTab &#x3D;&#x3D;&#x3D; undefined ? true : externalToolPostParams.openNewTab,
 			version,
-		});
+		};
 	}
 
-	private mapRequestToBasicToolConfigDO(externalToolConfigParams: BasicToolConfigParams): BasicToolConfigDO {
-		return new BasicToolConfigDO({ ...externalToolConfigParams });
+	mapUpdateRequest(externalToolPostParams: ExternalToolUpdateParams, version &#x3D; 1): UpdateExternalTool {
+		return this.mapExternalToolRequest(externalToolPostParams, version);
 	}
 
-	private mapRequestToLti11ToolConfigDO(externalToolConfigParams: Lti11ToolConfigParams): Lti11ToolConfigDO {
-		return new Lti11ToolConfigDO({ ...externalToolConfigParams });
+	mapCreateRequest(externalToolPostParams: ExternalToolPostParams, version &#x3D; 1): CreateExternalTool {
+		return this.mapExternalToolRequest(externalToolPostParams, version);
 	}
 
-	private mapRequestToOauth2ToolConfigDO(externalToolConfigParams: Oauth2ToolConfigParams): Oauth2ToolConfigDO {
-		return new Oauth2ToolConfigDO({ ...externalToolConfigParams });
+	private mapRequestToBasicToolConfigDO(externalToolConfigParams: BasicToolConfigParams): BasicToolConfig {
+		return { ...externalToolConfigParams };
 	}
 
-	private mapRequestToCustomParameterDO(customParameterParams: CustomParameterCreateParams[]): CustomParameterDO[] {
-		return customParameterParams.map((customParameterParam: CustomParameterCreateParams) &#x3D;&gt; {
-			return new CustomParameterDO({
+	private mapRequestToLti11ToolConfigDO(externalToolConfigParams: Lti11ToolConfigParams): Lti11ToolConfig {
+		return { ...externalToolConfigParams };
+	}
+
+	private mapRequestToOauth2ToolConfigDO(externalToolConfigParams: Oauth2ToolConfigParams): Oauth2ToolConfig {
+		return { ...externalToolConfigParams };
+	}
+
+	private mapRequestToCustomParameterDO(customParameterParams: CustomParameterPostParams[]): CustomParameter[] {
+		return customParameterParams.map((customParameterParam: CustomParameterPostParams) &#x3D;&gt; {
+			return {
 				name: customParameterParam.name,
 				default: customParameterParam.default,
 				regex: customParameterParam.regex,
+				regexComment: customParameterParam.regexComment,
 				scope: scopeMapping[customParameterParam.scope],
 				location: locationMapping[customParameterParam.location],
 				type: typeMapping[customParameterParam.type],
-			});
+				isOptional: customParameterParam.isOptional,
+			};
 		});
 	}
 

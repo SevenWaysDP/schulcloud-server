@@ -131,8 +131,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/share-token.do.factory.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/share-token.do.factory.ts:9</a></div>
                 </td>
             </tr>
 
@@ -190,23 +190,27 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, ShareTokenDO, ShareTokenParentType } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain&#x27;;
+import { ShareTokenDO, ShareTokenParentType } from &#x27;@src/modules/sharing/domainobject/share-token.do&#x27;;
 import { ObjectId } from &#x27;bson&#x27;;
 import { Factory } from &#x27;fishery&#x27;;
 
 class ShareTokenFactory extends Factory&lt;ShareTokenDO&gt; {
+	/* istanbul ignore next */
 	withId(id?: EntityId) {
 		return this.params({ id: new ObjectId(id).toHexString() });
 	}
 }
 
-export const shareTokenFactory &#x3D; ShareTokenFactory.define(({ sequence }) &#x3D;&gt; ({
-	token: &#x60;share-token-${sequence}&#x60;,
-	payload: {
-		parentType: ShareTokenParentType.Course,
-		parentId: new ObjectId().toHexString(),
-	},
-}));
+export const shareTokenFactory &#x3D; ShareTokenFactory.define(({ sequence }) &#x3D;&gt; {
+	return {
+		token: &#x60;share-token-${sequence}&#x60;,
+		payload: {
+			parentType: ShareTokenParentType.Course,
+			parentId: new ObjectId().toHexString(),
+		},
+	};
+});
 </code></pre>
     </div>
 </div>

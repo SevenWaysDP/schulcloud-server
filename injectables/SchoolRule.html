@@ -140,7 +140,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../classes/School.html" target="_self">School</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
+                    <code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../entitys/School.html" target="_self">School | SchoolDO</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
                 </td>
             </tr>
 
@@ -153,7 +153,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:15</a></code>
 </div>
                 </td>
             </tr>
@@ -189,7 +189,7 @@
                                 <tr>
                                     <td>entity</td>
                                     <td>
-                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
+                                                <code><a href="../entitys/School.html" target="_self" >School | SchoolDO</a></code>
                                     </td>
 
                                     <td>
@@ -241,7 +241,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isApplicable(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../classes/School.html" target="_self">School</a>)</code>
+                    <code>isApplicable(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../entitys/School.html" target="_self">School | SchoolDO</a>)</code>
                 </td>
             </tr>
 
@@ -254,7 +254,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:8</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:9</a></code>
 </div>
                 </td>
             </tr>
@@ -290,7 +290,7 @@
                                 <tr>
                                     <td>entity</td>
                                     <td>
-                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
+                                                <code><a href="../entitys/School.html" target="_self" >School | SchoolDO</a></code>
                                     </td>
 
                                     <td>
@@ -364,17 +364,19 @@
 import { School, User } from &#x27;../entity&#x27;;
 import { IPermissionContext } from &#x27;../interface/permission&#x27;;
 import { BasePermission } from &#x27;./base-permission&#x27;;
+import { SchoolDO } from &#x27;../domainobject/school.do&#x27;;
 
 @Injectable()
-export class SchoolRule extends BasePermission&lt;School&gt; {
-	public isApplicable(user: User, entity: School): boolean {
-		const isMatched &#x3D; entity instanceof School;
+export class SchoolRule extends BasePermission&lt;School | SchoolDO&gt; {
+	public isApplicable(user: User, entity: School | SchoolDO): boolean {
+		const isMatched: boolean &#x3D; entity instanceof School || entity instanceof SchoolDO;
 
 		return isMatched;
 	}
 
-	public hasPermission(user: User, entity: School, context: IPermissionContext): boolean {
-		const hasPermission &#x3D; this.utils.hasAllPermissions(user, context.requiredPermissions) &amp;&amp; user.school &#x3D;&#x3D;&#x3D; entity;
+	public hasPermission(user: User, entity: School | SchoolDO, context: IPermissionContext): boolean {
+		const hasPermission: boolean &#x3D;
+			this.utils.hasAllPermissions(user, context.requiredPermissions) &amp;&amp; user.school.id &#x3D;&#x3D;&#x3D; entity.id;
 
 		return hasPermission;
 	}

@@ -181,13 +181,14 @@
 import type { BaseEntity, User } from &#x27;../entity&#x27;;
 import { BaseDomainObject } from &#x27;./base-domain-object&#x27;;
 import { Permission } from &#x27;./permission.enum&#x27;;
+import { BaseDO } from &#x27;../domainobject&#x27;;
 
 export interface IPermissionContext {
 	action: Actions;
 	requiredPermissions: Permission[];
 }
 
-export type PermissionTypes &#x3D; BaseDomainObject | BaseEntity;
+export type PermissionTypes &#x3D; BaseDomainObject | BaseEntity | BaseDO;
 
 export interface IPermission&lt;T &#x3D; PermissionTypes&gt; {
 	hasPermission(user: User, entity: T, context: IPermissionContext): boolean;

@@ -117,7 +117,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:101</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:105</a></div>
                             </td>
                         </tr>
 
@@ -182,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:138</a></div>
                 </td>
             </tr>
 
@@ -253,8 +253,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:108</a></div>
                 </td>
             </tr>
 
@@ -304,7 +304,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;[] | []&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;[] | [] | []&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -336,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="115"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:115</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:124</a></div>
                 </td>
             </tr>
 
@@ -431,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:134</a></div>
                 </td>
             </tr>
 
@@ -489,7 +489,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
 import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Counted, File, Lesson, Task } from &#x27;@shared/domain&#x27;;
+import { Counted, File, Lesson, Submission, Task } from &#x27;@shared/domain&#x27;;
 import { FileRecordParentType } from &#x27;@src/modules/files-storage/entity/filerecord.entity&#x27;;
 import { SyncFileItemMapper } from &#x27;../mapper&#x27;;
 import { AvailableSyncEntityType, AvailableSyncParentType, SyncFileItem } from &#x27;../types&#x27;;
@@ -504,6 +504,10 @@ const lessonsQuery &#x3D; {
 	&#x27;contents.component&#x27;: { $eq: &#x27;text&#x27; },
 	&#x27;contents.content.text&#x27;: { $regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;) },
 } as FilterQuery&lt;Lesson&gt;;
+
+const submissionsQuery &#x3D; {
+	comment: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
+};
 
 const filesQuery &#x3D; (fileIds: ObjectId[], parentId: ObjectId) &#x3D;&gt; [
 	{
@@ -587,13 +591,18 @@ const filesQuery &#x3D; (fileIds: ObjectId[], parentId: ObjectId) &#x3D;&gt; [
 export class EmbeddedFilesRepo {
 	constructor(protected readonly _em: EntityManager) {}
 
-	async findElementsToSyncFiles(type: AvailableSyncParentType, limit: number): Promise&lt;Counted&lt;Task[] | Lesson[]&gt;&gt; {
-		let results: Counted&lt;Task[] | Lesson[]&gt; &#x3D; [[], 0];
+	async findElementsToSyncFiles(
+		type: AvailableSyncParentType,
+		limit: number
+	): Promise&lt;Counted&lt;Task[] | Lesson[] | Submission[]&gt;&gt; {
+		let results: Counted&lt;Task[] | Lesson[] | Submission[]&gt; &#x3D; [[], 0];
 
 		if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Task) {
 			results &#x3D; await this._em.findAndCount(Task, tasksQuery, { limit });
 		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Lesson) {
 			results &#x3D; await this._em.findAndCount(Lesson, lessonsQuery, { limit });
+		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Submission) {
+			results &#x3D; await this._em.findAndCount(Submission, submissionsQuery, { limit });
 		}
 		return results;
 	}
@@ -619,6 +628,8 @@ export class EmbeddedFilesRepo {
 			await this._em.aggregate(Task, [{ $match: {} }, { $out: &#x60;homeworks_backup_${date.getTime()}&#x60; }]);
 		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Lesson) {
 			await this._em.aggregate(Lesson, [{ $match: {} }, { $out: &#x60;lessons_backup_${date.getTime()}&#x60; }]);
+		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Submission) {
+			await this._em.aggregate(Submission, [{ $match: {} }, { $out: &#x60;submission_backup_${date.getTime()}&#x60; }]);
 		}
 	}
 }

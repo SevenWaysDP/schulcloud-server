@@ -579,9 +579,7 @@ export class FilesStorageMapper {
 		skip?: number,
 		limit?: number
 	): FileRecordListResponse {
-		const responseFileRecords &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; {
-			return FilesStorageMapper.mapToFileRecordResponse(fileRecord);
-		});
+		const responseFileRecords &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; FilesStorageMapper.mapToFileRecordResponse(fileRecord));
 
 		const response &#x3D; new FileRecordListResponse(responseFileRecords, total, skip, limit);
 		return response;

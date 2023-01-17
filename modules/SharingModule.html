@@ -260,13 +260,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
-import { CourseRepo, ShareTokenRepo } from &#x27;@shared/repo&#x27;;
+import { CourseRepo } from &#x27;@shared/repo&#x27;;
 import { LoggerModule } from &#x27;@src/core/logger&#x27;;
 import { AuthorizationModule } from &#x27;@src/modules/authorization&#x27;;
 import { LearnroomModule } from &#x27;@src/modules/learnroom&#x27;;
 import { ShareTokenController } from &#x27;./controller/share-token.controller&#x27;;
-import { ShareTokenService, TokenGenerator } from &#x27;./service&#x27;;
 import { ShareTokenUC } from &#x27;./uc&#x27;;
+import { ShareTokenService, TokenGenerator } from &#x27;./service&#x27;;
+import { ShareTokenRepo } from &#x27;./repo/share-token.repo&#x27;;
 
 @Module({
 	imports: [AuthorizationModule, LearnroomModule, LoggerModule],

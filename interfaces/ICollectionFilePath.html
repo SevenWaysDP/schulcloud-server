@@ -255,10 +255,12 @@ export class DatabaseManagementUc {
 	 */
 	private async loadAllCollectionsFromDatabase(targetFolder: string): Promise&lt;ICollectionFilePath[]&gt; {
 		const collections &#x3D; await this.databaseManagementService.getCollectionNames();
-		const collectionsWithFilePaths &#x3D; collections.map((collectionName) &#x3D;&gt; ({
-			filePath: this.fileSystemAdapter.joinPath(targetFolder, &#x60;${collectionName}.json&#x60;),
-			collectionName,
-		}));
+		const collectionsWithFilePaths &#x3D; collections.map((collectionName) &#x3D;&gt; {
+			return {
+				filePath: this.fileSystemAdapter.joinPath(targetFolder, &#x60;${collectionName}.json&#x60;),
+				collectionName,
+			};
+		});
 		return collectionsWithFilePaths;
 	}
 
@@ -268,10 +270,12 @@ export class DatabaseManagementUc {
 	 */
 	private async loadAllCollectionsFromFilesystem(baseDir: string): Promise&lt;ICollectionFilePath[]&gt; {
 		const filenames &#x3D; await this.fileSystemAdapter.readDir(baseDir);
-		const collectionsWithFilePaths &#x3D; filenames.map((fileName) &#x3D;&gt; ({
-			filePath: this.fileSystemAdapter.joinPath(baseDir, fileName),
-			collectionName: fileName.split(&#x27;.&#x27;)[0],
-		}));
+		const collectionsWithFilePaths &#x3D; filenames.map((fileName) &#x3D;&gt; {
+			return {
+				filePath: this.fileSystemAdapter.joinPath(baseDir, fileName),
+				collectionName: fileName.split(&#x27;.&#x27;)[0],
+			};
+		});
 		return collectionsWithFilePaths;
 	}
 

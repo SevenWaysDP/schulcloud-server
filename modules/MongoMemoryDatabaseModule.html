@@ -199,7 +199,7 @@ const dbName &#x3D; () &#x3D;&gt; _.times(20, () &#x3D;&gt; _.random(35).toStrin
 const createMikroOrmModule &#x3D; (options: MikroOrmModuleAsyncOptions): DynamicModule &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
 		useFactory: () &#x3D;&gt; {
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions, no-process-env
 			const clientUrl &#x3D; &#x60;${process.env.MONGO_TEST_URI}/${dbName()}&#x60;;
 			return {
 				allowGlobalContext: true, // can be overridden by options

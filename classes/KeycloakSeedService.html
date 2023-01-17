@@ -130,7 +130,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -209,8 +209,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -249,8 +249,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:47</a></div>
                 </td>
             </tr>
 
@@ -333,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:81</a></div>
                 </td>
             </tr>
 
@@ -373,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -412,8 +412,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:13</a></div>
                 </td>
             </tr>
 
@@ -441,6 +441,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import fs from &#x27;node:fs/promises&#x27;;
 import { Inject } from &#x27;@nestjs/common&#x27;;
+import UserRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/userRepresentation&#x27;;
 import { IJsonAccount, IJsonUser, IKeycloakManagementInputFiles, KeycloakManagementInputFiles } from &#x27;../interface&#x27;;
 import { KeycloakAdministrationService } from &#x27;./keycloak-administration.service&#x27;;
 
@@ -485,7 +486,7 @@ export class KeycloakSeedService {
 	}
 
 	private async createOrUpdateIdmAccount(account: IJsonAccount, user: IJsonUser): Promise&lt;boolean&gt; {
-		const idmUserRepresentation &#x3D; {
+		const idmUserRepresentation: UserRepresentation &#x3D; {
 			username: account.username,
 			firstName: user.firstName,
 			lastName: user.lastName,
@@ -498,6 +499,11 @@ export class KeycloakSeedService {
 					credentialData: &#x27;{ &quot;hashIterations&quot;: 10, &quot;algorithm&quot;: &quot;bcrypt&quot;, &quot;additionalParameters&quot;: {}}&#x27;,
 				},
 			],
+			attributes: {
+				refTechnicalId: account._id.$oid,
+				refFunctionalIntId: account.userId.$oid,
+				refFunctionalExtId: account.systemId,
+			},
 		};
 		const kc &#x3D; await this.kcAdmin.callKcAdminClient();
 		const existingAccounts &#x3D; await kc.users.find({ username: account.username, exact: true });

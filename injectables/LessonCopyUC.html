@@ -109,12 +109,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, fileCopyAppendService: <a href="../injectables/FileCopyAppendService.html" target="_self">FileCopyAppendService</a>)</code>
+<code>constructor(authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -191,18 +191,6 @@
                                                     </td>
                                                     
                                                 </tr>
-                                                <tr>
-                                                        <td>fileCopyAppendService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/FileCopyAppendService.html" target="_self" >FileCopyAppendService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -239,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:21</a></div>
                 </td>
             </tr>
 
@@ -334,8 +322,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:57</a></div>
                 </td>
             </tr>
 
@@ -374,8 +362,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:49</a></div>
                 </td>
             </tr>
 
@@ -443,17 +431,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { ForbiddenException, Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
-import { CopyHelperService, CopyStatus, EntityId, Lesson, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
+import { EntityId, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
 import { Permission } from &#x27;@shared/domain/interface/permission.enum&#x27;;
-import { FileCopyAppendService } from &#x27;@shared/domain/service/file-copy-append.service&#x27;;
 import { CourseRepo, LessonRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { LessonCopyService } from &#x27;../service&#x27;;
-
-export type LessonCopyParentParams &#x3D; {
-	courseId?: EntityId;
-	userId: string;
-};
+import { CopyHelperService, CopyStatus } from &#x27;@src/modules/copy-helper&#x27;;
+import { LessonCopyParentParams } from &#x27;@src/modules/lesson&#x27;;
+import { LessonCopyService } from &#x27;@src/modules/lesson/service&#x27;;
 
 @Injectable()
 export class LessonCopyUC {
@@ -462,8 +446,7 @@ export class LessonCopyUC {
 		private readonly lessonCopyService: LessonCopyService,
 		private readonly lessonRepo: LessonRepo,
 		private readonly courseRepo: CourseRepo,
-		private readonly copyHelperService: CopyHelperService,
-		private readonly fileCopyAppendService: FileCopyAppendService
+		private readonly copyHelperService: CopyHelperService
 	) {}
 
 	async copyLesson(userId: EntityId, lessonId: EntityId, parentParams: LessonCopyParentParams): Promise&lt;CopyStatus&gt; {
@@ -484,23 +467,14 @@ export class LessonCopyUC {
 		const existingNames &#x3D; existingLessons.map((l) &#x3D;&gt; l.name);
 		const copyName &#x3D; this.copyHelperService.deriveCopyName(originalLesson.name, existingNames);
 
-		let status &#x3D; await this.lessonCopyService.copyLesson({
+		const copyStatus &#x3D; await this.lessonCopyService.copyLesson({
 			originalLesson,
 			destinationCourse,
 			user,
 			copyName,
 		});
 
-		if (status.copyEntity instanceof Lesson) {
-			const lessonCopy &#x3D; status.copyEntity;
-			await this.lessonRepo.save(lessonCopy);
-			status &#x3D; this.lessonCopyService.updateCopiedEmbeddedTasks(status);
-			status &#x3D; await this.fileCopyAppendService.copyFiles(status, lessonCopy.course.id, userId);
-			const updatedLesson &#x3D; status.copyEntity as Lesson;
-			await this.lessonRepo.save(updatedLesson);
-		}
-
-		return status;
+		return copyStatus;
 	}
 
 	private async getDestinationCourse(courseId: string, user: User) {

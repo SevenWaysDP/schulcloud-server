@@ -196,6 +196,7 @@ export enum NodeEnvType {
 
 interface IFeatureConfig {
 	FEATURE_IMSCC_COURSE_EXPORT_ENABLED: boolean;
+	FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED: boolean;
 }
 
 export interface IServerConfig
@@ -220,6 +221,7 @@ const config: IServerConfig &#x3D; {
 		&#x27;TEACHER_STUDENT_VISIBILITY__IS_CONFIGURABLE&#x27;
 	) as boolean,
 	FEATURE_IMSCC_COURSE_EXPORT_ENABLED: Configuration.get(&#x27;FEATURE_IMSCC_COURSE_EXPORT_ENABLED&#x27;) as boolean,
+	FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED: Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_STORE_ENABLED&#x27;) as boolean,
 };
 
 export const serverConfig &#x3D; () &#x3D;&gt; config;

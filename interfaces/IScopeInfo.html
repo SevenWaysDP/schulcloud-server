@@ -272,14 +272,14 @@ import {
 	VideoConferenceDO,
 	VideoConferenceOptionsDO,
 } from &#x27;@shared/domain&#x27;;
-import { VideoConferenceScope } from &#x27;@shared/domain/interface/vc-scope.enum&#x27;;
+import { VideoConferenceScope } from &#x27;@shared/domain/interface&#x27;;
 import { CalendarService } from &#x27;@shared/infra/calendar&#x27;;
 import { CalendarEventDto } from &#x27;@shared/infra/calendar/dto/calendar-event.dto&#x27;;
 import { CourseRepo, TeamsRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 import { VideoConferenceRepo } from &#x27;@shared/repo/videoconference/video-conference.repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { AllowedAuthorizationEntityType } from &#x27;@src/modules/authorization/interfaces&#x27;;
-import { SchoolUc } from &#x27;@src/modules/school/uc/school.uc&#x27;;
+import { SchoolService } from &#x27;@src/modules/school/service/school.service&#x27;;
 import { BBBCreateConfigBuilder } from &#x27;@src/modules/video-conference/builder/bbb-create-config.builder&#x27;;
 import { BBBJoinConfigBuilder } from &#x27;@src/modules/video-conference/builder/bbb-join-config.builder&#x27;;
 import { BBBBaseMeetingConfig } from &#x27;@src/modules/video-conference/config/bbb-base-meeting.config&#x27;;
@@ -333,7 +333,7 @@ export class VideoConferenceUc {
 		private readonly courseRepo: CourseRepo,
 		private readonly userRepo: UserRepo,
 		private readonly calendarService: CalendarService,
-		private readonly schoolUc: SchoolUc
+		private readonly schoolService: SchoolService
 	) {
 		this.hostURL &#x3D; Configuration.get(&#x27;HOST&#x27;) as string;
 	}
@@ -489,21 +489,23 @@ export class VideoConferenceUc {
 
 		const response: VideoConferenceInfoDTO &#x3D; await this.bbbService
 			.getMeetingInfo(config)
-			.then((bbbResponse: BBBResponse&lt;BBBMeetingInfoResponse&gt;) &#x3D;&gt; {
-				return new VideoConferenceInfoDTO({
-					state: VideoConferenceState.RUNNING,
-					permission: PermissionMapping[bbbRole],
-					bbbResponse,
-					options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
-				});
-			})
-			.catch(() &#x3D;&gt; {
-				return new VideoConferenceInfoDTO({
-					state: VideoConferenceState.NOT_STARTED,
-					permission: PermissionMapping[bbbRole],
-					options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
-				});
-			});
+			.then(
+				(bbbResponse: BBBResponse&lt;BBBMeetingInfoResponse&gt;) &#x3D;&gt;
+					new VideoConferenceInfoDTO({
+						state: VideoConferenceState.RUNNING,
+						permission: PermissionMapping[bbbRole],
+						bbbResponse,
+						options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
+					})
+			)
+			.catch(
+				() &#x3D;&gt;
+					new VideoConferenceInfoDTO({
+						state: VideoConferenceState.NOT_STARTED,
+						permission: PermissionMapping[bbbRole],
+						options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
+					})
+			);
 
 		const isGuest: boolean &#x3D; await this.isExpert(currentUser, conferenceScope, scopeInfo.scopeId);
 
@@ -696,7 +698,7 @@ export class VideoConferenceUc {
 			);
 		}
 		// throw, if the current users school does not have the feature enabled
-		const schoolFeatureEnabled &#x3D; await this.schoolUc.hasFeature(schoolId, SchoolFeatures.VIDEOCONFERENCE);
+		const schoolFeatureEnabled: boolean &#x3D; await this.schoolService.hasFeature(schoolId, SchoolFeatures.VIDEOCONFERENCE);
 		if (!schoolFeatureEnabled) {
 			throw new ForbiddenException(ErrorStatus.SCHOOL_FEATURE_DISABLED, &#x27;school feature VIDEOCONFERENCE is disabled&#x27;);
 		}

@@ -171,8 +171,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/management/management-server.module.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/management/management-server.module.ts:36</a></div>
                 </td>
             </tr>
 
@@ -235,10 +235,9 @@ import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
 import { ManagementModule } from &#x27;./management.module&#x27;;
 
 export const defaultMikroOrmOptions: MikroOrmModuleSyncOptions &#x3D; {
-	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
+	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt;
 		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);
-	},
+		new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;),
 };
 
 @Module({

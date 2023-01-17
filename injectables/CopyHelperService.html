@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/copy-helper.service.ts</code>
+            <code>apps/server/src/modules/copy-helper/service/copy-helper.service.ts</code>
         </p>
 
 
@@ -125,8 +125,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/copy-helper/service/copy-helper.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -187,15 +187,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deriveCopyName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, existingNames?: string[])</code>
+<code>deriveCopyName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, existingNames: string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/modules/copy-helper/service/copy-helper.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -212,6 +212,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -225,6 +226,8 @@
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
 
                                 </tr>
                                 <tr>
@@ -234,9 +237,12 @@
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
                                     </td>
 
+                                    <td>
+                                        <code>[]</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -275,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/copy-helper/service/copy-helper.service.ts:10</a></div>
                 </td>
             </tr>
 
@@ -331,8 +337,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { BaseEntity } from &#x27;../entity&#x27;;
-import { CopyStatus, CopyStatusEnum, EntityId } from &#x27;../types&#x27;;
+import { BaseEntity } from &#x27;@shared/domain/entity&#x27;;
+import { EntityId } from &#x27;@shared/domain/types&#x27;;
+import { CopyStatus, CopyStatusEnum } from &#x27;../types/copy.types&#x27;;
 
 const isAtLeastPartialSuccessfull &#x3D; (status) &#x3D;&gt; status &#x3D;&#x3D;&#x3D; CopyStatusEnum.PARTIAL || status &#x3D;&#x3D;&#x3D; CopyStatusEnum.SUCCESS;
 
@@ -356,8 +363,8 @@ export class CopyHelperService {
 		return CopyStatusEnum.SUCCESS;
 	}
 
-	deriveCopyName(name: string, existingNames?: string[]): string {
-		if (!existingNames?.includes(name)) {
+	deriveCopyName(name: string, existingNames: string[] &#x3D; []): string {
+		if (!existingNames.includes(name)) {
 			return name;
 		}
 		let num &#x3D; 1;
@@ -367,7 +374,7 @@ export class CopyHelperService {
 			num &#x3D; Number(matches.groups.number) + 1;
 		}
 		const composedName &#x3D; &#x60;${name} (${num})&#x60;;
-		if (existingNames?.includes(composedName)) {
+		if (existingNames.includes(composedName)) {
 			return this.deriveCopyName(composedName, existingNames);
 		}
 		return composedName;

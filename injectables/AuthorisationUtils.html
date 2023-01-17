@@ -1290,9 +1290,7 @@ export class AuthorisationUtils {
 		if (!user.roles.isInitialized(true)) {
 			throw new Error(&#x27;Roles items are not loaded.&#x27;);
 		}
-		return user.roles.getItems().some((role) &#x3D;&gt; {
-			return role.name &#x3D;&#x3D;&#x3D; roleName;
-		});
+		return user.roles.getItems().some((role) &#x3D;&gt; role.name &#x3D;&#x3D;&#x3D; roleName);
 	}
 }
 </code></pre>

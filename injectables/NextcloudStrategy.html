@@ -404,8 +404,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="150"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:150</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:151</a></div>
                 </td>
             </tr>
 
@@ -444,8 +444,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:168</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="169"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:169</a></div>
                 </td>
             </tr>
 
@@ -539,8 +539,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="178"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:178</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:179</a></div>
                 </td>
             </tr>
 
@@ -973,13 +973,14 @@ export class NextcloudStrategy implements ICollaborativeStorageStrategy {
 		const nextcloudLtiTool: LtiToolDO &#x3D; await this.findNextcloudTool();
 
 		let convertedTeamUserIds: string[] &#x3D; await Promise.all&lt;Promise&lt;string&gt;[]&gt;(
-			teamUsers.map(async (teamUser: TeamUserDto): Promise&lt;string&gt; &#x3D;&gt; {
-				// The Oauth authentication generates a pseudonym which will be used from external systems as identifier
-				return this.pseudonymsRepo
-					.findByUserIdAndToolId(teamUser.userId, nextcloudLtiTool.id as string)
-					.then((pseudonymDO: PseudonymDO) &#x3D;&gt; this.client.getNameWithPrefix(pseudonymDO.pseudonym))
-					.catch(() &#x3D;&gt; &#x27;&#x27;);
-			})
+			teamUsers.map(
+				async (teamUser: TeamUserDto): Promise&lt;string&gt; &#x3D;&gt;
+					// The Oauth authentication generates a pseudonym which will be used from external systems as identifier
+					this.pseudonymsRepo
+						.findByUserIdAndToolId(teamUser.userId, nextcloudLtiTool.id as string)
+						.then((pseudonymDO: PseudonymDO) &#x3D;&gt; this.client.getNameWithPrefix(pseudonymDO.pseudonym))
+						.catch(() &#x3D;&gt; &#x27;&#x27;)
+			)
 		);
 		convertedTeamUserIds &#x3D; convertedTeamUserIds.filter(Boolean);
 

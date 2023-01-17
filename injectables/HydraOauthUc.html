@@ -312,8 +312,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:53</a></div>
                 </td>
             </tr>
 
@@ -395,8 +395,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:36</a></div>
                 </td>
             </tr>
 
@@ -605,9 +605,7 @@ export class HydraOauthUc {
 		return queryToken;
 	}
 
-	protected validateStatus &#x3D; (status: number): boolean &#x3D;&gt; {
-		return status &#x3D;&#x3D;&#x3D; 200 || status &#x3D;&#x3D;&#x3D; 302;
-	};
+	protected validateStatus &#x3D; (status: number): boolean &#x3D;&gt; status &#x3D;&#x3D;&#x3D; 200 || status &#x3D;&#x3D;&#x3D; 302;
 
 	async requestAuthCode(userId: string, jwt: string, oauthClientId: string): Promise&lt;AuthorizationParams&gt; {
 		const hydraOauthConfig: OauthConfig &#x3D; await this.hydraSsoService.generateConfig(oauthClientId);

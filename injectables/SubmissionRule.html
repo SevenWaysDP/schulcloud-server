@@ -145,12 +145,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, courseGroupRule: <a href="../injectables/CourseGroupRule.html" target="_self">CourseGroupRule</a>)</code>
+<code>constructor(taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -172,18 +172,6 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/TaskRule.html" target="_self" >TaskRule</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>courseGroupRule</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/CourseGroupRule.html" target="_self" >CourseGroupRule</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -227,8 +215,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:29</a></div>
                 </td>
             </tr>
 
@@ -322,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:70</a></div>
                 </td>
             </tr>
 
@@ -405,8 +393,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:61</a></div>
                 </td>
             </tr>
 
@@ -494,7 +482,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:21</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:20</a></code>
 </div>
                 </td>
             </tr>
@@ -589,8 +577,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:47</a></div>
                 </td>
             </tr>
 
@@ -640,7 +628,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -672,8 +660,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/submission.rule.ts:41</a></div>
                 </td>
             </tr>
 
@@ -761,7 +749,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:15</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:14</a></code>
 </div>
                 </td>
             </tr>
@@ -872,12 +860,11 @@ import { Submission, User } from &#x27;../entity&#x27;;
 import { IPermissionContext, PermissionTypes } from &#x27;../interface/permission&#x27;;
 import { Actions } from &#x27;./actions.enum&#x27;;
 import { BasePermission } from &#x27;./base-permission&#x27;;
-import { CourseGroupRule } from &#x27;./course-group.rule&#x27;;
 import { TaskRule } from &#x27;./task.rule&#x27;;
 
 @Injectable()
 export class SubmissionRule extends BasePermission&lt;Submission&gt; {
-	constructor(private readonly taskRule: TaskRule, private readonly courseGroupRule: CourseGroupRule) {
+	constructor(private readonly taskRule: TaskRule) {
 		super();
 	}
 
@@ -915,9 +902,15 @@ export class SubmissionRule extends BasePermission&lt;Submission&gt; {
 	}
 
 	private hasReadAccess(user: User, submission: Submission) {
-		const hasReadAccess &#x3D;
-			this.hasWriteAccess(user, submission) ||
-			(this.hasParentTaskReadAccess(user, submission) &amp;&amp; submission.task.areSubmissionsPublic());
+		let hasReadAccess &#x3D; false;
+
+		if (submission.isSubmitted()) {
+			hasReadAccess &#x3D;
+				this.hasWriteAccess(user, submission) ||
+				(this.hasParentTaskReadAccess(user, submission) &amp;&amp; submission.task.areSubmissionsPublic());
+		} else {
+			hasReadAccess &#x3D; submission.isUserSubmitter(user);
+		}
 
 		return hasReadAccess;
 	}

@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findStatusesByTask" >findStatusesByTask</a>
                             </li>
                         </ul>
@@ -104,6 +108,96 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(urlParams: <a href="../classes/SubmissionUrlParams.html" target="_self">SubmissionUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:submissionId&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/task/controller/submission.controller.ts:30</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>urlParams</td>
+                                    <td>
+                                                <code><a href="../classes/SubmissionUrlParams.html" target="_self" >SubmissionUrlParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -133,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/task/controller/submission.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/task/controller/submission.controller.ts:16</a></div>
                 </td>
             </tr>
 
@@ -198,14 +292,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Delete, Get, Param } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { SubmissionMapper } from &#x27;../mapper&#x27;;
 import { SubmissionUc } from &#x27;../uc&#x27;;
-import { TaskUrlParams } from &#x27;./dto&#x27;;
-import { SubmissionStatusListResponse } from &#x27;./dto/submission.response&#x27;;
+import { SubmissionUrlParams, TaskUrlParams, SubmissionStatusListResponse } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;Submission&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -220,13 +313,18 @@ export class SubmissionController {
 	): Promise&lt;SubmissionStatusListResponse&gt; {
 		const submissions &#x3D; await this.submissionUc.findAllByTask(currentUser.userId, params.taskId);
 
-		const submissionResponses &#x3D; submissions.map((submission) &#x3D;&gt; {
-			return SubmissionMapper.mapToStatusResponse(submission);
-		});
+		const submissionResponses &#x3D; submissions.map((submission) &#x3D;&gt; SubmissionMapper.mapToStatusResponse(submission));
 
 		const listResponse &#x3D; new SubmissionStatusListResponse(submissionResponses);
 
 		return listResponse;
+	}
+
+	@Delete(&#x27;:submissionId&#x27;)
+	async delete(@Param() urlParams: SubmissionUrlParams, @CurrentUser() currentUser: ICurrentUser): Promise&lt;boolean&gt; {
+		const result &#x3D; await this.submissionUc.delete(currentUser.userId, urlParams.submissionId);
+
+		return result;
 	}
 }
 </code></pre>

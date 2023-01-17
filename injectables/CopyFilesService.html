@@ -84,19 +84,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#replaceUrl" >replaceUrl</a>
+                                <a href="#createFileUrlReplacements" >createFileUrlReplacements</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#replaceUrlsInLessons" >replaceUrlsInLessons</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#replaceUrlsInTask" >replaceUrlsInTask</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#replaceUrlsOfEntity" >replaceUrlsOfEntity</a>
+                                <a href="#deriveCopyStatus" >deriveCopyStatus</a>
                             </li>
                         </ul>
                     </td>
@@ -116,12 +108,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(filesStorageClientAdapterService: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
+<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, filesStorageClientAdapterService: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -138,6 +130,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                <tr>
+                                                        <td>copyHelperService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                                 <tr>
                                                         <td>filesStorageClientAdapterService</td>
                                                   
@@ -179,18 +183,26 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyFilesOfEntity(originalEntity: <a href="../classes/File.html" target="_self">EntityWithEmbeddedFiles</a>, copyEntity: <a href="../classes/File.html" target="_self">EntityWithEmbeddedFiles</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>copyFilesOfEntity(originalEntity: T, copyEntity: T, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:23</a></div>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-4">
@@ -210,7 +222,7 @@
                                 <tr>
                                     <td>originalEntity</td>
                                     <td>
-                                                <code><a href="../classes/File.html" target="_self" >EntityWithEmbeddedFiles</a></code>
+                                            <code>T</code>
                                     </td>
 
                                     <td>
@@ -222,7 +234,7 @@
                                 <tr>
                                     <td>copyEntity</td>
                                     <td>
-                                                <code><a href="../classes/File.html" target="_self" >EntityWithEmbeddedFiles</a></code>
+                                            <code>T</code>
                                     </td>
 
                                     <td>
@@ -263,101 +275,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="replaceUrl"></a>
+                    <a name="createFileUrlReplacements"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>replaceUrl</b></span>
-                        <a href="#replaceUrl"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createFileUrlReplacements</b></span>
+                        <a href="#createFileUrlReplacements"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>replaceUrl(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, response: <a href="../classes/CopyFileDto.html" target="_self">CopyFileDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:62</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>text</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>response</td>
-                                    <td>
-                                                <code><a href="../classes/CopyFileDto.html" target="_self" >CopyFileDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="replaceUrlsInLessons"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>replaceUrlsInLessons</b></span>
-                        <a href="#replaceUrlsInLessons"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>replaceUrlsInLessons(lesson: <a href="../entitys/Lesson.html" target="_self">Lesson</a>, response: <a href="../classes/CopyFileDto.html" target="_self">CopyFileDto</a>)</code>
+                    <code>createFileUrlReplacements(fileDtos: <a href="../entitys/File.html" target="_self">CopyFileDto[]</a>)</code>
                 </td>
             </tr>
 
@@ -386,173 +315,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>lesson</td>
-                                    <td>
-                                                <code><a href="../entitys/Lesson.html" target="_self" >Lesson</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>response</td>
-                                    <td>
-                                                <code><a href="../classes/CopyFileDto.html" target="_self" >CopyFileDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Lesson.html" target="_self" >Lesson</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="replaceUrlsInTask"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>replaceUrlsInTask</b></span>
-                        <a href="#replaceUrlsInTask"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>replaceUrlsInTask(task: <a href="../classes/Task.html" target="_self">Task</a>, response: <a href="../classes/CopyFileDto.html" target="_self">CopyFileDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:56</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>task</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>response</td>
-                                    <td>
-                                                <code><a href="../classes/CopyFileDto.html" target="_self" >CopyFileDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="replaceUrlsOfEntity"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>replaceUrlsOfEntity</b></span>
-                        <a href="#replaceUrlsOfEntity"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>replaceUrlsOfEntity(responses: <a href="../entitys/File.html" target="_self">CopyFileDto[]</a>, entity: <a href="../classes/File.html" target="_self">EntityWithEmbeddedFiles</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:30</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>responses</td>
+                                    <td>fileDtos</td>
                                     <td>
                                                 <code><a href="../entitys/File.html" target="_self" >CopyFileDto[]</a></code>
                                     </td>
@@ -563,10 +326,69 @@
 
 
                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/File.html" target="_self" >FileUrlReplacement[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deriveCopyStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>deriveCopyStatus</b></span>
+                        <a href="#deriveCopyStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deriveCopyStatus(fileDtos: <a href="../entitys/File.html" target="_self">CopyFileDto[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
                                 <tr>
-                                    <td>entity</td>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileDtos</td>
                                     <td>
-                                                <code><a href="../classes/File.html" target="_self" >EntityWithEmbeddedFiles</a></code>
+                                                <code><a href="../entitys/File.html" target="_self" >CopyFileDto[]</a></code>
                                     </td>
 
                                     <td>
@@ -581,7 +403,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/File.html" target="_self" >EntityWithEmbeddedFiles</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
 
                     </div>
                     <div class="io-description">
@@ -598,70 +420,78 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IComponentProperties, Lesson, Task } from &#x27;@shared/domain&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
+import { CopyElementType, CopyHelperService, CopyStatus, CopyStatusEnum } from &#x27;@src/modules/copy-helper&#x27;;
 import { CopyFileDto } from &#x27;../dto&#x27;;
 import { EntityWithEmbeddedFiles } from &#x27;../interfaces&#x27;;
-import { FileParamBuilder, CopyFilesOfParentParamBuilder } from &#x27;../mapper&#x27;;
+import { CopyFilesOfParentParamBuilder, FileParamBuilder } from &#x27;../mapper&#x27;;
 import { FilesStorageClientAdapterService } from &#x27;./files-storage-client.service&#x27;;
 
-// TODO  missing FileCopyParams  ...passing user instead of userId
+const FILE_COULD_NOT_BE_COPIED_HINT &#x3D; &#x27;fileCouldNotBeCopied&#x27;;
+
+export type FileUrlReplacement &#x3D; {
+	regex: RegExp;
+	replacement: string;
+};
 
 @Injectable()
 export class CopyFilesService {
-	constructor(private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService) {}
+	constructor(
+		private readonly copyHelperService: CopyHelperService,
+		private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService
+	) {}
 
-	// TODO missing Status generation like in the other services
-	async copyFilesOfEntity(
-		originalEntity: EntityWithEmbeddedFiles,
-		copyEntity: EntityWithEmbeddedFiles,
+	async copyFilesOfEntity&lt;T extends EntityWithEmbeddedFiles&gt;(
+		originalEntity: T,
+		copyEntity: T,
 		userId: EntityId
-	): Promise&lt;{ entity: EntityWithEmbeddedFiles; response: CopyFileDto[] }&gt; {
+	): Promise&lt;{
+		fileUrlReplacements: FileUrlReplacement[];
+		fileCopyStatus: CopyStatus;
+	}&gt; {
 		const source &#x3D; FileParamBuilder.build(originalEntity.getSchoolId(), originalEntity);
 		const target &#x3D; FileParamBuilder.build(copyEntity.getSchoolId(), copyEntity);
 		const copyFilesOfParentParams &#x3D; CopyFilesOfParentParamBuilder.build(userId, source, target);
 
-		const response &#x3D; await this.filesStorageClientAdapterService.copyFilesOfParent(copyFilesOfParentParams);
-		const entity &#x3D; this.replaceUrlsOfEntity(response, copyEntity);
+		const fileDtos &#x3D; await this.filesStorageClientAdapterService.copyFilesOfParent(copyFilesOfParentParams);
+		const fileUrlReplacements &#x3D; this.createFileUrlReplacements(fileDtos);
+		const fileCopyStatus &#x3D; this.deriveCopyStatus(fileDtos);
 
-		return { entity, response };
+		return { fileUrlReplacements, fileCopyStatus };
 	}
 
-	private replaceUrlsOfEntity(responses: CopyFileDto[], entity: EntityWithEmbeddedFiles): EntityWithEmbeddedFiles {
-		responses.forEach((response) &#x3D;&gt; {
-			if (entity instanceof Lesson) {
-				entity &#x3D; this.replaceUrlsInLessons(entity, response);
-			} else if (entity instanceof Task) {
-				entity &#x3D; this.replaceUrlsInTask(entity, response);
-			}
+	private createFileUrlReplacements(fileDtos: CopyFileDto[]): FileUrlReplacement[] {
+		return fileDtos.map((fileDto): FileUrlReplacement &#x3D;&gt; {
+			const { sourceId, id, name } &#x3D; fileDto;
+
+			// use hint as id replacement, if file could not be copied
+			const newId &#x3D; id ?? FILE_COULD_NOT_BE_COPIED_HINT;
+
+			const fileUrlReplacement: FileUrlReplacement &#x3D; {
+				regex: new RegExp(&#x60;${sourceId}.+?&quot;&#x60;, &#x27;g&#x27;),
+				replacement: &#x60;${newId}/${name}&quot;&#x60;,
+			};
+
+			return fileUrlReplacement;
+		});
+	}
+
+	private deriveCopyStatus(fileDtos: CopyFileDto[]): CopyStatus {
+		const fileStatuses: CopyStatus[] &#x3D; fileDtos.map(({ sourceId, id, name }) &#x3D;&gt; {
+			const result &#x3D; {
+				type: CopyElementType.FILE,
+				status: id ? CopyStatusEnum.SUCCESS : CopyStatusEnum.FAIL,
+				title: name ?? &#x60;(old fileid: ${sourceId})&#x60;,
+			};
+			return result;
 		});
 
-		return entity;
-	}
-
-	private replaceUrlsInLessons(lesson: Lesson, response: CopyFileDto): Lesson {
-		lesson.contents &#x3D; lesson.contents.map((item: IComponentProperties) &#x3D;&gt; {
-			if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; item.content &amp;&amp; &#x27;text&#x27; in item.content &amp;&amp; item.content.text) {
-				const text &#x3D; this.replaceUrl(item.content.text, response);
-				const itemWithUpdatedText &#x3D; { ...item, content: { ...item.content, text } };
-				return itemWithUpdatedText;
-			}
-
-			return item;
-		});
-
-		return lesson;
-	}
-
-	private replaceUrlsInTask(task: Task, response: CopyFileDto): Task {
-		task.description &#x3D; this.replaceUrl(task.description, response);
-
-		return task;
-	}
-
-	private replaceUrl(text: string, response: CopyFileDto) {
-		const regex &#x3D; new RegExp(&#x60;${response.sourceId}.+?&quot;&#x60;, &#x27;g&#x27;);
-		const newUrl &#x3D; &#x60;${response.id}/${response.name}&quot;&#x60;;
-		return text.replace(regex, newUrl);
+		const fileGroupStatus &#x3D; {
+			type: CopyElementType.FILE_GROUP,
+			status: this.copyHelperService.deriveStatusFromElements(fileStatuses),
+			elements: fileStatuses,
+		};
+		return fileGroupStatus;
 	}
 }
 </code></pre>

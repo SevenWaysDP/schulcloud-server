@@ -86,6 +86,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#createCourse" >createCourse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findAllByUserId" >findAllByUserId</a>
                             </li>
                             <li>
@@ -147,6 +151,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createCourse"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>createCourse</b></span>
+                        <a href="#createCourse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createCourse(course: <a href="../entitys/Course.html" target="_self">Course</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>course</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findAllByUserId"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -165,8 +240,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:64</a></div>
                 </td>
             </tr>
 
@@ -260,8 +335,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:89</a></div>
                 </td>
             </tr>
 
@@ -337,7 +412,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:54</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:58</a></code>
 </div>
                 </td>
             </tr>
@@ -408,8 +483,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:98</a></div>
                 </td>
             </tr>
 
@@ -782,6 +857,10 @@ class CourseScope extends Scope&lt;Course&gt; {
 export class CourseRepo extends BaseRepo&lt;Course&gt; {
 	get entityName() {
 		return Course;
+	}
+
+	async createCourse(course: Course): Promise&lt;void&gt; {
+		return this.save(this.create(course));
 	}
 
 	async findById(id: EntityId): Promise&lt;Course&gt; {

@@ -615,7 +615,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, Property, Unique } from &#x27;@mikro-orm/core&#x27;;
 
 import { InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { EntityId } from &#x27;../types&#x27;;
@@ -643,6 +643,7 @@ export interface ISubmissionProperties {
 
 @Entity({ tableName: &#x27;submissions&#x27; })
 @Index({ properties: [&#x27;student&#x27;, &#x27;teamMembers&#x27;] })
+@Unique({ properties: [&#x27;student&#x27;, &#x27;task&#x27;] })
 export class Submission extends BaseEntityWithTimestamps {
 	@ManyToOne(&#x27;School&#x27;, { fieldName: &#x27;schoolId&#x27; })
 	@Index()

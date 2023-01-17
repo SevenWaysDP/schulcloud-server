@@ -71,7 +71,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../classes/BaseWithTimestampsDO.html" target="_self" >BaseWithTimestampsDO</a></code>
+                        <code><a href="../classes/BaseDO.html" target="_self" >BaseDO</a></code>
             </p>
 
 
@@ -92,6 +92,10 @@
                                 <a href="#courseId" >courseId</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#createdAt" >createdAt</a>
+                            </li>
+                            <li>
                                 <a href="#parameters" >parameters</a>
                             </li>
                             <li>
@@ -102,15 +106,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#createdAt" >createdAt</a>
+                                <a href="#updatedAt" >updatedAt</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
                                 <a href="#id" >id</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Optional</span>
-                                <a href="#updatedAt" >updatedAt</a>
                             </li>
                         </ul>
                     </td>
@@ -131,12 +131,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(props: <a href="../classes/CourseExternalToolDO.html" target="_self">CourseExternalToolDO</a>)</code>
+<code>constructor(domainObject: <a href="../classes/CourseExternalToolDO.html" target="_self">CourseExternalToolDO</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -154,7 +154,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>props</td>
+                                                        <td>domainObject</td>
                                                   
                                                         <td>
                                                                         <code><a href="../classes/CourseExternalToolDO.html" target="_self" >CourseExternalToolDO</a></code>
@@ -198,84 +198,6 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:7</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="parameters"></a>
-                    <span class="name">
-                        <span ><b>parameters</b></span>
-                        <a href="#parameters"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>CustomParameterEntryDO[]</code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:9</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="schoolToolId"></a>
-                    <span class="name">
-                        <span ><b>schoolToolId</b></span>
-                        <a href="#schoolToolId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:5</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="toolVersion"></a>
-                    <span class="name">
-                        <span ><b>toolVersion</b></span>
-                        <a href="#toolVersion"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:11</a></div>
                         </td>
                     </tr>
@@ -301,16 +223,114 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseWithTimestampsDO.html" target="_self" >BaseWithTimestampsDO</a></code>
-</div>
-                            </td>
-                        </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseWithTimestampsDO.html#source" target="_self" >BaseWithTimestampsDO:8</a></code>
-</div>
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:5</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parameters"></a>
+                    <span class="name">
+                        <span ><b>parameters</b></span>
+                        <a href="#parameters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterEntryDO[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolToolId"></a>
+                    <span class="name">
+                        <span ><b>schoolToolId</b></span>
+                        <a href="#schoolToolId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:9</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolVersion"></a>
+                    <span class="name">
+                        <span ><b>toolVersion</b></span>
+                        <a href="#toolVersion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatedAt"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>updatedAt</b></span>
+                        <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/course-external-tool.do.ts:7</a></div>
                         </td>
                     </tr>
 
@@ -343,41 +363,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseDO.html#source" target="_self" >BaseDO:6</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updatedAt"></a>
-                    <span class="name">
-                            <span class="modifier">Optional</span>
-                        <span ><b>updatedAt</b></span>
-                        <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseWithTimestampsDO.html" target="_self" >BaseWithTimestampsDO</a></code>
-</div>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseWithTimestampsDO.html#source" target="_self" >BaseWithTimestampsDO:10</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDO.html#source" target="_self" >BaseDO:2</a></code>
 </div>
                         </td>
                     </tr>
@@ -398,9 +384,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CustomParameterEntryDO } from &#x27;./custom-parameter-entry.do&#x27;;
-import { BaseWithTimestampsDO } from &#x27;../base.do&#x27;;
+import { BaseDO } from &#x27;../base.do&#x27;;
 
-export class CourseExternalToolDO extends BaseWithTimestampsDO {
+export class CourseExternalToolDO extends BaseDO {
+	createdAt?: Date;
+
+	updatedAt?: Date;
+
 	schoolToolId: string;
 
 	courseId: string;
@@ -409,12 +399,15 @@ export class CourseExternalToolDO extends BaseWithTimestampsDO {
 
 	toolVersion: number;
 
-	constructor(props: CourseExternalToolDO) {
-		super(props);
-		this.schoolToolId &#x3D; props.schoolToolId;
-		this.courseId &#x3D; props.courseId;
-		this.parameters &#x3D; props.parameters;
-		this.toolVersion &#x3D; props.toolVersion;
+	constructor(domainObject: CourseExternalToolDO) {
+		super(domainObject.id);
+
+		this.createdAt &#x3D; domainObject.createdAt;
+		this.updatedAt &#x3D; domainObject.updatedAt;
+		this.schoolToolId &#x3D; domainObject.schoolToolId;
+		this.courseId &#x3D; domainObject.courseId;
+		this.parameters &#x3D; domainObject.parameters;
+		this.toolVersion &#x3D; domainObject.toolVersion;
 	}
 }
 </code></pre>

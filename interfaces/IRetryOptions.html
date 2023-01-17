@@ -177,8 +177,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Command, CommandOption, Console } from &#x27;nestjs-console&#x27;;
-import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
+import { Command, CommandOption, Console } from &#x27;nestjs-console&#x27;;
 import { KeycloakManagementUc } from &#x27;../../uc/Keycloak-management.uc&#x27;;
 
 const defaultError &#x3D; new Error(&#x27;IDM is not reachable or authentication failed.&#x27;);
@@ -316,7 +316,9 @@ export class KeycloakConsole {
 	}
 
 	private delay(ms: number) {
-		return new Promise((resolve) &#x3D;&gt; setTimeout(resolve, ms));
+		return new Promise((resolve) &#x3D;&gt; {
+			setTimeout(resolve, ms);
+		});
 	}
 }
 </code></pre>

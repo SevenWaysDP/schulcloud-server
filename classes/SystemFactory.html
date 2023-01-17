@@ -106,6 +106,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#withLdapConfig" >withLdapConfig</a>
+                            </li>
+                            <li>
                                 <a href="#withOauthConfig" >withOauthConfig</a>
                             </li>
                             <li>
@@ -211,6 +214,34 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="withLdapConfig"></a>
+                    <span class="name">
+                        <span ><b>withLdapConfig</b></span>
+                        <a href="#withLdapConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>withLdapConfig()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/system.factory.ts:27</a></div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="withOauthConfig"></a>
                     <span class="name">
                         <span ><b>withOauthConfig</b></span>
@@ -261,7 +292,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:96</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:97</a></code>
 </div>
                 </td>
             </tr>
@@ -338,7 +369,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:108</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:109</a></code>
 </div>
                 </td>
             </tr>
@@ -504,7 +535,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:73</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:74</a></code>
 </div>
                 </td>
             </tr>
@@ -614,7 +645,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:82</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:83</a></code>
 </div>
                 </td>
             </tr>
@@ -833,7 +864,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:146</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:147</a></code>
 </div>
                 </td>
             </tr>
@@ -1053,7 +1084,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:120</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:121</a></code>
 </div>
                 </td>
             </tr>
@@ -1123,7 +1154,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:142</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:143</a></code>
 </div>
                 </td>
             </tr>
@@ -1170,7 +1201,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:158</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:159</a></code>
 </div>
                 </td>
             </tr>
@@ -1221,7 +1252,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:132</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:133</a></code>
 </div>
                 </td>
             </tr>
@@ -1282,7 +1313,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISystemProperties, OauthConfig, System } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISystemProperties, LdapConfig, OauthConfig, System } from &#x27;@shared/domain&#x27;;
 import { SystemProvisioningStrategy } from &#x27;@shared/domain/interface/system-provisioning.strategy&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
 import { BaseFactory } from &#x27;./base.factory&#x27;;
@@ -1303,6 +1334,16 @@ export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; 
 				logoutEndpoint: &#x27;mock_logoutEndpoint&#x27;,
 				issuer: &#x27;mock_issuer&#x27;,
 				jwksEndpoint: &#x27;mock_jwksEndpoint&#x27;,
+			}),
+		};
+		return this.params(params);
+	}
+
+	withLdapConfig(): this {
+		const params: DeepPartial&lt;ISystemProperties&gt; &#x3D; {
+			ldapConfig: new LdapConfig({
+				url: &#x27;ldaps:mock.de:389&#x27;,
+				active: true,
 			}),
 		};
 		return this.params(params);
