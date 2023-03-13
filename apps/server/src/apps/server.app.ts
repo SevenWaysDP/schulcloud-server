@@ -33,6 +33,7 @@ async function bootstrap() {
 	// WinstonLogger
 	nestApp.useLogger(nestApp.get());
 
+	nestApp.useLogger(nestApp.get());
 	// load the legacy feathers/express server
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	const feathersExpress = await legacyAppPromise(orm);
