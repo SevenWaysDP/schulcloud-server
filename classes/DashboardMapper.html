@@ -211,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/dashboard.mapper.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/dashboard.mapper.ts:36</a></div>
                 </td>
             </tr>
 
@@ -364,6 +364,7 @@ export class DashboardMapper {
 			displayColor: elementData.displayColor,
 			xPosition: position.x,
 			yPosition: position.y,
+			copyingSince: elementData.copyingSince ?? undefined,
 		});
 		if (elementData.referencedId) {
 			dto.id &#x3D; elementData.referencedId;

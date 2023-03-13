@@ -91,6 +91,11 @@
                                     <span class="modifier">Private</span>
                                 <a href="#deriveCourseStatus" >deriveCourseStatus</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#finishCourseCopying" >finishCourseCopying</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -310,8 +315,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:57</a></div>
                 </td>
             </tr>
 
@@ -381,8 +386,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:79</a></div>
                 </td>
             </tr>
 
@@ -454,6 +459,78 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finishCourseCopying"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>finishCourseCopying</b></span>
+                        <a href="#finishCourseCopying"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>finishCourseCopying(courseCopy: <a href="../entitys/Course.html" target="_self">Course</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/course-copy.service.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>courseCopy</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -509,7 +586,9 @@ export class CourseCopyService {
 		// copy course and board
 		const courseCopy &#x3D; await this.copyCourseEntity({ user, originalCourse, copyName });
 		const boardStatus &#x3D; await this.boardCopyService.copyBoard({ originalBoard, destinationCourse: courseCopy, user });
-		const courseStatus &#x3D; this.deriveCourseStatus(originalCourse, courseCopy, boardStatus);
+		const finishedCourseCopy &#x3D; await this.finishCourseCopying(courseCopy);
+
+		const courseStatus &#x3D; this.deriveCourseStatus(originalCourse, finishedCourseCopy, boardStatus);
 
 		return courseStatus;
 	}
@@ -523,8 +602,16 @@ export class CourseCopyService {
 			teachers: [user],
 			startDate: user.school.schoolYear?.startDate,
 			untilDate: user.school.schoolYear?.endDate,
+			copyingSince: new Date(),
 		});
+
 		await this.courseRepo.createCourse(courseCopy);
+		return courseCopy;
+	}
+
+	private async finishCourseCopying(courseCopy: Course) {
+		delete courseCopy.copyingSince;
+		await this.courseRepo.save(courseCopy);
 		return courseCopy;
 	}
 

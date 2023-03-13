@@ -183,7 +183,7 @@ import { FileSystemAdapter } from &#x27;@shared/infra/file-system&#x27;;
 import { DatabaseManagementService } from &#x27;@shared/infra/database&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { DefaultEncryptionService, IEncryptionService, LdapEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
-import { StorageProvider, System, SystemTypeEnum } from &#x27;@shared/domain&#x27;;
+import { StorageProvider, System } from &#x27;@shared/domain&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { BsonConverter } from &#x27;../converter/bson.converter&#x27;;
@@ -456,11 +456,10 @@ export class DatabaseManagementUc {
 			if (system.oauthConfig) {
 				system.oauthConfig.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.oauthConfig.clientSecret);
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SystemTypeEnum.OIDC &amp;&amp; system.config) {
-				system.config.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.config.clientSecret as string);
-				system.config.clientId &#x3D; this.defaultEncryptionService.encrypt(system.config.clientId as string);
+			if (system.oidcConfig) {
+				system.oidcConfig.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.oidcConfig.clientSecret);
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SystemTypeEnum.LDAP &amp;&amp; system.ldapConfig) {
+			if (system.ldapConfig) {
 				system.ldapConfig.searchUserPassword &#x3D; this.ldapEncryptionService.encrypt(
 					system.ldapConfig.searchUserPassword as string
 				);
@@ -495,11 +494,10 @@ export class DatabaseManagementUc {
 			if (system.oauthConfig) {
 				system.oauthConfig.clientSecret &#x3D; defaultSecretReplacementHintText;
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SystemTypeEnum.OIDC &amp;&amp; system.config) {
-				system.config.clientSecret &#x3D; defaultSecretReplacementHintText;
-				system.config.clientId &#x3D; defaultSecretReplacementHintText;
+			if (system.oidcConfig) {
+				system.oidcConfig.clientSecret &#x3D; defaultSecretReplacementHintText;
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SystemTypeEnum.LDAP &amp;&amp; system.ldapConfig) {
+			if (system.ldapConfig) {
 				system.ldapConfig.searchUserPassword &#x3D; defaultSecretReplacementHintText;
 			}
 		});

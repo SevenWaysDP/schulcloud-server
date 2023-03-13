@@ -131,15 +131,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>build(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, buffer: Buffer | Blob | ReadableStream | Readable, size: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, mimeType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>build(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: Readable, mimeType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-dto.builder.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-dto.builder.ts:7</a></div>
                 </td>
             </tr>
 
@@ -172,21 +172,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>buffer</td>
+                                    <td>data</td>
                                     <td>
-                                            <code>Buffer | Blob | ReadableStream | Readable</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>size</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            <code>Readable</code>
                                     </td>
 
                                     <td>
@@ -238,15 +226,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>buildFromAxiosResponse(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, response: AxiosResponse<internal.Readable>)</code>
+                    <code>buildFromAxiosResponse(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, response: AxiosResponse<Readable>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-dto.builder.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-dto.builder.ts:19</a></div>
                 </td>
             </tr>
 
@@ -281,7 +269,7 @@
                                 <tr>
                                     <td>response</td>
                                     <td>
-                                            <code>AxiosResponse&lt;internal.Readable&gt;</code>
+                                            <code>AxiosResponse&lt;Readable&gt;</code>
                                     </td>
 
                                     <td>
@@ -321,15 +309,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>buildFromRequest(fileInfo: <a href="../classes/File.html" target="_self">FileInfo</a>, request: Request, buffer: Buffer | Blob | ReadableStream | Readable)</code>
+                    <code>buildFromRequest(fileInfo: <a href="../classes/File.html" target="_self">FileInfo</a>, data: Readable)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-dto.builder.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-dto.builder.ts:13</a></div>
                 </td>
             </tr>
 
@@ -362,21 +350,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>request</td>
+                                    <td>data</td>
                                     <td>
-                                            <code>Request</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>buffer</td>
-                                    <td>
-                                            <code>Buffer | Blob | ReadableStream | Readable</code>
+                                            <code>Readable</code>
                                     </td>
 
                                     <td>
@@ -413,37 +389,25 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AxiosResponse } from &#x27;axios&#x27;;
 import { FileInfo } from &#x27;busboy&#x27;;
-import { Request } from &#x27;express&#x27;;
-import internal, { Readable } from &#x27;stream&#x27;;
+import { Readable } from &#x27;stream&#x27;;
 import { FileDto } from &#x27;../dto/file.dto&#x27;;
 
 export class FileDtoBuilder {
-	private static build(
-		name: string,
-		buffer: Buffer | Blob | ReadableStream | Readable,
-		size: number,
-		mimeType: string
-	): FileDto {
-		const file &#x3D; new FileDto({ name, buffer, size, mimeType });
+	private static build(name: string, data: Readable, mimeType: string): FileDto {
+		const file &#x3D; new FileDto({ name, data, mimeType });
 
 		return file;
 	}
 
-	public static buildFromRequest(
-		fileInfo: FileInfo,
-		request: Request,
-		buffer: Buffer | Blob | ReadableStream | Readable
-	): FileDto {
-		const size &#x3D; Number(request.get(&#x27;content-length&#x27;));
-		const file &#x3D; FileDtoBuilder.build(fileInfo.filename, buffer, size, fileInfo.mimeType);
+	public static buildFromRequest(fileInfo: FileInfo, data: Readable): FileDto {
+		const file &#x3D; FileDtoBuilder.build(fileInfo.filename, data, fileInfo.mimeType);
 
 		return file;
 	}
 
-	public static buildFromAxiosResponse(name: string, response: AxiosResponse&lt;internal.Readable&gt;): FileDto {
-		const size &#x3D; Number(response.headers[&#x27;content-length&#x27;]);
+	public static buildFromAxiosResponse(name: string, response: AxiosResponse&lt;Readable&gt;): FileDto {
 		const mimeType &#x3D; response.headers[&#x27;content-type&#x27;];
-		const file &#x3D; FileDtoBuilder.build(name, response.data, size, mimeType);
+		const file &#x3D; FileDtoBuilder.build(name, response.data, mimeType);
 
 		return file;
 	}

@@ -84,7 +84,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#default" >default</a>
+                                <a href="#defaultValue" >defaultValue</a>
                             </li>
                             <li>
                                 <a href="#isOptional" >isOptional</a>
@@ -132,11 +132,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="default"></a>
+                    <a name="defaultValue"></a>
                     <span class="name">
                             <span class="modifier">Optional</span>
-                        <span ><b>default</b></span>
-                        <a href="#default"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>defaultValue</b></span>
+                        <a href="#defaultValue"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -157,7 +157,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -192,7 +192,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -227,7 +227,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -256,13 +256,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@ApiProperty()<br />
+                            @IsString()<br />@IsNotEmpty()<br />@ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -298,7 +298,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -334,7 +334,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -369,7 +369,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -404,7 +404,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -423,8 +423,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsBoolean, IsEnum, IsOptional, IsString } from &#x27;class-validator&#x27;;
-import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
+import { IsBoolean, IsEnum, IsNotEmpty, IsOptional, IsString } from &#x27;class-validator&#x27;;
 import {
 	CustomParameterLocationParams,
 	CustomParameterScopeParams,
@@ -433,13 +433,14 @@ import {
 
 export class CustomParameterPostParams {
 	@IsString()
+	@IsNotEmpty()
 	@ApiProperty()
 	name!: string;
 
 	@IsString()
 	@IsOptional()
 	@ApiPropertyOptional()
-	default?: string;
+	defaultValue?: string;
 
 	@IsString()
 	@IsOptional()

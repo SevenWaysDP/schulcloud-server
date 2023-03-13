@@ -780,7 +780,7 @@ export class ExternalToolResponseMapper {
 		return customParameterDOS.map((customParameterDO: CustomParameterDO) &#x3D;&gt; {
 			return {
 				name: customParameterDO.name,
-				default: customParameterDO.default,
+				defaultValue: customParameterDO.default,
 				regex: customParameterDO.regex,
 				regexComment: customParameterDO.regexComment,
 				scope: scopeMapping[customParameterDO.scope],

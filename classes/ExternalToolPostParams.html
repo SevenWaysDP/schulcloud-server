@@ -228,7 +228,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/external-tool-post.params.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/external-tool-post.params.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -334,7 +334,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/external-tool-post.params.ts:65</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/external-tool-post.params.ts:66</a></div>
                         </td>
                     </tr>
 
@@ -364,13 +364,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ValidateNested({each: true})<br />@IsArray()<br />@IsOptional()<br />@ApiPropertyOptional()<br />
+                            @ValidateNested({each: true})<br />@IsArray()<br />@IsOptional()<br />@ApiPropertyOptional({type: undefined})<br />@Type(undefined)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/external-tool-post.params.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/external-tool-post.params.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -425,15 +425,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsArray, IsBoolean, IsOptional, IsString, ValidateNested } from &#x27;class-validator&#x27;;
-import { ApiExtraModels, ApiProperty, ApiPropertyOptional, getSchemaPath } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiExtraModels, ApiProperty, ApiPropertyOptional, getSchemaPath } from &#x27;@nestjs/swagger&#x27;;
 import { Type } from &#x27;class-transformer&#x27;;
-import { CustomParameterPostParams } from &#x27;./custom-parameter.params&#x27;;
-import { BasicToolConfigParams } from &#x27;./basic-tool-config.params&#x27;;
-import { ExternalToolConfigCreateParams } from &#x27;./external-tool-config.params&#x27;;
-import { Oauth2ToolConfigParams } from &#x27;./oauth2-tool-config.params&#x27;;
+import { IsArray, IsBoolean, IsOptional, IsString, ValidateNested } from &#x27;class-validator&#x27;;
 import { ToolConfigType } from &#x27;../../../interface&#x27;;
+import { BasicToolConfigParams } from &#x27;./basic-tool-config.params&#x27;;
+import { CustomParameterPostParams } from &#x27;./custom-parameter.params&#x27;;
+import { ExternalToolConfigCreateParams } from &#x27;./external-tool-config.params&#x27;;
 import { Lti11ToolConfigParams } from &#x27;./lti11-tool-config.params&#x27;;
+import { Oauth2ToolConfigParams } from &#x27;./oauth2-tool-config.params&#x27;;
 
 @ApiExtraModels(Lti11ToolConfigParams, Oauth2ToolConfigParams, BasicToolConfigParams)
 export class ExternalToolPostParams {
@@ -480,7 +480,8 @@ export class ExternalToolPostParams {
 	@ValidateNested({ each: true })
 	@IsArray()
 	@IsOptional()
-	@ApiPropertyOptional()
+	@ApiPropertyOptional({ type: [CustomParameterPostParams] })
+	@Type(/* istanbul ignore next */ () &#x3D;&gt; CustomParameterPostParams)
 	parameters?: CustomParameterPostParams[];
 
 	@IsBoolean()

@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/mapper/current-user.mapper.ts</code>
+            <code>apps/server/src/modules/authentication/mapper/current-user.mapper.ts</code>
         </p>
 
 
@@ -83,6 +83,10 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#userDoToICurrentUser" >userDoToICurrentUser</a>
+                            </li>
                             <li>
                                     <span class="modifier">Static</span>
                                 <a href="#userToICurrentUser" >userToICurrentUser</a>
@@ -110,6 +114,101 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="userDoToICurrentUser"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>userDoToICurrentUser</b></span>
+                        <a href="#userDoToICurrentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>userDoToICurrentUser(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="../interfaces/User.html" target="_self">UserDO</a>, systemId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/authentication/mapper/current-user.mapper.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>accountId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >UserDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>systemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="userToICurrentUser"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
@@ -128,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/shared/domain/mapper/current-user.mapper.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/modules/authentication/mapper/current-user.mapper.ts:7</a></div>
                 </td>
             </tr>
 
@@ -211,7 +310,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Role, User } from &#x27;../entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ValidationError } from &#x27;@shared/common&#x27;;
+import { Role, User } from &#x27;@shared/domain&#x27;;
+import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { ICurrentUser } from &#x27;../interface&#x27;;
 
 export class CurrentUserMapper {
@@ -242,6 +343,34 @@ export class CurrentUserMapper {
 					return { id: role.id, name: role.name };
 				}),
 				schoolId: user.school.id,
+				permissions: Array.from(permissions),
+			},
+		};
+	}
+
+	static userDoToICurrentUser(accountId: string, user: UserDO, systemId?: string): ICurrentUser {
+		const permissions &#x3D; new Set&lt;string&gt;();
+
+		if (!user.id || !user.createdAt || !user.updatedAt) {
+			throw new ValidationError(&#x27;user has no ID&#x27;);
+		}
+
+		return {
+			accountId,
+			systemId,
+			roles: user.roleIds,
+			schoolId: user.schoolId,
+			userId: user.id,
+			user: {
+				id: user.id,
+				createdAt: user.createdAt,
+				updatedAt: user.updatedAt,
+				firstName: user.firstName,
+				lastName: user.lastName,
+				roles: user.roleIds.map((role: string) &#x3D;&gt; {
+					return { id: role, name: role };
+				}),
+				schoolId: user.schoolId,
 				permissions: Array.from(permissions),
 			},
 		};

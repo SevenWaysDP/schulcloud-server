@@ -142,8 +142,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:14</a></div>
                 </td>
             </tr>
 
@@ -181,7 +181,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/BoardResponse.html" target="_self" >BoardResponse</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/SingleColumnBoardResponse.html" target="_self" >SingleColumnBoardResponse</a></code>
 
                     </div>
                     <div class="io-description">
@@ -216,7 +216,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -242,7 +242,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -268,7 +268,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -283,16 +283,21 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Course, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
-import { BoardElementResponse, BoardLessonResponse, BoardResponse, BoardTaskResponse } from &#x27;../controller/dto&#x27;;
+import {
+	BoardElementResponse,
+	BoardLessonResponse,
+	BoardTaskResponse,
+	SingleColumnBoardResponse,
+} from &#x27;../controller/dto&#x27;;
 import { LessonMetaData, RoomBoardDTO, RoomBoardElementTypes } from &#x27;../types&#x27;;
 import { BoardTaskStatusMapper } from &#x27;./board-taskStatus.mapper&#x27;;
 
 @Injectable()
 export class RoomBoardResponseMapper {
-	mapToResponse(board: RoomBoardDTO): BoardResponse {
+	mapToResponse(board: RoomBoardDTO): SingleColumnBoardResponse {
 		const elements &#x3D; this.mapBoardElements(board);
 
-		const mapped &#x3D; new BoardResponse({
+		const mapped &#x3D; new SingleColumnBoardResponse({
 			roomId: board.roomId,
 			title: board.title,
 			displayColor: board.displayColor,
@@ -326,6 +331,10 @@ export class RoomBoardResponseMapper {
 			updatedAt: boardTask.updatedAt,
 			status: boardTaskStatus,
 		});
+
+		if (boardTask.taskCard) {
+			mappedTask.taskCardId &#x3D; boardTask.taskCard;
+		}
 
 		const taskCourse &#x3D; boardTask.course as Course;
 		mappedTask.courseName &#x3D; taskCourse.name;

@@ -88,16 +88,13 @@ and instead just use the plain object ids.</p>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#_lockedForUserId" >_lockedForUserId</a>
+                                <a href="#_isCopyFrom" >_isCopyFrom</a>
                             </li>
                             <li>
                                 <a href="#_parentId" >_parentId</a>
                             </li>
                             <li>
                                 <a href="#_schoolId" >_schoolId</a>
-                            </li>
-                            <li>
-                                <a href="#createdAt" >createdAt</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
@@ -117,9 +114,6 @@ and instead just use the plain object ids.</p>
                             </li>
                             <li>
                                 <a href="#size" >size</a>
-                            </li>
-                            <li>
-                                <a href="#updatedAt" >updatedAt</a>
                             </li>
                         </ul>
                     </td>
@@ -167,7 +161,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:113</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:117</a></div>
                         </td>
                     </tr>
 
@@ -178,11 +172,11 @@ and instead just use the plain object ids.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="_lockedForUserId"></a>
+                    <a name="_isCopyFrom"></a>
                     <span class="name">
                             <span class="modifier">Optional</span>
-                        <span ><b>_lockedForUserId</b></span>
-                        <a href="#_lockedForUserId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>_isCopyFrom</b></span>
+                        <a href="#_isCopyFrom"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -197,13 +191,13 @@ and instead just use the plain object ids.</p>
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({fieldName: &#x27;lockedForUser&#x27;, nullable: true})<br />
+                            @Property({fieldName: &#x27;isCopyFrom&#x27;, nullable: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:123</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:131</a></div>
                         </td>
                     </tr>
 
@@ -232,13 +226,13 @@ and instead just use the plain object ids.</p>
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({fieldName: &#x27;parent&#x27;})<br />
+                            @Index()<br />@Property({fieldName: &#x27;parent&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:106</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:110</a></div>
                         </td>
                     </tr>
 
@@ -273,41 +267,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:130</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createdAt"></a>
-                    <span class="name">
-                        <span ><b>createdAt</b></span>
-                        <a href="#createdAt"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:139</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:124</a></div>
                         </td>
                     </tr>
 
@@ -343,7 +303,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:88</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:90</a></div>
                         </td>
                     </tr>
 
@@ -378,7 +338,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:97</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:99</a></div>
                         </td>
                     </tr>
 
@@ -413,7 +373,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:94</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:96</a></div>
                         </td>
                     </tr>
 
@@ -442,13 +402,13 @@ and instead just use the plain object ids.</p>
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Enum()<br />
+                            @Index()<br />@Enum()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:103</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:106</a></div>
                         </td>
                     </tr>
 
@@ -483,7 +443,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:100</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:102</a></div>
                         </td>
                     </tr>
 
@@ -518,41 +478,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:91</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updatedAt"></a>
-                    <span class="name">
-                        <span ><b>updatedAt</b></span>
-                        <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:142</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:93</a></div>
                         </td>
                     </tr>
 
@@ -567,14 +493,15 @@ and instead just use the plain object ids.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Embeddable, Embedded, Entity, Enum, Index, Property } from &#x27;@mikro-orm/core&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { BadRequestException } from &#x27;@nestjs/common&#x27;;
+import { BaseEntityWithTimestamps, type EntityId } from &#x27;@shared/domain&#x27;;
 import { v4 as uuid } from &#x27;uuid&#x27;;
-import { type EntityId, BaseEntity } from &#x27;@shared/domain&#x27;;
 import { ErrorType } from &#x27;../error&#x27;;
 
 export enum ScanStatus {
 	PENDING &#x3D; &#x27;pending&#x27;,
 	VERIFIED &#x3D; &#x27;verified&#x27;,
 	BLOCKED &#x3D; &#x27;blocked&#x27;,
+	ERROR &#x3D; &#x27;error&#x27;,
 }
 
 export enum FileRecordParentType {
@@ -627,9 +554,15 @@ export interface IFileRecordProperties {
 	parentType: FileRecordParentType;
 	parentId: EntityId | ObjectId;
 	creatorId: EntityId | ObjectId;
-	lockedForUserId?: EntityId | ObjectId;
 	schoolId: EntityId | ObjectId;
 	deletedSince?: Date;
+	isCopyFrom?: ObjectId;
+}
+
+interface IParentInfo {
+	schoolId: EntityId;
+	parentId: EntityId;
+	parentType: FileRecordParentType;
 }
 
 // TODO: IEntityWithSchool
@@ -643,12 +576,7 @@ export interface IFileRecordProperties {
 @Index({ properties: [&#x27;_schoolId&#x27;, &#x27;_parentId&#x27;], options: { background: true } })
 // https://github.com/mikro-orm/mikro-orm/issues/1230
 @Index({ options: { &#x27;securityCheck.requestToken&#x27;: 1 } })
-// Temporary functionality for migration to new fileservice
-// TODO: Adjust when BC-1496 is done!
-// FileRecord must inherit from BaseEntity and we have to take care of the timestamps manually.
-// This is necessary while the syncing of files and filerecords goes on,
-// because with BaseEntityWithTimestamps it is not possible to override the updatedAt hook.
-export class FileRecord extends BaseEntity {
+export class FileRecord extends BaseEntityWithTimestamps {
 	@Index({ options: { expireAfterSeconds: 7 * 24 * 60 * 60 } })
 	@Property({ nullable: true })
 	deletedSince?: Date;
@@ -665,9 +593,11 @@ export class FileRecord extends BaseEntity {
 	@Embedded(() &#x3D;&gt; FileSecurityCheck, { object: true, nullable: false })
 	securityCheck: FileSecurityCheck;
 
+	@Index()
 	@Enum()
 	parentType: FileRecordParentType;
 
+	@Index()
 	@Property({ fieldName: &#x27;parent&#x27; })
 	_parentId: ObjectId;
 
@@ -682,16 +612,6 @@ export class FileRecord extends BaseEntity {
 		return this._creatorId.toHexString();
 	}
 
-	// todo: permissions
-
-	// for wopi, is this still needed?
-	@Property({ fieldName: &#x27;lockedForUser&#x27;, nullable: true })
-	_lockedForUserId?: ObjectId;
-
-	get lockedForUserId(): EntityId | undefined {
-		return this._lockedForUserId?.toHexString();
-	}
-
 	@Property({ fieldName: &#x27;school&#x27; })
 	_schoolId: ObjectId;
 
@@ -699,13 +619,12 @@ export class FileRecord extends BaseEntity {
 		return this._schoolId.toHexString();
 	}
 
-	// Temporary functionality for migration to new fileservice
-	// TODO: Remove when BC-1496 is done!
-	@Property()
-	createdAt &#x3D; new Date();
+	@Property({ fieldName: &#x27;isCopyFrom&#x27;, nullable: true })
+	_isCopyFrom?: ObjectId;
 
-	@Property()
-	updatedAt &#x3D; new Date();
+	get isCopyFrom(): EntityId | undefined {
+		return this._isCopyFrom?.toHexString();
+	}
 
 	constructor(props: IFileRecordProperties) {
 		super();
@@ -715,35 +634,93 @@ export class FileRecord extends BaseEntity {
 		this.parentType &#x3D; props.parentType;
 		this._parentId &#x3D; new ObjectId(props.parentId);
 		this._creatorId &#x3D; new ObjectId(props.creatorId);
-		if (props.lockedForUserId !&#x3D;&#x3D; undefined) {
-			this._lockedForUserId &#x3D; new ObjectId(props.lockedForUserId);
-		}
 		this._schoolId &#x3D; new ObjectId(props.schoolId);
+		this._isCopyFrom &#x3D; props.isCopyFrom;
 		this.securityCheck &#x3D; new FileSecurityCheck({});
 		this.deletedSince &#x3D; props.deletedSince;
 	}
 
-	updateSecurityCheckStatus(status: ScanStatus, reason &#x3D; &#x27;Clean&#x27;): void {
+	public updateSecurityCheckStatus(status: ScanStatus, reason: string): void {
 		this.securityCheck.status &#x3D; status;
 		this.securityCheck.reason &#x3D; reason;
 		this.securityCheck.updatedAt &#x3D; new Date();
 		this.securityCheck.requestToken &#x3D; undefined;
 	}
 
-	markForDelete(): void {
+	public copy(userId: EntityId, targetParentInfo: IParentInfo): FileRecord {
+		const { size, name, mimeType, id } &#x3D; this;
+		const { parentType, parentId, schoolId } &#x3D; targetParentInfo;
+
+		const fileRecordCopy &#x3D; new FileRecord({
+			size,
+			name,
+			mimeType,
+			parentType,
+			parentId,
+			creatorId: userId,
+			schoolId,
+			isCopyFrom: new ObjectId(id),
+		});
+
+		if (this.isVerified()) {
+			fileRecordCopy.securityCheck &#x3D; this.securityCheck;
+		}
+
+		return fileRecordCopy;
+	}
+
+	public markForDelete(): void {
 		this.deletedSince &#x3D; new Date();
 	}
 
-	unmarkForDelete(): void {
+	public unmarkForDelete(): void {
 		this.deletedSince &#x3D; undefined;
 	}
 
-	setName(name: string): void {
+	public setName(name: string): void {
 		if (name.length &#x3D;&#x3D;&#x3D; 0) {
 			throw new BadRequestException(ErrorType.FILE_NAME_EMPTY);
 		}
 
 		this.name &#x3D; name;
+	}
+
+	public hasName(name: string): boolean {
+		const hasName &#x3D; this.name &#x3D;&#x3D;&#x3D; name;
+
+		return hasName;
+	}
+
+	public getName(): string {
+		return this.name;
+	}
+
+	public isBlocked(): boolean {
+		const isBlocked &#x3D; this.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.BLOCKED;
+
+		return isBlocked;
+	}
+
+	public isPending(): boolean {
+		const isPending &#x3D; this.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.PENDING;
+
+		return isPending;
+	}
+
+	public isVerified(): boolean {
+		const isVerified &#x3D; this.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.VERIFIED;
+
+		return isVerified;
+	}
+
+	public getParentInfo(): IParentInfo {
+		const { parentId, parentType, schoolId } &#x3D; this;
+
+		return { parentId, parentType, schoolId };
+	}
+
+	public getSchoolId(): EntityId {
+		return this.schoolId;
 	}
 }
 </code></pre>

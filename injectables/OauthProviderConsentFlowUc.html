@@ -654,7 +654,7 @@
 	RejectRequestBody,
 } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
 import { AcceptQuery, ConsentRequestBody } from &#x27;@src/modules/oauth-provider/controller/dto&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { IdTokenService } from &#x27;@src/modules/oauth-provider/service/id-token.service&#x27;;
 import { OauthProviderService } from &#x27;@shared/infra/oauth-provider&#x27;;

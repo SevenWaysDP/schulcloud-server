@@ -235,11 +235,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Logger, RequestLoggingBody } from &#x27;@src/core/logger&#x27;;
 import { Request } from &#x27;express&#x27;;
 import { Observable, throwError } from &#x27;rxjs&#x27;;
 import { catchError, tap } from &#x27;rxjs/operators&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication/interface/user&#x27;;
 
 @Injectable()
 export class RequestLoggingInterceptor implements NestInterceptor {

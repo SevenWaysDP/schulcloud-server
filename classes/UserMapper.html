@@ -136,8 +136,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/user/mapper/user.mapper.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/user/mapper/user.mapper.ts:23</a></div>
                 </td>
             </tr>
 
@@ -302,8 +302,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/user/mapper/user.mapper.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/user/mapper/user.mapper.ts:44</a></div>
                 </td>
             </tr>
 
@@ -390,6 +390,8 @@ export class UserMapper {
 			language: entity.language,
 			forcePasswordChange: entity.forcePasswordChange,
 			preferences: entity.preferences,
+			lastLoginSystemChange: entity.lastLoginSystemChange,
+			outdatedSince: entity.outdatedSince,
 		});
 	}
 
@@ -405,6 +407,8 @@ export class UserMapper {
 			language: dto.language,
 			forcePasswordChange: dto.forcePasswordChange,
 			preferences: dto.preferences,
+			lastLoginSystemChange: dto.lastLoginSystemChange,
+			outdatedSince: dto.outdatedSince,
 		});
 		if (dto.id) {
 			user.id &#x3D; dto.id;
@@ -422,6 +426,8 @@ export class UserMapper {
 		target.externalId &#x3D; source.externalId ?? target.externalId;
 		target.forcePasswordChange &#x3D; source.forcePasswordChange ?? target.forcePasswordChange;
 		target.language &#x3D; source.language ?? target.language;
+		target.lastLoginSystemChange &#x3D; source.lastLoginSystemChange ?? target.lastLoginSystemChange;
+		target.outdatedSince &#x3D; source.outdatedSince ?? target.outdatedSince;
 		// Cannot patch preferences with empty object, because preferences is optional, but is always set in the constructor of the entity,
 		// so we can&#x27;t check if the field is undefined. it is always initialized with an empty object.
 		target.preferences &#x3D;

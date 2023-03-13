@@ -86,6 +86,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#isWhitelisted" >isWhitelisted</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#removeFromWhitelist" >removeFromWhitelist</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -98,6 +102,66 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(cacheManager: Cache, cacheService: <a href="../injectables/CacheService.html" target="_self">CacheService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt-validation.adapter.ts:12</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cacheManager</td>
+                                                  
+                                                        <td>
+                                                                    <code>Cache</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cacheService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CacheService.html" target="_self" >CacheService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -126,8 +190,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt-validation.adapter.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt-validation.adapter.ts:29</a></div>
                 </td>
             </tr>
 
@@ -209,8 +273,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt-validation.adapter.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt-validation.adapter.ts:24</a></div>
                 </td>
             </tr>
 
@@ -282,20 +346,112 @@ When the jwt is validated, the expiration time will be extended with this call.<
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeFromWhitelist"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>removeFromWhitelist</b></span>
+                        <a href="#removeFromWhitelist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeFromWhitelist(accountId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, jti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt-validation.adapter.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>accountId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>jti</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-
-import jwtWhitelist &#x3D; require(&#x27;../../../../../../src/services/authentication/logic/whitelist&#x27;);
-
-const { ensureTokenIsWhitelisted, addTokenToWhitelist, createRedisIdentifierFromJwtData } &#x3D; jwtWhitelist;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CACHE_MANAGER, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+import { CacheService } from &#x27;@shared/infra/cache&#x27;;
+import { CacheStoreType } from &#x27;@shared/infra/cache/interface/cache-store-type.enum&#x27;;
+import {
+	addTokenToWhitelist,
+	createRedisIdentifierFromJwtData,
+	ensureTokenIsWhitelisted,
+} from &#x27;@src/imports-from-feathers&#x27;;
+import { Cache } from &#x27;cache-manager&#x27;;
 
 @Injectable()
 export class JwtValidationAdapter {
+	constructor(
+		@Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
+		private readonly cacheService: CacheService
+	) {}
+
 	/**
 	 * When validating a jwt it must be added to a whitelist, here we check this.
 	 * When the jwt is validated, the expiration time will be extended with this call.
@@ -311,6 +467,13 @@ export class JwtValidationAdapter {
 		const redisIdentifier &#x3D; createRedisIdentifierFromJwtData(accountId, jti);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		await addTokenToWhitelist(redisIdentifier);
+	}
+
+	async removeFromWhitelist(accountId: string, jti: string): Promise&lt;void&gt; {
+		if (this.cacheService.getStoreType() &#x3D;&#x3D;&#x3D; CacheStoreType.REDIS) {
+			const redisIdentifier: string &#x3D; createRedisIdentifierFromJwtData(accountId, jti);
+			await this.cacheManager.del(redisIdentifier);
+		}
 	}
 }
 </code></pre>

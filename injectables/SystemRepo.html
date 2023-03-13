@@ -161,8 +161,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/repo/system/system.repo.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/shared/repo/system/system.repo.ts:31</a></div>
                 </td>
             </tr>
 
@@ -193,7 +193,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByFilter(type: <a href="../entitys/System.html" target="_self">string | SystemType</a>, onlyOauth)</code>
+                    <code>findByFilter(type: <a href="../entitys/System.html" target="_self">SystemTypeEnum</a>)</code>
                 </td>
             </tr>
 
@@ -218,37 +218,19 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>type</td>
                                     <td>
-                                                <code><a href="../entitys/System.html" target="_self" >string | SystemType</a></code>
+                                                <code><a href="../entitys/System.html" target="_self" >SystemTypeEnum</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                        <code>&#x27;&#x27;</code>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>onlyOauth</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>false</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -607,7 +589,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { System, SystemType } from &#x27;@shared/domain&#x27;;
+import { System, SystemTypeEnum } from &#x27;@shared/domain&#x27;;
 import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
 import { SystemScope } from &#x27;@shared/repo/system/system-scope&#x27;;
 
@@ -617,13 +599,21 @@ export class SystemRepo extends BaseRepo&lt;System&gt; {
 		return System;
 	}
 
-	async findByFilter(type: string | SystemType &#x3D; &#x27;&#x27;, onlyOauth &#x3D; false): Promise&lt;System[]&gt; {
+	async findByFilter(type: SystemTypeEnum): Promise&lt;System[]&gt; {
 		const scope &#x3D; new SystemScope();
-		if (type) {
-			scope.byType(type);
-		}
-		if (onlyOauth) {
-			scope.withOauthConfigOnly();
+		switch (type) {
+			case SystemTypeEnum.LDAP:
+				scope.withLdapConfig();
+				break;
+			case SystemTypeEnum.OAUTH:
+				scope.withOauthConfig();
+				break;
+			case SystemTypeEnum.OIDC:
+				scope.withOidcConfig();
+				break;
+			default:
+				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+				throw new Error(&#x60;system type ${type} unknown&#x60;);
 		}
 		return this._em.find(System, scope.query);
 	}

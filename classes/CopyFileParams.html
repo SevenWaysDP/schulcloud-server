@@ -135,7 +135,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:89</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:92</a></div>
                         </td>
                     </tr>
 
@@ -170,7 +170,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:85</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:88</a></div>
                         </td>
                     </tr>
 
@@ -243,12 +243,15 @@ export class DownloadFileParams {
 export class ScanResultParams {
 	@ApiProperty()
 	@Allow()
-	// @IsBoolean() ?
-	virus_detected!: boolean;
+	virus_detected?: boolean;
 
 	@ApiProperty()
 	@Allow()
 	virus_signature?: string;
+
+	@ApiProperty()
+	@Allow()
+	error?: string;
 }
 
 export class SingleFileParams {

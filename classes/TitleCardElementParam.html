@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts</code>
+            <code>apps/server/src/modules/task-card/controller/dto/task-card.params.ts</code>
         </p>
 
 
@@ -140,7 +140,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -175,7 +175,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -198,7 +198,17 @@
 import { SanitizeHtml } from &#x27;@shared/controller&#x27;;
 import { CardElementType, InputFormat } from &#x27;@shared/domain&#x27;;
 import { Type } from &#x27;class-transformer&#x27;;
-import { IsArray, IsEnum, IsMongoId, IsOptional, IsString, MinLength, ValidateNested } from &#x27;class-validator&#x27;;
+import {
+	IsArray,
+	IsDate,
+	IsEnum,
+	IsMongoId,
+	IsOptional,
+	IsString,
+	MinDate,
+	MinLength,
+	ValidateNested,
+} from &#x27;class-validator&#x27;;
 
 export abstract class CardElementBase {}
 
@@ -242,7 +252,7 @@ export class RichTextCardElementParam extends CardElementBase {
 }
 
 @ApiExtraModels(TitleCardElementParam, RichTextCardElementParam)
-export class CardElementUpdateParams {
+export class CardElementParams {
 	@ApiPropertyOptional()
 	@IsOptional()
 	@IsString()
@@ -267,15 +277,36 @@ export class CardElementUpdateParams {
 	content!: RichTextCardElementParam | TitleCardElementParam;
 }
 
-export class UpdateTaskCardParams {
+export class TaskCardParams {
+	@IsString()
+	@IsMongoId()
+	@IsOptional()
+	@ApiPropertyOptional({
+		description: &#x27;The id of an course object.&#x27;,
+		pattern: &#x27;[a-f0-9]{24}&#x27;,
+	})
+	courseId?: string;
+
+	@IsOptional()
+	@IsDate()
+	@MinDate(new Date())
+	@ApiPropertyOptional({ description: &#x27;Visible at date of the card&#x27; })
+	visibleAtDate?: Date;
+
+	@IsOptional()
+	@IsDate()
+	@MinDate(new Date())
+	@ApiPropertyOptional({ description: &#x27;Due date of the card&#x27; })
+	dueDate?: Date;
+
 	@IsArray()
 	@ValidateNested({ each: true })
-	@Type(() &#x3D;&gt; CardElementUpdateParams)
+	@Type(() &#x3D;&gt; CardElementParams)
 	@ApiProperty({
 		description: &#x27;Card elements array&#x27;,
-		type: [CardElementUpdateParams],
+		type: [CardElementParams],
 	})
-	cardElements!: CardElementUpdateParams[];
+	cardElements!: CardElementParams[];
 }
 </code></pre>
     </div>

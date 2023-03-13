@@ -112,6 +112,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#restore" >restore</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#revertPublished" >revertPublished</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -158,8 +162,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:85</a></div>
                 </td>
             </tr>
 
@@ -260,8 +264,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:100</a></div>
                 </td>
             </tr>
 
@@ -784,6 +788,96 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="revertPublished"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>revertPublished</b></span>
+                        <a href="#revertPublished"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>revertPublished(urlParams: <a href="../classes/TaskUrlParams.html" target="_self">TaskUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:taskId/revertPublished&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>urlParams</td>
+                                    <td>
+                                                <code><a href="../classes/TaskUrlParams.html" target="_self" >TaskUrlParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
@@ -792,7 +886,7 @@
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { RequestTimeout } from &#x27;@shared/common&#x27;;
 import { PaginationParams } from &#x27;@shared/controller/&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { CopyApiResponse, CopyMapper } from &#x27;@src/modules/copy-helper&#x27;;
 import { serverConfig } from &#x27;@src/modules/server/server.config&#x27;;
@@ -852,6 +946,18 @@ export class TaskController {
 	@Patch(&#x27;:taskId/restore&#x27;)
 	async restore(@Param() urlParams: TaskUrlParams, @CurrentUser() currentUser: ICurrentUser): Promise&lt;TaskResponse&gt; {
 		const task &#x3D; await this.taskUc.changeFinishedForUser(currentUser.userId, urlParams.taskId, false);
+
+		const response &#x3D; TaskMapper.mapToResponse(task);
+
+		return response;
+	}
+
+	@Patch(&#x27;:taskId/revertPublished&#x27;)
+	async revertPublished(
+		@Param() urlParams: TaskUrlParams,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;TaskResponse&gt; {
+		const task &#x3D; await this.taskUc.revertPublished(currentUser.userId, urlParams.taskId);
 
 		const response &#x3D; TaskMapper.mapToResponse(task);
 

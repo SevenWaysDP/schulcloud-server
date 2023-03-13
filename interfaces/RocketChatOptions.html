@@ -337,6 +337,30 @@ export interface RocketChatOptions {
 	adminToken?: string;
 }
 
+export interface RocketChatGroupModel {
+	group: {
+		_id: string;
+		name: string;
+		fname: string;
+		t: string;
+		msgs: number;
+		usersCount: number;
+		u: {
+			_id: string;
+			username: string;
+		};
+		customfields: object;
+		broadcast: boolean;
+		encrypted: boolean;
+		ts: Date;
+		ro: boolean;
+		defaults: boolean;
+		sysmes: boolean;
+		_updatedAt: Date;
+	};
+	success: boolean;
+}
+
 type GenericData &#x3D; Record&lt;string, unknown&gt;;
 
 export class RocketChatError extends Error {
@@ -415,8 +439,10 @@ export class RocketChatService {
 	}
 
 	public async kickUserFromGroup(groupName: string, userId: string): Promise&lt;GenericData&gt; {
+		const groupInfo: RocketChatGroupModel &#x3D; await this.getGroupData(groupName);
+
 		return this.postAsAdmin(&#x27;/api/v1/groups.kick&#x27;, {
-			roomName: groupName,
+			roomId: groupInfo.group._id,
 			userId,
 		});
 	}
@@ -448,6 +474,10 @@ export class RocketChatService {
 
 	public async getGroupMembers(groupName: string): Promise&lt;GenericData&gt; {
 		return this.getAsAdmin(&#x60;/api/v1/groups.members?roomName&#x3D;${groupName}&#x60;);
+	}
+
+	private async getGroupData(groupName: string): Promise&lt;RocketChatGroupModel&gt; {
+		return this.getAsAdmin&lt;RocketChatGroupModel&gt;(&#x60;/api/v1/groups.info?roomName&#x3D;${groupName}&#x60;);
 	}
 
 	public async createGroup(name: string, members: string[]): Promise&lt;GenericData&gt; {
@@ -486,12 +516,12 @@ export class RocketChatService {
 		return this.post(path, adminIdAndToken.token, adminIdAndToken.id, body);
 	}
 
-	private async getAsAdmin(path: string): Promise&lt;GenericData&gt; {
+	private async getAsAdmin&lt;Type &#x3D; GenericData&gt;(path: string): Promise&lt;Type&gt; {
 		const adminIdAndToken &#x3D; await this.getAdminIdAndToken();
-		return this.get(path, adminIdAndToken.token, adminIdAndToken.id);
+		return this.get&lt;Type&gt;(path, adminIdAndToken.token, adminIdAndToken.id);
 	}
 
-	private async get(path: string, authToken: string, userId: string): Promise&lt;GenericData&gt; {
+	private async get&lt;Type &#x3D; GenericData&gt;(path: string, authToken: string, userId: string): Promise&lt;Type&gt; {
 		const response &#x3D; await lastValueFrom(
 			this.httpService
 				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
@@ -507,7 +537,7 @@ export class RocketChatService {
 					})
 				)
 		);
-		return response?.data as GenericData;
+		return response?.data as Type;
 	}
 
 	private async post(path: string, authToken: string, userId: string, body: GenericData): Promise&lt;GenericData&gt; {

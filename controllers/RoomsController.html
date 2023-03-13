@@ -392,7 +392,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/BoardResponse.html" target="_self" >Promise&lt;BoardResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/Board.html" target="_self" >Promise&lt;SingleColumnBoardResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -613,7 +613,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Patch, Post } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { RequestTimeout } from &#x27;@shared/common&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { CopyApiResponse, CopyMapper } from &#x27;@src/modules/copy-helper&#x27;;
 import { serverConfig } from &#x27;@src/modules/server/server.config&#x27;;
@@ -622,13 +622,13 @@ import { CourseCopyUC } from &#x27;../uc/course-copy.uc&#x27;;
 import { LessonCopyUC } from &#x27;../uc/lesson-copy.uc&#x27;;
 import { RoomsUc } from &#x27;../uc/rooms.uc&#x27;;
 import {
-	BoardResponse,
 	LessonCopyApiParams,
 	LessonUrlParams,
 	PatchOrderParams,
 	PatchVisibilityParams,
 	RoomElementUrlParams,
 	RoomUrlParams,
+	SingleColumnBoardResponse,
 } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;Rooms&#x27;)
@@ -646,7 +646,7 @@ export class RoomsController {
 	async getRoomBoard(
 		@Param() urlParams: RoomUrlParams,
 		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;BoardResponse&gt; {
+	): Promise&lt;SingleColumnBoardResponse&gt; {
 		const board &#x3D; await this.roomsUc.getBoard(urlParams.roomId, currentUser.userId);
 		const mapped &#x3D; this.mapper.mapToResponse(board);
 		return mapped;

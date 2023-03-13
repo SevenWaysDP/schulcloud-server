@@ -69,6 +69,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#strategies" >strategies</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -85,19 +99,19 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#process" >process</a>
+                                <a href="#getData" >getData</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#provisionIserv" >provisionIserv</a>
+                                <a href="#getProvisioningStrategy" >getProvisioningStrategy</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#provisionOidc" >provisionOidc</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#provisionData" >provisionData</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#provisionSanis" >provisionSanis</a>
+                                    <span class="modifier">Protected</span>
+                                <a href="#registerStrategy" >registerStrategy</a>
                             </li>
                         </ul>
                     </td>
@@ -117,12 +131,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, sanisStrategy: <a href="../injectables/SanisProvisioningStrategy.html" target="_self">SanisProvisioningStrategy</a>, iservStrategy: <a href="../injectables/IservProvisioningStrategy.html" target="_self">IservProvisioningStrategy</a>, oidcStrategy: <a href="../injectables/OidcProvisioningStrategy.html" target="_self">OidcProvisioningStrategy</a>)</code>
+<code>constructor(systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, sanisStrategy: <a href="../injectables/SanisProvisioningStrategy.html" target="_self">SanisProvisioningStrategy</a>, iservStrategy: <a href="../injectables/IservProvisioningStrategy.html" target="_self">IservProvisioningStrategy</a>, oidcMockStrategy: <a href="../injectables/OidcMockProvisioningStrategy.html" target="_self">OidcMockProvisioningStrategy</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -176,10 +190,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>oidcStrategy</td>
+                                                        <td>oidcMockStrategy</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/OidcProvisioningStrategy.html" target="_self" >OidcProvisioningStrategy</a></code>
+                                                                        <code><a href="../injectables/OidcMockProvisioningStrategy.html" target="_self" >OidcMockProvisioningStrategy</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -224,8 +238,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:50</a></div>
                 </td>
             </tr>
 
@@ -263,7 +277,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ProvisioningSystemInputDto.html" target="_self" >Promise&lt;ProvisioningSystemInputDto&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/System.html" target="_self" >Promise&lt;ProvisioningSystemDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -277,26 +291,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="process"></a>
+                    <a name="getData"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>process</b></span>
-                        <a href="#process"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getData</b></span>
+                        <a href="#getData"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>process(accessToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>getData(accessToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:36</a></div>
                 </td>
             </tr>
 
@@ -358,7 +372,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ProvisioningDto.html" target="_self" >Promise&lt;ProvisioningDto&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/OauthDataDto.html" target="_self" >Promise&lt;OauthDataDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -372,26 +386,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="provisionIserv"></a>
+                    <a name="getProvisioningStrategy"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>provisionIserv</b></span>
-                        <a href="#provisionIserv"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getProvisioningStrategy</b></span>
+                        <a href="#getProvisioningStrategy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>provisionIserv(idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>getProvisioningStrategy(systemStrategy: <a href="../classes/ProvisioningStrategy.html" target="_self">SystemProvisioningStrategy</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:62</a></div>
                 </td>
             </tr>
 
@@ -412,9 +426,80 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>idToken</td>
+                                    <td>systemStrategy</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../classes/ProvisioningStrategy.html" target="_self" >SystemProvisioningStrategy</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ProvisioningStrategy.html" target="_self" >ProvisioningStrategy</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="provisionData"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>provisionData</b></span>
+                        <a href="#provisionData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>provisionData(oauthData: <a href="../classes/OauthDataDto.html" target="_self">OauthDataDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:56</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>oauthData</td>
+                                    <td>
+                                                <code><a href="../classes/OauthDataDto.html" target="_self" >OauthDataDto</a></code>
                                     </td>
 
                                     <td>
@@ -443,26 +528,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="provisionOidc"></a>
+                    <a name="registerStrategy"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>provisionOidc</b></span>
-                        <a href="#provisionOidc"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Protected</span>
+                        <span ><b>registerStrategy</b></span>
+                        <a href="#registerStrategy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>provisionOidc(idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>registerStrategy(strategy: <a href="../classes/ProvisioningStrategy.html" target="_self">ProvisioningStrategy</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:32</a></div>
                 </td>
             </tr>
 
@@ -483,9 +568,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>idToken</td>
+                                    <td>strategy</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../classes/ProvisioningStrategy.html" target="_self" >ProvisioningStrategy</a></code>
                                     </td>
 
                                     <td>
@@ -500,102 +585,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ProvisioningDto.html" target="_self" >Promise&lt;ProvisioningDto&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="provisionSanis"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>provisionSanis</b></span>
-                        <a href="#provisionSanis"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>provisionSanis(system: <a href="../classes/ProvisioningSystemInputDto.html" target="_self">ProvisioningSystemInputDto</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, accessToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:59</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>system</td>
-                                    <td>
-                                                <code><a href="../classes/ProvisioningSystemInputDto.html" target="_self" >ProvisioningSystemInputDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>systemId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>accessToken</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ProvisioningDto.html" target="_self" >Promise&lt;ProvisioningDto&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -606,93 +596,120 @@
         </tbody>
     </table>
 </section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="strategies"></a>
+                    <span class="name">
+                        <span ><b>strategies</b></span>
+                        <a href="#strategies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/ProvisioningStrategy.html" target="_self" >Map&lt;SystemProvisioningStrategy | ProvisioningStrategy&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;
+		SystemProvisioningStrategy,
+		ProvisioningStrategy
+	&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/provisioning/service/provisioning.service.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InternalServerErrorException, NotFoundException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { SystemProvisioningStrategy } from &#x27;@shared/domain/interface/system-provisioning.strategy&#x27;;
-import { ProvisioningSystemInputDto } from &#x27;@src/modules/provisioning/dto/provisioning-system-input.dto&#x27;;
-import { ProvisioningSystemInputMapper } from &#x27;@src/modules/provisioning/mapper/provisioning-system-input.mapper&#x27;;
-import { SanisProvisioningStrategy, SanisStrategyData } from &#x27;@src/modules/provisioning/strategy/sanis/sanis.strategy&#x27;;
-import { IservProvisioningStrategy, IservStrategyData } from &#x27;@src/modules/provisioning/strategy/iserv/iserv.strategy&#x27;;
-import { OidcProvisioningStrategy, OidcStrategyData } from &#x27;@src/modules/provisioning/strategy/oidc/oidc.strategy&#x27;;
-import { ProvisioningDto } from &#x27;@src/modules/provisioning/dto/provisioning.dto&#x27;;
-import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
+import { SystemService } from &#x27;@src/modules/system&#x27;;
+import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
+import { OauthDataDto, OauthDataStrategyInputDto, ProvisioningDto, ProvisioningSystemDto } from &#x27;../dto&#x27;;
+import { ProvisioningSystemInputMapper } from &#x27;../mapper/provisioning-system-input.mapper&#x27;;
+import {
+	IservProvisioningStrategy,
+	OidcMockProvisioningStrategy,
+	ProvisioningStrategy,
+	SanisProvisioningStrategy,
+} from &#x27;../strategy&#x27;;
 
 @Injectable()
 export class ProvisioningService {
+	strategies: Map&lt;SystemProvisioningStrategy, ProvisioningStrategy&gt; &#x3D; new Map&lt;
+		SystemProvisioningStrategy,
+		ProvisioningStrategy
+	&gt;();
+
 	constructor(
 		private readonly systemService: SystemService,
 		private readonly sanisStrategy: SanisProvisioningStrategy,
 		private readonly iservStrategy: IservProvisioningStrategy,
-		private readonly oidcStrategy: OidcProvisioningStrategy
-	) {}
-
-	async process(accessToken: string, idToken: string, systemId: string): Promise&lt;ProvisioningDto&gt; {
-		const system: ProvisioningSystemInputDto &#x3D; await this.determineInput(systemId);
-
-		switch (system.provisioningStrategy) {
-			case SystemProvisioningStrategy.SANIS: {
-				const provisioningDtoPromise &#x3D; this.provisionSanis(system, systemId, accessToken);
-				return provisioningDtoPromise;
-			}
-			case SystemProvisioningStrategy.ISERV: {
-				const provisioningDtoPromise &#x3D; this.provisionIserv(idToken);
-				return provisioningDtoPromise;
-			}
-			case SystemProvisioningStrategy.OIDC: {
-				const provisioningDtoPromise &#x3D; this.provisionOidc(idToken);
-				return provisioningDtoPromise;
-			}
-			default:
-				throw new InternalServerErrorException(&#x27;Provisioning Strategy is not defined.&#x27;);
-		}
+		private readonly oidcMockStrategy: OidcMockProvisioningStrategy
+	) {
+		this.registerStrategy(sanisStrategy);
+		this.registerStrategy(iservStrategy);
+		this.registerStrategy(oidcMockStrategy);
 	}
 
-	private async determineInput(systemId: string): Promise&lt;ProvisioningSystemInputDto&gt; {
-		try {
-			const systemDto &#x3D; await this.systemService.findById(systemId);
-			const inputDto: ProvisioningSystemInputDto &#x3D; ProvisioningSystemInputMapper.mapToInternal(systemDto);
-			return inputDto;
-		} catch (e) {
-			throw new NotFoundException(&#x60;System with id &quot;${systemId}&quot; does not exist.&#x60;);
-		}
+	protected registerStrategy(strategy: ProvisioningStrategy) {
+		this.strategies.set(strategy.getType(), strategy);
 	}
 
-	private provisionIserv(idToken: string): Promise&lt;ProvisioningDto&gt; {
-		const params: IservStrategyData &#x3D; {
-			idToken,
-		};
-		const provisioningDtoPromise &#x3D; this.iservStrategy.apply(params);
-		return provisioningDtoPromise;
-	}
-
-	private provisionSanis(
-		system: ProvisioningSystemInputDto,
-		systemId: string,
-		accessToken: string
-	): Promise&lt;ProvisioningDto&gt; {
-		if (!system.provisioningUrl) {
-			throw new InternalServerErrorException(&#x60;Sanis system with id: ${systemId} is missing a provisioning url&#x60;);
-		}
-
-		const params: SanisStrategyData &#x3D; {
-			provisioningUrl: system.provisioningUrl,
+	async getData(accessToken: string, idToken: string, systemId: string): Promise&lt;OauthDataDto&gt; {
+		const system: ProvisioningSystemDto &#x3D; await this.determineInput(systemId);
+		const input: OauthDataStrategyInputDto &#x3D; new OauthDataStrategyInputDto({
 			accessToken,
-			systemId,
-		};
-		const provisioningDtoPromise &#x3D; this.sanisStrategy.apply(params);
-		return provisioningDtoPromise;
+			idToken,
+			system,
+		});
+
+		const strategy: ProvisioningStrategy &#x3D; this.getProvisioningStrategy(system.provisioningStrategy);
+
+		const data: OauthDataDto &#x3D; await strategy.getData(input);
+		return data;
 	}
 
-	private provisionOidc(idToken: string): Promise&lt;ProvisioningDto&gt; {
-		const params: OidcStrategyData &#x3D; {
-			idToken,
-		};
-		const provisioningDtoPromise &#x3D; this.oidcStrategy.apply(params);
-		return provisioningDtoPromise;
+	private async determineInput(systemId: string): Promise&lt;ProvisioningSystemDto&gt; {
+		const systemDto: SystemDto &#x3D; await this.systemService.findById(systemId);
+		const inputDto: ProvisioningSystemDto &#x3D; ProvisioningSystemInputMapper.mapToInternal(systemDto);
+		return inputDto;
+	}
+
+	async provisionData(oauthData: OauthDataDto): Promise&lt;ProvisioningDto&gt; {
+		const strategy: ProvisioningStrategy &#x3D; this.getProvisioningStrategy(oauthData.system.provisioningStrategy);
+		const provisioningDto: Promise&lt;ProvisioningDto&gt; &#x3D; strategy.apply(oauthData);
+		return provisioningDto;
+	}
+
+	private getProvisioningStrategy(systemStrategy: SystemProvisioningStrategy): ProvisioningStrategy {
+		const strategy: ProvisioningStrategy | undefined &#x3D; this.strategies.get(systemStrategy);
+
+		if (!strategy) {
+			throw new InternalServerErrorException(&#x27;Provisioning Strategy is not defined.&#x27;);
+		}
+
+		return strategy;
 	}
 }
 </code></pre>

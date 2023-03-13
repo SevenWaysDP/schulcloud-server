@@ -44,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >AuthorizationParams</li>
+  <li 
+        class="deprecated-name"
+    >AuthorizationParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,6 +67,12 @@
             <code>apps/server/src/modules/oauth/controller/dto/authorization.params.ts</code>
         </p>
 
+            <p class="comment">
+                <h3 class="deprecated">Deprecated</h3>
+            </p>
+            <p class="comment">
+                
+            </p>
 
 
 
@@ -89,6 +97,17 @@
                             <li>
                                     <span class="modifier">Optional</span>
                                 <a href="#error" >error</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#error_description" >error_description</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#error_uri" >error_uri</a>
+                            </li>
+                            <li>
+                                <a href="#state" >state</a>
                             </li>
                         </ul>
                     </td>
@@ -138,7 +157,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -159,6 +178,42 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#SSOAuthenticationError" target="_self" >SSOAuthenticationError</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsOptional()<br />@IsEnum(SSOAuthenticationError)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error_description"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>error_description</b></span>
+                        <a href="#error_description"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </td>
@@ -168,13 +223,84 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsOptional()<br />@IsString()<br />@IsNotEmpty()<br />
+                            @IsOptional()<br />@IsString()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error_uri"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>error_uri</b></span>
+                        <a href="#error_uri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsOptional()<br />@IsString()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="state"></a>
+                    <span class="name">
+                        <span ><b>state</b></span>
+                        <a href="#state"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsString()<br />@IsNotEmpty()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -193,8 +319,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty, IsOptional, IsString } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsEnum, IsNotEmpty, IsOptional, IsString } from &#x27;class-validator&#x27;;
+import { SSOAuthenticationError } from &#x27;../../interface/sso-authentication-error.enum&#x27;;
 
+/**
+ * @deprecated
+ */
 export class AuthorizationParams {
 	@IsOptional()
 	@IsString()
@@ -202,9 +332,20 @@ export class AuthorizationParams {
 	code?: string;
 
 	@IsOptional()
+	@IsEnum(SSOAuthenticationError)
+	error?: SSOAuthenticationError;
+
+	@IsOptional()
+	@IsString()
+	error_description?: string;
+
+	@IsOptional()
+	@IsString()
+	error_uri?: string;
+
 	@IsString()
 	@IsNotEmpty()
-	error?: string;
+	state!: string;
 }
 </code></pre>
     </div>

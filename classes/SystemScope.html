@@ -113,10 +113,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#byType" >byType</a>
+                                <a href="#withLdapConfig" >withLdapConfig</a>
                             </li>
                             <li>
-                                <a href="#withOauthConfigOnly" >withOauthConfigOnly</a>
+                                <a href="#withOauthConfig" >withOauthConfig</a>
+                            </li>
+                            <li>
+                                <a href="#withOidcConfig" >withOidcConfig</a>
                             </li>
                             <li>
                                 <a href="#addQuery" >addQuery</a>
@@ -260,16 +263,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="byType"></a>
+                    <a name="withLdapConfig"></a>
                     <span class="name">
-                        <span ><b>byType</b></span>
-                        <a href="#byType"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>withLdapConfig</b></span>
+                        <a href="#withLdapConfig"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>byType(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>withLdapConfig()</code>
                 </td>
             </tr>
 
@@ -286,40 +289,8 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/SystemScope.html" target="_self" >SystemScope</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -329,16 +300,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="withOauthConfigOnly"></a>
+                    <a name="withOauthConfig"></a>
                     <span class="name">
-                        <span ><b>withOauthConfigOnly</b></span>
-                        <a href="#withOauthConfigOnly"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>withOauthConfig</b></span>
+                        <a href="#withOauthConfig"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>withOauthConfigOnly()</code>
+<code>withOauthConfig()</code>
                 </td>
             </tr>
 
@@ -347,6 +318,43 @@
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="10"
                             class="link-to-prism">apps/server/src/shared/repo/system/system-scope.ts:10</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/SystemScope.html" target="_self" >SystemScope</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="withOidcConfig"></a>
+                    <span class="name">
+                        <span ><b>withOidcConfig</b></span>
+                        <a href="#withOidcConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>withOidcConfig()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/repo/system/system-scope.ts:15</a></div>
                 </td>
             </tr>
 
@@ -526,13 +534,18 @@
 import { Scope } from &#x27;../scope&#x27;;
 
 export class SystemScope extends Scope&lt;System&gt; {
-	byType(type: string): SystemScope {
-		this.addQuery({ type: { $eq: type } });
+	withLdapConfig(): SystemScope {
+		this.addQuery({ ldapConfig: { $ne: null } });
 		return this;
 	}
 
-	withOauthConfigOnly(): SystemScope {
+	withOauthConfig(): SystemScope {
 		this.addQuery({ oauthConfig: { $ne: null } });
+		return this;
+	}
+
+	withOidcConfig(): SystemScope {
+		this.addQuery({ oidcConfig: { $ne: null } });
 		return this;
 	}
 }

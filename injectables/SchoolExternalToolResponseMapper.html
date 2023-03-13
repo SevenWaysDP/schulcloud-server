@@ -83,7 +83,6 @@
                                 <a href="#mapToCustomParameterEntryResponse" >mapToCustomParameterEntryResponse</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
                                 <a href="#mapToSchoolExternalToolResponse" >mapToSchoolExternalToolResponse</a>
                             </li>
                             <li>
@@ -184,7 +183,6 @@
                 <td class="col-md-4">
                     <a name="mapToSchoolExternalToolResponse"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
                         <span ><b>mapToSchoolExternalToolResponse</b></span>
                         <a href="#mapToSchoolExternalToolResponse"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -192,8 +190,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToSchoolExternalToolResponse(schoolExternalToolDO: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
+<code>mapToSchoolExternalToolResponse(schoolExternalToolDO: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
                 </td>
             </tr>
 
@@ -262,7 +259,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mapToSearchListResponse(externalToolDOS: <a href="../undefineds/ExternalTool.html" target="_self">SchoolExternalToolDO[]</a>)</code>
+<code>mapToSearchListResponse(externalToolDOS: SchoolExternalToolDO[])</code>
                 </td>
             </tr>
 
@@ -293,7 +290,7 @@
                                 <tr>
                                     <td>externalToolDOS</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >SchoolExternalToolDO[]</a></code>
+                                            <code>SchoolExternalToolDO[]</code>
                                     </td>
 
                                     <td>
@@ -350,7 +347,7 @@ export class SchoolExternalToolResponseMapper {
 		return new SchoolExternalToolSearchListResponse(responses);
 	}
 
-	private mapToSchoolExternalToolResponse(schoolExternalToolDO: SchoolExternalToolDO): SchoolExternalToolResponse {
+	mapToSchoolExternalToolResponse(schoolExternalToolDO: SchoolExternalToolDO): SchoolExternalToolResponse {
 		return {
 			id: schoolExternalToolDO.id ?? &#x27;&#x27;,
 			name: schoolExternalToolDO.name ?? &#x27;&#x27;,

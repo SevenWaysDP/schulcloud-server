@@ -98,17 +98,22 @@
                                 <a href="#checkParentWritePermission" >checkParentWritePermission</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyCourse" >copyCourse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyLesson" >copyLesson</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#createShareToken" >createShareToken</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#importShareToken" >importShareToken</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#loadMetadata" >loadMetadata</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -136,7 +141,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(shareTokenService: <a href="../injectables/ShareTokenService.html" target="_self">ShareTokenService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, metadataLoader: <a href="../injectables/MetadataLoader.html" target="_self">MetadataLoader</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(shareTokenService: <a href="../injectables/ShareTokenService.html" target="_self">ShareTokenService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>, courseService: <a href="../injectables/CourseService.html" target="_self">CourseService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -183,10 +188,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>metadataLoader</td>
+                                                        <td>courseCopyService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/MetadataLoader.html" target="_self" >MetadataLoader</a></code>
+                                                                        <code><a href="../injectables/CourseCopyService.html" target="_self" >CourseCopyService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -195,10 +200,22 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>courseCopyService</td>
+                                                        <td>lessonCopyService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/CourseCopyService.html" target="_self" >CourseCopyService</a></code>
+                                                                        <code><a href="../injectables/LessonCopyService.html" target="_self" >LessonCopyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>courseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CourseService.html" target="_self" >CourseService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -255,8 +272,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="114"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:114</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:159</a></div>
                 </td>
             </tr>
 
@@ -339,8 +356,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="122"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:122</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:167</a></div>
                 </td>
             </tr>
 
@@ -415,15 +432,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkFeatureEnabled()</code>
+                    <code>checkFeatureEnabled(parentType: <a href="../entitys/ShareToken.html" target="_self">ShareTokenParentType</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="147"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:147</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="191"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:191</a></div>
                 </td>
             </tr>
 
@@ -432,8 +449,40 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>parentType</td>
+                                    <td>
+                                                <code><a href="../entitys/ShareToken.html" target="_self" >ShareTokenParentType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -462,8 +511,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:140</a></div>
                 </td>
             </tr>
 
@@ -527,6 +576,210 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyCourse"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyCourse</b></span>
+                        <a href="#copyCourse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyCourse(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courseId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>newName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyLesson"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyLesson</b></span>
+                        <a href="#copyLesson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyLesson(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, lessonId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, copyName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:129</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>lessonId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courseId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>copyName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createShareToken"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -545,8 +798,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:35</a></div>
                 </td>
             </tr>
 
@@ -633,15 +886,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>importShareToken(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>importShareToken(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, destinationCourseId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:85</a></div>
                 </td>
             </tr>
 
@@ -697,6 +950,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>destinationCourseId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -704,78 +969,6 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="loadMetadata"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>loadMetadata</b></span>
-                        <a href="#loadMetadata"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>loadMetadata(payload: <a href="../entitys/ShareToken.html" target="_self">ShareTokenPayload</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="131"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:131</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>payload</td>
-                                    <td>
-                                                <code><a href="../entitys/ShareToken.html" target="_self" >ShareTokenPayload</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Meta.html" target="_self" >Promise&lt;LearnroomMetadata&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -807,8 +1000,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:63</a></div>
                 </td>
             </tr>
 
@@ -890,8 +1083,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:141</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:185</a></div>
                 </td>
             </tr>
 
@@ -946,13 +1139,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
-import { Actions, EntityId, LearnroomMetadata, Permission } from &#x27;@shared/domain&#x27;;
+import { BadRequestException, Injectable, InternalServerErrorException, NotImplementedException } from &#x27;@nestjs/common&#x27;;
+import { Actions, EntityId, Permission } from &#x27;@shared/domain&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { CopyStatus } from &#x27;@src/modules/copy-helper&#x27;;
 import { CourseCopyService } from &#x27;@src/modules/learnroom&#x27;;
-import { MetadataLoader } from &#x27;@src/modules/learnroom/service/metadata-loader.service&#x27;;
+import { CourseService } from &#x27;@src/modules/learnroom/service/course.service&#x27;;
+import { LessonCopyService } from &#x27;@src/modules/lesson/service&#x27;;
 import {
 	ShareTokenContext,
 	ShareTokenContextType,
@@ -961,7 +1155,6 @@ import {
 	ShareTokenPayload,
 } from &#x27;../domainobject/share-token.do&#x27;;
 import { ShareTokenContextTypeMapper, ShareTokenParentTypeMapper } from &#x27;../mapper&#x27;;
-import { MetadataTypeMapper } from &#x27;../mapper/metadata-type.mapper&#x27;;
 import { ShareTokenService } from &#x27;../service&#x27;;
 import { ShareTokenInfoDto } from &#x27;./dto&#x27;;
 
@@ -970,8 +1163,9 @@ export class ShareTokenUC {
 	constructor(
 		private readonly shareTokenService: ShareTokenService,
 		private readonly authorizationService: AuthorizationService,
-		private readonly metadataLoader: MetadataLoader,
 		private readonly courseCopyService: CourseCopyService,
+		private readonly lessonCopyService: LessonCopyService,
+		private readonly courseService: CourseService,
 
 		private readonly logger: Logger
 	) {
@@ -983,7 +1177,7 @@ export class ShareTokenUC {
 		payload: ShareTokenPayload,
 		options?: { schoolExclusive?: boolean; expiresInDays?: number }
 	): Promise&lt;ShareTokenDO&gt; {
-		this.checkFeatureEnabled();
+		this.checkFeatureEnabled(payload.parentType);
 
 		this.logger.debug({ action: &#x27;createShareToken&#x27;, userId, payload, options });
 
@@ -1007,33 +1201,38 @@ export class ShareTokenUC {
 	}
 
 	async lookupShareToken(userId: EntityId, token: string): Promise&lt;ShareTokenInfoDto&gt; {
-		this.checkFeatureEnabled();
-
 		this.logger.debug({ action: &#x27;lookupShareToken&#x27;, userId, token });
 
-		const shareToken &#x3D; await this.shareTokenService.lookupToken(token);
+		const { shareToken, parentName } &#x3D; await this.shareTokenService.lookupTokenWithParentName(token);
+
+		this.checkFeatureEnabled(shareToken.payload.parentType);
+
+		await this.checkCreatePermission(userId, shareToken.payload.parentType);
 
 		if (shareToken.context) {
 			await this.checkContextReadPermission(userId, shareToken.context);
 		}
 
-		const metadata: LearnroomMetadata &#x3D; await this.loadMetadata(shareToken.payload);
-
 		const shareTokenInfo: ShareTokenInfoDto &#x3D; {
 			token,
 			parentType: shareToken.payload.parentType,
-			parentName: metadata.title,
+			parentName,
 		};
 
 		return shareTokenInfo;
 	}
 
-	async importShareToken(userId: EntityId, token: string, newName: string): Promise&lt;CopyStatus&gt; {
-		this.checkFeatureEnabled();
-
+	async importShareToken(
+		userId: EntityId,
+		token: string,
+		newName: string,
+		destinationCourseId?: string
+	): Promise&lt;CopyStatus&gt; {
 		this.logger.debug({ action: &#x27;importShareToken&#x27;, userId, token, newName });
 
 		const shareToken &#x3D; await this.shareTokenService.lookupToken(token);
+
+		this.checkFeatureEnabled(shareToken.payload.parentType);
 
 		if (shareToken.context) {
 			await this.checkContextReadPermission(userId, shareToken.context);
@@ -1041,20 +1240,59 @@ export class ShareTokenUC {
 
 		await this.checkCreatePermission(userId, shareToken.payload.parentType);
 
-		const result &#x3D; await this.courseCopyService.copyCourse({
-			userId,
-			courseId: shareToken.payload.parentId,
-			newName,
-		});
+		let result: CopyStatus;
+		switch (shareToken.payload.parentType) {
+			case ShareTokenParentType.Course:
+				result &#x3D; await this.copyCourse(userId, shareToken.payload.parentId, newName);
+				break;
+			case ShareTokenParentType.Lesson:
+				if (destinationCourseId &#x3D;&#x3D;&#x3D; undefined) {
+					throw new BadRequestException(&#x27;Destination course id is required to copy lesson&#x27;);
+				}
+				result &#x3D; await this.copyLesson(userId, shareToken.payload.parentId, destinationCourseId, newName);
+				break;
+			default:
+				throw new NotImplementedException(&#x27;Copy not implemented&#x27;);
+		}
 
 		return result;
 	}
 
+	private async copyCourse(userId: EntityId, courseId: string, newName: string): Promise&lt;CopyStatus&gt; {
+		return this.courseCopyService.copyCourse({
+			userId,
+			courseId,
+			newName,
+		});
+	}
+
+	private async copyLesson(userId: string, lessonId: string, courseId: string, copyName?: string): Promise&lt;CopyStatus&gt; {
+		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		const destinationCourse &#x3D; await this.courseService.findById(courseId);
+		return this.lessonCopyService.copyLesson({
+			user,
+			originalLessonId: lessonId,
+			destinationCourse,
+			copyName,
+		});
+	}
+
 	private async checkParentWritePermission(userId: EntityId, payload: ShareTokenPayload) {
 		const allowedParentType &#x3D; ShareTokenParentTypeMapper.mapToAllowedAuthorizationEntityType(payload.parentType);
+
+		let requiredPermissions: Permission[] &#x3D; [];
+		switch (payload.parentType) {
+			case ShareTokenParentType.Course:
+				requiredPermissions &#x3D; [Permission.COURSE_CREATE];
+				break;
+			default:
+				requiredPermissions &#x3D; [Permission.TOPIC_CREATE];
+				break;
+		}
+
 		await this.authorizationService.checkPermissionByReferences(userId, allowedParentType, payload.parentId, {
 			action: Actions.write,
-			requiredPermissions: [Permission.COURSE_CREATE],
+			requiredPermissions,
 		});
 	}
 
@@ -1072,17 +1310,16 @@ export class ShareTokenUC {
 
 		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
 
-		this.authorizationService.checkAllPermissions(user, [Permission.COURSE_CREATE]);
-	}
-
-	private async loadMetadata(payload: ShareTokenPayload): Promise&lt;LearnroomMetadata&gt; {
-		const learnroomType &#x3D; MetadataTypeMapper.mapToAlloweMetadataType(payload.parentType);
-		const metadata &#x3D; await this.metadataLoader.loadMetadata({
-			type: learnroomType,
-			id: payload.parentId,
-		});
-
-		return metadata;
+		let requiredPermissions: Permission[] &#x3D; [];
+		switch (parentType) {
+			case ShareTokenParentType.Course:
+				requiredPermissions &#x3D; [Permission.COURSE_CREATE];
+				break;
+			default:
+				requiredPermissions &#x3D; [Permission.TOPIC_CREATE];
+				break;
+		}
+		this.authorizationService.checkAllPermissions(user, requiredPermissions);
 	}
 
 	private nowPlusDays(days: number) {
@@ -1091,10 +1328,20 @@ export class ShareTokenUC {
 		return date;
 	}
 
-	private checkFeatureEnabled() {
-		const enabled &#x3D; Configuration.get(&#x27;FEATURE_COURSE_SHARE_NEW&#x27;) as boolean;
-		if (!enabled) {
-			throw new InternalServerErrorException(&#x27;Import Feature not enabled&#x27;);
+	private checkFeatureEnabled(parentType: ShareTokenParentType) {
+		switch (parentType) {
+			case ShareTokenParentType.Course:
+				if (!(Configuration.get(&#x27;FEATURE_COURSE_SHARE_NEW&#x27;) as boolean)) {
+					throw new InternalServerErrorException(&#x27;Import Course Feature not enabled&#x27;);
+				}
+				break;
+			case ShareTokenParentType.Lesson:
+				if (!(Configuration.get(&#x27;FEATURE_LESSON_SHARE&#x27;) as boolean)) {
+					throw new InternalServerErrorException(&#x27;Import Lesson Feature not enabled&#x27;);
+				}
+				break;
+			default:
+				throw new NotImplementedException(&#x27;Import Feature not implemented&#x27;);
 		}
 	}
 }

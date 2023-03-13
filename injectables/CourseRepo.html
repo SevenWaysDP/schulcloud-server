@@ -94,7 +94,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#findAllForSubstituteTeacher" >findAllForSubstituteTeacher</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findAllForTeacher" >findAllForTeacher</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForTeacherOrSubstituteTeacher" >findAllForTeacherOrSubstituteTeacher</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -169,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:64</a></div>
                 </td>
             </tr>
 
@@ -240,8 +248,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:74</a></div>
                 </td>
             </tr>
 
@@ -317,6 +325,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findAllForSubstituteTeacher"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllForSubstituteTeacher</b></span>
+                        <a href="#findAllForSubstituteTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForSubstituteTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:132</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Course.html" target="_self" >Promise&lt;Counted&lt;Course[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findAllForTeacher"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -328,15 +407,110 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllForTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>findAllForTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, filters?: literal type, options?: <a href="../entitys/Course.html" target="_self">IFindOptions&lt;Course&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:98</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filters</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../entitys/Course.html" target="_self" >IFindOptions&lt;Course&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Course.html" target="_self" >Promise&lt;Counted&lt;Course[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForTeacherOrSubstituteTeacher"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllForTeacherOrSubstituteTeacher</b></span>
+                        <a href="#findAllForTeacherOrSubstituteTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForTeacherOrSubstituteTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:123</a></div>
                 </td>
             </tr>
 
@@ -412,7 +586,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:58</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:68</a></code>
 </div>
                 </td>
             </tr>
@@ -483,8 +657,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:141</a></div>
                 </td>
             </tr>
 
@@ -795,7 +969,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:60</a></div>
                                 </td>
                             </tr>
 
@@ -826,7 +1000,7 @@ class CourseScope extends Scope&lt;Course&gt; {
 		return this;
 	}
 
-	forTeacher(userId: EntityId): CourseScope {
+	forTeacherOrSubstituteTeacher(userId: EntityId): CourseScope {
 		const isTeacher &#x3D; { teachers: userId };
 		const isSubstitutionTeacher &#x3D; { substitutionTeachers: userId };
 
@@ -834,6 +1008,16 @@ class CourseScope extends Scope&lt;Course&gt; {
 			this.addQuery({ $or: [isTeacher, isSubstitutionTeacher] });
 		}
 
+		return this;
+	}
+
+	forTeacher(userId: EntityId): CourseScope {
+		this.addQuery({ teachers: userId });
+		return this;
+	}
+
+	forSubstituteTeacher(userId: EntityId): CourseScope {
+		this.addQuery({ substitutionTeachers: userId });
 		return this;
 	}
 
@@ -893,10 +1077,43 @@ export class CourseRepo extends BaseRepo&lt;Course&gt; {
 		return [courses, count];
 	}
 
-	// not tested in repo.integration.spec
-	async findAllForTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+	async findAllForTeacher(
+		userId: EntityId,
+		filters?: { onlyActiveCourses?: boolean },
+		options?: IFindOptions&lt;Course&gt;
+	): Promise&lt;Counted&lt;Course[]&gt;&gt; {
 		const scope &#x3D; new CourseScope();
 		scope.forTeacher(userId);
+
+		if (filters?.onlyActiveCourses) {
+			scope.forActiveCourses();
+		}
+
+		const { pagination, order } &#x3D; options || {};
+		const queryOptions &#x3D; {
+			offset: pagination?.skip,
+			limit: pagination?.limit,
+			orderBy: order as QueryOrderMap&lt;Course&gt;,
+		};
+
+		const [courses, count] &#x3D; await this._em.findAndCount(Course, scope.query, queryOptions);
+
+		return [courses, count];
+	}
+
+	// not tested in repo.integration.spec
+	async findAllForTeacherOrSubstituteTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const scope &#x3D; new CourseScope();
+		scope.forTeacherOrSubstituteTeacher(userId);
+
+		const [courses, count] &#x3D; await this._em.findAndCount(Course, scope.query);
+
+		return [courses, count];
+	}
+
+	async findAllForSubstituteTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const scope &#x3D; new CourseScope();
+		scope.forSubstituteTeacher(userId);
 
 		const [courses, count] &#x3D; await this._em.findAndCount(Course, scope.query);
 

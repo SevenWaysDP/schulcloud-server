@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/course-metadata.response.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/course-metadata.response.ts:61</a></div>
                             </td>
                         </tr>
 
@@ -239,7 +239,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:61</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:68</a></code>
 </div>
                         </td>
                     </tr>
@@ -387,7 +387,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { PaginationResponse } from &#x27;@shared/controller&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
 
@@ -398,7 +398,8 @@ export class CourseMetadataResponse {
 		shortTitle: string,
 		displayColor: string,
 		startDate?: Date,
-		untilDate?: Date
+		untilDate?: Date,
+		copyingSince?: Date
 	) {
 		this.id &#x3D; id;
 		this.title &#x3D; title;
@@ -406,6 +407,7 @@ export class CourseMetadataResponse {
 		this.displayColor &#x3D; displayColor;
 		this.startDate &#x3D; startDate;
 		this.untilDate &#x3D; untilDate;
+		this.copyingSince &#x3D; copyingSince;
 	}
 
 	@ApiProperty({
@@ -429,15 +431,20 @@ export class CourseMetadataResponse {
 	})
 	displayColor: string;
 
-	@ApiProperty({
+	@ApiPropertyOptional({
 		description: &#x27;Start date of the course&#x27;,
 	})
 	startDate?: Date;
 
-	@ApiProperty({
+	@ApiPropertyOptional({
 		description: &#x27;End date of the course. After this the course counts as archived&#x27;,
 	})
 	untilDate?: Date;
+
+	@ApiPropertyOptional({
+		description: &#x27;Start of the copying process if it is still ongoing - otherwise property is not set.&#x27;,
+	})
+	copyingSince?: Date;
 }
 
 export class CourseMetadataListResponse extends PaginationResponse&lt;CourseMetadataResponse[]&gt; {

@@ -89,7 +89,12 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#enrichWithDataFromExternalTool" >enrichWithDataFromExternalTool</a>
+                                <a href="#enrichDataFromExternalTool" >enrichDataFromExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#enrichWithDataFromExternalTools" >enrichWithDataFromExternalTools</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -98,6 +103,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getSchoolExternalToolById" >getSchoolExternalToolById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveSchoolExternalTool" >saveSchoolExternalTool</a>
                             </li>
                         </ul>
                     </td>
@@ -199,8 +208,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/tool/service/school-external-tool.service.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/tool/service/school-external-tool.service.ts:59</a></div>
                 </td>
             </tr>
 
@@ -270,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/tool/service/school-external-tool.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/modules/tool/service/school-external-tool.service.ts:52</a></div>
                 </td>
             </tr>
 
@@ -335,19 +344,91 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="enrichWithDataFromExternalTool"></a>
+                    <a name="enrichDataFromExternalTool"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>enrichWithDataFromExternalTool</b></span>
-                        <a href="#enrichWithDataFromExternalTool"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>enrichDataFromExternalTool</b></span>
+                        <a href="#enrichDataFromExternalTool"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>enrichWithDataFromExternalTool(tools: <a href="../undefineds/ExternalTool.html" target="_self">SchoolExternalToolDO[]</a>)</code>
+                    <code>enrichDataFromExternalTool(tool: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/modules/tool/service/school-external-tool.service.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tool</td>
+                                    <td>
+                                                <code><a href="../classes/SchoolExternalToolDO.html" target="_self" >SchoolExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;SchoolExternalToolDO&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enrichWithDataFromExternalTools"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>enrichWithDataFromExternalTools</b></span>
+                        <a href="#enrichWithDataFromExternalTools"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enrichWithDataFromExternalTools(tools: SchoolExternalToolDO[])</code>
                 </td>
             </tr>
 
@@ -378,7 +459,7 @@
                                 <tr>
                                     <td>tools</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >SchoolExternalToolDO[]</a></code>
+                                            <code>SchoolExternalToolDO[]</code>
                                     </td>
 
                                     <td>
@@ -393,7 +474,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >Promise&lt;SchoolExternalToolDO[]&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;SchoolExternalToolDO[]&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -464,7 +545,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >Promise&lt;SchoolExternalToolDO[]&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;SchoolExternalToolDO[]&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -535,7 +616,78 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >Promise&lt;SchoolExternalToolDO&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;SchoolExternalToolDO&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveSchoolExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveSchoolExternalTool</b></span>
+                        <a href="#saveSchoolExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveSchoolExternalTool(schoolExternalTool: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/tool/service/school-external-tool.service.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>schoolExternalTool</td>
+                                    <td>
+                                                <code><a href="../classes/SchoolExternalToolDO.html" target="_self" >SchoolExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;SchoolExternalToolDO&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -577,19 +729,29 @@ export class SchoolExternalToolService {
 			schoolId: query.schoolId,
 		});
 
-		schoolExternalToolDOs &#x3D; await this.enrichWithDataFromExternalTool(schoolExternalToolDOs);
+		schoolExternalToolDOs &#x3D; await this.enrichWithDataFromExternalTools(schoolExternalToolDOs);
 
 		return schoolExternalToolDOs;
 	}
 
-	private async enrichWithDataFromExternalTool(tools: SchoolExternalToolDO[]): Promise&lt;SchoolExternalToolDO[]&gt; {
+	private async enrichWithDataFromExternalTools(tools: SchoolExternalToolDO[]): Promise&lt;SchoolExternalToolDO[]&gt; {
 		const enrichedTools: SchoolExternalToolDO[] &#x3D; await Promise.all(
-			tools.map(async (tool: SchoolExternalToolDO): Promise&lt;SchoolExternalToolDO&gt; &#x3D;&gt; {
-				const externalToolDO: ExternalToolDO &#x3D; await this.externalToolService.findExternalToolById(tool.toolId);
-				return { ...tool, status: this.determineStatus(tool, externalToolDO), name: externalToolDO.name };
-			})
+			tools.map(
+				async (tool: SchoolExternalToolDO): Promise&lt;SchoolExternalToolDO&gt; &#x3D;&gt; this.enrichDataFromExternalTool(tool)
+			)
 		);
 		return enrichedTools;
+	}
+
+	private async enrichDataFromExternalTool(tool: SchoolExternalToolDO): Promise&lt;SchoolExternalToolDO&gt; {
+		const externalToolDO: ExternalToolDO &#x3D; await this.externalToolService.findExternalToolById(tool.toolId);
+		const status &#x3D; this.determineStatus(tool, externalToolDO);
+		const schoolExternalTool &#x3D; new SchoolExternalToolDO({
+			...tool,
+			status,
+			name: externalToolDO.name,
+		});
+		return schoolExternalTool;
 	}
 
 	private determineStatus(tool: SchoolExternalToolDO, externalToolDO: ExternalToolDO): SchoolExternalToolStatus {
@@ -601,6 +763,12 @@ export class SchoolExternalToolService {
 
 	async deleteSchoolExternalToolById(schoolExternalToolId: EntityId): Promise&lt;void&gt; {
 		await this.schoolExternalToolRepo.deleteById(schoolExternalToolId);
+	}
+
+	async saveSchoolExternalTool(schoolExternalTool: SchoolExternalToolDO): Promise&lt;SchoolExternalToolDO&gt; {
+		let createdSchoolExternalTool: SchoolExternalToolDO &#x3D; await this.schoolExternalToolRepo.save(schoolExternalTool);
+		createdSchoolExternalTool &#x3D; await this.enrichDataFromExternalTool(createdSchoolExternalTool);
+		return createdSchoolExternalTool;
 	}
 }
 </code></pre>

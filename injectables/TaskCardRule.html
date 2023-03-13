@@ -188,7 +188,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../classes/Task.html" target="_self">TaskCard</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
+                    <code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../entitys/TaskCard.html" target="_self">TaskCard</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
                 </td>
             </tr>
 
@@ -237,7 +237,7 @@
                                 <tr>
                                     <td>entity</td>
                                     <td>
-                                                <code><a href="../classes/Task.html" target="_self" >TaskCard</a></code>
+                                                <code><a href="../entitys/TaskCard.html" target="_self" >TaskCard</a></code>
                                     </td>
 
                                     <td>
@@ -289,7 +289,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isApplicable(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../classes/Task.html" target="_self">TaskCard</a>)</code>
+                    <code>isApplicable(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../entitys/TaskCard.html" target="_self">TaskCard</a>)</code>
                 </td>
             </tr>
 
@@ -338,7 +338,7 @@
                                 <tr>
                                     <td>entity</td>
                                     <td>
-                                                <code><a href="../classes/Task.html" target="_self" >TaskCard</a></code>
+                                                <code><a href="../entitys/TaskCard.html" target="_self" >TaskCard</a></code>
                                     </td>
 
                                     <td>
@@ -447,7 +447,7 @@ export class TaskCardRule extends BasePermission&lt;TaskCard&gt; {
 			});
 		}
 
-		const result &#x3D; hasPermission &amp;&amp; isCreator &amp;&amp; hasTaskPermission;
+		const result &#x3D; hasPermission &amp;&amp; (isCreator || hasTaskPermission);
 
 		return result;
 	}

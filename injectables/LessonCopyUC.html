@@ -86,11 +86,6 @@
                                     <span class="modifier">Private</span>
                                 <a href="#featureEnabled" >featureEnabled</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#getDestinationCourse" >getDestinationCourse</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -339,90 +334,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getDestinationCourse"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>getDestinationCourse</b></span>
-                        <a href="#getDestinationCourse"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getDestinationCourse(courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:49</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>courseId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
@@ -431,10 +342,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { ForbiddenException, Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
-import { EntityId, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
+import { Actions, EntityId, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
 import { Permission } from &#x27;@shared/domain/interface/permission.enum&#x27;;
 import { CourseRepo, LessonRepo } from &#x27;@shared/repo&#x27;;
-import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
+import { AllowedAuthorizationEntityType, AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { CopyHelperService, CopyStatus } from &#x27;@src/modules/copy-helper&#x27;;
 import { LessonCopyParentParams } from &#x27;@src/modules/lesson&#x27;;
 import { LessonCopyService } from &#x27;@src/modules/lesson/service&#x27;;
@@ -458,31 +369,31 @@ export class LessonCopyUC {
 			throw new ForbiddenException(&#x27;could not find lesson to copy&#x27;);
 		}
 
-		let destinationCourse &#x3D; originalLesson.course;
-		if (parentParams.courseId) {
-			destinationCourse &#x3D; await this.getDestinationCourse(parentParams.courseId, user);
-		}
+		const destinationCourse &#x3D; parentParams.courseId
+			? await this.courseRepo.findById(parentParams.courseId)
+			: originalLesson.course;
+		await this.authorisation.checkPermissionByReferences(
+			userId,
+			AllowedAuthorizationEntityType.Course,
+			destinationCourse.id,
+			{
+				action: Actions.write,
+				requiredPermissions: [],
+			}
+		);
 
 		const [existingLessons] &#x3D; await this.lessonRepo.findAllByCourseIds([originalLesson.course.id]);
 		const existingNames &#x3D; existingLessons.map((l) &#x3D;&gt; l.name);
 		const copyName &#x3D; this.copyHelperService.deriveCopyName(originalLesson.name, existingNames);
 
 		const copyStatus &#x3D; await this.lessonCopyService.copyLesson({
-			originalLesson,
+			originalLessonId: originalLesson.id,
 			destinationCourse,
 			user,
 			copyName,
 		});
 
 		return copyStatus;
-	}
-
-	private async getDestinationCourse(courseId: string, user: User) {
-		const destinationCourse &#x3D; await this.courseRepo.findById(courseId);
-		if (!this.authorisation.hasPermission(user, destinationCourse, PermissionContextBuilder.write([]))) {
-			throw new ForbiddenException(&#x27;you dont have permission to add to this course&#x27;);
-		}
-		return destinationCourse;
 	}
 
 	private featureEnabled() {

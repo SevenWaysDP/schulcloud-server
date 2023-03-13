@@ -124,18 +124,18 @@ The real secrets can be found in the password store.</p>
 </ul>
 <p>To run a specific command run <code>npm run nest:console:dev -- command &lt;param&gt;</code>. The <code>--</code>is required for npm to send params to the console. Use <code>--help</code>to get an overview about existing commands.</p>
 <h2 id="how-to-test-the-nest-application-with-jest">How to test the nest-application with jest</h2>
-<p>NestJS must not use _.test.[ts|js] as filename but instead either *.spec.ts for unit-tests beside tested files or *.e2e-spec.ts in test folder for end-to-end tests. This ensures legacy/feathers/mocha tests can be separated from jest test suites.</p>
+<p>NestJS must not use _.test.[ts|js] as filename but instead either *.spec.ts for unit tests or *.api.spec.ts API tests. This ensures legacy/feathers/mocha tests can be separated from jest test suites.</p>
 <p>The application must pass the following statement which executes separate checks:</p>
 <ul>
 <li><code>nest:test</code> executes all jest (NestJS) tests with coverage and eslint</li>
 </ul>
 <p>To test a subset, use</p>
 <ul>
-<li><p><code>nest:test:all</code> execute unit and e2e tests</p>
+<li><p><code>nest:test:all</code> execute unit and API tests</p>
 </li>
-<li><p><code>nest:test:e2e</code> execute e2e tests only</p>
+<li><p><code>nest:test:api</code> execute API tests only</p>
 </li>
-<li><p><code>nest:test:spec</code> execute unit tests (without e2e) only</p>
+<li><p><code>nest:test:unit</code> execute unit tests only</p>
 </li>
 <li><p><code>nest:test:cov</code> executes all jest tests with coverage check</p>
 </li>
@@ -152,7 +152,7 @@ The real secrets can be found in the password store.</p>
 <p>With coverage on tests and static code analysis we ensure some quality gates which are all handled by running <code>nest:test</code>:</p>
 <ul>
 <li>ESLint with prettier ensures formatting and static code analysis to pass, see <code>.eslintrc.js</code> for details.</li>
-<li>Tests ensure functional requirements via unit &amp; e2e tests.</li>
+<li>Tests ensure functional requirements via unit &amp; API tests.</li>
 <li>Coverage on tests ensures a coverage of 80% on NestJS code, see <code>jest.config.ts</code> for details.</li>
 </ul>
 <p>Gates are part of pull request checks.</p>

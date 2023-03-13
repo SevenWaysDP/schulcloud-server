@@ -1012,8 +1012,8 @@ The behaviour should match $ mongoexport</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="300"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:300</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="299"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:299</a></div>
                 </td>
             </tr>
 
@@ -1099,8 +1099,8 @@ Currently this affects system and storageproviders collections.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="309"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:309</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="308"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:308</a></div>
                 </td>
             </tr>
 
@@ -1170,8 +1170,8 @@ Currently this affects system and storageproviders collections.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="316"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:316</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="315"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:315</a></div>
                 </td>
             </tr>
 
@@ -1505,7 +1505,7 @@ import { FileSystemAdapter } from &#x27;@shared/infra/file-system&#x27;;
 import { DatabaseManagementService } from &#x27;@shared/infra/database&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { DefaultEncryptionService, IEncryptionService, LdapEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
-import { StorageProvider, System, SystemTypeEnum } from &#x27;@shared/domain&#x27;;
+import { StorageProvider, System } from &#x27;@shared/domain&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { BsonConverter } from &#x27;../converter/bson.converter&#x27;;
@@ -1778,11 +1778,10 @@ export class DatabaseManagementUc {
 			if (system.oauthConfig) {
 				system.oauthConfig.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.oauthConfig.clientSecret);
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SystemTypeEnum.OIDC &amp;&amp; system.config) {
-				system.config.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.config.clientSecret as string);
-				system.config.clientId &#x3D; this.defaultEncryptionService.encrypt(system.config.clientId as string);
+			if (system.oidcConfig) {
+				system.oidcConfig.clientSecret &#x3D; this.defaultEncryptionService.encrypt(system.oidcConfig.clientSecret);
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SystemTypeEnum.LDAP &amp;&amp; system.ldapConfig) {
+			if (system.ldapConfig) {
 				system.ldapConfig.searchUserPassword &#x3D; this.ldapEncryptionService.encrypt(
 					system.ldapConfig.searchUserPassword as string
 				);
@@ -1817,11 +1816,10 @@ export class DatabaseManagementUc {
 			if (system.oauthConfig) {
 				system.oauthConfig.clientSecret &#x3D; defaultSecretReplacementHintText;
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SystemTypeEnum.OIDC &amp;&amp; system.config) {
-				system.config.clientSecret &#x3D; defaultSecretReplacementHintText;
-				system.config.clientId &#x3D; defaultSecretReplacementHintText;
+			if (system.oidcConfig) {
+				system.oidcConfig.clientSecret &#x3D; defaultSecretReplacementHintText;
 			}
-			if (system.type &#x3D;&#x3D;&#x3D; SystemTypeEnum.LDAP &amp;&amp; system.ldapConfig) {
+			if (system.ldapConfig) {
 				system.ldapConfig.searchUserPassword &#x3D; defaultSecretReplacementHintText;
 			}
 		});

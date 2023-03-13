@@ -83,6 +83,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#destinationCourseId" >destinationCourseId</a>
+                            </li>
+                            <li>
                                 <a href="#newName" >newName</a>
                             </li>
                         </ul>
@@ -104,6 +108,42 @@
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destinationCourseId"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>destinationCourseId</b></span>
+                        <a href="#destinationCourseId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsOptional()<br />@IsString()<br />@ApiProperty({description: &#x27;Id of the course to which the lesson/task will be added&#x27;, required: false, nullable: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/sharing/controller/dto/share-token-import.body.params.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -153,7 +193,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { SanitizeHtml } from &#x27;@shared/controller&#x27;;
-import { IsString } from &#x27;class-validator&#x27;;
+import { IsOptional, IsString } from &#x27;class-validator&#x27;;
 
 export class ShareTokenImportBodyParams {
 	@IsString()
@@ -164,6 +204,15 @@ export class ShareTokenImportBodyParams {
 		nullable: false,
 	})
 	newName!: string;
+
+	@IsOptional()
+	@IsString()
+	@ApiProperty({
+		description: &#x27;Id of the course to which the lesson/task will be added&#x27;,
+		required: false,
+		nullable: true,
+	})
+	destinationCourseId?: string;
 }
 </code></pre>
     </div>

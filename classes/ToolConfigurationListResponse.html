@@ -174,7 +174,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty({type: undefined})<br />
                         </code>
                     </td>
                 </tr>
@@ -203,7 +203,7 @@
 import { ToolConfigurationEntryResponse } from &#x27;./tool-configuration-entry.response&#x27;;
 
 export class ToolConfigurationListResponse {
-	@ApiProperty()
+	@ApiProperty({ type: [ToolConfigurationEntryResponse] })
 	data: ToolConfigurationEntryResponse[];
 
 	constructor(data: ToolConfigurationEntryResponse[]) {

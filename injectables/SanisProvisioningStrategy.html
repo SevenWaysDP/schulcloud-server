@@ -67,7 +67,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../classes/ProvisioningStrategy.html" target="_self" >ProvisioningStrategy</a></code>
+                        <code><a href="../injectables/OidcProvisioningStrategy.html" target="_self" >OidcProvisioningStrategy</a></code>
             </p>
 
 
@@ -87,15 +87,15 @@
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier">Async</span>
-                                <a href="#apply" >apply</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#getSanisCustomUserinfo" >getSanisCustomUserinfo</a>
+                                <a href="#getData" >getData</a>
                             </li>
                             <li>
                                 <a href="#getType" >getType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#apply" >apply</a>
                             </li>
                         </ul>
                     </td>
@@ -115,12 +115,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(responseMapper: <a href="../injectables/SanisResponseMapper.html" target="_self">SanisResponseMapper</a>, httpService: HttpService, sanisSchoolService: <a href="../injectables/SanisSchoolService.html" target="_self">SanisSchoolService</a>, sanisUserService: <a href="../injectables/SanisUserService.html" target="_self">SanisUserService</a>)</code>
+<code>constructor(responseMapper: <a href="../injectables/SanisResponseMapper.html" target="_self">SanisResponseMapper</a>, httpService: HttpService, oidcProvisioningService: <a href="../injectables/OidcProvisioningService.html" target="_self">OidcProvisioningService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.strategy.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.strategy.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -162,22 +162,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>sanisSchoolService</td>
+                                                        <td>oidcProvisioningService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/SanisSchoolService.html" target="_self" >SanisSchoolService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>sanisUserService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/SanisUserService.html" target="_self" >SanisUserService</a></code>
+                                                                        <code><a href="../injectables/OidcProvisioningService.html" target="_self" >OidcProvisioningService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -203,19 +191,19 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="apply"></a>
+                    <a name="getData"></a>
                     <span class="name">
                         <span class="modifier"></span>
                         <span class="modifier">Async</span>
-                        <span ><b>apply</b></span>
-                        <a href="#apply"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getData</b></span>
+                        <a href="#getData"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>apply(params: <a href="../undefineds/SanisStrategyData.html" target="_self">SanisStrategyData</a>)</code>
+                    <code>getData(input: <a href="../classes/OauthDataStrategyInputDto.html" target="_self">OauthDataStrategyInputDto</a>)</code>
                 </td>
             </tr>
 
@@ -228,7 +216,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:32</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:26</a></code>
 </div>
                 </td>
             </tr>
@@ -250,9 +238,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>params</td>
+                                    <td>input</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#SanisStrategyData" target="_self" >SanisStrategyData</a></code>
+                                                <code><a href="../classes/OauthDataStrategyInputDto.html" target="_self" >OauthDataStrategyInputDto</a></code>
                                     </td>
 
                                     <td>
@@ -267,79 +255,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ProvisioningDto.html" target="_self" >Promise&lt;ProvisioningDto&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getSanisCustomUserinfo"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>getSanisCustomUserinfo</b></span>
-                        <a href="#getSanisCustomUserinfo"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getSanisCustomUserinfo(params: <a href="../undefineds/SanisStrategyData.html" target="_self">SanisStrategyData</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.strategy.ts:48</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#SanisStrategyData" target="_self" >SanisStrategyData</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SanisResponse.html" target="_self" >Promise&lt;SanisResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/OauthDataDto.html" target="_self" >Promise&lt;OauthDataDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -375,7 +291,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:60</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:22</a></code>
 </div>
                 </td>
             </tr>
@@ -392,73 +308,139 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apply"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>apply</b></span>
+                        <a href="#apply"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>apply(data: <a href="../classes/OauthDataDto.html" target="_self">OauthDataDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/ProvisioningStrategy.html" target="_self" >ProvisioningStrategy</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:14</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../classes/OauthDataDto.html" target="_self" >OauthDataDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ProvisioningDto.html" target="_self" >Promise&lt;ProvisioningDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ProvisioningStrategy } from &#x27;@src/modules/provisioning/strategy/base.strategy&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService } from &#x27;@nestjs/axios&#x27;;
 import { Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { SystemProvisioningStrategy } from &#x27;@shared/domain/interface/system-provisioning.strategy&#x27;;
-import { SanisResponse } from &#x27;@src/modules/provisioning/strategy/sanis/sanis.response&#x27;;
-import { HttpService } from &#x27;@nestjs/axios&#x27;;
-import { firstValueFrom } from &#x27;rxjs&#x27;;
 import { AxiosRequestConfig, AxiosResponse } from &#x27;axios&#x27;;
-import { SanisResponseMapper } from &#x27;@src/modules/provisioning/strategy/sanis/sanis-response.mapper&#x27;;
-import { ProvisioningDto } from &#x27;@src/modules/provisioning/dto/provisioning.dto&#x27;;
-import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
-import { SanisSchoolService } from &#x27;@src/modules/provisioning/strategy/sanis/service/sanis-school.service&#x27;;
-import { SanisUserService } from &#x27;@src/modules/provisioning/strategy/sanis/service/sanis-user.service&#x27;;
-import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
-
-export type SanisStrategyData &#x3D; {
-	provisioningUrl: string;
-	accessToken: string;
-	systemId: string;
-};
+import { firstValueFrom } from &#x27;rxjs&#x27;;
+import { ExternalSchoolDto, ExternalUserDto, OauthDataDto, OauthDataStrategyInputDto } from &#x27;../../dto&#x27;;
+import { OidcProvisioningStrategy } from &#x27;../oidc/oidc.strategy&#x27;;
+import { OidcProvisioningService } from &#x27;../oidc/service/oidc-provisioning.service&#x27;;
+import { SanisResponseMapper } from &#x27;./sanis-response.mapper&#x27;;
+import { SanisResponse } from &#x27;./sanis.response&#x27;;
 
 @Injectable()
-export class SanisProvisioningStrategy extends ProvisioningStrategy&lt;SanisStrategyData&gt; {
+export class SanisProvisioningStrategy extends OidcProvisioningStrategy {
 	constructor(
 		private readonly responseMapper: SanisResponseMapper,
 		private readonly httpService: HttpService,
-		private readonly sanisSchoolService: SanisSchoolService,
-		private readonly sanisUserService: SanisUserService
+		protected readonly oidcProvisioningService: OidcProvisioningService
 	) {
-		super();
-	}
-
-	override async apply(params: SanisStrategyData): Promise&lt;ProvisioningDto&gt; {
-		const data: SanisResponse &#x3D; await this.getSanisCustomUserinfo(params);
-
-		const school: SchoolDO &#x3D; await this.sanisSchoolService.provisionSchool(data, params.systemId);
-
-		if (!school.id) {
-			throw new InternalServerErrorException(
-				&#x60;Provisioning of sanis strategy: ${data.pid} failed. No school id supplied.&#x60;
-			);
-		}
-
-		const user: UserDO &#x3D; await this.sanisUserService.provisionUser(data, params.systemId, school.id);
-
-		return new ProvisioningDto({ externalUserId: user.externalId as string });
-	}
-
-	private async getSanisCustomUserinfo(params: SanisStrategyData): Promise&lt;SanisResponse&gt; {
-		const axiosConfig: AxiosRequestConfig &#x3D; {
-			headers: { Authorization: &#x60;Bearer ${params.accessToken}&#x60; },
-		};
-
-		const axiosResponse: AxiosResponse&lt;SanisResponse&gt; &#x3D; await firstValueFrom(
-			this.httpService.get(&#x60;${params.provisioningUrl}&#x60;, axiosConfig)
-		);
-
-		return axiosResponse.data;
+		super(oidcProvisioningService);
 	}
 
 	getType(): SystemProvisioningStrategy {
 		return SystemProvisioningStrategy.SANIS;
+	}
+
+	override async getData(input: OauthDataStrategyInputDto): Promise&lt;OauthDataDto&gt; {
+		if (!input.system.provisioningUrl) {
+			throw new InternalServerErrorException(
+				&#x60;Sanis system with id: ${input.system.systemId} is missing a provisioning url&#x60;
+			);
+		}
+
+		const axiosConfig: AxiosRequestConfig &#x3D; {
+			headers: { Authorization: &#x60;Bearer ${input.accessToken}&#x60; },
+		};
+
+		const axiosResponse: AxiosResponse&lt;SanisResponse&gt; &#x3D; await firstValueFrom(
+			this.httpService.get(input.system.provisioningUrl, axiosConfig)
+		);
+
+		const externalUser: ExternalUserDto &#x3D; this.responseMapper.mapToExternalUserDto(axiosResponse.data);
+		const externalSchool: ExternalSchoolDto &#x3D; this.responseMapper.mapToExternalSchoolDto(axiosResponse.data);
+
+		const oauthData: OauthDataDto &#x3D; new OauthDataDto({
+			system: input.system,
+			externalSchool,
+			externalUser,
+		});
+		return oauthData;
 	}
 }
 </code></pre>

@@ -79,6 +79,12 @@
                             <a href="#BoardElementType" title="apps/server/src/shared/domain/entity/boardelement.entity.ts" ><b>BoardElementType</b>&nbsp;&nbsp;&nbsp;(apps/.../boardelement.entity.ts)</a>
                         </li>
                         <li>
+                            <a href="#BoardNodeType" title="apps/server/src/shared/domain/entity/boardnode/types/board-node-type.ts" ><b>BoardNodeType</b>&nbsp;&nbsp;&nbsp;(apps/.../board-node-type.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CacheStoreType" title="apps/server/src/shared/infra/cache/interface/cache-store-type.enum.ts" ><b>CacheStoreType</b>&nbsp;&nbsp;&nbsp;(apps/.../cache-store-type.enum.ts)</a>
+                        </li>
+                        <li>
                             <a href="#CardElementType" title="apps/server/src/shared/domain/entity/cardElement.entity.ts" ><b>CardElementType</b>&nbsp;&nbsp;&nbsp;(apps/.../cardElement.entity.ts)</a>
                         </li>
                         <li>
@@ -91,7 +97,7 @@
                             <a href="#ConfigurationScope" title="apps/server/src/modules/tool/interface/configuration-scope.enum.ts" ><b>ConfigurationScope</b>&nbsp;&nbsp;&nbsp;(apps/.../configuration-scope.enum.ts)</a>
                         </li>
                         <li>
-                            <a href="#ConfigureAction" title="apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts" ><b>ConfigureAction</b>&nbsp;&nbsp;&nbsp;(apps/.../keycloak-configuration.service.ts)</a>
+                            <a href="#ConfigureAction" title="apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-configuration.service.ts" ><b>ConfigureAction</b>&nbsp;&nbsp;&nbsp;(apps/.../keycloak-configuration.service.ts)</a>
                         </li>
                         <li>
                             <a href="#CopyElementType" title="apps/server/src/modules/copy-helper/types/copy.types.ts" ><b>CopyElementType</b>&nbsp;&nbsp;&nbsp;(apps/.../copy.types.ts)</a>
@@ -199,6 +205,9 @@
                             <a href="#OauthScope" title="apps/server/src/modules/oauth-provider/interface/oauth-scope.enum.ts" ><b>OauthScope</b>&nbsp;&nbsp;&nbsp;(apps/.../oauth-scope.enum.ts)</a>
                         </li>
                         <li>
+                            <a href="#PageTypes" title="apps/server/src/modules/user-login-migration/interface/page-types.enum.ts" ><b>PageTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../page-types.enum.ts)</a>
+                        </li>
+                        <li>
                             <a href="#Permission" title="apps/server/src/shared/domain/interface/permission.enum.ts" ><b>Permission</b>&nbsp;&nbsp;&nbsp;(apps/.../permission.enum.ts)</a>
                         </li>
                         <li>
@@ -236,6 +245,12 @@
                         </li>
                         <li>
                             <a href="#SortOrder" title="apps/server/src/shared/domain/interface/find-options.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SSOAuthenticationError" title="apps/server/src/modules/oauth/interface/sso-authentication-error.enum.ts" ><b>SSOAuthenticationError</b>&nbsp;&nbsp;&nbsp;(apps/.../sso-authentication-error.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SSOErrorCode" title="apps/server/src/modules/oauth/error/sso-error-code.enum.ts" ><b>SSOErrorCode</b>&nbsp;&nbsp;&nbsp;(apps/.../sso-error-code.enum.ts)</a>
                         </li>
                         <li>
                             <a href="#SubjectTypeEnum" title="apps/server/src/modules/oauth-provider/interface/subject-type.enum.ts" ><b>SubjectTypeEnum</b>&nbsp;&nbsp;&nbsp;(apps/.../subject-type.enum.ts)</a>
@@ -538,6 +553,92 @@
             </tbody>
         </table>
 </section>
+    <h3>apps/server/src/shared/domain/entity/boardnode/types/board-node-type.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="BoardNodeType"></a>
+                        <span class="name "><b>BoardNodeType</b><a href="#BoardNodeType"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;COLUMN_BOARD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>column-board</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;COLUMN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>column</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CARD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>card</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TEXT_ELEMENT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>text-element</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/shared/infra/cache/interface/cache-store-type.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CacheStoreType"></a>
+                        <span class="name "><b>CacheStoreType</b><a href="#CacheStoreType"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MEMORY
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>memory</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;REDIS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>redis</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
     <h3>apps/server/src/shared/domain/entity/cardElement.entity.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -690,7 +791,7 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts</h3>
+    <h3>apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-configuration.service.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -1500,6 +1601,16 @@
                                 <i>Value : </i><code>COULD_NOT_CREATE_PATH</code>
                             </td>
                         </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;FILE_TOO_BIG
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>FILE_TOO_BIG</code>
+                            </td>
+                        </tr>
             </tbody>
         </table>
 </section>
@@ -1644,6 +1755,16 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>blocked</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ERROR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>error</code>
                             </td>
                         </tr>
             </tbody>
@@ -1797,6 +1918,16 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>blocked</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ERROR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>error</code>
                             </td>
                         </tr>
             </tbody>
@@ -2717,6 +2848,49 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>groups</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/user-login-migration/interface/page-types.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="PageTypes"></a>
+                        <span class="name "><b>PageTypes</b><a href="#PageTypes"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;START_FROM_TARGET_SYSTEM
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>start_from_target_system</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;START_FROM_SOURCE_SYSTEM
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>start_from_source_system</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;START_FROM_SOURCE_SYSTEM_MANDATORY
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>start_from_source_system_mandatory</code>
                             </td>
                         </tr>
             </tbody>
@@ -4014,6 +4188,16 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
+                                &nbsp;TOOL_CREATE_ETHERPAD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>TOOL_CREATE_ETHERPAD</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
                                 &nbsp;TEAM_EDIT
                             </td>
                         </tr>
@@ -4488,7 +4672,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>Orgadmin</code>
+                                <i>Value : </i><code>OrgAdmin</code>
                             </td>
                         </tr>
             </tbody>
@@ -4792,6 +4976,192 @@
             </tbody>
         </table>
 </section>
+    <h3>apps/server/src/modules/oauth/interface/sso-authentication-error.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SSOAuthenticationError"></a>
+                        <span class="name "><b>SSOAuthenticationError</b><a href="#SSOAuthenticationError"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;INVALID_REQUEST
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>invalid_request</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;UNAUTHORIZED_CLIENT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>unauthorized_client</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ACCESS_DENIED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>access_denied</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;UNSUPPORTED_RESPONSE_TYPE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>unsupported_response_type</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;INVALID_SCOPE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>invalid_scope</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SERVER_ERROR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>server_error</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TEMPORARILY_UNAVAILABLE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>temporarily_unavailable</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/oauth/error/sso-error-code.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SSOErrorCode"></a>
+                        <span class="name "><b>SSOErrorCode</b><a href="#SSOErrorCode"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_INVALID_STATE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_invalid_state</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_USER_NOT_FOUND
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_user_notfound</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_OAUTH_ACCESS_DENIED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_oauth_access_denied</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_JWT_PROBLEM
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_jwt_problem</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_OAUTH_INVALID_REQUEST
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_oauth_invalid_request</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_OAUTH_UNSUPPORTED_RESPONSE_TYPE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_oauth_unsupported_response_type</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_OAUTH_LOGIN_FAILED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_login_failed</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_AUTH_CODE_STEP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_auth_code_step</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SSO_INTERNAL_ERROR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>sso_internal_error</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
     <h3>apps/server/src/modules/oauth-provider/interface/subject-type.enum.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -4900,16 +5270,6 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;OIDC
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>oidc</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
                                 &nbsp;OAUTH
                             </td>
                         </tr>
@@ -4920,12 +5280,12 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;KEYCLOAK
+                                &nbsp;OIDC
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>keycloak</code>
+                                <i>Value : </i><code>oidc</code>
                             </td>
                         </tr>
             </tbody>

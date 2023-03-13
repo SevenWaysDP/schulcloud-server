@@ -123,6 +123,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#saveWithValidation" >saveWithValidation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#searchByUsernameExactMatch" >searchByUsernameExactMatch</a>
                             </li>
                             <li>
@@ -163,12 +167,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(accountDb: <a href="../injectables/AccountServiceDb.html" target="_self">AccountServiceDb</a>, accountIdm: <a href="../injectables/AccountServiceIdm.html" target="_self">AccountServiceIdm</a>, configService: <a href="../interfaces/IServerConfig.html" target="_self">ConfigService&lt;IServerConfig | &gt;</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(accountDb: <a href="../injectables/AccountServiceDb.html" target="_self">AccountServiceDb</a>, accountIdm: <a href="../injectables/AccountServiceIdm.html" target="_self">AccountServiceIdm</a>, configService: <a href="../interfaces/IServerConfig.html" target="_self">ConfigService&lt;IServerConfig | &gt;</a>, accountValidationService: <a href="../injectables/AccountValidationService.html" target="_self">AccountValidationService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -214,6 +218,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../interfaces/IServerConfig.html" target="_self" >ConfigService&lt;IServerConfig | &gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>accountValidationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AccountValidationService.html" target="_self" >AccountValidationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -275,7 +291,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:84</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:122</a></code>
 </div>
                 </td>
             </tr>
@@ -352,7 +368,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:89</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:127</a></code>
 </div>
                 </td>
             </tr>
@@ -424,8 +440,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:132</a></div>
                 </td>
             </tr>
 
@@ -509,7 +525,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:23</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:27</a></code>
 </div>
                 </td>
             </tr>
@@ -586,7 +602,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:31</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:35</a></code>
 </div>
                 </td>
             </tr>
@@ -663,7 +679,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:35</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:39</a></code>
 </div>
                 </td>
             </tr>
@@ -740,7 +756,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:39</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:43</a></code>
 </div>
                 </td>
             </tr>
@@ -829,7 +845,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:27</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:31</a></code>
 </div>
                 </td>
             </tr>
@@ -906,7 +922,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:55</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:59</a></code>
 </div>
                 </td>
             </tr>
@@ -959,6 +975,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="saveWithValidation"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveWithValidation</b></span>
+                        <a href="#saveWithValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveWithValidation(dto: <a href="../classes/AccountSaveDto.html" target="_self">AccountSaveDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dto</td>
+                                    <td>
+                                                <code><a href="../classes/AccountSaveDto.html" target="_self" >AccountSaveDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="searchByUsernameExactMatch"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -983,7 +1070,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:51</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:55</a></code>
 </div>
                 </td>
             </tr>
@@ -1060,7 +1147,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:43</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:47</a></code>
 </div>
                 </td>
             </tr>
@@ -1161,7 +1248,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:73</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:111</a></code>
 </div>
                 </td>
             </tr>
@@ -1250,7 +1337,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:78</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:116</a></code>
 </div>
                 </td>
             </tr>
@@ -1339,7 +1426,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:67</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AccountService.html#source" target="_self" >AbstractAccountService:105</a></code>
 </div>
                 </td>
             </tr>
@@ -1486,12 +1573,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { ValidationError } from &#x27;@shared/common&#x27;;
+import { isEmail, validateOrReject } from &#x27;class-validator&#x27;;
 import { AccountServiceDb } from &#x27;./account-db.service&#x27;;
 import { AccountServiceIdm } from &#x27;./account-idm.service&#x27;;
 import { AbstractAccountService } from &#x27;./account.service.abstract&#x27;;
 import { AccountDto, AccountSaveDto } from &#x27;./dto&#x27;;
 import { IServerConfig } from &#x27;../../server/server.config&#x27;;
 import { Logger } from &#x27;../../../core/logger&#x27;;
+import { AccountValidationService } from &#x27;./account.validation.service&#x27;;
 
 @Injectable()
 export class AccountService extends AbstractAccountService {
@@ -1499,6 +1589,7 @@ export class AccountService extends AbstractAccountService {
 		private readonly accountDb: AccountServiceDb,
 		private readonly accountIdm: AccountServiceIdm,
 		private readonly configService: ConfigService&lt;IServerConfig, true&gt;,
+		private readonly accountValidationService: AccountValidationService,
 		private readonly logger: Logger
 	) {
 		super();
@@ -1547,6 +1638,40 @@ export class AccountService extends AbstractAccountService {
 		};
 		const idmAccount &#x3D; await this.executeIdmMethod(async () &#x3D;&gt; this.accountIdm.save(newAccount));
 		return { ...ret, idmReferenceId: idmAccount?.idmReferenceId };
+	}
+
+	async saveWithValidation(dto: AccountSaveDto): Promise&lt;void&gt; {
+		await validateOrReject(dto);
+		// sanatizeUsername ✔
+		if (!dto.systemId) {
+			dto.username &#x3D; dto.username.trim().toLowerCase();
+		}
+		if (!dto.systemId &amp;&amp; !dto.password) {
+			throw new ValidationError(&#x27;No password provided&#x27;);
+		}
+		// validateUserName ✔
+		// usernames must be an email address, if they are not from an external system
+		if (!dto.systemId &amp;&amp; !isEmail(dto.username)) {
+			throw new ValidationError(&#x27;Username is not an email&#x27;);
+		}
+		// checkExistence ✔
+		if (dto.userId &amp;&amp; (await this.findByUserId(dto.userId))) {
+			throw new ValidationError(&#x27;Account already exists&#x27;);
+		}
+		// validateCredentials hook will not be ported ✔
+		// trimPassword hook will be done by class-validator ✔
+		// local.hooks.hashPassword(&#x27;password&#x27;), will be done by account service ✔
+		// checkUnique ✔
+		if (!(await this.accountValidationService.isUniqueEmail(dto.username, dto.userId, dto.id, dto.systemId))) {
+			throw new ValidationError(&#x27;Username already exists&#x27;);
+		}
+		// removePassword hook is not implemented
+		// const noPasswordStrategies &#x3D; [&#x27;ldap&#x27;, &#x27;moodle&#x27;, &#x27;iserv&#x27;];
+		// if (dto.passwordStrategy &amp;&amp; noPasswordStrategies.includes(dto.passwordStrategy)) {
+		// 	dto.password &#x3D; undefined;
+		// }
+
+		await this.save(dto);
 	}
 
 	async updateUsername(accountId: string, username: string): Promise&lt;AccountDto&gt; {

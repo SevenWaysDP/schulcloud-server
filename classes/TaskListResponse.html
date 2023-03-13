@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -239,7 +239,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:74</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:77</a></code>
 </div>
                         </td>
                     </tr>
@@ -429,6 +429,9 @@ export class TaskResponse {
 
 	@ApiProperty()
 	courseId: string &#x3D; &#x27;&#x27; as string;
+
+	@ApiPropertyOptional()
+	taskCardId?: string;
 
 	@ApiPropertyOptional({
 		description: &#x27;Task description object, with props content: string and type: input format types&#x27;,

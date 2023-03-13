@@ -123,9 +123,9 @@
                                 <a href="#get" >get</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#remove" >remove</a>
+                                <a href="#moveToTrash" >moveToTrash</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -328,8 +328,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="150"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:150</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:148</a></div>
                 </td>
             </tr>
 
@@ -524,8 +524,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:172</a></div>
                 </td>
             </tr>
 
@@ -563,7 +563,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;CopyObjectCommandOutput[]&gt;</code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -661,27 +661,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="remove"></a>
+                    <a name="moveToTrash"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
+                        <span class="modifier">Public</span>
                         <span class="modifier">Async</span>
-                        <span ><b>remove</b></span>
-                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>moveToTrash</b></span>
+                        <a href="#moveToTrash"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>remove(paths: string[])</code>
+                    <code>moveToTrash(paths: string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:104</a></div>
                 </td>
             </tr>
 
@@ -719,7 +719,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>    <code>Promise&lt;CopyObjectCommandOutput[]&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -752,8 +752,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:127</a></div>
                 </td>
             </tr>
 
@@ -924,18 +924,18 @@ export class S3ClientAdapter implements IStorageClient {
 			this.logger.log({ action: &#x27;create&#x27;, params: { path, bucket: this.config.bucket } });
 
 			const req &#x3D; {
-				Body: file.buffer,
+				Body: file.data,
 				Bucket: this.config.bucket,
 				Key: path,
 				ContentType: file.mimeType,
 			};
-			const res &#x3D; new Upload({
+			const upload &#x3D; new Upload({
 				client: this.client,
 				params: req,
 			});
 
-			const a &#x3D; await res.done();
-			return a;
+			const commandOutput &#x3D; await upload.done();
+			return commandOutput;
 		} catch (err) {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 			if (err.Code &amp;&amp; err.Code &#x3D;&#x3D;&#x3D; &#x27;NoSuchBucket&#x27;) {
@@ -948,10 +948,8 @@ export class S3ClientAdapter implements IStorageClient {
 		}
 	}
 
-	public async delete(paths: string[]): Promise&lt;CopyObjectCommandOutput[]&gt; {
+	public async moveToTrash(paths: string[]): Promise&lt;CopyObjectCommandOutput[]&gt; {
 		try {
-			this.logger.log({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
-
 			const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
 				return { sourcePath: path, targetPath: &#x60;${this.deletedFolderName}/${path}&#x60; };
 			});
@@ -960,7 +958,7 @@ export class S3ClientAdapter implements IStorageClient {
 
 			// try catch with rollback is not needed,
 			// because the second copyRequest try override existing files in trash folder
-			await this.remove(paths);
+			await this.delete(paths);
 
 			return result;
 		} catch (err) {
@@ -986,7 +984,7 @@ export class S3ClientAdapter implements IStorageClient {
 			// try catch with rollback is not needed,
 			// because the second copyRequest try override existing files in trash folder
 			const deleteObjects &#x3D; copyPaths.map((p) &#x3D;&gt; p.sourcePath);
-			await this.remove(deleteObjects);
+			await this.delete(deleteObjects);
 
 			return result;
 		} catch (err) {
@@ -1018,7 +1016,9 @@ export class S3ClientAdapter implements IStorageClient {
 		}
 	}
 
-	private async remove(paths: string[]) {
+	public async delete(paths: string[]) {
+		this.logger.log({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
+
 		const pathObjects &#x3D; paths.map((p) &#x3D;&gt; {
 			return { Key: p };
 		});

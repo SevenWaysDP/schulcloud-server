@@ -225,7 +225,7 @@ export enum SanisRole {
 	LEHR &#x3D; &#x27;Lehr&#x27;,
 	LERN &#x3D; &#x27;Lern&#x27;,
 	LEIT &#x3D; &#x27;Leit&#x27;,
-	ORGADMIN &#x3D; &#x27;Orgadmin&#x27;,
+	ORGADMIN &#x3D; &#x27;OrgAdmin&#x27;,
 }
 
 export class SanisResponseName {
@@ -263,11 +263,14 @@ export class SanisResponsePersonenkontext {
 export class SanisResponseOrganisation {
 	constructor(sanisResponseOrganisation: SanisResponseOrganisation) {
 		this.id &#x3D; sanisResponseOrganisation.id;
+		this.kennung &#x3D; sanisResponseOrganisation.kennung;
 		this.name &#x3D; sanisResponseOrganisation.name;
 		this.typ &#x3D; sanisResponseOrganisation.typ;
 	}
 
 	id: UUID;
+
+	kennung: string;
 
 	name: string;
 

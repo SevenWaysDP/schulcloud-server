@@ -97,9 +97,6 @@
                             <a href="#DecodeHtmlEntities" title="apps/server/src/shared/controller/transformer/decode-html-entities.transformer.ts" ><b>DecodeHtmlEntities</b>&nbsp;&nbsp;&nbsp;(apps/.../decode-html-entities.transformer.ts)</a>
                         </li>
                         <li>
-                            <a href="#deriveStatusFromSource" title="apps/server/src/modules/files-storage/helper/scan-status.ts" ><b>deriveStatusFromSource</b>&nbsp;&nbsp;&nbsp;(apps/.../scan-status.ts)</a>
-                        </li>
-                        <li>
                             <a href="#encryptionProviderFactory" title="apps/server/src/shared/infra/encryption/encryption.module.ts" ><b>encryptionProviderFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../encryption.module.ts)</a>
                         </li>
                         <li>
@@ -109,9 +106,6 @@
                             <a href="#getResolvedValues" title="apps/server/src/modules/files-storage/helper/promise.ts" ><b>getResolvedValues</b>&nbsp;&nbsp;&nbsp;(apps/.../promise.ts)</a>
                         </li>
                         <li>
-                            <a href="#getStatusFromScanResult" title="apps/server/src/modules/files-storage/helper/scan-status.ts" ><b>getStatusFromScanResult</b>&nbsp;&nbsp;&nbsp;(apps/.../scan-status.ts)</a>
-                        </li>
-                        <li>
                             <a href="#hasDuplicateName" title="apps/server/src/modules/files-storage/helper/file-name.ts" ><b>hasDuplicateName</b>&nbsp;&nbsp;&nbsp;(apps/.../file-name.ts)</a>
                         </li>
                         <li>
@@ -119,9 +113,6 @@
                         </li>
                         <li>
                             <a href="#isLesson" title="apps/server/src/shared/domain/entity/lesson.entity.ts" ><b>isLesson</b>&nbsp;&nbsp;&nbsp;(apps/.../lesson.entity.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#isStatusBlocked" title="apps/server/src/modules/files-storage/helper/scan-status.ts" ><b>isStatusBlocked</b>&nbsp;&nbsp;&nbsp;(apps/.../scan-status.ts)</a>
                         </li>
                         <li>
                             <a href="#isTask" title="apps/server/src/shared/domain/entity/task.entity.ts" ><b>isTask</b>&nbsp;&nbsp;&nbsp;(apps/.../task.entity.ts)</a>
@@ -979,209 +970,6 @@ with all characters encoded again.</p>
                     <div class="io-description">
                         <p>the string with decoded html entities</p>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>apps/server/src/modules/files-storage/helper/scan-status.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deriveStatusFromSource"></a>
-                    <span class="name">
-                        <span ><b>deriveStatusFromSource</b></span>
-                        <a href="#deriveStatusFromSource"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>deriveStatusFromSource(sourceFile: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>, targetFile: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>sourceFile</td>
-                                    <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetFile</td>
-                                    <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileSecurityCheck.html" target="_self" >FileSecurityCheck</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getStatusFromScanResult"></a>
-                    <span class="name">
-                        <span ><b>getStatusFromScanResult</b></span>
-                        <a href="#getStatusFromScanResult"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getStatusFromScanResult(scanResultParams: <a href="../classes/ScanResultParams.html" target="_self">ScanResultParams</a>)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>scanResultParams</td>
-                                    <td>
-                                                <code><a href="../classes/ScanResultParams.html" target="_self" >ScanResultParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/enumerations.html#ScanStatus" target="_self" >ScanStatus</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isStatusBlocked"></a>
-                    <span class="name">
-                        <span ><b>isStatusBlocked</b></span>
-                        <a href="#isStatusBlocked"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>isStatusBlocked(fileRecord: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fileRecord</td>
-                                    <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>

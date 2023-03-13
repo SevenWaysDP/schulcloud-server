@@ -55,7 +55,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/identity-management/keycloak/controller/keycloak-management.controller.ts</code>
+            <code>apps/server/src/shared/infra/identity-management/keycloak-configuration/controller/keycloak-configuration.controller.ts</code>
         </p>
 
             <p class="comment">
@@ -134,7 +134,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/controller/keycloak-management.controller.ts:19</a></div>
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/controller/keycloak-configuration.controller.ts:19</a></div>
                 </td>
             </tr>
 
@@ -165,11 +165,11 @@ Used by auto-deployment for develop environment (job_init_idm.yml.j2) via cURL</
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Post, ServiceUnavailableException } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { KeycloakManagementUc } from &#x27;../uc/Keycloak-management.uc&#x27;;
+import { KeycloakConfigurationUc } from &#x27;../uc/keycloak-configuration.uc&#x27;;
 
 @Controller(&#x27;management/idm&#x27;)
 export class KeycloakManagementController {
-	constructor(private readonly keycloakManagementUc: KeycloakManagementUc, private readonly logger: Logger) {
+	constructor(private readonly keycloakManagementUc: KeycloakConfigurationUc, private readonly logger: Logger) {
 		this.logger.setContext(KeycloakManagementController.name);
 	}
 

@@ -1254,6 +1254,7 @@
 	Delete,
 	ForbiddenException,
 	Get,
+	HttpStatus,
 	InternalServerErrorException,
 	NotAcceptableException,
 	NotFoundException,
@@ -1263,17 +1264,16 @@
 	Query,
 	Req,
 	Res,
-	HttpStatus,
 	StreamableFile,
 	UseInterceptors,
 } from &#x27;@nestjs/common&#x27;;
 import { ApiConsumes, ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ApiValidationError, RequestLoggingInterceptor } from &#x27;@shared/common&#x27;;
 import { PaginationParams } from &#x27;@shared/controller&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { Request, Response } from &#x27;express&#x27;;
-import { FilesStorageMapper } from &#x27;../mapper/file-record.mapper&#x27;;
+import { FileRecordMapper } from &#x27;../mapper/file-record.mapper&#x27;;
 import { FilesStorageUC } from &#x27;../uc&#x27;;
 import {
 	CopyFileListResponse,
@@ -1310,7 +1310,7 @@ export class FilesStorageController {
 	): Promise&lt;FileRecordResponse&gt; {
 		const fileRecord &#x3D; await this.filesStorageUC.uploadFromUrl(currentUser.userId, { ...body, ...params });
 
-		const response &#x3D; FilesStorageMapper.mapToFileRecordResponse(fileRecord);
+		const response &#x3D; FileRecordMapper.mapToFileRecordResponse(fileRecord);
 
 		return response;
 	}
@@ -1331,7 +1331,7 @@ export class FilesStorageController {
 	): Promise&lt;FileRecordResponse&gt; {
 		const fileRecord &#x3D; await this.filesStorageUC.upload(currentUser.userId, params, req);
 
-		const response &#x3D; FilesStorageMapper.mapToFileRecordResponse(fileRecord);
+		const response &#x3D; FileRecordMapper.mapToFileRecordResponse(fileRecord);
 
 		return response;
 	}
@@ -1396,7 +1396,7 @@ export class FilesStorageController {
 	): Promise&lt;FileRecordListResponse&gt; {
 		const [fileRecords, total] &#x3D; await this.filesStorageUC.getFileRecordsOfParent(currentUser.userId, params);
 		const { skip, limit } &#x3D; pagination;
-		const response &#x3D; FilesStorageMapper.mapToFileRecordListResponse(fileRecords, total, skip, limit);
+		const response &#x3D; FileRecordMapper.mapToFileRecordListResponse(fileRecords, total, skip, limit);
 
 		return response;
 	}
@@ -1420,7 +1420,7 @@ export class FilesStorageController {
 	): Promise&lt;FileRecordResponse&gt; {
 		const fileRecord &#x3D; await this.filesStorageUC.patchFilename(currentUser.userId, params, renameFileParam);
 
-		const response &#x3D; FilesStorageMapper.mapToFileRecordResponse(fileRecord);
+		const response &#x3D; FileRecordMapper.mapToFileRecordResponse(fileRecord);
 
 		return response;
 	}
@@ -1440,7 +1440,7 @@ export class FilesStorageController {
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;FileRecordListResponse&gt; {
 		const [fileRecords, total] &#x3D; await this.filesStorageUC.deleteFilesOfParent(currentUser.userId, params);
-		const response &#x3D; FilesStorageMapper.mapToFileRecordListResponse(fileRecords, total);
+		const response &#x3D; FileRecordMapper.mapToFileRecordListResponse(fileRecords, total);
 
 		return response;
 	}
@@ -1458,7 +1458,7 @@ export class FilesStorageController {
 	): Promise&lt;FileRecordResponse&gt; {
 		const fileRecord &#x3D; await this.filesStorageUC.deleteOneFile(currentUser.userId, params);
 
-		const response &#x3D; FilesStorageMapper.mapToFileRecordResponse(fileRecord);
+		const response &#x3D; FileRecordMapper.mapToFileRecordResponse(fileRecord);
 
 		return response;
 	}
@@ -1474,7 +1474,7 @@ export class FilesStorageController {
 	): Promise&lt;FileRecordListResponse&gt; {
 		const [fileRecords, total] &#x3D; await this.filesStorageUC.restoreFilesOfParent(currentUser.userId, params);
 
-		const response &#x3D; FilesStorageMapper.mapToFileRecordListResponse(fileRecords, total);
+		const response &#x3D; FileRecordMapper.mapToFileRecordListResponse(fileRecords, total);
 
 		return response;
 	}
@@ -1490,7 +1490,7 @@ export class FilesStorageController {
 	): Promise&lt;FileRecordResponse&gt; {
 		const fileRecord &#x3D; await this.filesStorageUC.restoreOneFile(currentUser.userId, params);
 
-		const response &#x3D; FilesStorageMapper.mapToFileRecordResponse(fileRecord);
+		const response &#x3D; FileRecordMapper.mapToFileRecordResponse(fileRecord);
 
 		return response;
 	}

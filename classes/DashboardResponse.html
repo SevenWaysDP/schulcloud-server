@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:101</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:108</a></div>
                             </td>
                         </tr>
 
@@ -182,7 +182,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:117</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:124</a></div>
                         </td>
                     </tr>
 
@@ -217,7 +217,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:111</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:118</a></div>
                         </td>
                     </tr>
 
@@ -280,6 +280,7 @@ export class DashboardGridElementResponse {
 		yPosition,
 		groupId,
 		groupElements,
+		copyingSince &#x3D; undefined,
 	}: DashboardGridElementResponse) {
 		this.id &#x3D; id;
 		this.title &#x3D; title;
@@ -289,6 +290,7 @@ export class DashboardGridElementResponse {
 		this.yPosition &#x3D; yPosition;
 		this.groupId &#x3D; groupId;
 		this.groupElements &#x3D; groupElements;
+		this.copyingSince &#x3D; copyingSince;
 	}
 
 	@ApiProperty({
@@ -334,6 +336,11 @@ export class DashboardGridElementResponse {
 		description: &#x27;List of all subelements in the group&#x27;,
 	})
 	groupElements?: DashboardGridSubElementResponse[];
+
+	@ApiProperty({
+		description: &#x27;Start of the copying process if it is still ongoing - otherwise property is not set.&#x27;,
+	})
+	copyingSince?: Date;
 }
 
 export class DashboardResponse {

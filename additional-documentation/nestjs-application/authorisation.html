@@ -51,16 +51,16 @@
 
 
 
-<h1 id="nestjs-authorisation-module">NestJS Authorisation Module</h1>
+<h1 id="nestjs-authorization-module">NestJS Authorization Module</h1>
 <h2 id="objectives">Objectives</h2>
 <p>Breaking down complexity and isolate it.
-One place to solve a specific authorisation for a scope.
+One place to solve a specific authorization for a scope.
 One implementation to handle all different situations in our system.
 It should not be possible to use it in a wrong way.</p>
 <blockquote>
-<p>You should not need to understand the complete system, to know if something is authorised</p>
+<p>You should not need to understand the complete system, to know if something is authorized</p>
 </blockquote>
-<p>We also want to avoid any specific code for modules, collections, or something else, in the authorisation module.</p>
+<p>We also want to avoid any specific code for modules, collections, or something else, in the authorization module.</p>
 <h2 id="explanation-of-terms">Explanation of Terms</h2>
 <h3 id="permissions">Permissions</h3>
 <p>We have string based permissions.
@@ -83,11 +83,11 @@ Add more technical users for the instance scope.</p>
 </blockquote>
 <h3 id="entities">Entities</h3>
 <p>The entities are the representation of a single document of the collection, or the type.
-They are used for authorisation for now, but should be replaced by domain objects soon.</p>
+They are used for authorization for now, but should be replaced by domain objects soon.</p>
 <h3 id="domain-objects">Domain Objects</h3>
 <p>They are not really introduced. They should map between the repository layer and the domain.</p>
 <blockquote>
-<p>In future they are the base for authorisation and the authorisation service doesn&#39;t know anything about entities anymore.</p>
+<p>In future they are the base for authorization and the authorization service doesn&#39;t know anything about entities anymore.</p>
 </blockquote>
 <h3 id="scopes">Scopes</h3>
 <p>Everything what the system, or a user wants to do, is executed in a scope.
@@ -95,7 +95,7 @@ A scope means an area like the complete instance, the school, the course, the us
 The scopes are highly bind to the real domain objects that we have in our domain.</p>
 <h4 id="scope-actions">Scope Actions</h4>
 <p>The permission for a base action, like they are defined in CRUD operations, is needed to execute something in a scope.
-The most implicit action you ever need is the &quot;read&quot; action. That means, you must have the authorisation to &quot;read&quot; the scope, otherwise it should not exist for you. :-)
+The most implicit action you ever need is the &quot;read&quot; action. That means, you must have the authorization to &quot;read&quot; the scope, otherwise it should not exist for you. :-)
 The other possible action is to have write access to the scope.
 It is a combination of delete, edit, create from CRUD side.</p>
 <blockquote>
@@ -104,28 +104,28 @@ But we force the implementation in a way, that allows us to add some more.</p>
 </blockquote>
 <h4 id="scope-permission">Scope Permission</h4>
 <p>We have different situations where it is hard to say you can write/read to the domain scope.
-We need the possibility to define differents for a single domain scope, or a single domain object it self.</p>
+We need the possibility to define different permissions for a single domain scope, or a single domain object it self.</p>
 <blockquote>
 <p>Let say the user can edit his own user account, but we want to disallow that they can change his age.
-But an administrator should have the authorisation to do it.</p>
+But an administrator should have the authorization to do it.</p>
 </blockquote>
 <p>or a other case..</p>
 <blockquote>
 <p>A student has limited permissions in a team, where he is only a member, but would have more permissions in a team, where he is the owner. So at this point, we need to distingush between instances of domain objects.</p>
 </blockquote>
 <h3 id="users">User(s)</h3>
-<p>In authorisation scope it can be a system user, or a real user in our application.
+<p>In authorization scope it can be a system user, or a real user in our application.
 Each user has a role with permissions in the scope of the domain object they want to interact with.
-Each authorisation requires a user.</p>
+Each authorization requires a user.</p>
 <h4 id="system-users">System Users</h4>
-<p>We have console operations, or operations based on API_KEYS that are used between internal services for already authorised operations like copy and copy files in file service.
+<p>We have console operations, or operations based on API_KEYS that are used between internal services for already authorized operations like copy and copy files in file service.
 For this we want to use system user and roles with own permissions.</p>
 <blockquote>
 <p>They are not introduced for now</p>
 </blockquote>
 <h2 id="rules">Rules</h2>
-<p>The rules are implemented with a strategy pattern and are called from the authorisation service.
-The implementation should solve the authorisation for a domain object based on the executed action.
+<p>The rules are implemented with a strategy pattern and are called from the authorization service.
+The implementation should solve the authorization for a domain object based on the executed action.
 It implements a check for which domain object, entity, or additional conditions should be used.</p>
 <blockquote>
 <p>The rule must validate our scope actions.
@@ -140,45 +140,184 @@ This permissions have no explicit scope. But <em>implicitly</em> the roles exper
 At the moment we must handle scope-, user- and system-user-permissions as seperated special cases in our implementation.
 By implementing user role permissions bind to scopes, we can do it in one way for all situations.</p>
 </blockquote>
-<h2 id="how-should-you-authorise-an-operation">How should you Authorise an Operation?</h2>
-<p>Authorisation must be handled in use cases (UC). They solve the authorisation and <em>orchestrate</em> the logic that should be done in services, or private methods.
-You should never implement authorisation on service level, to avoid different authorisation steps.
-When calling other internal micro service for already authorised operations please use a queue based on RabbitMQ.</p>
+<h2 id="how-should-you-authorize-an-operation">How should you Authorize an Operation?</h2>
+<p>Authorization must be handled in use cases (UC). They solve the authorization and <em>orchestrate</em> the logic that should be done in services, or private methods.
+You should never implement authorization on service level, to avoid different authorization steps.
+When calling other internal micro service for already authorized operations please use a queue based on RabbitMQ.</p>
 <blockquote>
 <p>Not implemented but coming soon.</p>
 </blockquote>
-<h2 id="how-to-use-authorisation-service">How to use Authorisation Service</h2>
+<h2 id="how-to-use-authorization-service">How to use Authorization Service</h2>
 <blockquote>
-<p>Please avoid to catch the errors of the authorisation in UC.
+<p>Please avoid to catch the errors of the authorization in UC.
 We set empty array as required for passing permissions to make it visible that no string base permission is needed.</p>
 </blockquote>
 <h3 id="example-1---execute-a-single-operation">Example 1 - Execute a Single Operation</h3>
-<div><pre class="line-numbers"><code class="language-javascript">    this.authorizationService.hasPermission(user, course, PermissionContextBuilder.write([])
-    // next orechstration steps</code></pre></div><h3 id="example-2---execute-a-single-operation-with-loading-ressouces">Example 2 - Execute a Single Operation with Loading Ressouces</h3>
-<div><pre class="line-numbers"><code class="language-javascript">this.checkPermission(userId, AllowedEntity.course, courseId, PermissionContextBuilder.read([]));
-// next orechstration steps</code></pre></div><h3 id="example-3---set-permissions-of-user-as-required">Example 3 - Set Permission(s) of User as Required</h3>
-<div><pre class="line-numbers"><code class="language-javascript">// Multiple permissions can be added. For a sussesful authorisation, the user need all of them.
+<div><pre class="line-numbers"><code class="language-javascript">   this.authorizationService.checkPermission(user, course, PermissionContextBuilder.write([])
+   // or
+   this.authorizationService.hasPermission(user, course, PermissionContextBuilder.write([])
+   // next orchestration steps</code></pre></div><h3 id="example-2---execute-a-single-operation-with-loading-resources">Example 2 - Execute a Single Operation with Loading Resources</h3>
+<div><pre class="line-numbers"><code class="language-javascript">// If you don&#39;t have an entity but an entity type and id, you can check permission by reference
+await this.checkPermissionByReferences(userId, AllowedEntity.course, courseId, PermissionContextBuilder.read([]));
+// or
+await this.hasPermissionByReferences(userId, AllowedEntity.course, courseId, PermissionContextBuilder.read([]));
+// next orchestration steps</code></pre></div><h3 id="example-3---set-permissions-of-user-as-required">Example 3 - Set Permission(s) of User as Required</h3>
+<div><pre class="line-numbers"><code class="language-javascript">// Multiple permissions can be added. For a successful authorization, the user need all of them.
 await this.hasPermission(userId, course, PermissionContextBuilder.read([Permissions.COURSE_VIEW]));
-// next orechstration steps</code></pre></div><h3 id="example-4---define-context-for-multiple-places">Example 4 - Define Context for Multiple Places</h3>
+// next orchestration steps</code></pre></div><h3 id="example-4---define-context-for-multiple-places">Example 4 - Define Context for Multiple Places</h3>
 <div><pre class="line-numbers"><code class="language-javascript">/** const **/
 export const PermissionContexts = {
-    create: PermissionContextBuilder.write([Permission.FILESTORAGE_CREATE]),
-    read: PermissionContextBuilder.read([Permission.FILESTORAGE_VIEW]),
-    update: PermissionContextBuilder.write([Permission.FILESTORAGE_EDIT]),
-    delete: PermissionContextBuilder.write([Permission.FILESTORAGE_REMOVE]),
+   create: PermissionContextBuilder.write([Permission.FILESTORAGE_CREATE]),
+   read: PermissionContextBuilder.read([Permission.FILESTORAGE_VIEW]),
+   update: PermissionContextBuilder.write([Permission.FILESTORAGE_EDIT]),
+   delete: PermissionContextBuilder.write([Permission.FILESTORAGE_REMOVE]),
 };
 
 /** UC **/
 this.hasPermission(userId, course, PermissionContexts.create);
-// do other orchestration steps</code></pre></div><h2 id="structure-of-the-authorisation-components">Structure of the Authorisation Components</h2>
+// do other orchestration steps</code></pre></div><h2 id="how-to-use-in-our-use-cases">How to use in our use cases</h2>
+<h3 id="example---create-a-school-by-superhero">Example - Create a school by <strong>superhero</strong></h3>
+<div><pre class="line-numbers"><code class="language-ts">async createSchoolBySuperhero(userId: EntityId, params: { name: string }) {
+
+    const user = this.authorizationService.getUserWithPermissions(userId);
+    this.authorizationService.hasAllPermissions(user, [Permission.SCHOOL_CREATE]);
+
+    const school = new School(params);
+
+    await this.schoolService.save(school);
+
+    return true;
+}
+</code></pre></div><h3 id="example---create-user-by-admin">Example - Create user by <strong>admin</strong></h3>
+<div><pre class="line-numbers"><code class="language-ts">
+async createUserByAdmin(userId: EntityId, params: { email: string, firstName: string, lastName: string, schoolId: EntityId }) {
+
+    const user = this.authorizationService.getUserWithPermissions(userId);
+
+   await this.checkPermissionByReferences(userId, AllowedEntity.school, schoolId, PermissionContextBuilder.write([Permission.INSTANCE, Permission.CREATE_USER]));
+
+    const newUser = new User(params)
+
+    await this.userService.save(newUser);
+
+    return true;
+}
+</code></pre></div><h3 id="example---edit-course-by-admin">Example - Edit course by <strong>admin</strong></h3>
+<div><pre class="line-numbers"><code class="language-ts">// admin
+async editCourseByAdmin(userId: EntityId, params: { courseId: EntityId, description: string }) {
+
+    const course = this.courseService.getCourse(params.courseId);
+    const user = this.authorizationService.getUserWithPermissions(userId);
+
+   const school = course.school
+
+    this.authorizationService.hasPermissions(user, school, [Permission.INSTANCE, Permission.COURSE_EDIT]);
+
+    course.description = params.description;
+
+    await this.courseService.save(course);
+
+    return true;
+}
+</code></pre></div><h3 id="example---create-a-course">Example - Create a Course</h3>
+<div><pre class="line-numbers"><code class="language-ts">// User can create a course in scope a school, you need to check if he can it by school
+async createCourse(userId: EntityId, params: { schoolId: EntityId }) {
+   const user = this.authorizationService.getUserWithPermissions(userId);
+   const school = this.schoolService.getSchool(params.schoolId);
+
+        this.authorizationService.checkPermission(user, school
+            {
+                action: Actions.write,
+                requiredPermissions: [Permission.COURSE_CREATE],
+            }
+        );
+
+    const course = new Course({ school });
+
+    await this.courseService.saveCourse(course);
+
+    return course;
+}
+</code></pre></div><h3 id="example---create-a-lesson">Example - Create a Lesson</h3>
+<div><pre class="line-numbers"><code class="language-ts">// User can create a lesson to course, so you have a courseId
+async createLesson(userId: EntityId, params: { courseId: EntityId }) {
+    const course = this.courseService.getCourse(params.courseId);
+    const user = this.authorizationService.getUserWithPermissions(userId);
+         // check permission for user and course
+        this.authorizationService.checkPermission(user, course
+            {
+                action: Actions.write,
+                requiredPermissions: [Permission.COURSE_EDIT],
+            }
+        );
+
+    const lesson = new Lesson({course});
+
+    await this.lessonService.saveLesson(lesson);
+
+    return true;
+}</code></pre></div><h2 id="how-to-write-a-rule">How to write a rule</h2>
+<p>So a rule must validate our scope actions. For example we have a <em>news</em> for the school or course. The news has a creator and target model.</p>
+<blockquote>
+<p>Attention: The target model must be populated</p>
+</blockquote>
+<div><pre class="line-numbers"><code class="language-ts">&#64;Injectable()
+export class NewsRule extends BasePermission&lt;News&gt; {
+   constructor(private readonly schoolRule: SchoolRule, private readonly courseRule: CourseRule) {
+         super();
+   }
+
+   // Is used to select the matching rule in the permission manager. Therefore we keep the condition to which case the rule
+   // applies in the rule itself. In future we expect more complex conditions that could apply here.
+   public isApplicable(user: User, entity: News): boolean {
+      const isMatched = entity instanceof News;
+
+      return isMatched;
+   }
+
+   public hasPermission(user: User, entity: News, context: IPermissionContext): boolean {
+      const { action, requiredPermissions } = context;
+
+      // check required permissions passed by UC
+      const hasPermission = this.utils.hasAllPermissions(user, requiredPermissions);
+      // check access to entity by property
+      const isCreator = this.utils.hasAccessToEntity(user, entity, [&#39;creator&#39;]);
+      let hasNewsPermission = false;
+
+      if (action === Actions.read) {
+         hasNewsPermission = this.parentPermission(user, entity, action);
+      } else if (action === Actions.write) {
+         hasNewsPermission = isCreator;
+      }
+
+      const result = hasPermission &amp;&amp; hasNewsPermission;
+
+      return result;
+   }
+
+   private parentPermission(user: User, entity: News, action: Actions): boolean {
+      let hasParentPermission = false;
+      // check by parentRule, because the schoolRule can contain extra logic
+      // e.g. school is offline
+      // or courseRule has complex permissions-resolves
+      if (entity.targetModel === NewsTargetModel.School) {
+         hasParentPermission = this.schoolRule.hasPermission(user, entity.target, { action, requiredPermissions: [] });
+      } else if (entity.targetModel === NewsTargetModel.Course) {
+         hasParentPermission = this.courseRule.hasPermission(user, entity.target, { action, requiredPermissions: [] });
+      }
+
+      return hasParentPermission;
+   }
+}
+</code></pre></div><h2 id="structure-of-the-authorization-components">Structure of the Authorization Components</h2>
 <h3 id="feathers--legacydeprecated">feathers-* (legacy/deprecated)</h3>
-<p>It exists a adapter to call featherJS endpoints that solve authorisations.</p>
+<p>It exists a adapter to call featherJS endpoints that solve authorizations.</p>
 <blockquote>
 <p>This service is only used in news and should not be used in any other place.
 We want to remove it completly.</p>
 </blockquote>
-<h3 id="authorisation-module">Authorisation Module</h3>
-<p>The authorisation module is the core of authorisation. It collects all needed information and handles it behind a small interface. It exports the authoriation service that can be used in your use case over injections.</p>
+<h3 id="authorization-module">Authorization Module</h3>
+<p>The authorization module is the core of authorization. It collects all needed information and handles it behind a small interface. It exports the authoriation service that can be used in your use case over injections.</p>
 <h3 id="referenceloader">Reference.loader</h3>
 <p>For situations where only the id and the domain object (string) type is known, it is possible to use the *ByReferences methods.
 They load the reference directly.</p>
@@ -189,9 +328,9 @@ We keep it as a seperate method to avoid the usage in areas where the domain obj
 <h3 id="shareddomainrules">shared/domain/rules/*</h3>
 <p>The location to add new rules for entities / domain objects.</p>
 <h4 id="permission-contextbuilder">permission-context.builder</h4>
-<p>We export a permission context builder to prepare the parameter for the authorisation service called &quot;authorisation context&quot;.
+<p>We export a permission context builder to prepare the parameter for the authorization service called &quot;authorization context&quot;.
 This is optional and not required.
-But it enables us to easily change the structure of the authorisation context without touching many different places.</p>
+But it enables us to easily change the structure of the authorization context without touching many different places.</p>
 <h3 id="shareddomaininterface">shared/domain/interface/*</h3>
 <h4 id="rolenameenum">rolename.enum</h4>
 <p>An enum that holds all avaible role names.</p>
@@ -207,10 +346,10 @@ It exists the need that the server application can call the file service.
 We add a files storage client module to the server.
 This module exports a service to communicate with the file service.</p>
 <p>For communication it uses RabbitMQ.
-Every operation must already be authorised in the UC of the server. There is no need to do it again in files storage service.
-For this reason, we want the consumer of the RabbitMQ item to call the files storage service directly without authorisation.</p>
+Every operation must already be authorized in the UC of the server. There is no need to do it again in files storage service.
+For this reason, we want the consumer of the RabbitMQ item to call the files storage service directly without authorization.</p>
 <h2 id="legacy-tech-stack-featherjs-hooks">Legacy Tech Stack FeatherJS Hooks</h2>
-<p>In featherJS all the authorisation is done in hooks. Mostly before hooks and sometimes in after hooks.
+<p>In featherJS all the authorization is done in hooks. Mostly before hooks and sometimes in after hooks.
 Before and after means before, or after the database operation. For self writen services before, or after the call of the operation that should be executed.
 They work similar to express middleware and bring their own request context.</p>
 <p>It exists hooks that can be used for all http(s) calls, or for specific type based on CRUD operations.
@@ -226,27 +365,27 @@ They follow our general target.</p>
 <li>Implementation of Scope Based Permissions as generell solution instead of User Permissions that has only implicit school scopes for now.
 Remove populate logic in reference loader.
 Solve eager loading in coursegroups.</li>
-<li>Introduce RabbitMQ. Splitting Service(logic) from UC, that we can call services over the consumer for internal communication between micro services of already authorised operations.
+<li>Introduce RabbitMQ. Splitting Service(logic) from UC, that we can call services over the consumer for internal communication between micro services of already authorized operations.
 Think about: Move hasPermission checks from rules to a more generic place.
 Remove jwt decorator and cleanup copy logic.
-Move authorisation-context.builder to authorisation module.</li>
+Move authorization-context.builder to authorization module.</li>
 <li>Remove inheritance from roles, because we want to write it explicitly into the collection documents.
 Moving role api endpoints to nestjs.
 Fixing of dashboard to handle roles in the right way as superhero.</li>
-<li>Switching entity based authorisation to domain objects based in steps.</li>
+<li>Switching entity based authorization to domain objects based in steps.</li>
 <li>Cleanup of feature flags from user permissions.
 Add existing feature flags to rules on places where it make sense.</li>
 <li>Introduce instance as a scope to have an implemenation that handles all scopes/rules/permissions/user types in the same way.</li>
 </ol>
 <h3 id="refactoring-todos">Refactoring Todos</h3>
 <ul>
-<li>Task module should fully use authorisation service.</li>
-<li>News module should start to use authorisation service.</li>
+<li>Task module should fully use authorization service.</li>
+<li>News module should start to use authorization service.</li>
 </ul>
 <h3 id="is-needed">Is Needed</h3>
 <ul>
-<li>We can introduce a new layer called &quot;policy&quot; that combine different rules (any of them has their own matching strategy) for a single domain object between authorisation and rule to reduce complexity in a single rule.</li>
-<li>We can switch to a behaviour where rules register themself at the authorisation service than.</li>
+<li>We can introduce a new layer called &quot;policy&quot; that combines different rules (any of them has their own matching strategy) for a single domain object between authorization and rule to reduce complexity in a single rule.</li>
+<li>We can switch to a behaviour where rules register themself at the authorization service than.</li>
 </ul>
 
                    </div><div class="search-results">

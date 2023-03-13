@@ -112,6 +112,9 @@
                                 <a href="#withOauthConfig" >withOauthConfig</a>
                             </li>
                             <li>
+                                <a href="#withOidcConfig" >withOidcConfig</a>
+                            </li>
+                            <li>
                                 <a href="#afterBuild" >afterBuild</a>
                             </li>
                             <li>
@@ -230,8 +233,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/system.factory.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/system.factory.ts:28</a></div>
                 </td>
             </tr>
 
@@ -270,6 +273,34 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="withOidcConfig"></a>
+                    <span class="name">
+                        <span ><b>withOidcConfig</b></span>
+                        <a href="#withOidcConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>withOidcConfig()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/system.factory.ts:38</a></div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="afterBuild"></a>
                     <span class="name">
                         <span ><b>afterBuild</b></span>
@@ -292,7 +323,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:97</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:98</a></code>
 </div>
                 </td>
             </tr>
@@ -369,7 +400,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:109</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:110</a></code>
 </div>
                 </td>
             </tr>
@@ -535,7 +566,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:74</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:75</a></code>
 </div>
                 </td>
             </tr>
@@ -645,7 +676,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:83</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:84</a></code>
 </div>
                 </td>
             </tr>
@@ -864,7 +895,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:147</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:148</a></code>
 </div>
                 </td>
             </tr>
@@ -1084,7 +1115,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:121</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:122</a></code>
 </div>
                 </td>
             </tr>
@@ -1154,7 +1185,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:143</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:144</a></code>
 </div>
                 </td>
             </tr>
@@ -1201,7 +1232,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:159</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:160</a></code>
 </div>
                 </td>
             </tr>
@@ -1252,7 +1283,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:133</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:134</a></code>
 </div>
                 </td>
             </tr>
@@ -1313,7 +1344,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISystemProperties, LdapConfig, OauthConfig, System } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISystemProperties, LdapConfig, OauthConfig, OidcConfig, System } from &#x27;@shared/domain&#x27;;
 import { SystemProvisioningStrategy } from &#x27;@shared/domain/interface/system-provisioning.strategy&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
 import { BaseFactory } from &#x27;./base.factory&#x27;;
@@ -1324,16 +1355,17 @@ export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; 
 			oauthConfig: new OauthConfig({
 				clientId: &#x27;12345&#x27;,
 				clientSecret: &#x27;mocksecret&#x27;,
+				alias: &#x27;mock-oauth-alias&#x27;,
 				tokenEndpoint: &#x27;http://mock.de/mock/auth/public/mockToken&#x27;,
 				grantType: &#x27;authorization_code&#x27;,
-				redirectUri: &#x27;http://mockhost:3030/api/v3/sso/oauth/testsystemId&#x27;,
+				redirectUri: &#x27;http://mockhost:3030/api/v3/sso/oauth/&#x27;,
 				scope: &#x27;openid uuid&#x27;,
 				responseType: &#x27;code&#x27;,
-				authEndpoint: &#x27;mock_authEndpoint&#x27;,
+				authEndpoint: &#x27;http://mock.de/auth&#x27;,
 				provider: &#x27;mock_type&#x27;,
-				logoutEndpoint: &#x27;mock_logoutEndpoint&#x27;,
+				logoutEndpoint: &#x27;http://mock.de/logout&#x27;,
 				issuer: &#x27;mock_issuer&#x27;,
-				jwksEndpoint: &#x27;mock_jwksEndpoint&#x27;,
+				jwksEndpoint: &#x27;http://mock.de/jwks&#x27;,
 			}),
 		};
 		return this.params(params);
@@ -1348,6 +1380,22 @@ export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; 
 		};
 		return this.params(params);
 	}
+
+	withOidcConfig(): this {
+		const params &#x3D; {
+			oidcConfig: new OidcConfig({
+				clientId: &#x27;mock-client-id&#x27;,
+				clientSecret: &#x27;mock-client-secret&#x27;,
+				alias: &#x27;mock-oidc-alias&#x27;,
+				defaultScopes: &#x27;openid email userinfo&#x27;,
+				authorizationUrl: &#x27;https://mock.tld/auth&#x27;,
+				tokenUrl: &#x27;https://mock.tld/token&#x27;,
+				userinfoUrl: &#x27;https://mock.tld/userinfo&#x27;,
+				logoutUrl: &#x27;https://mock.tld/logout&#x27;,
+			}),
+		};
+		return this.params(params);
+	}
 }
 
 export const systemFactory &#x3D; SystemFactory.define(System, ({ sequence }) &#x3D;&gt; {
@@ -1356,7 +1404,7 @@ export const systemFactory &#x3D; SystemFactory.define(System, ({ sequence }) &#
 		url: &#x27;http://mock.de&#x27;,
 		alias: &#x60;system #${sequence}&#x60;,
 		displayName: &#x60;system #${sequence}DisplayName&#x60;,
-		provisioningStrategy: SystemProvisioningStrategy.UNDEFINED,
+		provisioningStrategy: SystemProvisioningStrategy.OIDC,
 		provisioningUrl: &#x27;provisioningUrl&#x27;,
 	};
 });

@@ -89,6 +89,11 @@
                                 <a href="#findById" >findById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#populate" >populate</a>
+                            </li>
+                            <li>
                                 <a href="#create" >create</a>
                             </li>
                             <li>
@@ -159,7 +164,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:11</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:15</a></code>
 </div>
                 </td>
             </tr>
@@ -198,7 +203,79 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>    <code>Promise&lt;TaskCard&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populate"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>populate</b></span>
+                        <a href="#populate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>populate(taskCards: TaskCard[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/shared/repo/card/task-card.repo.ts:11</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>taskCards</td>
+                                    <td>
+                                            <code>TaskCard[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -480,10 +557,15 @@ export class TaskCardRepo extends BaseRepo&lt;TaskCard&gt; {
 		return TaskCard;
 	}
 
-	async findById(id: EntityId) {
+	private async populate(taskCards: TaskCard[]): Promise&lt;void&gt; {
+		await this._em.populate(taskCards, [&#x27;cardElements&#x27;, &#x27;task&#x27;, &#x27;task.course&#x27;]);
+	}
+
+	async findById(id: EntityId): Promise&lt;TaskCard&gt; {
 		const card &#x3D; await this._em.findOneOrFail(this.entityName, { id });
-		await card.cardElements.init();
-		await this._em.populate(card, true);
+
+		await this.populate([card]);
+
 		return card;
 	}
 }

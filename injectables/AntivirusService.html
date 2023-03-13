@@ -237,7 +237,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
@@ -343,7 +343,7 @@ export class AntivirusService {
 		@Inject(&#x27;ANTIVIRUS_SERVICE_OPTIONS&#x27;) private readonly options: AntivirusServiceOptions
 	) {}
 
-	public send(fileRecord: FileRecord) {
+	public send(fileRecord: FileRecord): void {
 		try {
 			if (this.options.enabled &amp;&amp; fileRecord.securityCheck.requestToken) {
 				const downloadUri &#x3D; this.getUrl(
@@ -367,7 +367,7 @@ export class AntivirusService {
 		}
 	}
 
-	private getUrl(path: string, token: string) {
+	private getUrl(path: string, token: string): string {
 		const newPath &#x3D; path.replace(&#x27;:token&#x27;, encodeURIComponent(token));
 		const url &#x3D; new URL(&#x60;${API_VERSION_PATH}${newPath}&#x60;, this.options.filesServiceBaseUrl);
 

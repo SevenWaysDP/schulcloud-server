@@ -81,13 +81,23 @@
                                 <a href="#cardType" >cardType</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#course" >course</a>
+                            </li>
+                            <li>
                                 <a href="#creator" >creator</a>
                             </li>
                             <li>
                                 <a href="#draggable" >draggable</a>
                             </li>
                             <li>
+                                <a href="#dueDate" >dueDate</a>
+                            </li>
+                            <li>
                                 <a href="#task" >task</a>
+                            </li>
+                            <li>
+                                <a href="#visibleAtDate" >visibleAtDate</a>
                             </li>
                         </ul>
                     </td>
@@ -134,7 +144,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -154,7 +164,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#CardType" target="_self" >CardType</a></code>
+                        <i>Type : </i>        <code><a href="../classes/Card.html" target="_self" >CardType</a></code>
 
                     </td>
                 </tr>
@@ -169,7 +179,43 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="course"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>course</b></span>
+                        <a href="#course"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Index()<br />@ManyToOne(&#x27;Course&#x27;, {fieldName: &#x27;courseId&#x27;, nullable: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -204,7 +250,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -238,7 +284,42 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dueDate"></a>
+                    <span class="name">
+                        <span ><b>dueDate</b></span>
+                        <a href="#dueDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -273,7 +354,42 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibleAtDate"></a>
+                    <span class="name">
+                        <span ><b>visibleAtDate</b></span>
+                        <a href="#visibleAtDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -289,13 +405,16 @@
 import { CardType, ICard, ICardCProps } from &#x27;../types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import { CardElement } from &#x27;./cardElement.entity&#x27;;
+import { Course } from &#x27;./course.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
 
-export type ITaskCardProps &#x3D; ICardCProps &amp; { task: Task };
+export type ITaskCardProps &#x3D; ICardCProps &amp; { task: Task; dueDate: Date; course?: Course };
 
 export interface ITaskCard extends ICard {
 	task: Task;
+	dueDate: Date;
+	course?: Course;
 }
 @Entity({
 	tableName: &#x27;card&#x27;,
@@ -306,10 +425,13 @@ export class TaskCard extends BaseEntityWithTimestamps implements ICard, ITaskCa
 
 		this.draggable &#x3D; props.draggable || true;
 		this.cardType &#x3D; props.cardType;
+		this.visibleAtDate &#x3D; props.visibleAtDate;
+		this.dueDate &#x3D; props.dueDate;
 
 		this.cardElements.set(props.cardElements);
 		this.task &#x3D; props.task;
 		this.cardType &#x3D; CardType.Task;
+		if (props.course) this.course &#x3D; props.course;
 		Object.assign(this, { creator: props.creator });
 	}
 
@@ -323,11 +445,25 @@ export class TaskCard extends BaseEntityWithTimestamps implements ICard, ITaskCa
 	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;userId&#x27; })
 	creator!: User;
 
+	@Index()
+	@ManyToOne(&#x27;Course&#x27;, { fieldName: &#x27;courseId&#x27;, nullable: true })
+	course?: Course;
+
 	@Property()
 	draggable &#x3D; true;
 
+	@Property()
+	visibleAtDate: Date;
+
+	@Property()
+	dueDate: Date;
+
 	public getCardElements() {
 		return this.cardElements.getItems();
+	}
+
+	public isVisibleBeforeDueDate() {
+		return this.visibleAtDate &lt; this.dueDate;
 	}
 
 	@OneToOne({ type: &#x27;Task&#x27;, fieldName: &#x27;taskId&#x27;, eager: true, unique: true, cascade: [Cascade.ALL] })

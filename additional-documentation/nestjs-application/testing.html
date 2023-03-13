@@ -287,11 +287,15 @@ These tests should not have any external dependencies to other layers like datab
 <p>Use Spies to verify necessary steps, such as authorisation checks.</p>
 </blockquote>
 <p>to be documented</p>
-<h2 id="e2e-tests">E2E Tests</h2>
-<p>Unlike unit testing, which focuses on individual modules, end-to-end testing covers the interaction between classes and
-modules at a more aggregate level. Automated end-to-end tests help us to ensure that the overall behavior of the system is correct.</p>
 <h3 id="controller-tests">Controller Tests</h3>
-<p>to be documented</p>
+<p>Controllers do not contain any logic, but exclusively information to map and validate between dataformats used on the network, and those used internally, as well as documentation of the api.</p>
+<p>Most of these things can not be covered by unit tests. Therefore we do not write specific unittests for them, and only cover them with <a href="#api-tests">api tests</a>.</p>
+<h3 id="api-tests">API Tests</h3>
+<p>The API tests are plumbing or integration tests. Their job is to make sure all components that interact to fulfill a specific api endpoint are wired up correctly, and fulfil the expectation set up in the documentation.</p>
+<p>API tests should be located in the folder <em>controller/api-test</em> of each module.</p>
+<p>They should call the endpoint like a external entity would, treating it like a blackbox. It should try all parameters available on the API, users with different roles, as well as relevant error cases.</p>
+<p>During the API test, all components that are part of the server, or controlled by the server, should be available. This includes an in-memory database.</p>
+<p>Any external services or servers that are outside our control should be mocked away via their respective adapters.</p>
 <h2 id="references">References</h2>
 <p>This guide is inspired by <a href="https://github.com/goldbergyoni/javascript-testing-best-practices/">https://github.com/goldbergyoni/javascript-testing-best-practices/</a></p>
 

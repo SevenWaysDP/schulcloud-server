@@ -135,7 +135,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/CreateTaskCardParams.html" target="_self">CreateTaskCardParams</a>)</code>
+                    <code>create(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/TaskCardParams.html" target="_self">TaskCardParams</a>)</code>
                 </td>
             </tr>
 
@@ -185,7 +185,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/CreateTaskCardParams.html" target="_self" >CreateTaskCardParams</a></code>
+                                                <code><a href="../classes/TaskCardParams.html" target="_self" >TaskCardParams</a></code>
                                     </td>
 
                                     <td>
@@ -239,8 +239,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/task-card.controller.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/task-card.controller.ts:45</a></div>
                 </td>
             </tr>
 
@@ -322,8 +322,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/task-card.controller.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/task-card.controller.ts:71</a></div>
                 </td>
             </tr>
 
@@ -368,8 +368,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/task-card.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/task-card.controller.ts:32</a></div>
                 </td>
             </tr>
 
@@ -444,7 +444,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, urlParams: <a href="../classes/TaskCardUrlParams.html" target="_self">TaskCardUrlParams</a>, params: <a href="../classes/UpdateTaskCardParams.html" target="_self">UpdateTaskCardParams</a>)</code>
+                    <code>update(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, urlParams: <a href="../classes/TaskCardUrlParams.html" target="_self">TaskCardUrlParams</a>, params: <a href="../classes/TaskCardParams.html" target="_self">TaskCardParams</a>)</code>
                 </td>
             </tr>
 
@@ -458,8 +458,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/task-card.controller.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/task-card.controller.ts:54</a></div>
                 </td>
             </tr>
 
@@ -506,7 +506,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/UpdateTaskCardParams.html" target="_self" >UpdateTaskCardParams</a></code>
+                                                <code><a href="../classes/TaskCardParams.html" target="_self" >TaskCardParams</a></code>
                                     </td>
 
                                     <td>
@@ -539,10 +539,10 @@
 
 import { Body, Controller, Delete, Get, InternalServerErrorException, Param, Patch, Post } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { TaskCardUc } from &#x27;../uc&#x27;;
-import { CreateTaskCardParams, TaskCardResponse, TaskCardUrlParams, UpdateTaskCardParams } from &#x27;./dto&#x27;;
+import { TaskCardResponse, TaskCardUrlParams, TaskCardParams } from &#x27;./dto&#x27;;
 import { TaskCardMapper } from &#x27;./mapper/task-card.mapper&#x27;;
 
 @ApiTags(&#x27;Cards&#x27;)
@@ -552,16 +552,13 @@ export class TaskCardController {
 	constructor(private readonly taskCardUc: TaskCardUc) {}
 
 	@Post()
-	async create(
-		@CurrentUser() currentUser: ICurrentUser,
-		@Body() params: CreateTaskCardParams
-	): Promise&lt;TaskCardResponse&gt; {
+	async create(@CurrentUser() currentUser: ICurrentUser, @Body() params: TaskCardParams): Promise&lt;TaskCardResponse&gt; {
 		this.featureEnabled();
 
 		const mapper &#x3D; new TaskCardMapper();
 		const { card, taskWithStatusVo } &#x3D; await this.taskCardUc.create(
 			currentUser.userId,
-			TaskCardMapper.mapCreateToDomain(params)
+			TaskCardMapper.mapToDomain(params)
 		);
 		const taskCardResponse &#x3D; mapper.mapToResponse(card, taskWithStatusVo);
 
@@ -594,14 +591,14 @@ export class TaskCardController {
 	async update(
 		@CurrentUser() currentUser: ICurrentUser,
 		@Param() urlParams: TaskCardUrlParams,
-		@Body() params: UpdateTaskCardParams
+		@Body() params: TaskCardParams
 	): Promise&lt;TaskCardResponse&gt; {
 		this.featureEnabled();
 
 		const { card, taskWithStatusVo } &#x3D; await this.taskCardUc.update(
 			currentUser.userId,
 			urlParams.id,
-			TaskCardMapper.mapUpdateToDomain(params)
+			TaskCardMapper.mapToDomain(params)
 		);
 		const mapper &#x3D; new TaskCardMapper();
 		const taskCardResponse &#x3D; mapper.mapToResponse(card, taskWithStatusVo);

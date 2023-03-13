@@ -92,6 +92,13 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
+                                        <a href="#copyingSince" 
+>
+                                            copyingSince
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#description" 
 >
                                             description
@@ -179,6 +186,44 @@
                                     <tr>
                                         <td class="col-md-4">
                                             <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="copyingSince"></a>
+                                        <span class="name "><b>copyingSince</b>
+                                            <a href="#copyingSince">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>copyingSince:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
 
                                         </td>
                                     </tr>
@@ -520,6 +565,7 @@ export interface ICourseProperties {
 	color?: string;
 	startDate?: Date;
 	untilDate?: Date;
+	copyingSince?: Date;
 }
 
 // that is really really shit default handling :D constructor, getter, js default, em default...what the hell
@@ -572,6 +618,9 @@ export class Course
 	untilDate?: Date;
 
 	@Property({ nullable: true })
+	copyingSince?: Date;
+
+	@Property({ nullable: true })
 	@Unique({ options: { sparse: true } })
 	shareToken?: string;
 
@@ -586,6 +635,7 @@ export class Course
 		if (props.color) this.color &#x3D; props.color;
 		if (props.untilDate) this.untilDate &#x3D; props.untilDate;
 		if (props.startDate) this.startDate &#x3D; props.startDate;
+		if (props.copyingSince) this.copyingSince &#x3D; props.copyingSince;
 	}
 
 	public getStudentIds(): EntityId[] {
@@ -635,6 +685,7 @@ export class Course
 			displayColor: this.color,
 			untilDate: this.untilDate,
 			startDate: this.startDate,
+			copyingSince: this.copyingSince,
 		};
 	}
 

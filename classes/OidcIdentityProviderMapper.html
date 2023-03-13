@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/identity-management/keycloak/mapper/identity-provider.mapper.ts</code>
+            <code>apps/server/src/shared/infra/identity-management/keycloak-configuration/mapper/identity-provider.mapper.ts</code>
         </p>
 
 
@@ -110,7 +110,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/mapper/identity-provider.mapper.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/mapper/identity-provider.mapper.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -169,7 +169,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToKeycloakIdentityProvider(system: <a href="../interfaces/IOidcIdentityProviderConfig.html" target="_self">IOidcIdentityProviderConfig</a>, flowAlias: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>mapToKeycloakIdentityProvider(oidcConfig: <a href="../classes/OidcConfigDto.html" target="_self">OidcConfigDto</a>, flowAlias: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -177,7 +177,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/mapper/identity-provider.mapper.ts:9</a></div>
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/mapper/identity-provider.mapper.ts:9</a></div>
                 </td>
             </tr>
 
@@ -198,9 +198,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>system</td>
+                                    <td>oidcConfig</td>
                                     <td>
-                                                <code><a href="../interfaces/IOidcIdentityProviderConfig.html" target="_self" >IOidcIdentityProviderConfig</a></code>
+                                                <code><a href="../classes/OidcConfigDto.html" target="_self" >OidcConfigDto</a></code>
                                     </td>
 
                                     <td>
@@ -250,33 +250,26 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import IdentityProviderRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation&#x27;;
 import { Inject } from &#x27;@nestjs/common&#x27;;
 import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
-import { IOidcIdentityProviderConfig } from &#x27;../interface&#x27;;
+import { OidcConfigDto } from &#x27;@src/modules/system/service&#x27;;
 
 export class OidcIdentityProviderMapper {
 	constructor(@Inject(DefaultEncryptionService) private readonly defaultEncryptionService: IEncryptionService) {}
 
-	public mapToKeycloakIdentityProvider(
-		system: IOidcIdentityProviderConfig,
-		flowAlias: string
-	): IdentityProviderRepresentation {
+	public mapToKeycloakIdentityProvider(oidcConfig: OidcConfigDto, flowAlias: string): IdentityProviderRepresentation {
 		return {
-			providerId: system.type,
-			alias: system.alias,
-			displayName: system.displayName ? system.displayName : system.alias,
+			providerId: &#x27;oidc&#x27;,
+			alias: oidcConfig.alias,
+			displayName: oidcConfig.alias,
 			enabled: true,
 			firstBrokerLoginFlowAlias: flowAlias,
 			config: {
-				clientId: system.oidcConfig?.clientId
-					? this.defaultEncryptionService.decrypt(system.oidcConfig.clientId)
-					: undefined,
-				clientSecret: system.oidcConfig?.clientSecret
-					? this.defaultEncryptionService.decrypt(system.oidcConfig?.clientSecret)
-					: undefined,
-				authorizationUrl: system.oidcConfig?.authorizationUrl,
-				tokenUrl: system.oidcConfig?.tokenUrl,
-				logoutUrl: system.oidcConfig?.logoutUrl,
-				userInfoUrl: system.oidcConfig?.userinfoUrl,
-				defaultScope: system.oidcConfig?.defaultScopes,
+				clientId: oidcConfig.clientId,
+				clientSecret: this.defaultEncryptionService.decrypt(oidcConfig.clientSecret),
+				authorizationUrl: oidcConfig.authorizationUrl,
+				tokenUrl: oidcConfig.tokenUrl,
+				logoutUrl: oidcConfig.logoutUrl,
+				userInfoUrl: oidcConfig.userinfoUrl,
+				defaultScope: oidcConfig.defaultScopes,
 				syncMode: &#x27;IMPORT&#x27;,
 				sync_mode: &#x27;import&#x27;,
 				clientAuthMethod: &#x27;client_secret_post&#x27;,

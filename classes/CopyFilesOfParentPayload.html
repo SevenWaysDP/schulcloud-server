@@ -138,7 +138,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:97</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:100</a></div>
                         </td>
                     </tr>
 
@@ -173,7 +173,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:100</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:103</a></div>
                         </td>
                     </tr>
 
@@ -208,7 +208,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:94</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:97</a></div>
                         </td>
                     </tr>
 
@@ -281,12 +281,15 @@ export class DownloadFileParams {
 export class ScanResultParams {
 	@ApiProperty()
 	@Allow()
-	// @IsBoolean() ?
-	virus_detected!: boolean;
+	virus_detected?: boolean;
 
 	@ApiProperty()
 	@Allow()
 	virus_signature?: string;
+
+	@ApiProperty()
+	@Allow()
+	error?: string;
 }
 
 export class SingleFileParams {

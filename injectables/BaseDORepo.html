@@ -318,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:74</a></div>
                 </td>
             </tr>
 
@@ -389,8 +389,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:96</a></div>
                 </td>
             </tr>
 
@@ -465,8 +465,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:109</a></div>
                 </td>
             </tr>
 
@@ -536,8 +536,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:122</a></div>
                 </td>
             </tr>
 
@@ -678,8 +678,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:127</a></div>
                 </td>
             </tr>
 
@@ -893,8 +893,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:88</a></div>
                 </td>
             </tr>
 
@@ -1245,9 +1245,20 @@ export abstract class BaseDORepo&lt;DO extends BaseDO, E extends BaseEntity, P&g
 
 		this.removeProtectedEntityFields(newEntity);
 
-		const fetchedEntity: E &#x3D; await this._em.findOneOrFail(this.entityName, {
-			id: domainObject.id,
-		} as FilterQuery&lt;E&gt;);
+		const fetchedEntity: E &#x3D; await this._em.findOneOrFail(
+			this.entityName,
+			{
+				id: domainObject.id,
+			} as FilterQuery&lt;E&gt;,
+			{ disableIdentityMap: true }
+			/* the { disableIdentityMap: true } disables the caching for this call.
+			There is a problem with loading references on an updated entity later, if this is cached here.
+			It throws an error when trying to load roles references on a user in particular,
+			because the updated entity is supposedly not cached even though it should be.
+			I assume it has to do with the em.assign().
+			Disabling caching here should not be a problem,
+			since it is saved to the database in the next step anyway, thus caching the updated entity. */
+		);
 		const updated: E &#x3D; this._em.assign(fetchedEntity, newEntity);
 		this.logger.debug(&#x60;Updated entity with id ${updated.id}&#x60;);
 		return updated;

@@ -191,8 +191,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:27</a></div>
                 </td>
             </tr>
 
@@ -263,6 +263,7 @@ export class SchoolMapper {
 			oauthMigrationMandatory: entityDO.oauthMigrationMandatory,
 			oauthMigrationPossible: entityDO.oauthMigrationPossible,
 			oauthMigrationFinished: entityDO.oauthMigrationFinished,
+			previousExternalId: entityDO.previousExternalId,
 			officialSchoolNumber: entityDO.officialSchoolNumber,
 			schoolYear: entityDO.schoolYear,
 			systems: entityDO.systems
@@ -282,6 +283,7 @@ export class SchoolMapper {
 			oauthMigrationMandatory: entity.oauthMigrationMandatory,
 			oauthMigrationPossible: entity.oauthMigrationPossible,
 			oauthMigrationFinished: entity.oauthMigrationFinished,
+			previousExternalId: entity.previousExternalId,
 			officialSchoolNumber: entity.officialSchoolNumber,
 			schoolYear: entity.schoolYear,
 			systems: entity.systems.isInitialized() ? entity.systems.getItems().map((system: System) &#x3D;&gt; system.id) : [],

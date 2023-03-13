@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/identity-management/keycloak/keycloak-config.ts</code>
+            <code>apps/server/src/shared/infra/identity-management/keycloak-configuration/keycloak-config.ts</code>
         </p>
 
 
@@ -85,10 +85,6 @@
                             <li>
                                     <span class="modifier">Static</span>
                                 <a href="#keycloakInputFiles" >keycloakInputFiles</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#keycloakSettings" >keycloakSettings</a>
                             </li>
                         </ul>
                     </td>
@@ -123,53 +119,21 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IKeycloakConfigurationInputFiles.html" target="_self" >IKeycloakConfigurationInputFiles</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>{
 		accountsFile: &#x27;./backup/setup/accounts.json&#x27;,
 		usersFile: &#x27;./backup/setup/users.json&#x27;,
-	} as IKeycloakManagementInputFiles</code>
+	}</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/keycloak-config.ts:20</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="keycloakSettings"></a>
-                    <span class="name">
-                            <span class="modifier">Static</span>
-                        <span ><b>keycloakSettings</b></span>
-                        <a href="#keycloakSettings"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>(Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_ENABLED&#x27;) as boolean)
-		? ({
-				baseUrl: Configuration.get(&#x27;IDENTITY_MANAGEMENT__URI&#x27;) as string,
-				realmName: Configuration.get(&#x27;IDENTITY_MANAGEMENT__TENANT&#x27;) as string,
-				clientId: Configuration.get(&#x27;IDENTITY_MANAGEMENT__CLIENTID&#x27;) as string,
-				credentials: {
-					grantType: &#x27;password&#x27;,
-					username: Configuration.get(&#x27;IDENTITY_MANAGEMENT__ADMIN_USER&#x27;) as string,
-					password: Configuration.get(&#x27;IDENTITY_MANAGEMENT__ADMIN_PASSWORD&#x27;) as string,
-					clientId: Configuration.get(&#x27;IDENTITY_MANAGEMENT__ADMIN_CLIENTID&#x27;) as string,
-				},
-		  } as IKeycloakSettings)
-		: ({} as IKeycloakSettings)</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/keycloak-config.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/keycloak-config.ts:4</a></div>
                         </td>
                     </tr>
 
@@ -188,29 +152,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { IKeycloakSettings } from &#x27;./interface/keycloak-settings.interface&#x27;;
-import { IKeycloakManagementInputFiles } from &#x27;./interface&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IKeycloakConfigurationInputFiles } from &#x27;./interface/keycloak-configuration-input-files.interface&#x27;;
 
 export default class KeycloakConfiguration {
-	static keycloakSettings &#x3D; (Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_ENABLED&#x27;) as boolean)
-		? ({
-				baseUrl: Configuration.get(&#x27;IDENTITY_MANAGEMENT__URI&#x27;) as string,
-				realmName: Configuration.get(&#x27;IDENTITY_MANAGEMENT__TENANT&#x27;) as string,
-				clientId: Configuration.get(&#x27;IDENTITY_MANAGEMENT__CLIENTID&#x27;) as string,
-				credentials: {
-					grantType: &#x27;password&#x27;,
-					username: Configuration.get(&#x27;IDENTITY_MANAGEMENT__ADMIN_USER&#x27;) as string,
-					password: Configuration.get(&#x27;IDENTITY_MANAGEMENT__ADMIN_PASSWORD&#x27;) as string,
-					clientId: Configuration.get(&#x27;IDENTITY_MANAGEMENT__ADMIN_CLIENTID&#x27;) as string,
-				},
-		  } as IKeycloakSettings)
-		: ({} as IKeycloakSettings);
-
-	static keycloakInputFiles &#x3D; {
+	static keycloakInputFiles: IKeycloakConfigurationInputFiles &#x3D; {
 		accountsFile: &#x27;./backup/setup/accounts.json&#x27;,
 		usersFile: &#x27;./backup/setup/users.json&#x27;,
-	} as IKeycloakManagementInputFiles;
+	};
 }
 </code></pre>
     </div>

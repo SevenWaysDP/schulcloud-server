@@ -132,7 +132,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -245,8 +245,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:27</a></div>
                 </td>
             </tr>
 
@@ -317,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:53</a></div>
                 </td>
             </tr>
 
@@ -413,8 +413,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:96</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:83</a></div>
                 </td>
             </tr>
 
@@ -509,8 +509,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:91</a></div>
                 </td>
             </tr>
 
@@ -604,8 +604,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="112"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:112</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:99</a></div>
                 </td>
             </tr>
 
@@ -675,8 +675,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="138"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:138</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:125</a></div>
                 </td>
             </tr>
 
@@ -746,8 +746,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/board-copy.service.ts:112</a></div>
                 </td>
             </tr>
 
@@ -801,21 +801,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Reference } from &#x27;@mikro-orm/core&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
-import {
-	Board,
-	BoardElement,
-	BoardElementReference,
-	BoardElementType,
-	Course,
-	InputFormat,
-	isLesson,
-	isTask,
-	Lesson,
-	Task,
-	User,
-} from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { Board, BoardElement, BoardElementType, Course, isLesson, isTask, Lesson, Task, User } from &#x27;@shared/domain&#x27;;
 import { BoardRepo } from &#x27;@shared/repo&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { CopyElementType, CopyHelperService, CopyStatus } from &#x27;@src/modules/copy-helper&#x27;;
@@ -898,7 +885,7 @@ export class BoardCopyService {
 
 	private async copyLesson(originalLesson: Lesson, user: User, destinationCourse: Course): Promise&lt;CopyStatus&gt; {
 		return this.lessonCopyService.copyLesson({
-			originalLesson,
+			originalLessonId: originalLesson.id,
 			user,
 			destinationCourse,
 		});

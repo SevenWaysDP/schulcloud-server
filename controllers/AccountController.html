@@ -153,8 +153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:84</a></div>
                 </td>
             </tr>
 
@@ -333,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:97</a></div>
                 </td>
             </tr>
 
@@ -513,8 +513,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:70</a></div>
                 </td>
             </tr>
 
@@ -615,8 +615,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:60</a></div>
                 </td>
             </tr>
 
@@ -683,8 +683,8 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { EntityNotFoundError, ForbiddenOperationError, ValidationError } from &#x27;@shared/common&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { AccountUc } from &#x27;../uc/account.uc&#x27;;
 import {
 	AccountByIdBodyParams,
@@ -733,7 +733,6 @@ export class AccountController {
 	// IMPORTANT!!!
 	// updateMyAccount has to occur before updateAccountById, because Nest.js
 	// will always use the first path match and me will be treated as a path parameter
-	// (some e2e tests might fail, if the method order is changed)
 	@Patch(&#x27;me&#x27;)
 	@ApiOperation({ summary: &#x27;Updates an account for the authenticated user.&#x27; })
 	@ApiResponse({ status: 200, description: &#x27;Account was successfully updated.&#x27; })

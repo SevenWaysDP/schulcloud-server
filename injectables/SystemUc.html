@@ -167,7 +167,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByFilter(type: string | undefined, onlyOauth)</code>
+                    <code>findByFilter(type?: <a href="../entitys/System.html" target="_self">SystemType</a>, onlyOauth)</code>
                 </td>
             </tr>
 
@@ -199,15 +199,14 @@
                                 <tr>
                                     <td>type</td>
                                     <td>
-                                            <code>string | undefined</code>
+                                                <code><a href="../entitys/System.html" target="_self" >SystemType</a></code>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
                                     <td>
-                                        <code>&#x27;&#x27;</code>
                                     </td>
 
                                 </tr>
@@ -319,19 +318,19 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
+import { EntityId, SystemType, SystemTypeEnum } from &#x27;@shared/domain&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
+import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
 
 @Injectable()
 export class SystemUc {
 	constructor(private readonly systemService: SystemService) {}
 
-	async findByFilter(type: string | undefined &#x3D; &#x27;&#x27;, onlyOauth &#x3D; false): Promise&lt;SystemDto[]&gt; {
+	async findByFilter(type?: SystemType, onlyOauth &#x3D; false): Promise&lt;SystemDto[]&gt; {
 		if (onlyOauth) {
-			return this.systemService.findOAuth();
+			return this.systemService.findByType(SystemTypeEnum.OAUTH);
 		}
-		return this.systemService.find(type);
+		return this.systemService.findByType(type);
 	}
 
 	async findById(id: EntityId): Promise&lt;SystemDto&gt; {

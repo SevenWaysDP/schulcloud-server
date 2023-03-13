@@ -84,8 +84,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
+                                    <span class="modifier">Abstract</span>
                                 <a href="#apply" >apply</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#getData" >getData</a>
                             </li>
                             <li>
                                     <span class="modifier">Abstract</span>
@@ -116,7 +120,7 @@
                 <td class="col-md-4">
                     <a name="apply"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
+                        <span class="modifier">Abstract</span>
                         <span ><b>apply</b></span>
                         <a href="#apply"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -125,7 +129,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>apply(params: T)</code>
+                    <code>apply(data: <a href="../classes/OauthDataDto.html" target="_self">OauthDataDto</a>)</code>
                 </td>
             </tr>
 
@@ -154,9 +158,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>params</td>
+                                    <td>data</td>
                                     <td>
-                                            <code>T</code>
+                                                <code><a href="../classes/OauthDataDto.html" target="_self" >OauthDataDto</a></code>
                                     </td>
 
                                     <td>
@@ -172,6 +176,77 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/ProvisioningDto.html" target="_self" >Promise&lt;ProvisioningDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getData"></a>
+                    <span class="name">
+                        <span class="modifier">Abstract</span>
+                        <span ><b>getData</b></span>
+                        <a href="#getData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getData(input: <a href="../classes/OauthDataStrategyInputDto.html" target="_self">OauthDataStrategyInputDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/base.strategy.ts:7</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>input</td>
+                                    <td>
+                                                <code><a href="../classes/OauthDataStrategyInputDto.html" target="_self" >OauthDataStrategyInputDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/OauthDataDto.html" target="_self" >Promise&lt;OauthDataDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -203,8 +278,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/base.strategy.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/base.strategy.ts:5</a></div>
                 </td>
             </tr>
 
@@ -231,16 +306,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SystemProvisioningStrategy } from &#x27;@shared/domain/interface/system-provisioning.strategy&#x27;;
-import { NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { ProvisioningDto } from &#x27;@src/modules/provisioning/dto/provisioning.dto&#x27;;
+import { OauthDataDto, OauthDataStrategyInputDto, ProvisioningDto } from &#x27;../dto&#x27;;
 
-export abstract class ProvisioningStrategy&lt;T&gt; {
+export abstract class ProvisioningStrategy {
 	abstract getType(): SystemProvisioningStrategy;
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/require-await
-	async apply(params: T): Promise&lt;ProvisioningDto&gt; {
-		throw new NotImplementedException();
-	}
+	abstract getData(input: OauthDataStrategyInputDto): Promise&lt;OauthDataDto&gt;;
+
+	abstract apply(data: OauthDataDto): Promise&lt;ProvisioningDto&gt;;
 }
 </code></pre>
     </div>

@@ -113,6 +113,13 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
+                                        <a href="#oidcConfig" 
+>
+                                            oidcConfig
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#provisioningStrategy" 
 >
                                             provisioningStrategy
@@ -305,6 +312,44 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="oidcConfig"></a>
+                                        <span class="name "><b>oidcConfig</b>
+                                            <a href="#oidcConfig">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>oidcConfig:         <code><a href="../classes/OidcConfig.html" target="_self" >OidcConfig</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../classes/OidcConfig.html" target="_self" >OidcConfig</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="provisioningStrategy"></a>
                                         <span class="name "><b>provisioningStrategy</b>
                                             <a href="#provisioningStrategy">
@@ -464,6 +509,7 @@ export interface ISystemProperties {
 	alias?: string;
 	displayName?: string;
 	oauthConfig?: OauthConfig;
+	oidcConfig?: OidcConfig;
 	ldapConfig?: LdapConfig;
 	provisioningStrategy?: SystemProvisioningStrategy;
 	provisioningUrl?: string;
@@ -473,6 +519,7 @@ export class OauthConfig {
 	constructor(oauthConfig: OauthConfig) {
 		this.clientId &#x3D; oauthConfig.clientId;
 		this.clientSecret &#x3D; oauthConfig.clientSecret;
+		this.alias &#x3D; oauthConfig.alias;
 		this.tokenEndpoint &#x3D; oauthConfig.tokenEndpoint;
 		this.grantType &#x3D; oauthConfig.grantType;
 		this.redirectUri &#x3D; oauthConfig.redirectUri;
@@ -490,6 +537,9 @@ export class OauthConfig {
 
 	@Property()
 	clientSecret: string;
+
+	@Property()
+	alias: string;
 
 	@Property()
 	redirectUri: string;
@@ -589,6 +639,42 @@ export class LdapConfig {
 		};
 	};
 }
+export class OidcConfig {
+	constructor(oidcConfig: OidcConfig) {
+		this.clientId &#x3D; oidcConfig.clientId;
+		this.clientSecret &#x3D; oidcConfig.clientSecret;
+		this.alias &#x3D; oidcConfig.alias;
+		this.authorizationUrl &#x3D; oidcConfig.authorizationUrl;
+		this.tokenUrl &#x3D; oidcConfig.tokenUrl;
+		this.logoutUrl &#x3D; oidcConfig.logoutUrl;
+		this.userinfoUrl &#x3D; oidcConfig.userinfoUrl;
+		this.defaultScopes &#x3D; oidcConfig.defaultScopes;
+	}
+
+	@Property()
+	clientId: string;
+
+	@Property()
+	clientSecret: string;
+
+	@Property()
+	alias: string;
+
+	@Property()
+	authorizationUrl: string;
+
+	@Property()
+	tokenUrl: string;
+
+	@Property()
+	logoutUrl: string;
+
+	@Property()
+	userinfoUrl: string;
+
+	@Property()
+	defaultScopes: string;
+}
 
 @Entity({ tableName: &#x27;systems&#x27; })
 export class System extends BaseEntityWithTimestamps {
@@ -599,6 +685,7 @@ export class System extends BaseEntityWithTimestamps {
 		this.alias &#x3D; props.alias;
 		this.displayName &#x3D; props.displayName;
 		this.oauthConfig &#x3D; props.oauthConfig;
+		this.oidcConfig &#x3D; props.oidcConfig;
 		this.ldapConfig &#x3D; props.ldapConfig;
 		this.provisioningStrategy &#x3D; props.provisioningStrategy;
 		this.provisioningUrl &#x3D; props.provisioningUrl;
@@ -624,7 +711,7 @@ export class System extends BaseEntityWithTimestamps {
 	provisioningStrategy?: SystemProvisioningStrategy;
 
 	@Property({ nullable: true })
-	config?: Record&lt;string, unknown&gt;;
+	oidcConfig?: OidcConfig;
 
 	@Embedded({ entity: () &#x3D;&gt; LdapConfig, object: true, nullable: true })
 	ldapConfig?: LdapConfig;

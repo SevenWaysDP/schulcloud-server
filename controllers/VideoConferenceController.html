@@ -435,7 +435,6 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import {
 	BadRequestException,
 	Body,
@@ -459,6 +458,7 @@ import {
 } from &#x27;@src/modules/video-conference/dto/video-conference.dto&#x27;;
 import { VideoConferenceState } from &#x27;@src/modules/video-conference/controller/dto/vc-state.enum&#x27;;
 import { defaultVideoConferenceOptions } from &#x27;@src/modules/video-conference/interface/vc-options.interface&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication/interface&#x27;;
 import { VideoConferenceBaseResponse, VideoConferenceInfoResponse } from &#x27;./dto/video-conference.response&#x27;;
 import { VideoConferenceCreateParams } from &#x27;./dto/video-conference.params&#x27;;
 

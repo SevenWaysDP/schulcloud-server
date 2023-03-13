@@ -274,7 +274,7 @@ export class AntivirusService {
 		@Inject(&#x27;ANTIVIRUS_SERVICE_OPTIONS&#x27;) private readonly options: AntivirusServiceOptions
 	) {}
 
-	public send(fileRecord: FileRecord) {
+	public send(fileRecord: FileRecord): void {
 		try {
 			if (this.options.enabled &amp;&amp; fileRecord.securityCheck.requestToken) {
 				const downloadUri &#x3D; this.getUrl(
@@ -298,7 +298,7 @@ export class AntivirusService {
 		}
 	}
 
-	private getUrl(path: string, token: string) {
+	private getUrl(path: string, token: string): string {
 		const newPath &#x3D; path.replace(&#x27;:token&#x27;, encodeURIComponent(token));
 		const url &#x3D; new URL(&#x60;${API_VERSION_PATH}${newPath}&#x60;, this.options.filesServiceBaseUrl);
 

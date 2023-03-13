@@ -86,7 +86,7 @@
         - core/ // shared concepts (decorators, pipes, guards, errors, ...) folders might be added
         - domain // (abstract) domain base entities which will be extended in the modules
         - util/ // helpers, tools, utils can be located here (but find a better name)
-test/ // e2e tests against controllers should use same folder names like controllers
+test/ // contains globalSetup and globalTeardown for MongoMemoryServer for tests
 </code></pre></div><p>For concepts (see <a href="https://docs.nestjs.com/first-steps">https://docs.nestjs.com/first-steps</a>) of NestJS put implementations in shared/core. You might use shared/utils for own solutions, assume TextUtils but when it contains text validators, move it better to shared/validators/text.validator.ts before merge. The core concepts of NestJS can be extended with ours (like repo).</p>
 <h3 id="file-naming-conventions">File naming conventions</h3>
 <p>In TypeScript files: for Classes we use <code>PascalCase</code> (names start with uppercase letter), variables use lowercase for the first letter <code>camelCase</code>.</p>

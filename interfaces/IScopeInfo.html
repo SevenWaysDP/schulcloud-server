@@ -261,7 +261,6 @@ import {
 	Actions,
 	Course,
 	EntityId,
-	ICurrentUser,
 	Permission,
 	PermissionContextBuilder,
 	RoleName,
@@ -303,6 +302,7 @@ import {
 	VideoConferenceOptions,
 } from &#x27;@src/modules/video-conference/interface/vc-options.interface&#x27;;
 import { BBBService } from &#x27;@src/modules/video-conference/service/bbb.service&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 
 export interface IScopeInfo {
 	scopeId: EntityId;

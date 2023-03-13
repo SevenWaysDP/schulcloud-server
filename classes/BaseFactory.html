@@ -279,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:98</a></div>
                 </td>
             </tr>
 
@@ -350,8 +350,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="109"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:109</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:110</a></div>
                 </td>
             </tr>
 
@@ -504,8 +504,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:75</a></div>
                 </td>
             </tr>
 
@@ -608,8 +608,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:84</a></div>
                 </td>
             </tr>
 
@@ -815,8 +815,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="147"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:147</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:148</a></div>
                 </td>
             </tr>
 
@@ -1023,8 +1023,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="121"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:121</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:122</a></div>
                 </td>
             </tr>
 
@@ -1087,8 +1087,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="143"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:143</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:144</a></div>
                 </td>
             </tr>
 
@@ -1128,8 +1128,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="159"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:159</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:160</a></div>
                 </td>
             </tr>
 
@@ -1173,8 +1173,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/base.factory.ts:134</a></div>
                 </td>
             </tr>
 
@@ -1295,8 +1295,9 @@ export class BaseFactory&lt;T, U, I &#x3D; any, C &#x3D; U&gt; {
 	 */
 	buildWithId(params?: DeepPartial&lt;U&gt;, id?: string, options: BuildOptions&lt;U, I&gt; &#x3D; {}): T {
 		const entity &#x3D; this.build(params, options);
+		const generatedId &#x3D; new ObjectId(id);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-		const entityWithId &#x3D; Object.assign(entity as any, { _id: new ObjectId(id) });
+		const entityWithId &#x3D; Object.assign(entity as any, { _id: generatedId, id: generatedId.toHexString() });
 
 		return entityWithId as T;
 	}

@@ -62,7 +62,7 @@
                 <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>system</code>
+                <code>systems</code>
             </p>
 
 
@@ -127,20 +127,23 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiOperation({summary: &#x27;Finds all systems.&#x27;})<br />@ApiResponse({status: 200, type: SystemOauthResponse, description: &#x27;Returns an SystemOauthResponse.&#x27;})<br /></code>
+                    <code>@Get(&#x27;public&#x27;)<br />@ApiOperation({summary: &#x27;Finds all publicly available systems.&#x27;})<br />@ApiResponse({status: 200, type: PublicSystemListResponse, description: &#x27;Returns a list of systems.&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/system/controller/system.controller.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/system/controller/system.controller.ts:20</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This endpoint is used to show users the possible login systems that exist.
+No sensible data should be returned!</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -172,7 +175,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SystemOauthResponse.html" target="_self" >Promise&lt;SystemOauthResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/PublicSystemListResponse.html" target="_self" >Promise&lt;PublicSystemListResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -188,22 +191,26 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { SystemOauthResponse } from &#x27;@src/modules/system/controller/dto/system-oauth.response&#x27;;
 import { SystemFilterParams } from &#x27;@src/modules/system/controller/dto/system.filter.params&#x27;;
-import { SystemOauthResponseMapper } from &#x27;@src/modules/system/controller/mapper/system-oauth-response.mapper&#x27;;
 import { SystemUc } from &#x27;../uc/system.uc&#x27;;
+import { PublicSystemListResponse } from &#x27;./dto/public-system-list.response&#x27;;
+import { SystemResponseMapper } from &#x27;./mapper/system-response.mapper&#x27;;
 
-@ApiTags(&#x27;System&#x27;)
-@Controller(&#x27;system&#x27;)
+@ApiTags(&#x27;Systems&#x27;)
+@Controller(&#x27;systems&#x27;)
 export class SystemController {
 	constructor(private readonly systemUc: SystemUc) {}
 
-	@Get()
-	@ApiOperation({ summary: &#x27;Finds all systems.&#x27; })
-	@ApiResponse({ status: 200, type: SystemOauthResponse, description: &#x27;Returns an SystemOauthResponse.&#x27; })
-	async find(@Query() filterParams: SystemFilterParams): Promise&lt;SystemOauthResponse&gt; {
+	/**
+	 * This endpoint is used to show users the possible login systems that exist.
+	 * No sensible data should be returned!
+	 */
+	@Get(&#x27;public&#x27;)
+	@ApiOperation({ summary: &#x27;Finds all publicly available systems.&#x27; })
+	@ApiResponse({ status: 200, type: PublicSystemListResponse, description: &#x27;Returns a list of systems.&#x27; })
+	async find(@Query() filterParams: SystemFilterParams): Promise&lt;PublicSystemListResponse&gt; {
 		const systemDtos &#x3D; await this.systemUc.findByFilter(filterParams.type, filterParams.onlyOauth);
-		return SystemOauthResponseMapper.mapFromDtoToResponse(systemDtos);
+		return SystemResponseMapper.mapFromDtoToResponse(systemDtos);
 	}
 }
 </code></pre>

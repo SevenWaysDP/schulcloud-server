@@ -295,7 +295,8 @@ import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
 import { DatabaseManagementModule, DatabaseManagementService } from &#x27;@shared/infra/database&#x27;;
 import { EncryptionModule } from &#x27;@shared/infra/encryption&#x27;;
 import { FileSystemModule } from &#x27;@shared/infra/file-system&#x27;;
-import { KeycloakControllerModule } from &#x27;@shared/infra/identity-management/keycloak/controller/keycloak.controller.module&#x27;;
+import { KeycloakConfigurationModule } from &#x27;@shared/infra/identity-management/keycloak-configuration/keycloak-configuration.module&#x27;;
+import { createConfigModuleOptions } from &#x27;@src/config&#x27;;
 import { LoggerModule } from &#x27;@src/core/logger&#x27;;
 import { serverConfig } from &#x27;@src/modules/server&#x27;;
 import { DatabaseManagementConsole } from &#x27;./console/database-management.console&#x27;;
@@ -307,16 +308,12 @@ const baseImports &#x3D; [
 	FileSystemModule,
 	DatabaseManagementModule,
 	LoggerModule,
-	ConfigModule.forRoot({
-		isGlobal: true,
-		validationOptions: { infer: true },
-		load: [serverConfig],
-	}),
+	ConfigModule.forRoot(createConfigModuleOptions(serverConfig)),
 	EncryptionModule,
 ];
 
 const imports &#x3D; (Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_ENABLED&#x27;) as boolean)
-	? [...baseImports, KeycloakControllerModule]
+	? [...baseImports, KeycloakConfigurationModule]
 	: baseImports;
 
 const providers &#x3D; [

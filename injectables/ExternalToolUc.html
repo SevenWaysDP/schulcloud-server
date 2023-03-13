@@ -121,12 +121,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(externalToolService: <a href="../injectables/ExternalToolService.html" target="_self">ExternalToolService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, toolValidationService: <a href="../injectables/ToolValidationService.html" target="_self">ToolValidationService</a>)</code>
+<code>constructor(externalToolService: <a href="../injectables/ExternalToolService.html" target="_self">ExternalToolService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, toolValidationService: <a href="../injectables/ExternalToolValidationService.html" target="_self">ExternalToolValidationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -171,7 +171,7 @@
                                                         <td>toolValidationService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/ToolValidationService.html" target="_self" >ToolValidationService</a></code>
+                                                                        <code><a href="../injectables/ExternalToolValidationService.html" target="_self" >ExternalToolValidationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -215,8 +215,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:17</a></div>
                 </td>
             </tr>
 
@@ -298,8 +298,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:58</a></div>
                 </td>
             </tr>
 
@@ -382,8 +382,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:65</a></div>
                 </td>
             </tr>
 
@@ -465,8 +465,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:40</a></div>
                 </td>
             </tr>
 
@@ -560,8 +560,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:51</a></div>
                 </td>
             </tr>
 
@@ -643,8 +643,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:25</a></div>
                 </td>
             </tr>
 
@@ -726,9 +726,8 @@
 import { EntityId, IFindOptions, Permission, User } from &#x27;@shared/domain&#x27;;
 import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { Page } from &#x27;@shared/domain/interface/page&#x27;;
-import { ExternalToolService } from &#x27;../service/external-tool.service&#x27;;
-import { ToolValidationService } from &#x27;../service/tool-validation.service&#x27;;
+import { Page } from &#x27;@shared/domain/domainobject/page&#x27;;
+import { ExternalToolService, ExternalToolValidationService } from &#x27;../service&#x27;;
 import { CreateExternalTool, UpdateExternalTool } from &#x27;./dto&#x27;;
 
 @Injectable()
@@ -736,7 +735,7 @@ export class ExternalToolUc {
 	constructor(
 		private readonly externalToolService: ExternalToolService,
 		private readonly authorizationService: AuthorizationService,
-		private readonly toolValidationService: ToolValidationService
+		private readonly toolValidationService: ExternalToolValidationService
 	) {}
 
 	async createExternalTool(userId: EntityId, externalToolDO: CreateExternalTool): Promise&lt;ExternalToolDO&gt; {
@@ -745,11 +744,6 @@ export class ExternalToolUc {
 
 		const tool: Promise&lt;ExternalToolDO&gt; &#x3D; this.externalToolService.createExternalTool(externalToolDO);
 		return tool;
-	}
-
-	private async ensurePermission(userId: EntityId, permission: Permission) {
-		const user: User &#x3D; await this.authorizationService.getUserWithPermissions(userId);
-		this.authorizationService.checkAllPermissions(user, [permission]);
 	}
 
 	async updateExternalTool(
@@ -790,6 +784,11 @@ export class ExternalToolUc {
 
 		const promise: Promise&lt;void&gt; &#x3D; this.externalToolService.deleteExternalTool(toolId);
 		return promise;
+	}
+
+	private async ensurePermission(userId: EntityId, permission: Permission) {
+		const user: User &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		this.authorizationService.checkAllPermissions(user, [permission]);
 	}
 }
 </code></pre>

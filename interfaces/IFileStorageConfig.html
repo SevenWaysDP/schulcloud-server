@@ -77,9 +77,69 @@
                         <code><a href="../interfaces/ICoreModuleConfig.html" target="_self" >ICoreModuleConfig</a></code>
             </p>
 
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#MAX_FILE_SIZE" 
+>
+                                            MAX_FILE_SIZE
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
 
 
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="MAX_FILE_SIZE"></a>
+                                        <span class="name "><b>MAX_FILE_SIZE</b>
+                                            <a href="#MAX_FILE_SIZE">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>MAX_FILE_SIZE:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
     </div>
 
 
@@ -88,11 +148,14 @@
 import { ICoreModuleConfig } from &#x27;@src/core&#x27;;
 import { S3Config } from &#x27;./interface&#x27;;
 
-export interface IFileStorageConfig extends ICoreModuleConfig {}
+export interface IFileStorageConfig extends ICoreModuleConfig {
+	MAX_FILE_SIZE: number;
+}
 
 const fileStorageConfig: IFileStorageConfig &#x3D; {
 	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;FILES_STORAGE__INCOMING_REQUEST_TIMEOUT&#x27;) as number,
 	INCOMING_REQUEST_TIMEOUT_COPY_API: Configuration.get(&#x27;INCOMING_REQUEST_TIMEOUT_COPY_API&#x27;) as number,
+	MAX_FILE_SIZE: Configuration.get(&#x27;FILES_STORAGE__MAX_FILE_SIZE&#x27;) as number,
 	NEST_LOG_LEVEL: Configuration.get(&#x27;NEST_LOG_LEVEL&#x27;) as string,
 };
 

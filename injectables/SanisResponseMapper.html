@@ -69,6 +69,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#SCHOOLNUMBER_PREFIX_REGEX" >SCHOOLNUMBER_PREFIX_REGEX</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -79,13 +93,14 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#mapSanisRoleToRoleName" >mapSanisRoleToRoleName</a>
                             </li>
                             <li>
-                                <a href="#mapToSchoolDto" >mapToSchoolDto</a>
+                                <a href="#mapToExternalSchoolDto" >mapToExternalSchoolDto</a>
                             </li>
                             <li>
-                                <a href="#mapToUserDO" >mapToUserDO</a>
+                                <a href="#mapToExternalUserDto" >mapToExternalUserDto</a>
                             </li>
                         </ul>
                     </td>
@@ -111,6 +126,7 @@
                 <td class="col-md-4">
                     <a name="mapSanisRoleToRoleName"></a>
                     <span class="name">
+                        <span class="modifier">Private</span>
                         <span ><b>mapSanisRoleToRoleName</b></span>
                         <a href="#mapSanisRoleToRoleName"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -118,15 +134,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mapSanisRoleToRoleName(source: <a href="../classes/SanisResponse.html" target="_self">SanisResponse</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapSanisRoleToRoleName(source: <a href="../classes/SanisResponse.html" target="_self">SanisResponse</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:39</a></div>
                 </td>
             </tr>
 
@@ -178,24 +195,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapToSchoolDto"></a>
+                    <a name="mapToExternalSchoolDto"></a>
                     <span class="name">
-                        <span ><b>mapToSchoolDto</b></span>
-                        <a href="#mapToSchoolDto"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapToExternalSchoolDto</b></span>
+                        <a href="#mapToExternalSchoolDto"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mapToSchoolDto(source: <a href="../classes/SanisResponse.html" target="_self">SanisResponse</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>mapToExternalSchoolDto(source: <a href="../classes/SanisResponse.html" target="_self">SanisResponse</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:17</a></div>
                 </td>
             </tr>
 
@@ -227,25 +244,13 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>systemId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ProvisioningSchoolOutputDto.html" target="_self" >ProvisioningSchoolOutputDto</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/ExternalSchoolDto.html" target="_self" >ExternalSchoolDto</a></code>
 
                     </div>
                     <div class="io-description">
@@ -259,24 +264,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapToUserDO"></a>
+                    <a name="mapToExternalUserDto"></a>
                     <span class="name">
-                        <span ><b>mapToUserDO</b></span>
-                        <a href="#mapToUserDO"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapToExternalUserDto</b></span>
+                        <a href="#mapToExternalUserDto"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mapToUserDO(source: <a href="../classes/SanisResponse.html" target="_self">SanisResponse</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, roleId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+<code>mapToExternalUserDto(source: <a href="../classes/SanisResponse.html" target="_self">SanisResponse</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:29</a></div>
                 </td>
             </tr>
 
@@ -308,37 +313,13 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>schoolId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>roleId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >UserDO</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >ExternalUserDto</a></code>
 
                     </div>
                     <div class="io-description">
@@ -349,16 +330,46 @@
         </tbody>
     </table>
 </section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SCHOOLNUMBER_PREFIX_REGEX"></a>
+                    <span class="name">
+                        <span ><b>SCHOOLNUMBER_PREFIX_REGEX</b></span>
+                        <a href="#SCHOOLNUMBER_PREFIX_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^NI_/</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { ProvisioningSchoolOutputDto } from &#x27;@src/modules/provisioning/dto/provisioning-school-output.dto&#x27;;
-import { EntityId, RoleName } from &#x27;@shared/domain&#x27;;
-import { SanisResponse, SanisRole } from &#x27;@src/modules/provisioning/strategy/sanis/sanis.response&#x27;;
-import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
+import { RoleName } from &#x27;@shared/domain&#x27;;
+import { ExternalSchoolDto, ExternalUserDto } from &#x27;../../dto&#x27;;
+import { SanisResponse, SanisRole } from &#x27;./sanis.response&#x27;;
 
 const RoleMapping &#x3D; {
 	[SanisRole.LEHR]: RoleName.TEACHER,
@@ -369,26 +380,31 @@ const RoleMapping &#x3D; {
 
 @Injectable()
 export class SanisResponseMapper {
-	mapToSchoolDto(source: SanisResponse, systemId: string): ProvisioningSchoolOutputDto {
-		return new ProvisioningSchoolOutputDto({
+	SCHOOLNUMBER_PREFIX_REGEX &#x3D; /^NI_/;
+
+	mapToExternalSchoolDto(source: SanisResponse): ExternalSchoolDto {
+		const officialSchoolNumber: string &#x3D; source.personenkontexte[0].organisation.kennung.replace(
+			this.SCHOOLNUMBER_PREFIX_REGEX,
+			&#x27;&#x27;
+		);
+		return new ExternalSchoolDto({
 			name: source.personenkontexte[0].organisation.name,
 			externalId: source.personenkontexte[0].organisation.id.toString(),
-			systemIds: [systemId],
+			officialSchoolNumber,
 		});
 	}
 
-	mapToUserDO(source: SanisResponse, schoolId: EntityId, roleId: EntityId): UserDO {
-		return new UserDO({
+	mapToExternalUserDto(source: SanisResponse): ExternalUserDto {
+		return new ExternalUserDto({
 			firstName: source.person.name.vorname,
 			lastName: source.person.name.familienname,
 			email: source.personenkontexte[0].email,
-			roleIds: [roleId],
-			schoolId,
+			roles: [this.mapSanisRoleToRoleName(source)],
 			externalId: source.pid,
 		});
 	}
 
-	mapSanisRoleToRoleName(source: SanisResponse): RoleName {
+	private mapSanisRoleToRoleName(source: SanisResponse): RoleName {
 		return RoleMapping[source.personenkontexte[0].rolle];
 	}
 }

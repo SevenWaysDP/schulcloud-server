@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts</code>
+            <code>apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-seed.service.ts</code>
         </p>
 
 
@@ -125,12 +125,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(kcAdmin: <a href="../injectables/KeycloakAdministrationService.html" target="_self">KeycloakAdministrationService</a>, inputFiles: <a href="../interfaces/IKeycloakManagementInputFiles.html" target="_self">IKeycloakManagementInputFiles</a>)</code>
+<code>constructor(kcAdmin: <a href="../injectables/KeycloakAdministrationService.html" target="_self">KeycloakAdministrationService</a>, inputFiles: <a href="../interfaces/IKeycloakConfigurationInputFiles.html" target="_self">IKeycloakConfigurationInputFiles</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-seed.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -163,7 +163,7 @@
                                                         <td>inputFiles</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/IKeycloakManagementInputFiles.html" target="_self" >IKeycloakManagementInputFiles</a></code>
+                                                                        <code><a href="../interfaces/IKeycloakConfigurationInputFiles.html" target="_self" >IKeycloakConfigurationInputFiles</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -209,8 +209,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-seed.service.ts:33</a></div>
                 </td>
             </tr>
 
@@ -249,8 +249,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-seed.service.ts:52</a></div>
                 </td>
             </tr>
 
@@ -333,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-seed.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -373,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-seed.service.ts:91</a></div>
                 </td>
             </tr>
 
@@ -412,8 +412,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-seed.service.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-configuration/service/keycloak-seed.service.ts:18</a></div>
                 </td>
             </tr>
 
@@ -439,16 +439,21 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import fs from &#x27;node:fs/promises&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import UserRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/userRepresentation&#x27;;
 import { Inject } from &#x27;@nestjs/common&#x27;;
-import UserRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/userRepresentation&#x27;;
-import { IJsonAccount, IJsonUser, IKeycloakManagementInputFiles, KeycloakManagementInputFiles } from &#x27;../interface&#x27;;
-import { KeycloakAdministrationService } from &#x27;./keycloak-administration.service&#x27;;
+import fs from &#x27;node:fs/promises&#x27;;
+import { IJsonAccount } from &#x27;../interface/json-account.interface&#x27;;
+import { IJsonUser } from &#x27;../interface/json-user.interface&#x27;;
+import { KeycloakAdministrationService } from &#x27;../../keycloak-administration/service/keycloak-administration.service&#x27;;
+import {
+	KeycloakConfigurationInputFiles,
+	IKeycloakConfigurationInputFiles,
+} from &#x27;../interface/keycloak-configuration-input-files.interface&#x27;;
 
 export class KeycloakSeedService {
 	constructor(
 		private readonly kcAdmin: KeycloakAdministrationService,
-		@Inject(KeycloakManagementInputFiles) private readonly inputFiles: IKeycloakManagementInputFiles // @Inject(KeycloakManagementInputFiles) private readonly fs: IKeycloakManagementInputFiles
+		@Inject(KeycloakConfigurationInputFiles) private readonly inputFiles: IKeycloakConfigurationInputFiles
 	) {}
 
 	async seed(): Promise&lt;number&gt; {

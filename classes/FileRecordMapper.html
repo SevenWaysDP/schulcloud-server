@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/files/mapper/filerecord-mapper.ts</code>
+            <code>apps/server/src/modules/files-storage/mapper/file-record.mapper.ts</code>
         </p>
 
 
@@ -85,7 +85,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapToFileRecord" >mapToFileRecord</a>
+                                <a href="#mapScanResultParamsToDto" >mapScanResultParamsToDto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapToFileRecordListResponse" >mapToFileRecordListResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapToFileRecordResponse" >mapToFileRecordResponse</a>
                             </li>
                         </ul>
                     </td>
@@ -110,26 +118,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapToFileRecord"></a>
+                    <a name="mapScanResultParamsToDto"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
-                        <span ><b>mapToFileRecord</b></span>
-                        <a href="#mapToFileRecord"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapScanResultParamsToDto</b></span>
+                        <a href="#mapScanResultParamsToDto"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToFileRecord(aggregationResult: Record<string | never>)</code>
+                    <code>mapScanResultParamsToDto(scanResultParams: <a href="../classes/ScanResultParams.html" target="_self">ScanResultParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/modules/files/mapper/filerecord-mapper.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-record.mapper.ts:23</a></div>
                 </td>
             </tr>
 
@@ -150,9 +158,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>aggregationResult</td>
+                                    <td>scanResultParams</td>
                                     <td>
-                                            <code>Record&lt;string | never&gt;</code>
+                                                <code><a href="../classes/ScanResultParams.html" target="_self" >ScanResultParams</a></code>
                                     </td>
 
                                     <td>
@@ -167,7 +175,185 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/ScanResultDto.html" target="_self" >ScanResultDto</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapToFileRecordListResponse"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapToFileRecordListResponse</b></span>
+                        <a href="#mapToFileRecordListResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapToFileRecordListResponse(fileRecords: FileRecord[], total: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, skip?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-record.mapper.ts:11</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileRecords</td>
+                                    <td>
+                                            <code>FileRecord[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>total</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>skip</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>limit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecordListResponse.html" target="_self" >FileRecordListResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapToFileRecordResponse"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapToFileRecordResponse</b></span>
+                        <a href="#mapToFileRecordResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapToFileRecordResponse(fileRecord: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-record.mapper.ts:5</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileRecord</td>
+                                    <td>
+                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecordResponse.html" target="_self" >FileRecordResponse</a></code>
 
                     </div>
                     <div class="io-description">
@@ -187,29 +373,46 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { FileRecord } from &#x27;@src/modules/files-storage/entity/filerecord.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FileRecordListResponse, FileRecordResponse, ScanResultDto, ScanResultParams } from &#x27;../controller/dto&#x27;;
+import { FileRecord, ScanStatus } from &#x27;../entity&#x27;;
 
 export class FileRecordMapper {
-	static mapToFileRecord(aggregationResult: Record&lt;string, never&gt;): FileRecord {
-		const parentId &#x3D; new ObjectId(aggregationResult.parent);
-		const creatorId &#x3D; new ObjectId(aggregationResult.creator);
-		const schoolId &#x3D; new ObjectId(aggregationResult.school);
+	static mapToFileRecordResponse(fileRecord: FileRecord): FileRecordResponse {
+		const fileRecordResponse &#x3D; new FileRecordResponse(fileRecord);
 
-		const fileRecord &#x3D; new FileRecord({
-			size: aggregationResult.size,
-			name: aggregationResult.name,
-			mimeType: aggregationResult.mimeType,
-			parentType: aggregationResult.parentType,
-			parentId,
-			creatorId,
-			schoolId,
-			deletedSince: aggregationResult.deletedSince,
+		return fileRecordResponse;
+	}
+
+	static mapToFileRecordListResponse(
+		fileRecords: FileRecord[],
+		total: number,
+		skip?: number,
+		limit?: number
+	): FileRecordListResponse {
+		const responseFileRecords &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; FileRecordMapper.mapToFileRecordResponse(fileRecord));
+		const response &#x3D; new FileRecordListResponse(responseFileRecords, total, skip, limit);
+
+		return response;
+	}
+
+	static mapScanResultParamsToDto(scanResultParams: ScanResultParams): ScanResultDto {
+		const scanResult &#x3D; new ScanResultDto({
+			status: ScanStatus.VERIFIED,
+			reason: &#x27;Clean&#x27;,
 		});
 
-		fileRecord._id &#x3D; aggregationResult._id;
+		if (scanResultParams.virus_detected) {
+			scanResult.status &#x3D; ScanStatus.BLOCKED;
+			scanResult.reason &#x3D; scanResultParams.virus_signature ?? &#x27;Virus detected&#x27;;
+		} else if (scanResultParams.error) {
+			scanResult.status &#x3D; ScanStatus.ERROR;
+			scanResult.reason &#x3D; scanResultParams.error;
+		} else if (scanResultParams.virus_detected &#x3D;&#x3D;&#x3D; undefined || scanResultParams.error &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+			scanResult.status &#x3D; ScanStatus.ERROR;
+			scanResult.reason &#x3D; &#x27;No scan result&#x27;;
+		}
 
-		return fileRecord;
+		return scanResult;
 	}
 }
 </code></pre>

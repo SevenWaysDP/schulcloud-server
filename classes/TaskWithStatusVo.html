@@ -232,18 +232,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
+import { InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { School } from &#x27;@shared/domain/entity/school.entity&#x27;;
 import { InputFormat } from &#x27;@shared/domain/types/input-format.types&#x27;;
-import { InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import type { IEntityWithSchool } from &#x27;../interface&#x27;;
 import type { ILearnroomElement } from &#x27;../interface/learnroom&#x27;;
 import type { EntityId } from &#x27;../types/entity-id&#x27;;
+import type { ITaskProperties, ITaskStatus } from &#x27;../types/task.types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
 import type { Lesson } from &#x27;./lesson.entity&#x27;;
 import type { Submission } from &#x27;./submission.entity&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
-import type { ITaskProperties, ITaskStatus } from &#x27;../types/task.types&#x27;;
 
 export class TaskWithStatusVo {
 	task!: Task;
@@ -296,6 +296,12 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement,
 	@Property({ nullable: true })
 	publicSubmissions?: boolean;
 
+	@Property({ nullable: true })
+	teamSubmissions?: boolean;
+
+	@Property({ nullable: true })
+	taskCard?: string;
+
 	@Index()
 	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;teacherId&#x27; })
 	creator: User;
@@ -335,6 +341,7 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement,
 		this.submissions.set(props.submissions || []);
 		this.finished.set(props.finished || []);
 		this.publicSubmissions &#x3D; props.publicSubmissions || false;
+		this.teamSubmissions &#x3D; props.teamSubmissions || false;
 	}
 
 	private getSubmissionItems(): Submission[] {

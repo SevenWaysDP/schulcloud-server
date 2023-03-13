@@ -40,7 +40,9 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >FeathersJwtProvider</li>
+  <li 
+        class="deprecated-name"
+    >FeathersJwtProvider</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,6 +63,12 @@
             <code>apps/server/src/modules/authorization/feathers-jwt.provider.ts</code>
         </p>
 
+            <p class="comment">
+                <h3 class="deprecated">Deprecated</h3>
+            </p>
+            <p class="comment">
+                Jwts should be generated in authentication module. Legacy Feathers service should not be used
+            </p>
 
 
 
@@ -105,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/authorization/feathers-jwt.provider.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/authorization/feathers-jwt.provider.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -170,8 +178,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/modules/authorization/feathers-jwt.provider.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/modules/authorization/feathers-jwt.provider.ts:12</a></div>
                 </td>
             </tr>
 
@@ -229,6 +237,9 @@
 import { EntityId } from &#x27;@shared/domain&#x27;;
 import { FeathersServiceProvider } from &#x27;@shared/infra/feathers&#x27;;
 
+/**
+ * @deprecated Jwts should be generated in authentication module. Legacy Feathers service should not be used
+ */
 @Injectable()
 export class FeathersJwtProvider {
 	constructor(private feathersServiceProvider: FeathersServiceProvider) {}
