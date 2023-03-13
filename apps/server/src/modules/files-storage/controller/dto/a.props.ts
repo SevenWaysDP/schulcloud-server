@@ -8,7 +8,6 @@ export class FileRecordParams {
 	@IsMongoId()
 	schoolId!: EntityId;
 
-	@ApiProperty()
 	@IsMongoId()
 	parentId!: EntityId;
 
