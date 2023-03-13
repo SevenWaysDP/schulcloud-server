@@ -108,6 +108,11 @@
                                 <a href="#copyLesson" >copyLesson</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyTask" >copyTask</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#createShareToken" >createShareToken</a>
                             </li>
@@ -141,12 +146,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(shareTokenService: <a href="../injectables/ShareTokenService.html" target="_self">ShareTokenService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>, courseService: <a href="../injectables/CourseService.html" target="_self">CourseService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(shareTokenService: <a href="../injectables/ShareTokenService.html" target="_self">ShareTokenService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>, courseService: <a href="../injectables/CourseService.html" target="_self">CourseService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -224,6 +229,18 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>taskCopyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskCopyService.html" target="_self" >TaskCopyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>logger</td>
                                                   
                                                         <td>
@@ -272,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="159"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:159</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="186"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:186</a></div>
                 </td>
             </tr>
 
@@ -356,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="167"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:167</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:194</a></div>
                 </td>
             </tr>
 
@@ -439,8 +456,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="191"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:191</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:221</a></div>
                 </td>
             </tr>
 
@@ -511,8 +528,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="140"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:140</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:164</a></div>
                 </td>
             </tr>
 
@@ -595,8 +612,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="121"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:121</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:129</a></div>
                 </td>
             </tr>
 
@@ -691,8 +708,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:137</a></div>
                 </td>
             </tr>
 
@@ -780,6 +797,114 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyTask"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyTask</b></span>
+                        <a href="#copyTask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyTask(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, originalTaskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, copyName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>originalTaskId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courseId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>copyName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createShareToken"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -798,8 +923,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:37</a></div>
                 </td>
             </tr>
 
@@ -893,8 +1018,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:87</a></div>
                 </td>
             </tr>
 
@@ -1000,8 +1125,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:65</a></div>
                 </td>
             </tr>
 
@@ -1083,8 +1208,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="185"
-                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:185</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">apps/server/src/modules/sharing/uc/share-token.uc.ts:215</a></div>
                 </td>
             </tr>
 
@@ -1147,6 +1272,7 @@ import { CopyStatus } from &#x27;@src/modules/copy-helper&#x27;;
 import { CourseCopyService } from &#x27;@src/modules/learnroom&#x27;;
 import { CourseService } from &#x27;@src/modules/learnroom/service/course.service&#x27;;
 import { LessonCopyService } from &#x27;@src/modules/lesson/service&#x27;;
+import { TaskCopyService } from &#x27;@src/modules/task&#x27;;
 import {
 	ShareTokenContext,
 	ShareTokenContextType,
@@ -1166,6 +1292,7 @@ export class ShareTokenUC {
 		private readonly courseCopyService: CourseCopyService,
 		private readonly lessonCopyService: LessonCopyService,
 		private readonly courseService: CourseService,
+		private readonly taskCopyService: TaskCopyService,
 
 		private readonly logger: Logger
 	) {
@@ -1251,6 +1378,12 @@ export class ShareTokenUC {
 				}
 				result &#x3D; await this.copyLesson(userId, shareToken.payload.parentId, destinationCourseId, newName);
 				break;
+			case ShareTokenParentType.Task:
+				if (destinationCourseId &#x3D;&#x3D;&#x3D; undefined) {
+					throw new BadRequestException(&#x27;Destination course id is required to copy task&#x27;);
+				}
+				result &#x3D; await this.copyTask(userId, shareToken.payload.parentId, destinationCourseId, newName);
+				break;
 			default:
 				throw new NotImplementedException(&#x27;Copy not implemented&#x27;);
 		}
@@ -1277,17 +1410,36 @@ export class ShareTokenUC {
 		});
 	}
 
+	private async copyTask(
+		userId: string,
+		originalTaskId: string,
+		courseId: string,
+		copyName?: string
+	): Promise&lt;CopyStatus&gt; {
+		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		const destinationCourse &#x3D; await this.courseService.findById(courseId);
+		return this.taskCopyService.copyTask({
+			user,
+			originalTaskId,
+			destinationCourse,
+			copyName,
+		});
+	}
+
 	private async checkParentWritePermission(userId: EntityId, payload: ShareTokenPayload) {
 		const allowedParentType &#x3D; ShareTokenParentTypeMapper.mapToAllowedAuthorizationEntityType(payload.parentType);
 
 		let requiredPermissions: Permission[] &#x3D; [];
+		// eslint-disable-next-line default-case
 		switch (payload.parentType) {
 			case ShareTokenParentType.Course:
 				requiredPermissions &#x3D; [Permission.COURSE_CREATE];
 				break;
-			default:
+			case ShareTokenParentType.Lesson:
 				requiredPermissions &#x3D; [Permission.TOPIC_CREATE];
 				break;
+			case ShareTokenParentType.Task:
+				requiredPermissions &#x3D; [Permission.HOMEWORK_CREATE];
 		}
 
 		await this.authorizationService.checkPermissionByReferences(userId, allowedParentType, payload.parentId, {
@@ -1311,13 +1463,16 @@ export class ShareTokenUC {
 		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
 
 		let requiredPermissions: Permission[] &#x3D; [];
+		// eslint-disable-next-line default-case
 		switch (parentType) {
 			case ShareTokenParentType.Course:
 				requiredPermissions &#x3D; [Permission.COURSE_CREATE];
 				break;
-			default:
+			case ShareTokenParentType.Lesson:
 				requiredPermissions &#x3D; [Permission.TOPIC_CREATE];
 				break;
+			case ShareTokenParentType.Task:
+				requiredPermissions &#x3D; [Permission.HOMEWORK_CREATE];
 		}
 		this.authorizationService.checkAllPermissions(user, requiredPermissions);
 	}
@@ -1338,6 +1493,11 @@ export class ShareTokenUC {
 			case ShareTokenParentType.Lesson:
 				if (!(Configuration.get(&#x27;FEATURE_LESSON_SHARE&#x27;) as boolean)) {
 					throw new InternalServerErrorException(&#x27;Import Lesson Feature not enabled&#x27;);
+				}
+				break;
+			case ShareTokenParentType.Task:
+				if (!(Configuration.get(&#x27;FEATURE_TASK_SHARE&#x27;) as boolean)) {
+					throw new InternalServerErrorException(&#x27;Import Task Feature not enabled&#x27;);
 				}
 				break;
 			default:

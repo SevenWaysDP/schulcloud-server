@@ -893,7 +893,7 @@ export class BoardCopyService {
 
 	private async copyTask(originalTask: Task, user: User, destinationCourse: Course): Promise&lt;CopyStatus&gt; {
 		return this.taskCopyService.copyTask({
-			originalTask,
+			originalTaskId: originalTask.id,
 			user,
 			destinationCourse,
 		});

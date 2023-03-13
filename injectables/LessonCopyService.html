@@ -1839,7 +1839,7 @@ export class LessonCopyService {
 			const copiedTasksStatus &#x3D; await Promise.all(
 				linkedTasks.map((element) &#x3D;&gt;
 					this.taskCopyService.copyTask({
-						originalTask: element,
+						originalTaskId: element.id,
 						destinationCourse: params.destinationCourse,
 						destinationLesson,
 						user: params.user,

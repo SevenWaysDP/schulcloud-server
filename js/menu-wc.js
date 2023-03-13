@@ -1455,13 +1455,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SharingApiModule.html" data-type="entity-link" >SharingApiModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-SharingApiModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' : 'data-target="#xs-controllers-links-module-SharingApiModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' }>
+                                            'data-target="#controllers-links-module-SharingApiModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' : 'data-target="#xs-controllers-links-module-SharingApiModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-SharingApiModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' :
-                                            'id="xs-controllers-links-module-SharingApiModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-SharingApiModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' :
+                                            'id="xs-controllers-links-module-SharingApiModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' }>
                                             <li class="link">
                                                 <a href="controllers/ShareTokenController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShareTokenController</a>
                                             </li>
@@ -1469,13 +1469,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-SharingApiModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' : 'data-target="#xs-injectables-links-module-SharingApiModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' }>
+                                        'data-target="#injectables-links-module-SharingApiModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' : 'data-target="#xs-injectables-links-module-SharingApiModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SharingApiModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' :
-                                        'id="xs-injectables-links-module-SharingApiModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SharingApiModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' :
+                                        'id="xs-injectables-links-module-SharingApiModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' }>
                                         <li class="link">
                                             <a href="injectables/ShareTokenUC.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShareTokenUC</a>
                                         </li>
@@ -1486,13 +1486,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SharingModule.html" data-type="entity-link" >SharingModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-SharingModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' : 'data-target="#xs-injectables-links-module-SharingModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' }>
+                                        'data-target="#injectables-links-module-SharingModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' : 'data-target="#xs-injectables-links-module-SharingModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SharingModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' :
-                                        'id="xs-injectables-links-module-SharingModule-999df143bf67b4ecbbde974652d692860f329cd266766549990a768f902ad846be4c97c87ae5297eda6de60f702a052d9901d70c28eedbbe0b891b72a147c711"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SharingModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' :
+                                        'id="xs-injectables-links-module-SharingModule-320778d8374d5b60fb3be3104384817be1db201a04e4eba96c472a31e1b1eb5480fa1219c615b649fe2153efcdafd45e6cac4e79de28cd78b7fee74dd6b2231f"' }>
                                         <li class="link">
                                             <a href="injectables/ShareTokenRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShareTokenRepo</a>
                                         </li>

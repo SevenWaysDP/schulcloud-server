@@ -127,6 +127,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#resetLastAuthorizationTime" >resetLastAuthorizationTime</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#setPasswordPolicy" >setPasswordPolicy</a>
                             </li>
@@ -237,8 +241,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-administration/service/keycloak-administration.service.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-administration/service/keycloak-administration.service.ts:66</a></div>
                 </td>
             </tr>
 
@@ -455,6 +459,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="resetLastAuthorizationTime"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>resetLastAuthorizationTime</b></span>
+                        <a href="#resetLastAuthorizationTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetLastAuthorizationTime()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak-administration/service/keycloak-administration.service.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="setPasswordPolicy"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
@@ -661,6 +704,10 @@ export class KeycloakAdministrationService {
 	public async setPasswordPolicy() {
 		const kc &#x3D; await this.callKcAdminClient();
 		await kc.realms.update({ realm: this.kcSettings.realmName }, { passwordPolicy: &#x27;hashIterations(310000)&#x27; });
+	}
+
+	public resetLastAuthorizationTime(): void {
+		this.lastAuthorizationTime &#x3D; 0;
 	}
 
 	private async authorizeAccess() {

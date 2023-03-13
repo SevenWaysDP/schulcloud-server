@@ -344,8 +344,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:87</a></div>
                 </td>
             </tr>
 
@@ -384,8 +384,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:56</a></div>
                 </td>
             </tr>
 
@@ -461,15 +461,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getDestinationCourse(courseId: string | undefined, user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                    <code>getDestinationCourse(courseId: string | undefined)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:65</a></div>
                 </td>
             </tr>
 
@@ -493,18 +493,6 @@
                                     <td>courseId</td>
                                     <td>
                                             <code>string | undefined</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -552,8 +540,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:75</a></div>
                 </td>
             </tr>
 
@@ -621,9 +609,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { ForbiddenException, Injectable, InternalServerErrorException, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { Course, EntityId, Lesson, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
+import { Actions, Course, EntityId, Lesson, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
 import { CourseRepo, LessonRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
-import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
+import { AllowedAuthorizationEntityType, AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { CopyHelperService, CopyStatus } from &#x27;@src/modules/copy-helper&#x27;;
 import { TaskCopyService } from &#x27;../service&#x27;;
 import { TaskCopyParentParams } from &#x27;../types&#x27;;
@@ -647,12 +635,24 @@ export class TaskCopyUC {
 			throw new NotFoundException(&#x27;could not find task to copy&#x27;);
 		}
 
-		const destinationCourse &#x3D; await this.getDestinationCourse(parentParams.courseId, user);
+		const destinationCourse &#x3D; await this.getDestinationCourse(parentParams.courseId);
+		if (parentParams.courseId) {
+			await this.authorisation.checkPermissionByReferences(
+				userId,
+				AllowedAuthorizationEntityType.Course,
+				parentParams.courseId,
+				{
+					action: Actions.write,
+					requiredPermissions: [],
+				}
+			);
+		}
+
 		const destinationLesson &#x3D; await this.getDestinationLesson(parentParams.lessonId, user);
 		const copyName &#x3D; await this.getCopyName(originalTask.name, parentParams.courseId);
 
 		const status &#x3D; await this.taskCopyService.copyTask({
-			originalTask,
+			originalTaskId: originalTask.id,
 			destinationCourse,
 			destinationLesson,
 			user,
@@ -671,15 +671,13 @@ export class TaskCopyUC {
 		return this.copyHelperService.deriveCopyName(originalTaskName, existingNames);
 	}
 
-	private async getDestinationCourse(courseId: string | undefined, user: User): Promise&lt;Course | undefined&gt; {
+	private async getDestinationCourse(courseId: string | undefined): Promise&lt;Course | undefined&gt; {
 		if (courseId &#x3D;&#x3D;&#x3D; undefined) {
 			return undefined;
 		}
 
 		const destinationCourse &#x3D; await this.courseRepo.findById(courseId);
-		if (!this.authorisation.hasPermission(user, destinationCourse, PermissionContextBuilder.write([]))) {
-			throw new ForbiddenException(&#x27;you dont have permission to add to this course&#x27;);
-		}
+
 		return destinationCourse;
 	}
 

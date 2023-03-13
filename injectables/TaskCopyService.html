@@ -119,7 +119,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -208,8 +208,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -280,8 +280,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:42</a></div>
                 </td>
             </tr>
 
@@ -392,15 +392,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deriveCopyStatus(fileCopyStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, taskCopy: <a href="../classes/Task.html" target="_self">Task</a>, params: <a href="../classes/Task.html" target="_self">TaskCopyParams</a>)</code>
+                    <code>deriveCopyStatus(fileCopyStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, originalTask: <a href="../classes/Task.html" target="_self">Task</a>, taskCopy: <a href="../classes/Task.html" target="_self">Task</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:70</a></div>
                 </td>
             </tr>
 
@@ -433,7 +433,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>taskCopy</td>
+                                    <td>originalTask</td>
                                     <td>
                                                 <code><a href="../classes/Task.html" target="_self" >Task</a></code>
                                     </td>
@@ -445,9 +445,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>params</td>
+                                    <td>taskCopy</td>
                                     <td>
-                                                <code><a href="../classes/Task.html" target="_self" >TaskCopyParams</a></code>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
                                     </td>
 
                                     <td>
@@ -495,8 +495,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/task/service/task-copy.service.ts:63</a></div>
                 </td>
             </tr>
 
@@ -563,6 +563,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
 import { Course, Lesson, Task, User } from &#x27;@shared/domain/entity&#x27;;
 import { TaskRepo } from &#x27;@shared/repo&#x27;;
 import { CopyElementType, CopyHelperService, CopyStatus, CopyStatusEnum } from &#x27;@src/modules/copy-helper&#x27;;
@@ -570,7 +571,7 @@ import { CopyFilesService } from &#x27;@src/modules/files-storage-client&#x27;;
 import { FileUrlReplacement } from &#x27;@src/modules/files-storage-client/service/copy-files.service&#x27;;
 
 type TaskCopyParams &#x3D; {
-	originalTask: Task;
+	originalTaskId: EntityId;
 	destinationCourse?: Course;
 	destinationLesson?: Lesson;
 	user: User;
@@ -586,7 +587,8 @@ export class TaskCopyService {
 	) {}
 
 	async copyTask(params: TaskCopyParams): Promise&lt;CopyStatus&gt; {
-		const { originalTask, user, destinationCourse, destinationLesson } &#x3D; params;
+		const { user, destinationLesson, destinationCourse } &#x3D; params;
+		const originalTask &#x3D; await this.taskRepo.findById(params.originalTaskId);
 
 		const taskCopy &#x3D; await this.copyTaskEntity(params, originalTask, user, destinationCourse, destinationLesson);
 
@@ -598,7 +600,7 @@ export class TaskCopyService {
 
 		await this.updateFileUrls(taskCopy, fileUrlReplacements);
 
-		return this.deriveCopyStatus(fileCopyStatus, taskCopy, params);
+		return this.deriveCopyStatus(fileCopyStatus, originalTask, taskCopy);
 	}
 
 	private async copyTaskEntity(
@@ -611,7 +613,7 @@ export class TaskCopyService {
 		const taskCopy &#x3D; new Task({
 			name: params.copyName || originalTask.name,
 			description: originalTask.description,
-			descriptionInputFormat: params.originalTask.descriptionInputFormat,
+			descriptionInputFormat: originalTask.descriptionInputFormat,
 			school: user.school,
 			creator: user,
 			course: destinationCourse,
@@ -629,7 +631,7 @@ export class TaskCopyService {
 		await this.taskRepo.save(task);
 	}
 
-	private deriveCopyStatus(fileCopyStatus: CopyStatus, taskCopy: Task, params: TaskCopyParams) {
+	private deriveCopyStatus(fileCopyStatus: CopyStatus, originalTask: Task, taskCopy: Task) {
 		const elements &#x3D; [
 			{
 				type: CopyElementType.METADATA,
@@ -651,7 +653,7 @@ export class TaskCopyService {
 			type: CopyElementType.TASK,
 			status: this.copyHelperService.deriveStatusFromElements(elements),
 			copyEntity: taskCopy,
-			originalEntity: params.originalTask,
+			originalEntity: originalTask,
 			elements,
 		};
 		return status;

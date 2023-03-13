@@ -112,12 +112,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(tokenGenerator: <a href="../injectables/TokenGenerator.html" target="_self">TokenGenerator</a>, shareTokenRepo: <a href="../injectables/ShareTokenRepo.html" target="_self">ShareTokenRepo</a>, courseService: <a href="../injectables/CourseService.html" target="_self">CourseService</a>, lessonService: <a href="../injectables/LessonService.html" target="_self">LessonService</a>)</code>
+<code>constructor(tokenGenerator: <a href="../injectables/TokenGenerator.html" target="_self">TokenGenerator</a>, shareTokenRepo: <a href="../injectables/ShareTokenRepo.html" target="_self">ShareTokenRepo</a>, courseService: <a href="../injectables/CourseService.html" target="_self">CourseService</a>, lessonService: <a href="../injectables/LessonService.html" target="_self">LessonService</a>, taskService: <a href="../injectables/TaskService.html" target="_self">TaskService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -182,6 +182,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>taskService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskService.html" target="_self" >TaskService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -218,8 +230,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:70</a></div>
                 </td>
             </tr>
 
@@ -289,8 +301,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -372,8 +384,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:42</a></div>
                 </td>
             </tr>
 
@@ -443,8 +455,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/sharing/service/share-token.service.ts:50</a></div>
                 </td>
             </tr>
 
@@ -501,6 +513,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { CourseService } from &#x27;@src/modules/learnroom/service/course.service&#x27;;
 import { LessonService } from &#x27;@src/modules/lesson/service&#x27;;
+import { TaskService } from &#x27;@src/modules/task&#x27;;
 import {
 	ShareTokenContext,
 	ShareTokenDO,
@@ -517,7 +530,8 @@ export class ShareTokenService {
 		private readonly tokenGenerator: TokenGenerator,
 		private readonly shareTokenRepo: ShareTokenRepo,
 		private readonly courseService: CourseService,
-		private readonly lessonService: LessonService
+		private readonly lessonService: LessonService,
+		private readonly taskService: TaskService
 	) {}
 
 	async createToken(
@@ -557,6 +571,8 @@ export class ShareTokenService {
 				parentName &#x3D; (await this.lessonService.findById(shareToken.payload.parentId)).name;
 				break;
 			case ShareTokenParentType.Task:
+				parentName &#x3D; (await this.taskService.findById(shareToken.payload.parentId)).name;
+				break;
 			default:
 		}
 
