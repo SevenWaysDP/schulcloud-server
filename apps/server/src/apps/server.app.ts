@@ -31,7 +31,7 @@ async function bootstrap() {
 	const orm = nestApp.get(MikroORM);
 
 	// WinstonLogger
-	nestApp.useLogger(nestApp.get(WINSTON_MODULE_NEST_PROVIDER));
+	nestApp.useLogger(nestApp.get());
 
 	// load the legacy feathers/express server
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
