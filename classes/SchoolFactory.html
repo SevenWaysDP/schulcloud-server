@@ -1259,6 +1259,16 @@ class SchoolFactory extends DoBaseFactory&lt;SchoolDO, SchoolDO&gt; {}
 export const schoolDOFactory &#x3D; SchoolFactory.define(SchoolDO, ({ sequence }) &#x3D;&gt; {
 	return {
 		name: &#x60;schoolName-${sequence}&#x60;,
+		externalId: &#x27;123&#x27;,
+		features: [],
+		inMaintenanceSince: new Date(),
+		inUserMigration: true,
+		oauthMigrationMandatory: new Date(),
+		oauthMigrationPossible: new Date(),
+		oauthMigrationFinished: new Date(),
+		previousExternalId: &#x27;456&#x27;,
+		officialSchoolNumber: &#x27;789&#x27;,
+		systems: [],
 	};
 });
 </code></pre>

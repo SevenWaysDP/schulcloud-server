@@ -943,7 +943,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:74</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:63</a></code>
 </div>
                 </td>
             </tr>
@@ -1020,7 +1020,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:96</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:85</a></code>
 </div>
                 </td>
             </tr>
@@ -1102,7 +1102,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:109</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:98</a></code>
 </div>
                 </td>
             </tr>
@@ -1179,7 +1179,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:122</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:111</a></code>
 </div>
                 </td>
             </tr>
@@ -1256,7 +1256,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:127</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:116</a></code>
 </div>
                 </td>
             </tr>
@@ -1333,7 +1333,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:88</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:77</a></code>
 </div>
                 </td>
             </tr>
@@ -1649,14 +1649,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseDORepo } from &#x27;@shared/repo/base.do.repo&#x27;;
-import { EntityName, Reference } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityName } from &#x27;@mikro-orm/core&#x27;;
+import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common/decorators/core/injectable.decorator&#x27;;
 import { ExternalTool, ISchoolExternalToolProperties, School, SchoolExternalTool } from &#x27;@shared/domain&#x27;;
-import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { SchoolExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/school-external-tool.do&#x27;;
+import { BaseDORepo } from &#x27;@shared/repo/base.do.repo&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { SchoolExternalToolQuery } from &#x27;@src/modules/tool/uc/dto/school-external-tool.types&#x27;;
-import { SchoolExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/school-external-tool.do&#x27;;
 import { ExternalToolRepoMapper } from &#x27;../externaltool/external-tool.repo.mapper&#x27;;
 import { SchoolExternalToolScope } from &#x27;./school-external-tool.scope&#x27;;
 
@@ -1737,8 +1737,8 @@ export class SchoolExternalToolRepo extends BaseDORepo&lt;
 
 	mapDOToEntityProperties(entityDO: SchoolExternalToolDO): ISchoolExternalToolProperties {
 		return {
-			school: Reference.createFromPK(School, entityDO.schoolId),
-			tool: Reference.createFromPK(ExternalTool, entityDO.toolId),
+			school: this._em.getReference(School, entityDO.schoolId),
+			tool: this._em.getReference(ExternalTool, entityDO.toolId),
 			toolVersion: entityDO.toolVersion,
 			schoolParameters: this.externalToolRepoMapper.mapCustomParameterEntryDOsToEntities(entityDO.parameters),
 		};

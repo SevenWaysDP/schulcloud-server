@@ -105,12 +105,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, accountService: <a href="../injectables/AccountService.html" target="_self">AccountService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, accountService: <a href="../injectables/AccountService.html" target="_self">AccountService</a>, roleService: <a href="../injectables/RoleService.html" target="_self">RoleService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/authentication/strategy/oauth.strategy.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/authentication/strategy/oauth.strategy.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -144,6 +144,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AccountService.html" target="_self" >AccountService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>roleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RoleService.html" target="_self" >RoleService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -200,8 +212,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/authentication/strategy/oauth.strategy.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/authentication/strategy/oauth.strategy.ts:65</a></div>
                 </td>
             </tr>
 
@@ -283,8 +295,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/authentication/strategy/oauth.strategy.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/authentication/strategy/oauth.strategy.ts:31</a></div>
                 </td>
             </tr>
 
@@ -343,11 +355,16 @@ import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
+import { OAuthTokenDto } from &#x27;@src/modules/oauth&#x27;;
 import { OAuthService } from &#x27;@src/modules/oauth/service/oauth.service&#x27;;
 import { Strategy } from &#x27;passport-custom&#x27;;
-import { OauthAuthorizationParams } from &#x27;./dtos/oauth-authorization.params&#x27;;
+import { OAuthSSOError } from &#x27;../../oauth/error/oauth-sso.error&#x27;;
+import { SSOErrorCode } from &#x27;../../oauth/error/sso-error-code.enum&#x27;;
+import { RoleService } from &#x27;../../role&#x27;;
+import { RoleDto } from &#x27;../../role/service/dto/role.dto&#x27;;
 import { ICurrentUser } from &#x27;../interface&#x27;;
 import { CurrentUserMapper } from &#x27;../mapper&#x27;;
+import { OauthAuthorizationParams } from &#x27;./dtos/oauth-authorization.params&#x27;;
 
 export type PathParams &#x3D; { systemId?: string };
 
@@ -356,6 +373,7 @@ export class OauthStrategy extends PassportStrategy(Strategy, &#x27;oauth&#x27;)
 	constructor(
 		private readonly oauthService: OAuthService,
 		private readonly accountService: AccountService,
+		private readonly roleService: RoleService,
 		private readonly logger: Logger
 	) {
 		super();
@@ -366,14 +384,34 @@ export class OauthStrategy extends PassportStrategy(Strategy, &#x27;oauth&#x27;)
 		if (!request.params.systemId) {
 			throw new BadRequestException(request.params.systemId, &#x27;No SystemId provided!&#x27;);
 		}
-		const { user, redirect }: { user?: UserDO; redirect: string } &#x3D; await this.oauthService.authenticateUser(
-			request.params.systemId,
-			request.query.code,
-			request.query.error
-		);
-		request.query &#x3D; { ...request.params, redirect };
+		try {
+			const redirectUri: string &#x3D; this.oauthService.getRedirectUri(false);
 
-		return this.loadICurrentUser(request.params.systemId, user);
+			const tokenDto: OAuthTokenDto &#x3D; await this.oauthService.authenticateUser(
+				request.params.systemId,
+				redirectUri,
+				request.query.code,
+				request.query.error
+			);
+
+			const { user, redirect }: { user?: UserDO; redirect: string } &#x3D; await this.oauthService.provisionUser(
+				request.params.systemId,
+				tokenDto.idToken,
+				tokenDto.accessToken
+			);
+
+			request.query &#x3D; { ...request.params, redirect };
+
+			const currentUser: ICurrentUser | unknown &#x3D; await this.loadICurrentUser(request.params.systemId, user);
+			return currentUser;
+		} catch (error) {
+			const errorCode: string &#x3D; error instanceof OAuthSSOError ? error.errorcode : SSOErrorCode.SSO_OAUTH_LOGIN_FAILED;
+			const errorRedirect: string &#x3D; this.oauthService.createErrorRedirect(errorCode);
+
+			request.query &#x3D; { ...request.params, redirect: errorRedirect };
+
+			return {};
+		}
 	}
 
 	private async loadICurrentUser(systemId: string, user?: UserDO): Promise&lt;ICurrentUser | unknown&gt; {
@@ -384,7 +422,10 @@ export class OauthStrategy extends PassportStrategy(Strategy, &#x27;oauth&#x27;)
 		if (!account) {
 			throw new UnauthorizedException(&#x27;no account found&#x27;);
 		}
-		const currentUser: ICurrentUser &#x3D; CurrentUserMapper.userDoToICurrentUser(account.id, user, systemId);
+
+		const roles: RoleDto[] &#x3D; await this.roleService.findByIds(user.roleIds);
+
+		const currentUser: ICurrentUser &#x3D; CurrentUserMapper.userDoToICurrentUser(account.id, user, roles, systemId);
 		return currentUser;
 	}
 }

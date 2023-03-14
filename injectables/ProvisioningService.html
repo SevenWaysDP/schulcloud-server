@@ -302,7 +302,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getData(accessToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>getData(systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, accessToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -331,7 +331,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>accessToken</td>
+                                    <td>systemId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -355,7 +355,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>systemId</td>
+                                    <td>accessToken</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -676,7 +676,7 @@ export class ProvisioningService {
 		this.strategies.set(strategy.getType(), strategy);
 	}
 
-	async getData(accessToken: string, idToken: string, systemId: string): Promise&lt;OauthDataDto&gt; {
+	async getData(systemId: string, idToken: string, accessToken: string): Promise&lt;OauthDataDto&gt; {
 		const system: ProvisioningSystemDto &#x3D; await this.determineInput(systemId);
 		const input: OauthDataStrategyInputDto &#x3D; new OauthDataStrategyInputDto({
 			accessToken,

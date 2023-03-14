@@ -90,10 +90,6 @@
                                     <span class="modifier">Async</span>
                                 <a href="#patchLanguage" >patchLanguage</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#save" >save</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -117,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -218,8 +214,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:25</a></div>
                 </td>
             </tr>
 
@@ -289,8 +285,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:18</a></div>
                 </td>
             </tr>
 
@@ -360,8 +356,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:31</a></div>
                 </td>
             </tr>
 
@@ -421,77 +417,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="save"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>save</b></span>
-                        <a href="#save"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(user: <a href="../interfaces/User.html" target="_self">UserDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:41</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >UserDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
@@ -503,7 +428,6 @@ import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { EntityId, LanguageType, PermissionService, User } from &#x27;@shared/domain&#x27;;
 import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { UserService } from &#x27;@src/modules/user/service/user.service&#x27;;
-import { UserDto } from &#x27;@src/modules/user/uc/dto/user.dto&#x27;;
 import { ChangeLanguageParams } from &#x27;../controller/dto&#x27;;
 import { IUserConfig } from &#x27;../interfaces&#x27;;
 
@@ -536,11 +460,6 @@ export class UserUc {
 		await this.userRepo.save(user);
 
 		return true;
-	}
-
-	async save(user: UserDto): Promise&lt;void&gt; {
-		const promise: Promise&lt;void&gt; &#x3D; this.userService.createOrUpdate(user);
-		return promise;
 	}
 }
 </code></pre>

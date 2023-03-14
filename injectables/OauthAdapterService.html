@@ -89,7 +89,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#sendTokenRequest" >sendTokenRequest</a>
+                                <a href="#sendAuthenticationCodeTokenRequest" >sendAuthenticationCodeTokenRequest</a>
                             </li>
                         </ul>
                     </td>
@@ -114,7 +114,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/oauth/service/oauth-adapter.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/oauth/service/oauth-adapter.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -184,15 +184,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPublicKey(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>)</code>
+                    <code>getPublicKey(jwksUri: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth-adapter.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth-adapter.service.ts:17</a></div>
                 </td>
             </tr>
 
@@ -213,9 +213,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>oauthConfig</td>
+                                    <td>jwksUri</td>
                                     <td>
-                                                <code><a href="../classes/OauthConfig.html" target="_self" >OauthConfig</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -263,8 +263,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth-adapter.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth-adapter.service.ts:40</a></div>
                 </td>
             </tr>
 
@@ -316,26 +316,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="sendTokenRequest"></a>
+                    <a name="sendAuthenticationCodeTokenRequest"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span ><b>sendTokenRequest</b></span>
-                        <a href="#sendTokenRequest"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>sendAuthenticationCodeTokenRequest</b></span>
+                        <a href="#sendAuthenticationCodeTokenRequest"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>sendTokenRequest(payload: <a href="../classes/TokenRequestPayload.html" target="_self">TokenRequestPayload</a>)</code>
+                    <code>sendAuthenticationCodeTokenRequest(tokenEndpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, payload: <a href="../classes/AuthenticationCodeGrantTokenRequest.html" target="_self">AuthenticationCodeGrantTokenRequest</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth-adapter.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth-adapter.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -356,9 +356,21 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>tokenEndpoint</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>payload</td>
                                     <td>
-                                                <code><a href="../classes/TokenRequestPayload.html" target="_self" >TokenRequestPayload</a></code>
+                                                <code><a href="../classes/AuthenticationCodeGrantTokenRequest.html" target="_self" >AuthenticationCodeGrantTokenRequest</a></code>
                                     </td>
 
                                     <td>
@@ -389,17 +401,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common/decorators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService } from &#x27;@nestjs/axios&#x27;;
+import { Injectable } from &#x27;@nestjs/common/decorators&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { HttpService } from &#x27;@nestjs/axios&#x27;;
 import { AxiosResponse } from &#x27;axios&#x27;;
-import QueryString from &#x27;qs&#x27;;
-import { Observable, lastValueFrom } from &#x27;rxjs&#x27;;
 import JwksRsa from &#x27;jwks-rsa&#x27;;
-import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto&#x27;;
-import { OauthConfig } from &#x27;@shared/domain&#x27;;
+import QueryString from &#x27;qs&#x27;;
+import { lastValueFrom, Observable } from &#x27;rxjs&#x27;;
 import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
-import { TokenRequestPayload } from &#x27;../controller/dto/token-request.payload&#x27;;
+import { AuthenticationCodeGrantTokenRequest, OauthTokenResponse } from &#x27;./dto&#x27;;
 
 @Injectable()
 export class OauthAdapterService {
@@ -407,24 +417,27 @@ export class OauthAdapterService {
 		this.logger.setContext(OauthAdapterService.name);
 	}
 
-	async getPublicKey(oauthConfig: OauthConfig): Promise&lt;string&gt; {
+	async getPublicKey(jwksUri: string): Promise&lt;string&gt; {
 		const client: JwksRsa.JwksClient &#x3D; JwksRsa({
 			cache: true,
-			jwksUri: oauthConfig.jwksEndpoint,
+			jwksUri,
 		});
 		const key: JwksRsa.SigningKey &#x3D; await client.getSigningKey();
 		return key.getPublicKey();
 	}
 
-	public sendTokenRequest(payload: TokenRequestPayload): Promise&lt;OauthTokenResponse&gt; {
-		const query &#x3D; QueryString.stringify(payload);
-		const responseTokenObservable &#x3D; this.httpService.post&lt;OauthTokenResponse&gt;(&#x60;${payload.tokenEndpoint}&#x60;, query, {
-			method: &#x27;POST&#x27;,
+	public sendAuthenticationCodeTokenRequest(
+		tokenEndpoint: string,
+		payload: AuthenticationCodeGrantTokenRequest
+	): Promise&lt;OauthTokenResponse&gt; {
+		const urlEncodedPayload: string &#x3D; QueryString.stringify(payload);
+		const responseTokenObservable &#x3D; this.httpService.post&lt;OauthTokenResponse&gt;(tokenEndpoint, urlEncodedPayload, {
 			headers: {
 				&#x27;Content-Type&#x27;: &#x27;application/x-www-form-urlencoded&#x27;,
 			},
 		});
-		return this.resolveTokenRequest(responseTokenObservable);
+		const responseData: Promise&lt;OauthTokenResponse&gt; &#x3D; this.resolveTokenRequest(responseTokenObservable);
+		return responseData;
 	}
 
 	private async resolveTokenRequest(

@@ -291,7 +291,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/OauthTokenResponse.html" target="_self" >Promise&lt;OauthTokenResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/OAuthTokenDto.html" target="_self" >Promise&lt;OAuthTokenDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -324,8 +324,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:66</a></div>
                 </td>
             </tr>
 
@@ -407,8 +407,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:49</a></div>
                 </td>
             </tr>
 
@@ -571,7 +571,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/modules/oauth/uc/hydra-oauth.uc.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -590,9 +590,9 @@ import { OauthConfig } from &#x27;@shared/domain&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { HydraRedirectDto } from &#x27;@src/modules/oauth/service/dto/hydra.redirect.dto&#x27;;
 import { AxiosRequestConfig, AxiosResponse } from &#x27;axios&#x27;;
-import { AuthorizationParams, OauthTokenResponse } from &#x27;../controller/dto&#x27;;
+import { AuthorizationParams } from &#x27;../controller/dto&#x27;;
 import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
-import { SSOErrorCode } from &#x27;../error/sso-error-code.enum&#x27;;
+import { OAuthTokenDto } from &#x27;../interface&#x27;;
 import { HydraSsoService } from &#x27;../service/hydra.service&#x27;;
 import { OAuthService } from &#x27;../service/oauth.service&#x27;;
 
@@ -610,14 +610,24 @@ export class HydraOauthUc {
 
 	private readonly HYDRA_PUBLIC_URI: string &#x3D; Configuration.get(&#x27;HYDRA_PUBLIC_URI&#x27;) as string;
 
-	async getOauthToken(oauthClientId: string, code?: string, error?: string): Promise&lt;OauthTokenResponse&gt; {
-		const hydraOauthConfig &#x3D; await this.hydraSsoService.generateConfig(oauthClientId);
-		if (!code) {
-			throw new OAuthSSOError(&#x27;Authorization in external system failed&#x27;, error || SSOErrorCode.SSO_AUTH_CODE_STEP);
+	async getOauthToken(oauthClientId: string, code?: string, error?: string): Promise&lt;OAuthTokenDto&gt; {
+		if (error || !code) {
+			throw new OAuthSSOError(
+				&#x27;Authorization Query Object has no authorization code or error&#x27;,
+				error || &#x27;sso_auth_code_step&#x27;
+			);
 		}
-		const queryToken: OauthTokenResponse &#x3D; await this.oauthService.requestToken(code, hydraOauthConfig);
-		await this.oauthService.validateToken(queryToken.id_token, hydraOauthConfig);
-		return queryToken;
+		const hydraOauthConfig: OauthConfig &#x3D; await this.hydraSsoService.generateConfig(oauthClientId);
+
+		const oauthTokens: OAuthTokenDto &#x3D; await this.oauthService.requestToken(
+			code,
+			hydraOauthConfig,
+			hydraOauthConfig.redirectUri
+		);
+
+		await this.oauthService.validateToken(oauthTokens.idToken, hydraOauthConfig);
+
+		return oauthTokens;
 	}
 
 	protected validateStatus &#x3D; (status: number): boolean &#x3D;&gt; status &#x3D;&#x3D;&#x3D; 200 || status &#x3D;&#x3D;&#x3D; 302;

@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -288,8 +288,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:142</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:152</a></div>
                 </td>
             </tr>
 
@@ -359,8 +359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:107</a></div>
                 </td>
             </tr>
 
@@ -466,8 +466,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:76</a></div>
                 </td>
             </tr>
 
@@ -561,8 +561,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:44</a></div>
                 </td>
             </tr>
 
@@ -654,10 +654,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException, UnprocessableEntityException } from &#x27;@nestjs/common&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { ISession } from &#x27;@shared/domain/types/session&#x27;;
-import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
+import { AuthenticationService } from &#x27;@src/modules/authentication/services/authentication.service&#x27;;
+import { ProvisioningService } from &#x27;@src/modules/provisioning&#x27;;
+import { OauthDataDto } from &#x27;@src/modules/provisioning/dto&#x27;;
 import { SchoolService } from &#x27;@src/modules/school&#x27;;
 import { SystemService } from &#x27;@src/modules/system&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
@@ -665,13 +669,10 @@ import { UserService } from &#x27;@src/modules/user&#x27;;
 import { UserMigrationService } from &#x27;@src/modules/user-login-migration&#x27;;
 import { SchoolMigrationService } from &#x27;@src/modules/user-login-migration/service&#x27;;
 import { MigrationDto } from &#x27;@src/modules/user-login-migration/service/dto/migration.dto&#x27;;
-import { ProvisioningService } from &#x27;@src/modules/provisioning&#x27;;
-import { OauthDataDto } from &#x27;@src/modules/provisioning/dto&#x27;;
 import { nanoid } from &#x27;nanoid&#x27;;
-import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
-import { AuthenticationService } from &#x27;@src/modules/authentication/services/authentication.service&#x27;;
-import { AuthorizationParams, OauthTokenResponse } from &#x27;../controller/dto&#x27;;
-import { OAuthProcessDto } from &#x27;../service/dto/oauth-process.dto&#x27;;
+import { AuthorizationParams } from &#x27;../controller/dto&#x27;;
+import { OAuthTokenDto } from &#x27;../interface&#x27;;
+import { OAuthProcessDto } from &#x27;../service/dto&#x27;;
 import { OAuthService } from &#x27;../service/oauth.service&#x27;;
 import { OauthLoginStateDto } from &#x27;./dto/oauth-login-state.dto&#x27;;
 
@@ -720,20 +721,25 @@ export class OauthUc {
 			systemId,
 			provider: system.oauthConfig.provider,
 			postLoginRedirect,
+			userLoginMigration: migration,
 		});
 
 		return authenticationUrl;
 	}
 
 	async processOAuthLogin(cachedState: OauthLoginStateDto, code?: string, error?: string): Promise&lt;OAuthProcessDto&gt; {
-		const { state, systemId, postLoginRedirect } &#x3D; cachedState;
+		const { state, systemId, postLoginRedirect, userLoginMigration } &#x3D; cachedState;
 
 		this.logger.debug(&#x60;Oauth login process started. [state: ${state}, system: ${systemId}]&#x60;);
 
-		const { user, redirect }: { user?: UserDO; redirect: string } &#x3D; await this.oauthService.authenticateUser(
+		const redirectUri: string &#x3D; this.oauthService.getRedirectUri(userLoginMigration);
+
+		const tokenDto: OAuthTokenDto &#x3D; await this.oauthService.authenticateUser(systemId, redirectUri, code, error);
+
+		const { user, redirect }: { user?: UserDO; redirect: string } &#x3D; await this.oauthService.provisionUser(
 			systemId,
-			code,
-			error,
+			tokenDto.idToken,
+			tokenDto.accessToken,
 			postLoginRedirect
 		);
 
@@ -758,18 +764,22 @@ export class OauthUc {
 		query: AuthorizationParams,
 		cachedState: OauthLoginStateDto
 	): Promise&lt;MigrationDto&gt; {
-		const { state, systemId } &#x3D; cachedState;
+		const { state, systemId, userLoginMigration } &#x3D; cachedState;
 
 		if (state !&#x3D;&#x3D; query.state) {
 			throw new UnauthorizedException(&#x60;Invalid state. Got: ${query.state} Expected: ${state}&#x60;);
 		}
 
-		const queryToken: OauthTokenResponse &#x3D; await this.oauthService.authorizeForMigration(query, systemId);
-		const data: OauthDataDto &#x3D; await this.provisioningService.getData(
-			queryToken.access_token,
-			queryToken.id_token,
-			systemId
+		const redirectUri: string &#x3D; this.oauthService.getRedirectUri(userLoginMigration);
+
+		const tokenDto: OAuthTokenDto &#x3D; await this.oauthService.authenticateUser(
+			systemId,
+			redirectUri,
+			query.code,
+			query.error
 		);
+
+		const data: OauthDataDto &#x3D; await this.provisioningService.getData(systemId, tokenDto.idToken, tokenDto.accessToken);
 
 		if (data.externalSchool) {
 			const schoolToMigrate: SchoolDO | null &#x3D; await this.schoolMigrationService.schoolToMigrate(
@@ -795,7 +805,9 @@ export class OauthUc {
 
 	private async getJwtForUser(userId: EntityId): Promise&lt;string&gt; {
 		const currentUser: ICurrentUser &#x3D; await this.userService.getResolvedUser(userId);
+
 		const { accessToken } &#x3D; await this.authenticationService.generateJwt(currentUser);
+
 		return accessToken;
 	}
 }

@@ -119,7 +119,7 @@
                                 <a href="#isOutdated" >isOutdated</a>
                             </li>
                             <li>
-                                <a href="#whereLastLoginSystemChangeGreaterThan" >whereLastLoginSystemChangeGreaterThan</a>
+                                <a href="#whereLastLoginSystemChangeSmallerThan" >whereLastLoginSystemChangeSmallerThan</a>
                             </li>
                             <li>
                                 <a href="#withOutdatedSince" >withOutdatedSince</a>
@@ -404,16 +404,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="whereLastLoginSystemChangeGreaterThan"></a>
+                    <a name="whereLastLoginSystemChangeSmallerThan"></a>
                     <span class="name">
-                        <span ><b>whereLastLoginSystemChangeGreaterThan</b></span>
-                        <a href="#whereLastLoginSystemChangeGreaterThan"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>whereLastLoginSystemChangeSmallerThan</b></span>
+                        <a href="#whereLastLoginSystemChangeSmallerThan"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>whereLastLoginSystemChangeGreaterThan(date?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+<code>whereLastLoginSystemChangeSmallerThan(date?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
                 </td>
             </tr>
 
@@ -709,9 +709,9 @@ export class UserScope extends Scope&lt;User&gt; {
 		return this;
 	}
 
-	whereLastLoginSystemChangeGreaterThan(date?: Date): UserScope {
+	whereLastLoginSystemChangeSmallerThan(date?: Date): UserScope {
 		if (date) {
-			this.addQuery({ lastLoginSystemChange: { $gte: date } });
+			this.addQuery({ $or: [{ lastLoginSystemChange: { $lt: date } }, { lastLoginSystemChange: { $exists: false } }] });
 		}
 		return this;
 	}

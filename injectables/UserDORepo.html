@@ -108,11 +108,9 @@
                                 <a href="#findById" >findById</a>
                             </li>
                             <li>
-                                    <span class="modifier">Protected</span>
                                 <a href="#mapDOToEntityProperties" >mapDOToEntityProperties</a>
                             </li>
                             <li>
-                                    <span class="modifier">Protected</span>
                                 <a href="#mapEntityToDO" >mapEntityToDO</a>
                             </li>
                             <li>
@@ -211,8 +209,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="136"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:136</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:134</a></div>
                 </td>
             </tr>
 
@@ -684,7 +682,6 @@
                 <td class="col-md-4">
                     <a name="mapDOToEntityProperties"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
                         <span ><b>mapDOToEntityProperties</b></span>
                         <a href="#mapDOToEntityProperties"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -692,8 +689,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapDOToEntityProperties(entityDO: <a href="../interfaces/User.html" target="_self">UserDO</a>)</code>
+<code>mapDOToEntityProperties(entityDO: <a href="../interfaces/User.html" target="_self">UserDO</a>)</code>
                 </td>
             </tr>
 
@@ -761,7 +757,6 @@
                 <td class="col-md-4">
                     <a name="mapEntityToDO"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
                         <span ><b>mapEntityToDO</b></span>
                         <a href="#mapEntityToDO"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -769,8 +764,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapEntityToDO(entity: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+<code>mapEntityToDO(entity: <a href="../interfaces/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
@@ -855,8 +849,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="146"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:146</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:144</a></div>
                 </td>
             </tr>
 
@@ -1009,7 +1003,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:74</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:63</a></code>
 </div>
                 </td>
             </tr>
@@ -1086,7 +1080,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:96</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:85</a></code>
 </div>
                 </td>
             </tr>
@@ -1168,7 +1162,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:109</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:98</a></code>
 </div>
                 </td>
             </tr>
@@ -1245,7 +1239,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:122</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:111</a></code>
 </div>
                 </td>
             </tr>
@@ -1322,7 +1316,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:88</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:77</a></code>
 </div>
                 </td>
             </tr>
@@ -1638,9 +1632,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityName, FilterQuery, IdentifiedReference, QueryOrderMap, Reference } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityName, FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { BaseDORepo, Scope } from &#x27;@shared/repo&#x27;;
+import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
 import {
 	EntityId,
 	IFindOptions,
@@ -1653,10 +1647,10 @@ import {
 	System,
 	User,
 } from &#x27;@shared/domain&#x27;;
+import { Page } from &#x27;@shared/domain/domainobject/page&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
-import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
+import { BaseDORepo, Scope } from &#x27;@shared/repo&#x27;;
 import { UserQuery } from &#x27;@src/modules/user/service/user-query.type&#x27;;
-import { Page } from &#x27;../../domain/domainobject/page&#x27;;
 import { UserScope } from &#x27;./user.scope&#x27;;
 
 @Injectable()
@@ -1675,7 +1669,7 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 		const scope: Scope&lt;User&gt; &#x3D; new UserScope()
 			.bySchoolId(query.schoolId)
 			.isOutdated(query.isOutdated)
-			.whereLastLoginSystemChangeGreaterThan(query.lastLoginSystemChangeGreaterThan)
+			.whereLastLoginSystemChangeSmallerThan(query.lastLoginSystemChangeSmallerThan)
 			.withOutdatedSince(query.outdatedSince)
 			.allowEmptyQuery(true);
 
@@ -1722,7 +1716,7 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 		return userDo;
 	}
 
-	protected mapEntityToDO(entity: User): UserDO {
+	mapEntityToDO(entity: User): UserDO {
 		const user: UserDO &#x3D; new UserDO({
 			id: entity.id,
 			createdAt: entity.createdAt,
@@ -1753,15 +1747,13 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 		return user;
 	}
 
-	protected mapDOToEntityProperties(entityDO: UserDO): IUserProperties {
+	mapDOToEntityProperties(entityDO: UserDO): IUserProperties {
 		return {
 			email: entityDO.email,
 			firstName: entityDO.firstName,
 			lastName: entityDO.lastName,
-			school: Reference.createFromPK(School, entityDO.schoolId),
-			roles: entityDO.roleIds.map(
-				(roleId: EntityId): IdentifiedReference&lt;Role&gt; &#x3D;&gt; Reference.createFromPK(Role, roleId)
-			),
+			school: this._em.getReference(School, entityDO.schoolId),
+			roles: entityDO.roleIds.map((roleId: EntityId) &#x3D;&gt; this._em.getReference(Role, roleId)),
 			ldapDn: entityDO.ldapDn,
 			externalId: entityDO.externalId,
 			language: entityDO.language,

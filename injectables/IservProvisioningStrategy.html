@@ -89,7 +89,12 @@
                                 <a href="#apply" >apply</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAdditionalErrorInfo" >getAdditionalErrorInfo</a>
+                            </li>
+                            <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
                                 <a href="#getData" >getData</a>
                             </li>
                             <li>
@@ -107,6 +112,78 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(roleService: <a href="../injectables/RoleService.html" target="_self">RoleService</a>, schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/provisioning/strategy/iserv/iserv.strategy.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>roleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RoleService.html" target="_self" >RoleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -141,7 +218,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:31</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:70</a></code>
 </div>
                 </td>
             </tr>
@@ -194,9 +271,81 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getAdditionalErrorInfo"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getAdditionalErrorInfo</b></span>
+                        <a href="#getAdditionalErrorInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAdditionalErrorInfo(email: string | undefined)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/iserv/iserv.strategy.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>email</td>
+                                    <td>
+                                            <code>string | undefined</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getData"></a>
                     <span class="name">
                         <span class="modifier"></span>
+                        <span class="modifier">Async</span>
                         <span ><b>getData</b></span>
                         <a href="#getData"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -218,7 +367,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:36</a></code>
 </div>
                 </td>
             </tr>
@@ -293,7 +442,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:10</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/ProvisioningStrategy.html#source" target="_self" >ProvisioningStrategy:32</a></code>
 </div>
                 </td>
             </tr>
@@ -317,37 +466,87 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { RoleName, User } from &#x27;@shared/domain&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
+import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { SystemProvisioningStrategy } from &#x27;@shared/domain/interface/system-provisioning.strategy&#x27;;
 import { OAuthSSOError } from &#x27;@src/modules/oauth/error/oauth-sso.error&#x27;;
+import { RoleService } from &#x27;@src/modules/role&#x27;;
+import { RoleDto } from &#x27;@src/modules/role/service/dto/role.dto&#x27;;
+import { SchoolService } from &#x27;@src/modules/school&#x27;;
+import { UserService } from &#x27;@src/modules/user&#x27;;
 import jwt, { JwtPayload } from &#x27;jsonwebtoken&#x27;;
-import { ExternalUserDto, OauthDataDto, OauthDataStrategyInputDto, ProvisioningDto } from &#x27;../../dto&#x27;;
+import {
+	ExternalSchoolDto,
+	ExternalUserDto,
+	OauthDataDto,
+	OauthDataStrategyInputDto,
+	ProvisioningDto,
+} from &#x27;../../dto&#x27;;
 import { ProvisioningStrategy } from &#x27;../base.strategy&#x27;;
+import { IservMapper } from &#x27;./iserv-do.mapper&#x27;;
 
 @Injectable()
 export class IservProvisioningStrategy extends ProvisioningStrategy {
+	constructor(
+		private readonly roleService: RoleService,
+		private readonly schoolService: SchoolService,
+		private readonly userService: UserService
+	) {
+		super();
+	}
+
 	getType(): SystemProvisioningStrategy {
 		return SystemProvisioningStrategy.ISERV;
 	}
 
-	override getData(input: OauthDataStrategyInputDto): Promise&lt;OauthDataDto&gt; {
+	override async getData(input: OauthDataStrategyInputDto): Promise&lt;OauthDataDto&gt; {
 		const idToken: JwtPayload | null &#x3D; jwt.decode(input.idToken, { json: true });
+
 		if (!idToken || !idToken.uuid) {
-			return Promise.reject(new OAuthSSOError(&#x27;Failed to extract uuid&#x27;, &#x27;sso_jwt_problem&#x27;));
+			throw new OAuthSSOError(&#x27;Failed to extract uuid&#x27;, &#x27;sso_jwt_problem&#x27;);
 		}
 
-		const externalUser: ExternalUserDto &#x3D; new ExternalUserDto({
-			externalId: idToken.uuid as string,
-		});
+		const ldapUser: UserDO | null &#x3D; await this.userService.findByExternalId(
+			idToken.uuid as string,
+			input.system.systemId
+		);
+		if (!ldapUser) {
+			const additionalInfo: string &#x3D; await this.getAdditionalErrorInfo(idToken.email as string | undefined);
+			throw new OAuthSSOError(
+				&#x60;Failed to find user with Id ${idToken.uuid as string}${additionalInfo}&#x60;,
+				&#x27;sso_user_notfound&#x27;
+			);
+		}
+
+		const ldapSchool: SchoolDO &#x3D; await this.schoolService.getSchoolById(ldapUser.schoolId);
+		const roleDtos: RoleDto[] &#x3D; await this.roleService.findByIds(ldapUser.roleIds);
+		const roleNames: RoleName[] &#x3D; roleDtos.map((role) &#x3D;&gt; role.name);
+
+		const externalUser: ExternalUserDto &#x3D; IservMapper.mapToExternalUserDto(ldapUser, roleNames);
+		const externalSchool: ExternalSchoolDto &#x3D; IservMapper.mapToExternalSchoolDto(ldapSchool);
 
 		const oauthData: OauthDataDto &#x3D; new OauthDataDto({
 			system: input.system,
 			externalUser,
+			externalSchool,
 		});
-		return Promise.resolve(oauthData);
+		return oauthData;
 	}
 
 	override apply(data: OauthDataDto): Promise&lt;ProvisioningDto&gt; {
-		return Promise.resolve(new ProvisioningDto({ externalUserId: data.externalUser.externalId }));
+		return Promise.resolve(new ProvisioningDto({ externalUserId: data.externalUser?.externalId }));
+	}
+
+	async getAdditionalErrorInfo(email: string | undefined): Promise&lt;string&gt; {
+		if (email) {
+			const usersWithEmail: User[] &#x3D; await this.userService.findByEmail(email);
+			if (usersWithEmail.length &gt; 0) {
+				const user: User &#x3D; usersWithEmail[0];
+				return &#x60; [schoolId: ${user.school.id}, currentLdapId: ${user.externalId ?? &#x27;&#x27;}]&#x60;;
+			}
+		}
+		return &#x27;&#x27;;
 	}
 }
 </code></pre>
