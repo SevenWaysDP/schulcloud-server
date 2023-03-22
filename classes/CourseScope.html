@@ -122,9 +122,6 @@
                                 <a href="#forCourseId" >forCourseId</a>
                             </li>
                             <li>
-                                <a href="#forSubstituteTeacher" >forSubstituteTeacher</a>
-                            </li>
-                            <li>
                                 <a href="#forTeacher" >forTeacher</a>
                             </li>
                             <li>
@@ -288,8 +285,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:37</a></div>
                 </td>
             </tr>
 
@@ -394,8 +391,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:47</a></div>
                 </td>
             </tr>
 
@@ -417,75 +414,6 @@
                             <tbody>
                                 <tr>
                                     <td>courseId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/CourseScope.html" target="_self" >CourseScope</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="forSubstituteTeacher"></a>
-                    <span class="name">
-                        <span ><b>forSubstituteTeacher</b></span>
-                        <a href="#forSubstituteTeacher"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>forSubstituteTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:37</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
@@ -846,11 +774,6 @@ class CourseScope extends Scope&lt;Course&gt; {
 		return this;
 	}
 
-	forSubstituteTeacher(userId: EntityId): CourseScope {
-		this.addQuery({ substitutionTeachers: userId });
-		return this;
-	}
-
 	forActiveCourses(): CourseScope {
 		const now &#x3D; new Date();
 		const noUntilDate &#x3D; { untilDate: { $exists: false } } as FilterQuery&lt;Course&gt;;
@@ -935,15 +858,6 @@ export class CourseRepo extends BaseRepo&lt;Course&gt; {
 	async findAllForTeacherOrSubstituteTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
 		const scope &#x3D; new CourseScope();
 		scope.forTeacherOrSubstituteTeacher(userId);
-
-		const [courses, count] &#x3D; await this._em.findAndCount(Course, scope.query);
-
-		return [courses, count];
-	}
-
-	async findAllForSubstituteTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const scope &#x3D; new CourseScope();
-		scope.forSubstituteTeacher(userId);
 
 		const [courses, count] &#x3D; await this._em.findAndCount(Course, scope.query);
 

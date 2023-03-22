@@ -75,6 +75,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#title" >title</a>
                             </li>
                         </ul>
@@ -101,6 +102,7 @@
                 <td class="col-md-4">
                     <a name="title"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>title</b></span>
                         <a href="#title"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -117,7 +119,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -136,15 +138,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
-import { AnyBoardDo } from &#x27;@shared/domain/domainobject&#x27;;
+import { AnyBoardDo } from &#x27;../../domainobject&#x27;;
 import { BoardDoBuilder } from &#x27;./board-do.builder&#x27;;
 import { BoardNode, BoardNodeProps } from &#x27;./boardnode.entity&#x27;;
 import { BoardNodeType } from &#x27;./types/board-node-type&#x27;;
 
 @Entity({ discriminatorValue: BoardNodeType.COLUMN })
 export class ColumnNode extends BoardNode {
-	@Property()
-	title: string;
+	@Property({ nullable: true })
+	title?: string;
 
 	constructor(props: ColumnNodeProps) {
 		super(props);
@@ -159,7 +161,7 @@ export class ColumnNode extends BoardNode {
 }
 
 export interface ColumnNodeProps extends BoardNodeProps {
-	title: string;
+	title?: string;
 }
 </code></pre>
     </div>

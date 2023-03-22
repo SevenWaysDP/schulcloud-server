@@ -83,9 +83,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#alias" >alias</a>
-                            </li>
-                            <li>
                                 <a href="#authEndpoint" >authEndpoint</a>
                             </li>
                             <li>
@@ -96,6 +93,10 @@
                             </li>
                             <li>
                                 <a href="#grantType" >grantType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#idpHint" >idpHint</a>
                             </li>
                             <li>
                                 <a href="#issuer" >issuer</a>
@@ -188,41 +189,6 @@
     <h3 id="inputs">
         Properties
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="alias"></a>
-                    <span class="name">
-                        <span ><b>alias</b></span>
-                        <a href="#alias"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:42</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -357,6 +323,42 @@
                     <tr>
                         <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idpHint"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>idpHint</b></span>
+                        <a href="#idpHint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property({nullable: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -676,7 +678,7 @@ export class OauthConfig {
 	constructor(oauthConfig: OauthConfig) {
 		this.clientId &#x3D; oauthConfig.clientId;
 		this.clientSecret &#x3D; oauthConfig.clientSecret;
-		this.alias &#x3D; oauthConfig.alias;
+		this.idpHint &#x3D; oauthConfig.idpHint;
 		this.tokenEndpoint &#x3D; oauthConfig.tokenEndpoint;
 		this.grantType &#x3D; oauthConfig.grantType;
 		this.redirectUri &#x3D; oauthConfig.redirectUri;
@@ -695,8 +697,8 @@ export class OauthConfig {
 	@Property()
 	clientSecret: string;
 
-	@Property()
-	alias: string;
+	@Property({ nullable: true })
+	idpHint?: string;
 
 	@Property()
 	redirectUri: string;
@@ -800,7 +802,7 @@ export class OidcConfig {
 	constructor(oidcConfig: OidcConfig) {
 		this.clientId &#x3D; oidcConfig.clientId;
 		this.clientSecret &#x3D; oidcConfig.clientSecret;
-		this.alias &#x3D; oidcConfig.alias;
+		this.idpHint &#x3D; oidcConfig.idpHint;
 		this.authorizationUrl &#x3D; oidcConfig.authorizationUrl;
 		this.tokenUrl &#x3D; oidcConfig.tokenUrl;
 		this.logoutUrl &#x3D; oidcConfig.logoutUrl;
@@ -815,7 +817,7 @@ export class OidcConfig {
 	clientSecret: string;
 
 	@Property()
-	alias: string;
+	idpHint: string;
 
 	@Property()
 	authorizationUrl: string;

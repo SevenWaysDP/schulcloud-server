@@ -100,24 +100,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hasParentPermission" >hasParentPermission</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#hasPermission" >hasPermission</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#isApplicable" >isApplicable</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#parentPermission" >parentPermission</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#taskReadPermission" >taskReadPermission</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#taskWritePermission" >taskWritePermission</a>
                             </li>
                         </ul>
                     </td>
@@ -197,6 +189,101 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasParentPermission"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>hasParentPermission</b></span>
+                        <a href="#hasParentPermission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasParentPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../classes/Task.html" target="_self">Task</a>, action: <a href="../undefineds/Actions.html" target="_self">Actions</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/task.rule.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>action</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#Actions" target="_self" >Actions</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -387,267 +474,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="parentPermission"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>parentPermission</b></span>
-                        <a href="#parentPermission"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>parentPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../classes/Task.html" target="_self">Task</a>, action: <a href="../undefineds/Actions.html" target="_self">Actions</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/task.rule.ts:60</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>action</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/enumerations.html#Actions" target="_self" >Actions</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="taskReadPermission"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>taskReadPermission</b></span>
-                        <a href="#taskReadPermission"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>taskReadPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../classes/Task.html" target="_self">Task</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/task.rule.ts:39</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="taskWritePermission"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>taskWritePermission</b></span>
-                        <a href="#taskWritePermission"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>taskWritePermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../classes/Task.html" target="_self">Task</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/task.rule.ts:54</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
             <section>
     
@@ -714,53 +540,45 @@ export class TaskRule extends BasePermission&lt;Task&gt; {
 	}
 
 	public hasPermission(user: User, entity: Task, context: IPermissionContext): boolean {
-		const { action, requiredPermissions } &#x3D; context;
-		const hasPermission &#x3D; this.utils.hasAllPermissions(user, requiredPermissions);
+		let { action } &#x3D; context;
+		const { requiredPermissions } &#x3D; context;
+		const hasRequiredPermission &#x3D; this.utils.hasAllPermissions(user, requiredPermissions);
+		if (!hasRequiredPermission) {
+			return false;
+		}
+
 		const isCreator &#x3D; this.utils.hasAccessToEntity(user, entity, [&#x27;creator&#x27;]);
+		const isAssigned &#x3D; this.utils.hasAccessToEntity(user, entity, [&#x27;users&#x27;]);
 
-		let hasTaskPermission &#x3D; false;
-
-		if (action &#x3D;&#x3D;&#x3D; Actions.read) {
-			hasTaskPermission &#x3D; this.taskReadPermission(user, entity);
-		} else if (action &#x3D;&#x3D;&#x3D; Actions.write) {
-			hasTaskPermission &#x3D; this.taskWritePermission(user, entity);
+		if (entity.isDraft()) {
+			action &#x3D; Actions.write;
 		}
 
-		const result &#x3D; hasPermission &amp;&amp; (isCreator || hasTaskPermission);
+		const hasParentPermission &#x3D; this.hasParentPermission(user, entity, action);
+
+		// TODO why parent permission is with OR cond?
+		const result &#x3D; hasRequiredPermission &amp;&amp; (isCreator || isAssigned || hasParentPermission);
 
 		return result;
 	}
 
-	private taskReadPermission(user: User, entity: Task): boolean {
-		const isDraft &#x3D; entity.isDraft();
-		let hasParentReadPermission &#x3D; false;
-
-		if (isDraft) {
-			hasParentReadPermission &#x3D; this.parentPermission(user, entity, Actions.write);
-		} else {
-			hasParentReadPermission &#x3D; this.parentPermission(user, entity, Actions.read);
-		}
-
-		const result &#x3D; hasParentReadPermission;
-
-		return result;
-	}
-
-	private taskWritePermission(user: User, entity: Task): boolean {
-		const hasParentWritePermission &#x3D; this.parentPermission(user, entity, Actions.write);
-
-		return hasParentWritePermission;
-	}
-
-	private parentPermission(user: User, entity: Task, action: Actions): boolean {
-		let hasParentPermission &#x3D; false;
+	private hasParentPermission(user: User, entity: Task, action: Actions): boolean {
 		if (entity.lesson) {
-			hasParentPermission &#x3D; this.lessonRule.hasPermission(user, entity.lesson, { action, requiredPermissions: [] });
-		} else if (entity.course) {
-			hasParentPermission &#x3D; this.courseRule.hasPermission(user, entity.course, { action, requiredPermissions: [] });
+			const hasLessonPermission &#x3D; this.lessonRule.hasPermission(user, entity.lesson, {
+				action,
+				requiredPermissions: [],
+			});
+			return hasLessonPermission;
 		}
+		if (entity.course) {
+			const hasCoursePermission &#x3D; this.courseRule.hasPermission(user, entity.course, {
+				action,
+				requiredPermissions: [],
+			});
 
-		return hasParentPermission;
+			return hasCoursePermission;
+		}
+		return true;
 	}
 }
 </code></pre>

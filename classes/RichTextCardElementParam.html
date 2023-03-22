@@ -144,7 +144,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -178,7 +178,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -213,7 +213,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -250,24 +250,6 @@ import {
 
 export abstract class CardElementBase {}
 
-export class TitleCardElementParam extends CardElementBase {
-	@ApiProperty({
-		description: &#x27;Type of card element, i.e. text (needed for discriminator)&#x27;,
-		type: String,
-		example: CardElementType.Title,
-	})
-	type &#x3D; CardElementType.Title;
-
-	@ApiProperty({
-		description: &#x27;Title of the card, content of title card element&#x27;,
-		required: true,
-	})
-	@IsString()
-	@MinLength(2)
-	@SanitizeHtml()
-	value!: string;
-}
-
 export class RichTextCardElementParam extends CardElementBase {
 	@ApiProperty({
 		description: &#x27;Type of card element, i.e. richText (needed for discriminator)&#x27;,
@@ -289,7 +271,7 @@ export class RichTextCardElementParam extends CardElementBase {
 	inputFormat!: InputFormat;
 }
 
-@ApiExtraModels(TitleCardElementParam, RichTextCardElementParam)
+@ApiExtraModels(RichTextCardElementParam)
 export class CardElementParams {
 	@ApiPropertyOptional()
 	@IsOptional()
@@ -300,19 +282,16 @@ export class CardElementParams {
 	@ApiProperty({
 		description: &#x27;Content of the card element, depending on its type&#x27;,
 		required: true,
-		oneOf: [{ $ref: getSchemaPath(TitleCardElementParam) }, { $ref: getSchemaPath(RichTextCardElementParam) }],
+		oneOf: [{ $ref: getSchemaPath(RichTextCardElementParam) }],
 	})
 	@ValidateNested()
 	@Type(() &#x3D;&gt; CardElementBase, {
 		discriminator: {
 			property: &#x27;type&#x27;,
-			subTypes: [
-				{ value: TitleCardElementParam, name: CardElementType.Title },
-				{ value: RichTextCardElementParam, name: CardElementType.RichText },
-			],
+			subTypes: [{ value: RichTextCardElementParam, name: CardElementType.RichText }],
 		},
 	})
-	content!: RichTextCardElementParam | TitleCardElementParam;
+	content!: RichTextCardElementParam;
 }
 
 export class TaskCardParams {
@@ -324,6 +303,14 @@ export class TaskCardParams {
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 	})
 	courseId?: string;
+
+	@IsString()
+	@MinLength(2)
+	@SanitizeHtml()
+	@ApiProperty({
+		description: &#x27;The title of the card&#x27;,
+	})
+	title!: string;
 
 	@IsOptional()
 	@IsDate()
@@ -337,14 +324,15 @@ export class TaskCardParams {
 	@ApiPropertyOptional({ description: &#x27;Due date of the card&#x27; })
 	dueDate?: Date;
 
+	@IsOptional()
 	@IsArray()
 	@ValidateNested({ each: true })
 	@Type(() &#x3D;&gt; CardElementParams)
-	@ApiProperty({
+	@ApiPropertyOptional({
 		description: &#x27;Card elements array&#x27;,
 		type: [CardElementParams],
 	})
-	cardElements!: CardElementParams[];
+	cardElements?: CardElementParams[];
 }
 </code></pre>
     </div>

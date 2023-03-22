@@ -230,7 +230,7 @@ afterAll(async () =&gt; {
 afterEach(() =&gt; {
     jest.resetAllMocks();
 })</code></pre></div><p>The resulting mock has all the functions of the original <code>Class</code>, replaced with jest spies. This gives you code completion and type safety, combined with all the features of spies.</p>
-<p><code>createTestingModule</code> should only be calld in <code>beforeAll</code> and not in <code>beforeEach</code> to keep the setup and teardown for each test as simple as possible. Therefore <code>.close</code> methods should only be called in <code>afterAll</code> and not in <code>afterEach</code>.</p>
+<p><code>createTestingModule</code> should only be calld in <code>beforeAll</code> and not in <code>beforeEach</code> to keep the setup and teardown for each test as simple as possible. Therefore <code>module.close</code> should only be called in <code>afterAll</code> and not in <code>afterEach</code>.</p>
 <p>To generally reset specific mock implementation after each test <code>jest.resetAllMocks</code> can be used in afterEach. <code>jest.restoreAllMocks</code> should not be used, because in some cases it will not properly restore mocks created by ts-jest.</p>
 <div><pre class="line-numbers"><code class="language-Typescript">describe(&#39;somefunction&#39;, () =&gt; {
     describe(&#39;when service returns user&#39;, () =&gt; {

@@ -85,7 +85,16 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#getCardElementResponse" >getCardElementResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#mapElements" >mapElements</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapElementsToDto" >mapElementsToDto</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
@@ -117,6 +126,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getCardElementResponse"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getCardElementResponse</b></span>
+                        <a href="#getCardElementResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCardElementResponse(card: <a href="../entitys/TaskCard.html" target="_self">TaskCard</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>card</td>
+                                    <td>
+                                                <code><a href="../entitys/TaskCard.html" target="_self" >TaskCard</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/CardElement.html" target="_self" >CardElementResponse[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="mapElements"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -135,8 +215,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:39</a></div>
                 </td>
             </tr>
 
@@ -175,6 +255,78 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../entitys/CardElement.html" target="_self" >CardElementResponse[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapElementsToDto"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Static</span>
+                        <span ><b>mapElementsToDto</b></span>
+                        <a href="#mapElementsToDto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapElementsToDto(cardElements: <a href="../entitys/CardElement.html" target="_self">CardElementParams[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>cardElements</td>
+                                    <td>
+                                                <code><a href="../entitys/CardElement.html" target="_self" >CardElementParams[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>[] | void</code>
 
                     </div>
                     <div class="io-description">
@@ -275,8 +427,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:17</a></div>
                 </td>
             </tr>
 
@@ -351,32 +503,31 @@ import {
 	CardElement,
 	CardElementResponse,
 	CardRichTextElementResponse,
-	CardTitleElementResponse,
 	RichText,
 	TaskCard,
 	TaskWithStatusVo,
 } from &#x27;@shared/domain&#x27;;
-import { CardElementType, RichTextCardElement, TitleCardElement } from &#x27;@shared/domain/entity/cardElement.entity&#x27;;
+import { CardElementType, RichTextCardElement } from &#x27;@shared/domain/entity/card-element.entity&#x27;;
 import { TaskResponse } from &#x27;@src/modules/task/controller/dto&#x27;;
 import { TaskMapper } from &#x27;@src/modules/task/mapper&#x27;;
 import { ITaskCardCRUD } from &#x27;../../interface&#x27;;
-import { RichTextCardElementParam, TaskCardParams, TaskCardResponse, TitleCardElementParam } from &#x27;../dto&#x27;;
+import { CardElementParams, RichTextCardElementParam, TaskCardParams, TaskCardResponse } from &#x27;../dto&#x27;;
 
 export class TaskCardMapper {
 	mapToResponse(card: TaskCard, taskWithStatusVo: TaskWithStatusVo): TaskCardResponse {
 		const taskResponse: TaskResponse &#x3D; TaskMapper.mapToResponse(taskWithStatusVo);
-		const cardElements &#x3D; card.getCardElements();
-		const cardElementsResponse &#x3D; this.mapElements(cardElements);
 
 		const dto &#x3D; new TaskCardResponse({
 			id: card.id,
-			draggable: card.draggable || true,
-			cardElements: cardElementsResponse,
+			draggable: card.draggable,
 			task: taskResponse,
 			visibleAtDate: card.visibleAtDate,
 			dueDate: card.dueDate,
+			title: card.title,
 		});
-
+		if (card.cardElements.length) {
+			dto.cardElements &#x3D; this.getCardElementResponse(card);
+		}
 		if (card.course) {
 			dto.courseId &#x3D; card.course.id;
 			dto.courseName &#x3D; card.course.name;
@@ -388,11 +539,6 @@ export class TaskCardMapper {
 	private mapElements(cardElements: CardElement[]): CardElementResponse[] {
 		const cardElementsResponse: CardElementResponse[] &#x3D; [];
 		cardElements.forEach((element) &#x3D;&gt; {
-			if (element.cardElementType &#x3D;&#x3D;&#x3D; CardElementType.Title) {
-				const content &#x3D; new CardTitleElementResponse(element as TitleCardElement);
-				const response &#x3D; { id: element.id, cardElementType: element.cardElementType, content };
-				cardElementsResponse.push(response);
-			}
 			if (element.cardElementType &#x3D;&#x3D;&#x3D; CardElementType.RichText) {
 				const content &#x3D; new CardRichTextElementResponse(element as RichTextCardElement);
 				const response &#x3D; { id: element.id, cardElementType: element.cardElementType, content };
@@ -403,15 +549,19 @@ export class TaskCardMapper {
 		return cardElementsResponse;
 	}
 
+	private getCardElementResponse(card: TaskCard): CardElementResponse[] {
+		const cardElements &#x3D; card.getCardElements();
+		const cardElementsResponse &#x3D; this.mapElements(cardElements);
+		return cardElementsResponse;
+	}
+
 	static mapToDomain(params: TaskCardParams): ITaskCardCRUD {
-		const title &#x3D; params.cardElements.filter((element) &#x3D;&gt; element.content instanceof TitleCardElementParam);
-		if (title.length !&#x3D;&#x3D; 1) {
+		if (!params.title || params.title.length &#x3D;&#x3D;&#x3D; 0) {
 			throw new ValidationError(&#x27;The Task Card must have one title&#x27;);
 		}
 
-		const titleValue &#x3D; title[0].content as TitleCardElementParam;
 		const dto: ITaskCardCRUD &#x3D; {
-			title: titleValue.value,
+			title: params.title,
 		};
 
 		if (params.courseId) {
@@ -426,18 +576,26 @@ export class TaskCardMapper {
 			dto.dueDate &#x3D; params.dueDate;
 		}
 
-		params.cardElements.forEach((element) &#x3D;&gt; {
+		if (params.cardElements) {
+			const text &#x3D; this.mapElementsToDto(params.cardElements);
+			if (text?.length) {
+				dto.text &#x3D; text;
+			}
+		}
+
+		return dto;
+	}
+
+	private static mapElementsToDto(cardElements: CardElementParams[]): RichText[] | void {
+		const text: RichText[] &#x3D; [];
+		cardElements.forEach((element) &#x3D;&gt; {
 			if (element.content instanceof RichTextCardElementParam) {
 				const richText &#x3D; new RichText({ content: element.content.value, type: element.content.inputFormat });
-				if (!dto.text) {
-					dto.text &#x3D; [richText];
-				} else {
-					dto.text.push(richText);
-				}
+				text.push(richText);
 			}
 		});
 
-		return dto;
+		return text.length ? text : [];
 	}
 }
 </code></pre>

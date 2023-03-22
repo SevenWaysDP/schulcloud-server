@@ -138,7 +138,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -174,7 +174,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -202,10 +202,7 @@ export enum SchoolFeatures {
 	ROCKET_CHAT &#x3D; &#x27;rocketChat&#x27;,
 	VIDEOCONFERENCE &#x3D; &#x27;videoconference&#x27;,
 	NEXTCLOUD &#x3D; &#x27;nextcloud&#x27;,
-	MESSENGER &#x3D; &#x27;messenger&#x27;,
 	STUDENTVISIBILITY &#x3D; &#x27;studentVisibility&#x27;, // deprecated
-	MESSENGER_SCHOOL_ROOM &#x3D; &#x27;messengerSchoolRoom&#x27;,
-	MESSENGER_STUDENT_ROOM_CREATE &#x3D; &#x27;messengerStudentRoomCreate&#x27;,
 	LDAP_UNIVENTION_MIGRATION &#x3D; &#x27;ldapUniventionMigrationSchool&#x27;,
 }
 
@@ -214,6 +211,7 @@ export interface ISchoolProperties {
 	externalId?: string;
 	inMaintenanceSince?: Date;
 	inUserMigration?: boolean;
+	oauthMigrationStart?: Date;
 	oauthMigrationPossible?: Date;
 	oauthMigrationMandatory?: Date;
 	oauthMigrationFinished?: Date;
@@ -254,6 +252,9 @@ export class School extends BaseEntity {
 
 	@Property({ nullable: true })
 	inUserMigration?: boolean;
+
+	@Property({ nullable: true })
+	oauthMigrationStart?: Date;
 
 	@Property({ nullable: true })
 	oauthMigrationPossible?: Date;
@@ -299,6 +300,7 @@ export class School extends BaseEntity {
 		if (props.inUserMigration !&#x3D;&#x3D; null) {
 			this.inUserMigration &#x3D; props.inUserMigration;
 		}
+		this.oauthMigrationStart &#x3D; props.oauthMigrationStart;
 		this.oauthMigrationPossible &#x3D; props.oauthMigrationPossible;
 		this.oauthMigrationMandatory &#x3D; props.oauthMigrationMandatory;
 		this.oauthMigrationFinished &#x3D; props.oauthMigrationFinished;

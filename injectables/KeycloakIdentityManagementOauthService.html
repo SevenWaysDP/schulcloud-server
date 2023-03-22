@@ -289,7 +289,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementOauthService.html#source" target="_self" >IdentityManagementOauthService:55</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementOauthService.html#source" target="_self" >IdentityManagementOauthService:54</a></code>
 </div>
                 </td>
             </tr>
@@ -326,8 +326,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-identity-management-oauth.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-identity-management-oauth.service.ts:50</a></div>
                 </td>
             </tr>
 
@@ -371,7 +371,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementOauthService.html#source" target="_self" >IdentityManagementOauthService:62</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/IdentityManagementOauthService.html#source" target="_self" >IdentityManagementOauthService:61</a></code>
 </div>
                 </td>
             </tr>
@@ -506,7 +506,6 @@ export class KeycloakIdentityManagementOauthService extends IdentityManagementOa
 		this._oauthConfigCache &#x3D; new OauthConfigDto({
 			clientId: this.kcAdminService.getClientId(),
 			clientSecret: this.oAuthEncryptionService.encrypt(await this.kcAdminService.getClientSecret()),
-			alias: &#x27;keycloak&#x27;,
 			provider: &#x27;oauth&#x27;,
 			redirectUri,
 			responseType: &#x27;code&#x27;,

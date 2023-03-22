@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/entity/cardElement.entity.ts</code>
+            <code>apps/server/src/shared/domain/entity/card-element.entity.ts</code>
         </p>
 
 
@@ -123,7 +123,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/shared/domain/entity/cardElement.entity.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/shared/domain/entity/card-element.entity.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -141,7 +141,6 @@ import { InputFormat } from &#x27;../types/input-format.types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 
 export enum CardElementType {
-	&#x27;Title&#x27; &#x3D; &#x27;title&#x27;,
 	&#x27;RichText&#x27; &#x3D; &#x27;richText&#x27;,
 }
 
@@ -153,20 +152,6 @@ export enum CardElementType {
 export abstract class CardElement extends BaseEntityWithTimestamps {
 	@Enum()
 	cardElementType!: CardElementType;
-}
-
-@Entity({
-	discriminatorValue: CardElementType.Title,
-})
-export class TitleCardElement extends CardElement {
-	constructor(title: string) {
-		super();
-		this.cardElementType &#x3D; CardElementType.Title;
-		this.value &#x3D; title;
-	}
-
-	@Property()
-	value!: string;
 }
 
 @Entity({

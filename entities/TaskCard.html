@@ -97,6 +97,9 @@
                                 <a href="#task" >task</a>
                             </li>
                             <li>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
                                 <a href="#visibleAtDate" >visibleAtDate</a>
                             </li>
                         </ul>
@@ -144,7 +147,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -179,7 +182,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -215,7 +218,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -250,7 +253,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -284,7 +287,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -319,7 +322,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:56</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -354,7 +357,42 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -389,7 +427,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/shared/domain/entity/task-card.entity.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -404,7 +442,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Cascade, Collection, Entity, Enum, Index, ManyToMany, ManyToOne, OneToOne, Property } from &#x27;@mikro-orm/core&#x27;;
 import { CardType, ICard, ICardCProps } from &#x27;../types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
-import { CardElement } from &#x27;./cardElement.entity&#x27;;
+import { CardElement } from &#x27;./card-element.entity&#x27;;
 import { Course } from &#x27;./course.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
@@ -431,6 +469,7 @@ export class TaskCard extends BaseEntityWithTimestamps implements ICard, ITaskCa
 		this.cardElements.set(props.cardElements);
 		this.task &#x3D; props.task;
 		this.cardType &#x3D; CardType.Task;
+		this.title &#x3D; props.title;
 		if (props.course) this.course &#x3D; props.course;
 		Object.assign(this, { creator: props.creator });
 	}
@@ -451,6 +490,9 @@ export class TaskCard extends BaseEntityWithTimestamps implements ICard, ITaskCa
 
 	@Property()
 	draggable &#x3D; true;
+
+	@Property()
+	title!: string;
 
 	@Property()
 	visibleAtDate: Date;

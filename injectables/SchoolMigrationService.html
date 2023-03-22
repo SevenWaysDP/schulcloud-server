@@ -214,7 +214,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>completeMigration(schoolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>completeMigration(schoolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, migrationStartedAt: Date | undefined)</code>
                 </td>
             </tr>
 
@@ -246,6 +246,18 @@
                                     <td>schoolId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>migrationStartedAt</td>
+                                    <td>
+                                            <code>Date | undefined</code>
                                     </td>
 
                                     <td>
@@ -293,8 +305,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="109"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:109</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:112</a></div>
                 </td>
             </tr>
 
@@ -389,8 +401,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:103</a></div>
                 </td>
             </tr>
 
@@ -567,8 +579,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:84</a></div>
                 </td>
             </tr>
 
@@ -639,8 +651,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:123</a></div>
                 </td>
             </tr>
 
@@ -855,18 +867,21 @@ export class SchoolMigrationService {
 		return existingSchool;
 	}
 
-	async completeMigration(schoolId: string): Promise&lt;void&gt; {
+	async completeMigration(schoolId: string, migrationStartedAt: Date | undefined): Promise&lt;void&gt; {
+		const startTime: number &#x3D; performance.now();
 		const school: SchoolDO &#x3D; await this.schoolService.getSchoolById(schoolId);
 		const notMigratedUsers: Page&lt;UserDO&gt; &#x3D; await this.userService.findUsers({
 			schoolId,
 			isOutdated: false,
-			lastLoginSystemChangeSmallerThan: school.oauthMigrationPossible,
+			lastLoginSystemChangeSmallerThan: migrationStartedAt,
 		});
 
 		notMigratedUsers.data.forEach((user: UserDO) &#x3D;&gt; {
 			user.outdatedSince &#x3D; school.oauthMigrationFinished;
 		});
 		await this.userService.saveAll(notMigratedUsers.data);
+		const endTime: number &#x3D; performance.now();
+		this.logger.warn(&#x60;completeMigration for schoolId ${schoolId} took ${endTime - startTime} milliseconds&#x60;);
 	}
 
 	async restartMigration(schoolId: string): Promise&lt;void&gt; {

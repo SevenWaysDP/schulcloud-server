@@ -128,8 +128,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/modules/board/controller/mapper/card-response.mapper.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/modules/board/controller/mapper/card-response.mapper.ts:6</a></div>
                 </td>
             </tr>
 
@@ -188,7 +188,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Card } from &#x27;@shared/domain&#x27;;
-import { CardResponse, TextElementResponse, VisibilitySettingsResponse } from &#x27;../dto&#x27;;
+import { CardResponse, TimestampsResponse, VisibilitySettingsResponse } from &#x27;../dto&#x27;;
+import { TextElementResponseMapper } from &#x27;./text-element-response.mapper&#x27;;
 
 export class CardResponseMapper {
 	static mapToResponse(card: Card): CardResponse {
@@ -196,14 +197,9 @@ export class CardResponseMapper {
 			id: card.id,
 			title: card.title,
 			height: card.height,
-			elements: card.elements.map(
-				(element) &#x3D;&gt;
-					new TextElementResponse({
-						id: element.id,
-						text: element.text,
-					})
-			),
+			elements: card.elements.map((element) &#x3D;&gt; TextElementResponseMapper.mapToResponse(element)),
 			visibilitySettings: new VisibilitySettingsResponse({}),
+			timestamps: new TimestampsResponse({ lastUpdatedAt: card.updatedAt, createdAt: card.createdAt }),
 		});
 		return result;
 	}

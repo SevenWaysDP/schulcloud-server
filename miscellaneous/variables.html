@@ -94,7 +94,7 @@
                             <a href="#bootstrap" title="apps/server/src/console/console.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../console.ts)</a>
                         </li>
                         <li>
-                            <a href="#cardFactory" title="apps/server/src/shared/testing/factory/domainobject/card.do.factory.ts" ><b>cardFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card.do.factory.ts)</a>
+                            <a href="#cardFactory" title="apps/server/src/shared/testing/factory/domainobject/board/card.do.factory.ts" ><b>cardFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card.do.factory.ts)</a>
                         </li>
                         <li>
                             <a href="#cardNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/card-node.factory.ts" ><b>cardNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card-node.factory.ts)</a>
@@ -103,10 +103,13 @@
                             <a href="#cleanupCollections" title="apps/server/src/shared/testing/cleanup-collections.ts" ><b>cleanupCollections</b>&nbsp;&nbsp;&nbsp;(apps/.../cleanup-collections.ts)</a>
                         </li>
                         <li>
-                            <a href="#columnBoardFactory" title="apps/server/src/shared/testing/factory/domainobject/column-board.do.factory.ts" ><b>columnBoardFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../column-board.do.factory.ts)</a>
+                            <a href="#columnBoardFactory" title="apps/server/src/shared/testing/factory/domainobject/board/column-board.do.factory.ts" ><b>columnBoardFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../column-board.do.factory.ts)</a>
                         </li>
                         <li>
                             <a href="#columnBoardNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/column-board-node.factory.ts" ><b>columnBoardNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../column-board-node.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#columnFactory" title="apps/server/src/shared/testing/factory/domainobject/board/column.do.factory.ts" ><b>columnFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../column.do.factory.ts)</a>
                         </li>
                         <li>
                             <a href="#columnNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/column-node.factory.ts" ><b>columnNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../column-node.factory.ts)</a>
@@ -472,10 +475,10 @@
                             <a href="#teamUserFactory" title="apps/server/src/shared/testing/factory/teamuser.factory.ts" ><b>teamUserFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../teamuser.factory.ts)</a>
                         </li>
                         <li>
-                            <a href="#textElementNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/text-element-node.factory.ts" ><b>textElementNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../text-element-node.factory.ts)</a>
+                            <a href="#textElementFactory" title="apps/server/src/shared/testing/factory/domainobject/board/text-element.do.factory.ts" ><b>textElementFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../text-element.do.factory.ts)</a>
                         </li>
                         <li>
-                            <a href="#titleCardElementFactory" title="apps/server/src/shared/testing/factory/card-element.factory.ts" ><b>titleCardElementFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card-element.factory.ts)</a>
+                            <a href="#textElementNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/text-element-node.factory.ts" ><b>textElementNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../text-element-node.factory.ts)</a>
                         </li>
                         <li>
                             <a href="#typeCheckers" title="apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts" ><b>typeCheckers</b>&nbsp;&nbsp;&nbsp;(apps/.../school-external-tool-validation.service.ts)</a>
@@ -745,7 +748,6 @@
 	TaskBoardElement,
 	TaskCard,
 	CardElement,
-	TitleCardElement,
 	RichTextCardElement,
 	Team,
 	TeamNews,
@@ -1348,7 +1350,7 @@ This allows adding console commands to execute provider methods.</p>
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/shared/testing/factory/domainobject/card.do.factory.ts</h3>
+    <h3>apps/server/src/shared/testing/factory/domainobject/board/card.do.factory.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -1363,7 +1365,7 @@ This allows adding console commands to execute provider methods.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>Factory.define&lt;Card&gt;(({ sequence }) &#x3D;&gt; {
+                        <i>Default value : </i><code>BaseFactory.define&lt;Card, CardProps&gt;(Card, ({ sequence }) &#x3D;&gt; {
 	return {
 		id: new ObjectId().toHexString(),
 		title: &#x60;card #${sequence}&#x60;,
@@ -1438,7 +1440,7 @@ This allows adding console commands to execute provider methods.</p>
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/shared/testing/factory/domainobject/column-board.do.factory.ts</h3>
+    <h3>apps/server/src/shared/testing/factory/domainobject/board/column-board.do.factory.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -1453,7 +1455,7 @@ This allows adding console commands to execute provider methods.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>Factory.define&lt;ColumnBoard&gt;(({ sequence }) &#x3D;&gt; {
+                        <i>Default value : </i><code>BaseFactory.define&lt;ColumnBoard, ColumnBoardProps&gt;(ColumnBoard, ({ sequence }) &#x3D;&gt; {
 	return {
 		id: new ObjectId().toHexString(),
 		title: &#x60;column board #${sequence}&#x60;,
@@ -1492,6 +1494,37 @@ This allows adding console commands to execute provider methods.</p>
 		};
 	}
 )</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/domainobject/board/column.do.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnFactory"></a>
+                    <span class="name">
+                        <span ><b>columnFactory</b></span>
+                        <a href="#columnFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;Column, ColumnProps&gt;(Column, ({ sequence }) &#x3D;&gt; {
+	return {
+		id: new ObjectId().toHexString(),
+		title: &#x60;column #${sequence}&#x60;,
+		cards: [],
+		createdAt: new Date(),
+		updatedAt: new Date(),
+	};
+})</code>
                     </td>
                 </tr>
 
@@ -4553,29 +4586,6 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="titleCardElementFactory"></a>
-                    <span class="name">
-                        <span ><b>titleCardElementFactory</b></span>
-                        <a href="#titleCardElementFactory"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;TitleCardElement, string&gt;(
-	TitleCardElement,
-	({ sequence }) &#x3D;&gt; &#x60;title card element #${sequence}&#x60;
-)</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
 </section>
     <h3>apps/server/src/shared/testing/factory/role.factory.ts</h3>
     <section>
@@ -4868,8 +4878,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Test-Setup to make all entities available without a database connection.
-Teardown: &#39;await orm.close()&#39; in after-hook!</p>
+                    <div class="io-description"><p>Test-Setup to make all entities available without a database connection.</p>
 </div>
                 </td>
             </tr>
@@ -5156,6 +5165,7 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
 		cardElements: [],
 		visibleAtDate: tomorrow,
 		dueDate: inTwoDays,
+		title: &#x27;Task Card Title&#x27;,
 	};
 })</code>
                     </td>
@@ -5280,6 +5290,37 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/shared/testing/factory/domainobject/board/text-element.do.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="textElementFactory"></a>
+                    <span class="name">
+                        <span ><b>textElementFactory</b></span>
+                        <a href="#textElementFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;TextElement, TextElementProps&gt;(TextElement, ({ sequence }) &#x3D;&gt; {
+	return {
+		id: new ObjectId().toHexString(),
+		title: &#x60;element #${sequence}&#x60;,
+		text: &#x60;&lt;p&gt;text #${sequence}&lt;/p&gt;&#x60;,
+		createdAt: new Date(),
+		updatedAt: new Date(),
+	};
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/shared/testing/factory/boardnode/text-element-node.factory.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -5299,7 +5340,7 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
 	TextElementNode,
 	({ sequence }) &#x3D;&gt; {
 		return {
-			text: &#x60;&lt;p&gt;text #${sequence}&#x60;,
+			text: &#x60;text #${sequence}&#x60;,
 		};
 	}
 )</code>

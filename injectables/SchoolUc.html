@@ -206,8 +206,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:59</a></div>
                 </td>
             </tr>
 
@@ -289,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:69</a></div>
                 </td>
             </tr>
 
@@ -360,8 +360,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:78</a></div>
                 </td>
             </tr>
 
@@ -601,6 +601,7 @@ export class SchoolUc {
 			requiredPermissions: [Permission.SCHOOL_EDIT],
 		});
 		const school: SchoolDO &#x3D; await this.schoolService.getSchoolById(schoolId);
+		const migrationStartedAt: Date | undefined &#x3D; school.oauthMigrationStart;
 
 		const shouldRestartMigration &#x3D; this.isRestartMigrationRequired(
 			school,
@@ -621,7 +622,7 @@ export class SchoolUc {
 		);
 
 		if (oauthMigrationFinished) {
-			await this.schoolMigrationService.completeMigration(schoolId);
+			await this.schoolMigrationService.completeMigration(schoolId, migrationStartedAt);
 		}
 
 		return migrationDto;

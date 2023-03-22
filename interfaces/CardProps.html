@@ -333,10 +333,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain/types&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { EntityId } from &#x27;../../types&#x27;;
 import { TextElement } from &#x27;./text-element.do&#x27;;
+import type { BoardNodeBuildable } from &#x27;./types/board-node-buildable&#x27;;
+import type { BoardNodeBuilder } from &#x27;./types/board-node-builder&#x27;;
 
-export class Card implements CardProps {
+export class Card implements CardProps, BoardNodeBuildable {
 	id: EntityId;
 
 	title: string;
@@ -357,9 +359,17 @@ export class Card implements CardProps {
 		this.createdAt &#x3D; props.createdAt;
 		this.updatedAt &#x3D; props.updatedAt;
 	}
+
+	addElement(element: TextElement, position?: number) {
+		this.elements.splice(position || this.elements.length, 0, element);
+	}
+
+	useBoardNodeBuilder(builder: BoardNodeBuilder, parentId?: EntityId, position?: number): void {
+		builder.buildCardNode(this, parentId, position);
+	}
 }
 
-interface CardProps {
+export interface CardProps {
 	id: EntityId;
 
 	title: string;

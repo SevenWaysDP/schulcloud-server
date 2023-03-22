@@ -166,7 +166,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@IsOptional()<br />@ApiProperty()<br />
+                            @IsString()<br />@IsOptional()<br />@ApiPropertyOptional()<br />
                         </code>
                     </td>
                 </tr>
@@ -191,7 +191,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { IsOptional, IsString } from &#x27;class-validator&#x27;;
 
 export class CustomParameterEntryParam {
@@ -201,7 +201,7 @@ export class CustomParameterEntryParam {
 
 	@IsString()
 	@IsOptional()
-	@ApiProperty()
+	@ApiPropertyOptional()
 	value?: string;
 }
 </code></pre>

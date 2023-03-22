@@ -547,7 +547,7 @@ export class SystemService {
 				});
 				generatedSystem.id &#x3D; system.id;
 				generatedSystem.oauthConfig &#x3D; { ...brokerConfig };
-				generatedSystem.oauthConfig.alias &#x3D; system.oidcConfig.alias;
+				generatedSystem.oauthConfig.idpHint &#x3D; system.oidcConfig.idpHint;
 				generatedSystem.oauthConfig.redirectUri +&#x3D; system.id;
 				return generatedSystem;
 			}

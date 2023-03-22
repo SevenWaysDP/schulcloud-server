@@ -390,8 +390,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="194"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:194</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="188"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:188</a></div>
                 </td>
             </tr>
 
@@ -483,8 +483,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="212"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:212</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="206"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:206</a></div>
                 </td>
             </tr>
 
@@ -545,7 +545,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getAuthenticationUrl(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, state: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, migration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, alias?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getAuthenticationUrl(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, state: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, migration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
@@ -573,18 +573,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                                 <tr>
                                     <td>oauthConfig</td>
                                     <td>
@@ -617,18 +605,6 @@
 
                                     <td>
                                         No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>alias</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
                                     </td>
 
 
@@ -764,8 +740,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="185"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:185</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:179</a></div>
                 </td>
             </tr>
 
@@ -1266,13 +1242,7 @@ export class OAuthService {
 		return redirect;
 	}
 
-	getAuthenticationUrl(
-		type: string,
-		oauthConfig: OauthConfig,
-		state: string,
-		migration: boolean,
-		alias?: string
-	): string {
+	getAuthenticationUrl(oauthConfig: OauthConfig, state: string, migration: boolean): string {
 		const redirectUri: string &#x3D; this.getRedirectUri(migration);
 
 		const authenticationUrl: URL &#x3D; new URL(oauthConfig.authEndpoint);
@@ -1281,8 +1251,8 @@ export class OAuthService {
 		authenticationUrl.searchParams.append(&#x27;response_type&#x27;, oauthConfig.responseType);
 		authenticationUrl.searchParams.append(&#x27;scope&#x27;, oauthConfig.scope);
 		authenticationUrl.searchParams.append(&#x27;state&#x27;, state);
-		if (alias &amp;&amp; type &#x3D;&#x3D;&#x3D; &#x27;oidc&#x27;) {
-			authenticationUrl.searchParams.append(&#x27;kc_idp_hint&#x27;, alias);
+		if (oauthConfig.idpHint) {
+			authenticationUrl.searchParams.append(&#x27;kc_idp_hint&#x27;, oauthConfig.idpHint);
 		}
 
 		return authenticationUrl.toString();

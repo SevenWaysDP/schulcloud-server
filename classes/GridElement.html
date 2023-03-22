@@ -1361,37 +1361,14 @@ export class DashboardEntity {
 		return element;
 	}
 
-	moveElement(
-		from: GridPositionWithGroupIndex,
-		to: GridPositionWithGroupIndex,
-		substituteCourses: ILearnroom[]
-	): GridElementWithPosition {
+	moveElement(from: GridPositionWithGroupIndex, to: GridPositionWithGroupIndex): GridElementWithPosition {
 		const elementToMove &#x3D; this.getReferencesFromPosition(from);
-		if (substituteCourses.length &gt; 0) {
-			this.checkIfMovedToSubstitute(elementToMove, substituteCourses);
-			const toPosition &#x3D; this.grid.get(this.gridIndexFromPosition(to));
-			if (toPosition) {
-				this.checkIfMovedToSubstitute(toPosition, substituteCourses);
-			}
-		}
-
 		const resultElement &#x3D; this.mergeElementIntoPosition(elementToMove, to);
 		this.removeFromPosition(from);
 		return {
 			pos: to,
 			gridElement: resultElement,
 		};
-	}
-
-	private checkIfMovedToSubstitute(element: IGridElement, substituteCourses: ILearnroom[]) {
-		element.getReferences().forEach((course) &#x3D;&gt; {
-			const { id } &#x3D; course.getMetadata();
-			substituteCourses.forEach((substitute) &#x3D;&gt; {
-				if (substitute.getMetadata().id &#x3D;&#x3D;&#x3D; id) {
-					throw new BadRequestException(&#x27;substitute courses cannot be arranged&#x27;);
-				}
-			});
-		});
 	}
 
 	setLearnRooms(rooms: ILearnroom[]): void {

@@ -112,12 +112,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(dashboardRepo: <a href="../injectables/DashboardRepo.html" target="_self">IDashboardRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, authorisationUtils: <a href="../injectables/AuthorisationUtils.html" target="_self">AuthorisationUtils</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>)</code>
+<code>constructor(dashboardRepo: <a href="../injectables/DashboardRepo.html" target="_self">IDashboardRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -158,30 +158,6 @@
                                                     </td>
                                                     
                                                 </tr>
-                                                <tr>
-                                                        <td>authorisationUtils</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AuthorisationUtils.html" target="_self" >AuthorisationUtils</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>userRepo</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UserRepo.html" target="_self" >UserRepo</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -211,15 +187,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUsersDashboard(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, showSubstitute?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>getUsersDashboard(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:13</a></div>
                 </td>
             </tr>
 
@@ -247,18 +223,6 @@
 
                                     <td>
                                         No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>showSubstitute</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
                                     </td>
 
 
@@ -301,8 +265,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:26</a></div>
                 </td>
             </tr>
 
@@ -408,8 +372,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:41</a></div>
                 </td>
             </tr>
 
@@ -515,8 +479,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:57</a></div>
                 </td>
             </tr>
 
@@ -583,46 +547,24 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { AuthorisationUtils } from &#x27;@shared/domain/rules/authorisation.utils&#x27;;
-import {
-	DashboardEntity,
-	EntityId,
-	GridPositionWithGroupIndex,
-	GridPosition,
-	SortOrder,
-	RoleName,
-	Course,
-} from &#x27;@shared/domain&#x27;;
-import { IDashboardRepo, CourseRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import { DashboardEntity, EntityId, GridPositionWithGroupIndex, GridPosition, SortOrder } from &#x27;@shared/domain&#x27;;
+import { IDashboardRepo, CourseRepo } from &#x27;@shared/repo&#x27;;
 // import { NotFound } from &#x27;@feathersjs/errors&#x27;; // wrong import? see NotFoundException
 
 @Injectable()
 export class DashboardUc {
 	constructor(
 		@Inject(&#x27;DASHBOARD_REPO&#x27;) private readonly dashboardRepo: IDashboardRepo,
-		private readonly courseRepo: CourseRepo,
-		private readonly authorisationUtils: AuthorisationUtils,
-		private readonly userRepo: UserRepo
+		private readonly courseRepo: CourseRepo
 	) {}
 
-	async getUsersDashboard(userId: EntityId, showSubstitute?: boolean): Promise&lt;DashboardEntity&gt; {
-		let courses: Course[];
+	async getUsersDashboard(userId: EntityId): Promise&lt;DashboardEntity&gt; {
 		const dashboard &#x3D; await this.dashboardRepo.getUsersDashboard(userId);
-		const user &#x3D; await this.userRepo.findById(userId, true);
-
-		if (this.authorisationUtils.hasRole(user, RoleName.TEACHER) &amp;&amp; !showSubstitute) {
-			[courses] &#x3D; await this.courseRepo.findAllForTeacher(
-				userId,
-				{ onlyActiveCourses: true },
-				{ order: { name: SortOrder.asc } }
-			);
-		} else {
-			[courses] &#x3D; await this.courseRepo.findAllByUserId(
-				userId,
-				{ onlyActiveCourses: true },
-				{ order: { name: SortOrder.asc } }
-			);
-		}
+		const [courses] &#x3D; await this.courseRepo.findAllByUserId(
+			userId,
+			{ onlyActiveCourses: true },
+			{ order: { name: SortOrder.asc } }
+		);
 
 		dashboard.setLearnRooms(courses);
 		await this.dashboardRepo.persistAndFlush(dashboard);
@@ -638,8 +580,7 @@ export class DashboardUc {
 		const dashboard &#x3D; await this.dashboardRepo.getDashboardById(dashboardId);
 		this.validateUsersMatch(dashboard, userId);
 
-		const [substituteCourses] &#x3D; await this.courseRepo.findAllForSubstituteTeacher(userId); // TODO in the future this will be removed because it is used as a temporory solution just to stop arrrnagement and grouping of substitute courses
-		dashboard.moveElement(from, to, substituteCourses);
+		dashboard.moveElement(from, to);
 
 		await this.dashboardRepo.persistAndFlush(dashboard);
 		return dashboard;

@@ -128,8 +128,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/modules/board/controller/mapper/board-response.mapper.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/modules/board/controller/mapper/board-response.mapper.ts:6</a></div>
                 </td>
             </tr>
 
@@ -188,21 +188,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnBoard } from &#x27;@shared/domain&#x27;;
-import { BoardResponse, CardSkeletonResponse, ColumnResponse, TimestampsResponse } from &#x27;../dto&#x27;;
+import { BoardResponse, TimestampsResponse } from &#x27;../dto&#x27;;
+import { ColumnResponseMapper } from &#x27;./column-response.mapper&#x27;;
 
 export class BoardResponseMapper {
 	static mapToResponse(board: ColumnBoard): BoardResponse {
 		const result &#x3D; new BoardResponse({
 			id: board.id,
 			title: board.title,
-			columns: board.columns.map(
-				(column) &#x3D;&gt;
-					new ColumnResponse({
-						id: column.id,
-						title: column.title,
-						cards: column.cards.map((card) &#x3D;&gt; new CardSkeletonResponse({ cardId: card.id, height: card.height })),
-					})
-			),
+			columns: board.columns.map((column) &#x3D;&gt; ColumnResponseMapper.mapToResponse(column)),
 			timestamps: new TimestampsResponse({ lastUpdatedAt: board.updatedAt, createdAt: board.createdAt }),
 		});
 		return result;

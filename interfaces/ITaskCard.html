@@ -231,7 +231,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Cascade, Collection, Entity, Enum, Index, ManyToMany, ManyToOne, OneToOne, Property } from &#x27;@mikro-orm/core&#x27;;
 import { CardType, ICard, ICardCProps } from &#x27;../types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
-import { CardElement } from &#x27;./cardElement.entity&#x27;;
+import { CardElement } from &#x27;./card-element.entity&#x27;;
 import { Course } from &#x27;./course.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
@@ -258,6 +258,7 @@ export class TaskCard extends BaseEntityWithTimestamps implements ICard, ITaskCa
 		this.cardElements.set(props.cardElements);
 		this.task &#x3D; props.task;
 		this.cardType &#x3D; CardType.Task;
+		this.title &#x3D; props.title;
 		if (props.course) this.course &#x3D; props.course;
 		Object.assign(this, { creator: props.creator });
 	}
@@ -278,6 +279,9 @@ export class TaskCard extends BaseEntityWithTimestamps implements ICard, ITaskCa
 
 	@Property()
 	draggable &#x3D; true;
+
+	@Property()
+	title!: string;
 
 	@Property()
 	visibleAtDate: Date;

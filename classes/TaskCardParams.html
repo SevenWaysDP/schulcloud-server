@@ -83,6 +83,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#cardElements" >cardElements</a>
                             </li>
                             <li>
@@ -92,6 +93,9 @@
                             <li>
                                     <span class="modifier">Optional</span>
                                 <a href="#dueDate" >dueDate</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
@@ -122,6 +126,7 @@
                 <td class="col-md-4">
                     <a name="cardElements"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>cardElements</b></span>
                         <a href="#cardElements"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -138,13 +143,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsArray()<br />@ValidateNested({each: true})<br />@Type(undefined)<br />@ApiProperty({description: &#x27;Card elements array&#x27;, type: undefined})<br />
+                            @IsOptional()<br />@IsArray()<br />@ValidateNested({each: true})<br />@Type(undefined)<br />@ApiPropertyOptional({description: &#x27;Card elements array&#x27;, type: undefined})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:113</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:101</a></div>
                         </td>
                     </tr>
 
@@ -180,7 +185,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:92</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:71</a></div>
                         </td>
                     </tr>
 
@@ -216,7 +221,42 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:104</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsString()<br />@MinLength(2)<br />@SanitizeHtml()<br />@ApiProperty({description: &#x27;The title of the card&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:79</a></div>
                         </td>
                     </tr>
 
@@ -252,7 +292,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:98</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:85</a></div>
                         </td>
                     </tr>
 
@@ -289,24 +329,6 @@ import {
 
 export abstract class CardElementBase {}
 
-export class TitleCardElementParam extends CardElementBase {
-	@ApiProperty({
-		description: &#x27;Type of card element, i.e. text (needed for discriminator)&#x27;,
-		type: String,
-		example: CardElementType.Title,
-	})
-	type &#x3D; CardElementType.Title;
-
-	@ApiProperty({
-		description: &#x27;Title of the card, content of title card element&#x27;,
-		required: true,
-	})
-	@IsString()
-	@MinLength(2)
-	@SanitizeHtml()
-	value!: string;
-}
-
 export class RichTextCardElementParam extends CardElementBase {
 	@ApiProperty({
 		description: &#x27;Type of card element, i.e. richText (needed for discriminator)&#x27;,
@@ -328,7 +350,7 @@ export class RichTextCardElementParam extends CardElementBase {
 	inputFormat!: InputFormat;
 }
 
-@ApiExtraModels(TitleCardElementParam, RichTextCardElementParam)
+@ApiExtraModels(RichTextCardElementParam)
 export class CardElementParams {
 	@ApiPropertyOptional()
 	@IsOptional()
@@ -339,19 +361,16 @@ export class CardElementParams {
 	@ApiProperty({
 		description: &#x27;Content of the card element, depending on its type&#x27;,
 		required: true,
-		oneOf: [{ $ref: getSchemaPath(TitleCardElementParam) }, { $ref: getSchemaPath(RichTextCardElementParam) }],
+		oneOf: [{ $ref: getSchemaPath(RichTextCardElementParam) }],
 	})
 	@ValidateNested()
 	@Type(() &#x3D;&gt; CardElementBase, {
 		discriminator: {
 			property: &#x27;type&#x27;,
-			subTypes: [
-				{ value: TitleCardElementParam, name: CardElementType.Title },
-				{ value: RichTextCardElementParam, name: CardElementType.RichText },
-			],
+			subTypes: [{ value: RichTextCardElementParam, name: CardElementType.RichText }],
 		},
 	})
-	content!: RichTextCardElementParam | TitleCardElementParam;
+	content!: RichTextCardElementParam;
 }
 
 export class TaskCardParams {
@@ -363,6 +382,14 @@ export class TaskCardParams {
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 	})
 	courseId?: string;
+
+	@IsString()
+	@MinLength(2)
+	@SanitizeHtml()
+	@ApiProperty({
+		description: &#x27;The title of the card&#x27;,
+	})
+	title!: string;
 
 	@IsOptional()
 	@IsDate()
@@ -376,14 +403,15 @@ export class TaskCardParams {
 	@ApiPropertyOptional({ description: &#x27;Due date of the card&#x27; })
 	dueDate?: Date;
 
+	@IsOptional()
 	@IsArray()
 	@ValidateNested({ each: true })
 	@Type(() &#x3D;&gt; CardElementParams)
-	@ApiProperty({
+	@ApiPropertyOptional({
 		description: &#x27;Card elements array&#x27;,
 		type: [CardElementParams],
 	})
-	cardElements!: CardElementParams[];
+	cardElements?: CardElementParams[];
 }
 </code></pre>
     </div>

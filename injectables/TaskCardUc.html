@@ -422,8 +422,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:79</a></div>
                 </td>
             </tr>
 
@@ -505,8 +505,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:117</a></div>
                 </td>
             </tr>
 
@@ -588,8 +588,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:102</a></div>
                 </td>
             </tr>
 
@@ -671,8 +671,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:93</a></div>
                 </td>
             </tr>
 
@@ -826,8 +826,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">apps/server/src/modules/task-card/uc/task-card.uc.ts:132</a></div>
                 </td>
             </tr>
 
@@ -1004,7 +1004,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { ValidationError } from &#x27;@shared/common/error&#x27;;
 import { CardType, Course, EntityId, Permission, PermissionContextBuilder, TaskCard, User } from &#x27;@shared/domain&#x27;;
-import { CardElement, RichTextCardElement, TitleCardElement } from &#x27;@shared/domain/entity/cardElement.entity&#x27;;
+import { CardElement, RichTextCardElement } from &#x27;@shared/domain/entity/card-element.entity&#x27;;
 import { ITaskCardProps } from &#x27;@shared/domain/entity/task-card.entity&#x27;;
 import { CardElementRepo, CourseRepo, TaskCardRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
@@ -1041,9 +1041,6 @@ export class TaskCardUc {
 
 		const cardElements: CardElement[] &#x3D; [];
 
-		const title &#x3D; new TitleCardElement(params.title);
-		cardElements.unshift(title);
-
 		if (params.text) {
 			const texts &#x3D; params.text.map((text) &#x3D;&gt; new RichTextCardElement(text));
 			cardElements.push(...texts);
@@ -1058,6 +1055,7 @@ export class TaskCardUc {
 			task: taskWithStatusVo.task,
 			visibleAtDate: new Date(),
 			dueDate: defaultDueDate,
+			title: params.title,
 		};
 
 		if (params.visibleAtDate) {
@@ -1085,6 +1083,7 @@ export class TaskCardUc {
 		const taskParams &#x3D; {
 			name: params.title,
 			courseId: &#x27;&#x27;,
+			private: false,
 		};
 		if (params.courseId) {
 			taskParams.courseId &#x3D; params.courseId;
@@ -1146,8 +1145,9 @@ export class TaskCardUc {
 		const taskWithStatusVo &#x3D; await this.updateTaskName(userId, card.task.id, params);
 
 		const cardElements: CardElement[] &#x3D; [];
-		const title &#x3D; new TitleCardElement(params.title);
-		cardElements.unshift(title);
+		if (params.title) {
+			card.title &#x3D; params.title;
+		}
 
 		if (params.text) {
 			const texts &#x3D; params.text.map((text) &#x3D;&gt; new RichTextCardElement(text));

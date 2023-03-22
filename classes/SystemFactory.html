@@ -1355,7 +1355,7 @@ export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; 
 			oauthConfig: new OauthConfig({
 				clientId: &#x27;12345&#x27;,
 				clientSecret: &#x27;mocksecret&#x27;,
-				alias: &#x27;mock-oauth-alias&#x27;,
+				idpHint: &#x27;mock-oauth-idpHint&#x27;,
 				tokenEndpoint: &#x27;http://mock.de/mock/auth/public/mockToken&#x27;,
 				grantType: &#x27;authorization_code&#x27;,
 				redirectUri: &#x27;http://mockhost:3030/api/v3/sso/oauth/&#x27;,
@@ -1386,7 +1386,7 @@ export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; 
 			oidcConfig: new OidcConfig({
 				clientId: &#x27;mock-client-id&#x27;,
 				clientSecret: &#x27;mock-client-secret&#x27;,
-				alias: &#x27;mock-oidc-alias&#x27;,
+				idpHint: &#x27;mock-oidc-idpHint&#x27;,
 				defaultScopes: &#x27;openid email userinfo&#x27;,
 				authorizationUrl: &#x27;https://mock.tld/auth&#x27;,
 				tokenUrl: &#x27;https://mock.tld/token&#x27;,

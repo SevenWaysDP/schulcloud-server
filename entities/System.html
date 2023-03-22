@@ -476,7 +476,7 @@ export class OauthConfig {
 	constructor(oauthConfig: OauthConfig) {
 		this.clientId &#x3D; oauthConfig.clientId;
 		this.clientSecret &#x3D; oauthConfig.clientSecret;
-		this.alias &#x3D; oauthConfig.alias;
+		this.idpHint &#x3D; oauthConfig.idpHint;
 		this.tokenEndpoint &#x3D; oauthConfig.tokenEndpoint;
 		this.grantType &#x3D; oauthConfig.grantType;
 		this.redirectUri &#x3D; oauthConfig.redirectUri;
@@ -495,8 +495,8 @@ export class OauthConfig {
 	@Property()
 	clientSecret: string;
 
-	@Property()
-	alias: string;
+	@Property({ nullable: true })
+	idpHint?: string;
 
 	@Property()
 	redirectUri: string;
@@ -600,7 +600,7 @@ export class OidcConfig {
 	constructor(oidcConfig: OidcConfig) {
 		this.clientId &#x3D; oidcConfig.clientId;
 		this.clientSecret &#x3D; oidcConfig.clientSecret;
-		this.alias &#x3D; oidcConfig.alias;
+		this.idpHint &#x3D; oidcConfig.idpHint;
 		this.authorizationUrl &#x3D; oidcConfig.authorizationUrl;
 		this.tokenUrl &#x3D; oidcConfig.tokenUrl;
 		this.logoutUrl &#x3D; oidcConfig.logoutUrl;
@@ -615,7 +615,7 @@ export class OidcConfig {
 	clientSecret: string;
 
 	@Property()
-	alias: string;
+	idpHint: string;
 
 	@Property()
 	authorizationUrl: string;

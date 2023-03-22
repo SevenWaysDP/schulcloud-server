@@ -229,8 +229,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/board/uc/board-management.uc.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/board/uc/board-management.uc.ts:37</a></div>
                 </td>
             </tr>
 
@@ -395,8 +395,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/board/uc/board-management.uc.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/board/uc/board-management.uc.ts:48</a></div>
                 </td>
             </tr>
 
@@ -478,8 +478,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/board/uc/board-management.uc.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/board/uc/board-management.uc.ts:58</a></div>
                 </td>
             </tr>
 
@@ -569,8 +569,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/board/uc/board-management.uc.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">apps/server/src/modules/board/uc/board-management.uc.ts:62</a></div>
                 </td>
             </tr>
 
@@ -666,6 +666,7 @@ export class BoardManagementUc {
 			columnNodeFactory.build({
 				parent,
 				title: &#x60;Column ${i + 1}&#x60;,
+				position: i,
 			})
 		);
 	}
@@ -676,6 +677,7 @@ export class BoardManagementUc {
 				parent,
 				title: &#x60;Card ${i + 1}&#x60;,
 				height: this.random(50, 250),
+				position: i,
 			})
 		);
 	}
@@ -685,6 +687,7 @@ export class BoardManagementUc {
 			textElementNodeFactory.build({
 				parent,
 				text: &#x60;&lt;p&gt;text ${i + 1}&lt;/p&gt;&#x60;,
+				position: i,
 			})
 		);
 	}

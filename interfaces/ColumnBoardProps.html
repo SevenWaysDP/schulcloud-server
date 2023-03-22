@@ -296,8 +296,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain/types&#x27;;
 import { Column } from &#x27;./column.do&#x27;;
+import { BoardNodeBuildable } from &#x27;./types/board-node-buildable&#x27;;
+import { BoardNodeBuilder } from &#x27;./types/board-node-builder&#x27;;
 
-export class ColumnBoard implements ColumnBoardProps {
+export class ColumnBoard implements ColumnBoardProps, BoardNodeBuildable {
 	id: EntityId;
 
 	title: string;
@@ -315,9 +317,17 @@ export class ColumnBoard implements ColumnBoardProps {
 		this.createdAt &#x3D; props.createdAt;
 		this.updatedAt &#x3D; props.updatedAt;
 	}
+
+	addColumn(column: Column, position?: number) {
+		this.columns.splice(position || this.columns.length, 0, column);
+	}
+
+	useBoardNodeBuilder(builder: BoardNodeBuilder): void {
+		builder.buildColumnBoardNode(this);
+	}
 }
 
-interface ColumnBoardProps {
+export interface ColumnBoardProps {
 	id: EntityId;
 
 	title: string;

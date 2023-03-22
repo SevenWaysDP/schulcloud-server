@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/types/card.types.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/shared/domain/types/card.types.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -183,7 +183,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/server/src/shared/domain/types/card.types.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/shared/domain/types/card.types.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -218,7 +218,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/server/src/shared/domain/types/card.types.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/server/src/shared/domain/types/card.types.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -240,7 +240,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection } from &#x27;@mikro-orm/core&#x27;;
 import { ApiExtraModels, ApiProperty, getSchemaPath } from &#x27;@nestjs/swagger&#x27;;
 import type { User } from &#x27;@shared/domain&#x27;;
-import { CardElement, CardElementType, RichTextCardElement, TitleCardElement } from &#x27;../entity/cardElement.entity&#x27;;
+import { CardElement, CardElementType, RichTextCardElement } from &#x27;../entity/card-element.entity&#x27;;
 import { InputFormat } from &#x27;./input-format.types&#x27;;
 
 export enum CardType {
@@ -253,6 +253,7 @@ export type ICardCProps &#x3D; {
 	creator: User;
 	draggable: boolean;
 	visibleAtDate: Date;
+	title: string;
 };
 
 export interface ICard {
@@ -261,15 +262,7 @@ export interface ICard {
 	creator: User;
 	draggable: boolean;
 	visibleAtDate: Date;
-}
-
-export class CardTitleElementResponse {
-	constructor(props: TitleCardElement) {
-		this.value &#x3D; props.value;
-	}
-
-	@ApiProperty()
-	value!: string;
+	title: string;
 }
 
 export class CardRichTextElementResponse {
@@ -290,7 +283,7 @@ export class CardRichTextElementResponse {
 	inputFormat!: InputFormat;
 }
 
-@ApiExtraModels(CardTitleElementResponse, CardRichTextElementResponse)
+@ApiExtraModels(CardRichTextElementResponse)
 export class CardElementResponse {
 	@ApiProperty({
 		description: &#x27;The id of the card element&#x27;,
@@ -305,9 +298,9 @@ export class CardElementResponse {
 
 	@ApiProperty({
 		description: &#x27;Content of the card element, depending on its type&#x27;,
-		oneOf: [{ $ref: getSchemaPath(CardTitleElementResponse) }, { $ref: getSchemaPath(CardRichTextElementResponse) }],
+		oneOf: [{ $ref: getSchemaPath(CardRichTextElementResponse) }],
 	})
-	content!: CardTitleElementResponse | CardRichTextElementResponse;
+	content!: CardRichTextElementResponse;
 }
 </code></pre>
     </div>

@@ -288,8 +288,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="152"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:152</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:146</a></div>
                 </td>
             </tr>
 
@@ -359,8 +359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:107</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:101</a></div>
                 </td>
             </tr>
 
@@ -466,8 +466,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:70</a></div>
                 </td>
             </tr>
 
@@ -708,13 +708,7 @@ export class OauthUc {
 			throw new UnprocessableEntityException(&#x60;Requested system ${systemId} has no oauth configured&#x60;);
 		}
 
-		const authenticationUrl: string &#x3D; this.oauthService.getAuthenticationUrl(
-			system.type,
-			system.oauthConfig,
-			state,
-			migration,
-			system.alias
-		);
+		const authenticationUrl: string &#x3D; this.oauthService.getAuthenticationUrl(system.oauthConfig, state, migration);
 
 		session.oauthLoginState &#x3D; new OauthLoginStateDto({
 			state,

@@ -127,7 +127,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findForUser(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/DashboardParams.html" target="_self">DashboardParams</a>)</code>
+                    <code>findForUser(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -141,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:16</a></div>
                 </td>
             </tr>
 
@@ -166,18 +166,6 @@
                                     <td>currentUser</td>
                                     <td>
                                                 <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../classes/DashboardParams.html" target="_self" >DashboardParams</a></code>
                                     </td>
 
                                     <td>
@@ -231,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:23</a></div>
                 </td>
             </tr>
 
@@ -332,8 +320,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:39</a></div>
                 </td>
             </tr>
 
@@ -440,7 +428,6 @@ import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/deco
 import { DashboardMapper } from &#x27;../mapper/dashboard.mapper&#x27;;
 import { DashboardUc } from &#x27;../uc/dashboard.uc&#x27;;
 import { DashboardResponse, DashboardUrlParams, MoveElementParams, PatchGroupParams } from &#x27;./dto&#x27;;
-import { DashboardParams } from &#x27;./dto/dashboard.params&#x27;;
 
 @ApiTags(&#x27;Dashboard&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -449,11 +436,8 @@ export class DashboardController {
 	constructor(private readonly dashboardUc: DashboardUc) {}
 
 	@Get()
-	async findForUser(
-		@CurrentUser() currentUser: ICurrentUser,
-		@Query() params: DashboardParams
-	): Promise&lt;DashboardResponse&gt; {
-		const dashboard &#x3D; await this.dashboardUc.getUsersDashboard(currentUser.userId, params.showSubstitute);
+	async findForUser(@CurrentUser() currentUser: ICurrentUser): Promise&lt;DashboardResponse&gt; {
+		const dashboard &#x3D; await this.dashboardUc.getUsersDashboard(currentUser.userId);
 		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
 		return dto;
 	}
