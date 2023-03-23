@@ -64,10 +64,13 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         with:
           args: >
+            -Dsonar.sources=.
             -Dsonar.organization=sevenwaysdp
             -Dsonar.projectKey=SevenWaysDP_schulcloud-server
-            -Dsonar.exclusions=**/*.js,**/controller/dto/*.ts
+            -Dsonar.exclusions=**/*.js,**/controller/dto/*.ts,**/*.spec.ts
             -Dsonar.cpd.exclusions=**/*.spec.ts
+            -Dsonar.testExecutionReportPaths=test-report.xml
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
   nest_lint:
     runs-on: ubuntu-latest
     timeout-minutes: 5
