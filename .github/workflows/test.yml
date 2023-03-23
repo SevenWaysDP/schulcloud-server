@@ -65,7 +65,7 @@ jobs:
         with:
           args: >
             -Dsonar.organization=sevenwaysdp
-            -Dsonar.projectKey=schulcloud-server
+            -Dsonar.projectKey=SevenWaysDP_schulcloud-server
             -Dsonar.exclusions=**/*.js,**/controller/dto/*.ts
             -Dsonar.cpd.exclusions=**/*.spec.ts
   nest_lint:
